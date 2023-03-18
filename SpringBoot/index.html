@@ -1,0 +1,2730 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Spring6/">
+      
+      
+        <link rel="next" href="../Vue%EF%BC%88%E9%9D%9E%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>SpringBoot - Serendipity_Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#springboot" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Serendipity_Docs" class="md-header__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Serendipity_Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SpringBoot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Serendipity_Docs" class="md-nav__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Serendipity_Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        数据结构和算法
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        微服务
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C51%E5%8D%95%E7%89%87%E6%9C%BA/" class="md-nav__link">
+        C51单片机
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Centos7%E5%AE%89%E8%A3%85Docker/" class="md-nav__link">
+        Centos7安装Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Docker操作命令
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nacos%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        Nacos集群搭建
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RabbitMQ%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        RabbitMQ部署指南
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis7/" class="md-nav__link">
+        Redis7
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spring6/" class="md-nav__link">
+        Spring6
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SpringBoot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SpringBoot
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javaconfig" class="md-nav__link">
+    一、JavaConfig
+  </a>
+  
+    <nav class="md-nav" aria-label="一、JavaConfig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-javaconfig" class="md-nav__link">
+    1.1 JavaConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-importresource" class="md-nav__link">
+    1.2 @ImportResource
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-propertyresource" class="md-nav__link">
+    1.3 @PropertyResource
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springboot_1" class="md-nav__link">
+    二、SpringBoot入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、SpringBoot入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-spring-boot" class="md-nav__link">
+    2.2 创建Spring Boot项目
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 创建Spring Boot项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-spring-springboot" class="md-nav__link">
+    2.2.1 第一种方式， 使用Spring提供的初始化器， 就是向导创建SpringBoot应用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2 使用国内的地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 注解的使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-springboot" class="md-nav__link">
+    2.4 SpringBoot的配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 多环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-jsp" class="md-nav__link">
+    2.6 使用jsp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 使用容器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-commandlinerunnerapplicationrunner" class="md-nav__link">
+    2.8 CommandLineRunner接口，ApplicationRunner接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    三、WEB组件
+  </a>
+  
+    <nav class="md-nav" aria-label="三、WEB组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 拦截器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-servlet" class="md-nav__link">
+    3.2 Servlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-filter" class="md-nav__link">
+    3.3 过滤器Filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 字符集过滤器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ormmysql" class="md-nav__link">
+    四、ORM操作MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="四、ORM操作MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapper" class="md-nav__link">
+    第一种方式：@Mapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapperscan" class="md-nav__link">
+    第二种方式：@MapperScan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapperdao" class="md-nav__link">
+    第三种方式：Mapper文件和Dao接口分开管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    第四个：事务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-restful" class="md-nav__link">
+    五、接口架构风格-RESTful
+  </a>
+  
+    <nav class="md-nav" aria-label="五、接口架构风格-RESTful">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-rest" class="md-nav__link">
+    5.1 REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ajaxputdelete" class="md-nav__link">
+    5.2 在页面中或ajax中，支持put、delete请求
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    六、Redis
+  </a>
+  
+    <nav class="md-nav" aria-label="六、Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-redistemplate-stringredistemplate" class="md-nav__link">
+    6.1 RedisTemplate 和 StringRedisTemplate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springbootdubbo" class="md-nav__link">
+    七、SpringBoot集成Dubbo
+  </a>
+  
+    <nav class="md-nav" aria-label="七、SpringBoot集成Dubbo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1 公共项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 提供者
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 消费者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    八、打包
+  </a>
+  
+    <nav class="md-nav" aria-label="八、打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-war" class="md-nav__link">
+    8.1 打包为war
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-jar" class="md-nav__link">
+    8.2 打包为jar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thymeleaf" class="md-nav__link">
+    九、Thymeleaf模板引擎
+  </a>
+  
+    <nav class="md-nav" aria-label="九、Thymeleaf模板引擎">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    9.1 表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-thymeleaf" class="md-nav__link">
+    9.2 Thymeleaf属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-each" class="md-nav__link">
+    9.3 each
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-thif" class="md-nav__link">
+    9.4 th:if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-thswitch" class="md-nav__link">
+    9.5 th:switch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-thinline" class="md-nav__link">
+    9.6 th:inline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97" class="md-nav__link">
+    9.7 字面量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#98" class="md-nav__link">
+    9.8 字符串连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99" class="md-nav__link">
+    9.9 运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#910" class="md-nav__link">
+    9.10 内置对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vue%EF%BC%88%E9%9D%9E%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（非脚手架）
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vue%EF%BC%88%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（脚手架）
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%89%E8%A3%85elasticsearch/" class="md-nav__link">
+        安装elasticsearch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        计算机组成原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        习题总结
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javaconfig" class="md-nav__link">
+    一、JavaConfig
+  </a>
+  
+    <nav class="md-nav" aria-label="一、JavaConfig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-javaconfig" class="md-nav__link">
+    1.1 JavaConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-importresource" class="md-nav__link">
+    1.2 @ImportResource
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-propertyresource" class="md-nav__link">
+    1.3 @PropertyResource
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springboot_1" class="md-nav__link">
+    二、SpringBoot入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、SpringBoot入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-spring-boot" class="md-nav__link">
+    2.2 创建Spring Boot项目
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 创建Spring Boot项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-spring-springboot" class="md-nav__link">
+    2.2.1 第一种方式， 使用Spring提供的初始化器， 就是向导创建SpringBoot应用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2 使用国内的地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 注解的使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-springboot" class="md-nav__link">
+    2.4 SpringBoot的配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 多环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-jsp" class="md-nav__link">
+    2.6 使用jsp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 使用容器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-commandlinerunnerapplicationrunner" class="md-nav__link">
+    2.8 CommandLineRunner接口，ApplicationRunner接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    三、WEB组件
+  </a>
+  
+    <nav class="md-nav" aria-label="三、WEB组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 拦截器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-servlet" class="md-nav__link">
+    3.2 Servlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-filter" class="md-nav__link">
+    3.3 过滤器Filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 字符集过滤器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ormmysql" class="md-nav__link">
+    四、ORM操作MySQL
+  </a>
+  
+    <nav class="md-nav" aria-label="四、ORM操作MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapper" class="md-nav__link">
+    第一种方式：@Mapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapperscan" class="md-nav__link">
+    第二种方式：@MapperScan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapperdao" class="md-nav__link">
+    第三种方式：Mapper文件和Dao接口分开管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    第四个：事务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-restful" class="md-nav__link">
+    五、接口架构风格-RESTful
+  </a>
+  
+    <nav class="md-nav" aria-label="五、接口架构风格-RESTful">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-rest" class="md-nav__link">
+    5.1 REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ajaxputdelete" class="md-nav__link">
+    5.2 在页面中或ajax中，支持put、delete请求
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    六、Redis
+  </a>
+  
+    <nav class="md-nav" aria-label="六、Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-redistemplate-stringredistemplate" class="md-nav__link">
+    6.1 RedisTemplate 和 StringRedisTemplate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springbootdubbo" class="md-nav__link">
+    七、SpringBoot集成Dubbo
+  </a>
+  
+    <nav class="md-nav" aria-label="七、SpringBoot集成Dubbo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1 公共项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 提供者
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 消费者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    八、打包
+  </a>
+  
+    <nav class="md-nav" aria-label="八、打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-war" class="md-nav__link">
+    8.1 打包为war
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-jar" class="md-nav__link">
+    8.2 打包为jar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thymeleaf" class="md-nav__link">
+    九、Thymeleaf模板引擎
+  </a>
+  
+    <nav class="md-nav" aria-label="九、Thymeleaf模板引擎">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    9.1 表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-thymeleaf" class="md-nav__link">
+    9.2 Thymeleaf属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-each" class="md-nav__link">
+    9.3 each
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-thif" class="md-nav__link">
+    9.4 th:if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-thswitch" class="md-nav__link">
+    9.5 th:switch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-thinline" class="md-nav__link">
+    9.6 th:inline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97" class="md-nav__link">
+    9.7 字面量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#98" class="md-nav__link">
+    9.8 字符串连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99" class="md-nav__link">
+    9.9 运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#910" class="md-nav__link">
+    9.10 内置对象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="springboot">SpringBoot</h1>
+<h2 id="javaconfig">一、JavaConfig</h2>
+<ol>
+<li>为什么要使用 Spring Boot</li>
+</ol>
+<p>因为Spring， SpringMVC 需要使用的大量的配置文件 （xml文件）</p>
+<p>还需要配置各种对象，把使用的对象放入到spring容器中才能使用对象</p>
+<p>需要了解其他框架配置规则。</p>
+<ol>
+<li>SpringBoot 就相当于 不需要配置文件的Spring+SpringMVC。 常用的框架和第三方库都已经配置好了。</li>
+</ol>
+<p>拿来就可以使用了。</p>
+<ol>
+<li>SpringBoot开发效率高，使用方便多了</li>
+</ol>
+<h3 id="11-javaconfig">1.1 JavaConfig</h3>
+<p>JavaConfig：使用java类作为xml配置文件的替代，是配置spring容器的纯java的方式。在这个java类中可以创建java对象，把对象放入spring容器中（注入到容器）。</p>
+<p>使用两个注解：</p>
+<p>1)@Configuration:放在一个类的上面，表示这个类是作为配置文件使用的</p>
+<p>2)@Bean:声明对象，把对象注入到容器中</p>
+<pre><code class="language-java">例子：
+import com.bjpowernode.vo.Student;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * Configuration:表示当前类是作为配置文件使用的。就是用来配置容器的
+ * 位置：在类的上方
+ * SpringConfig这个类相当于beans.xml
+ */
+@Configuration
+public class SpringConfig {
+    /**
+     * 创建方法，方法的返回值是对象，在方法的上面加入@bean
+     * 方法的返回值对象就注入到容器中
+     *
+     * @Bean:把对象注入到spring容器中。作用相当于&lt;bean&gt;
+     *     位置：方法的上面
+     *     说明：@Bean，不指定对象的名称，默认方法名是id
+     */
+    @Bean
+    public Student createStudent() {
+        return new Student(&quot;张三&quot;, 20, &quot;男&quot;);
+    }
+
+    /**
+     * 指定对象在容器中的名称（指定&lt;bean&gt;的id属性）
+     * @Bean的name属性，指定对象的名称(id)
+     */
+    @Bean(name = &quot;lisi&quot;)
+    public Student makeStudent(){
+        return new Student(&quot;李四&quot;,22,&quot;男&quot;);
+    }
+}
+
+</code></pre>
+<h3 id="12-importresource">1.2 @ImportResource</h3>
+<p>@ImportResource用于导入其他xml配置文件，等于在xml中的<import>标签</p>
+<pre><code class="language-xml">&lt;import resource=&quot;其他配置文件&quot;/&gt;
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-java">@Configuration
+@ImportResource(value = {&quot;classpath:applicationContext.xml&quot;,&quot;classpath:beans.xml&quot;})
+public class SpringConfig {}
+</code></pre>
+<h3 id="13-propertyresource">1.3 @PropertyResource</h3>
+<p>@PropertyResource:读取properties属性配置文件。使用属性配置文件可以实现外部化配置，在程序代码之外提供数据</p>
+<p>步骤：</p>
+<p>​   1.在resource目录下，创建properties文件，使用key=value的格式提供数据</p>
+<p>​   2.在PropertyResource指定properties文件的位置</p>
+<p>​   3.使用@Value(value="${key}")</p>
+<pre><code class="language-java">@Configuration
+@ImportResource(value = {&quot;classpath:applicationContext.xml&quot;,&quot;classpath:beans.xml&quot;})
+@PropertySource(value = &quot;classpath:config.properties&quot;)
+@ComponentScan(basePackages = &quot;com.bjpowernode.vo&quot;)
+public class SpringConfig {}
+</code></pre>
+<h2 id="springboot_1">二、SpringBoot入门</h2>
+<h3 id="21">2.1 介绍</h3>
+<p>SpringBoot是Spring中的一个成员， 可以简化Spring，SpringMVC的使用。 他的核心还是IOC容器。</p>
+<p>特点：</p>
+<ul>
+<li>Create stand-alone Spring applications</li>
+</ul>
+<p>创建spring应用</p>
+<ul>
+<li>Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)</li>
+</ul>
+<p>内嵌的tomcat， jetty ， Undertow</p>
+<ul>
+<li>Provide opinionated 'starter' dependencies to simplify your build configuration</li>
+</ul>
+<p>提供了starter起步依赖，简化应用的配置。</p>
+<p>比如使用MyBatis框架 ， 需要在Spring项目中，配置MyBatis的对象 SqlSessionFactory ， Dao的代理对象</p>
+<p>在SpringBoot项目中，在pom.xml里面, 加入一个 mybatis-spring-boot-starter依赖</p>
+<ul>
+<li>Automatically configure Spring and 3rd party libraries whenever possible</li>
+</ul>
+<p>尽可能去配置spring和第三方库。叫做自动配置（就是把spring中的，第三方库中的对象都创建好，放到容器中， 开发人员可以直接使用）</p>
+<ul>
+<li>Provide production-ready features such as metrics, health checks, and externalized configuration</li>
+</ul>
+<p>提供了健康检查， 统计，外部化配置</p>
+<ul>
+<li>Absolutely no code generation and no requirement for XML configuration</li>
+</ul>
+<p>不用生成代码， 不用使用xml，做配置</p>
+<h3 id="22-spring-boot">2.2 创建Spring Boot项目</h3>
+<h4 id="221-spring-springboot">2.2.1 第一种方式， 使用Spring提供的初始化器， 就是向导创建SpringBoot应用</h4>
+<p>使用的地址： https://start.spring.io</p>
+<p>SpringBoot项目的结构：</p>
+<p><img alt="image-20220706100835129" src="../SpringBoot.assets/image-20220706100835129.png" /></p>
+<h4 id="222">2.2.2 使用国内的地址</h4>
+<p>https://start.springboot.io</p>
+<p><img alt="image-20220706102701847" src="../SpringBoot.assets/image-20220706102701847.png" /></p>
+<h3 id="23">2.3 注解的使用</h3>
+<pre><code class="language-java">@SpringBootApplication
+符合注解：由
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan
+
+1.@SpringBootConfiguration
+
+@Configuration
+public @interface SpringBootConfiguration {
+    @AliasFor(
+        annotation = Configuration.class
+    )
+    boolean proxyBeanMethods() default true;
+}
+
+说明：用了@SpringBootConfiguration注解标注的类，可以作为配置文件使用，可以使用Bean声明对象，注入容器中
+
+
+2.@EnableAutoConfiguration
+启用自动配置，把java对象配置好，注入到spring容器中。例如可以把mybatis的对象创建好，放入到容器中
+
+3.@ComponentScan
+扫描器，找到注解，根据注解的功能创建对象，给属性赋值等
+默认扫描的包：@ComponentScan所在的类的包和所在类的包的子包
+</code></pre>
+<h3 id="24-springboot">2.4 SpringBoot的配置文件</h3>
+<ul>
+<li>配置文件名称：application</li>
+<li>
+<p>扩展名有：properties(k=v);  yml(k: v)</p>
+</li>
+<li>
+<p>使用application.propeties、application.yml</p>
+</li>
+<li>
+<p>例1：application.properties  设置端口和上下文路径</p>
+</li>
+</ul>
+<p><code>properties
+  #设置端口
+  server.port=8082
+  #设置访问应用的上下文路径，context-path
+  server.servlet.context-path=/myBoot</code></p>
+<ul>
+<li>例2：application.yml  设置端口和上下文路径</li>
+</ul>
+<p><code>yml
+  server:
+    port: 8083
+    servlet:
+      context-path: /myboot2</code></p>
+<h3 id="25">2.5 多环境配置</h3>
+<ul>
+<li>开发环境、测试环境、上线的环境</li>
+<li>
+<p>每个环境有不同的配置信息，例如端口、上下文剪、数据库url、用户名、密码等</p>
+</li>
+<li>
+<p>使用多环境配置文件，可以方便的切换不同的配置</p>
+</li>
+<li>
+<p>使用方式：创建多个配置文件，名称规则：application-环境名称.properties(yml)</p>
+</li>
+<li>
+<p>创建开发环境的配置文件：application-dev.properties(application-dev.yml)</p>
+</li>
+<li>创建测试中使用的配置：application-test.properties</li>
+</ul>
+<h3 id="26-jsp">2.6 使用jsp</h3>
+<p>springboot不推荐使用jsp，而是是用模板技术代替jsp</p>
+<p>使用jsp需要配置：</p>
+<ul>
+<li>加入一个处理jsp的依赖，负责编译jsp文件</li>
+</ul>
+<p><code>xml
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomact.embed&lt;/groupId&gt;
+      &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+  &lt;/dependency&gt;</code></p>
+<ul>
+<li>
+<p>如果需要使用servlet、jsp、jstl的功能则需要添加响应的依赖</p>
+</li>
+<li>
+<p>创建一个存放jsp的目录，一般交webapp</p>
+</li>
+</ul>
+<p>index.jsp</p>
+<ul>
+<li>需要在pom.xml指定jsp文件编译后的存放目录</li>
+</ul>
+<p>META-INF/resources</p>
+<ul>
+<li>
+<p>创建Controller，访问jsp</p>
+</li>
+<li>
+<p>在application.properties文件中配置视图解析器</p>
+</li>
+</ul>
+<h3 id="27">2.7 使用容器</h3>
+<ul>
+<li>
+<p>通过代码从容器中获取对象</p>
+</li>
+<li>
+<p>通过SpringApplication.run(Application.class, args);返回值获取容器</p>
+</li>
+</ul>
+<p>```java
+  public static ConfigurableApplicationContext run(Class&lt;?&gt; primarySource, String... args) {
+      return run(new Class[]{primarySource}, args);
+  }</p>
+<p>ConfigurableApplicationContext：接口，是applicationContext的子接口
+  public interface ConfigurableApplicationContext extends ApplicationContext {}
+  ```</p>
+<h3 id="28-commandlinerunnerapplicationrunner">2.8 CommandLineRunner接口，ApplicationRunner接口</h3>
+<p>这两个接口都有一个run()方法，执行时间在容器对象创建好后，自动执行run()方法</p>
+<p>可以完成自定义的在容器对象创建好的一些操作</p>
+<pre><code class="language-java">@FunctionalInterface
+public interface CommandLineRunner {
+    void run(String... args) throws Exception;
+}
+
+@FunctionalInterface
+public interface ApplicationRunner {
+    void run(ApplicationArguments args) throws Exception;
+}
+
+@SpringBootApplication
+public class Springboot010CommendlinerunnerApplication implements CommandLineRunner {
+
+    @Resource
+    private HelloService helloService;
+
+    public static void main(String[] args) {
+        System.out.println(&quot;容器对象创建之前&quot;);
+
+        SpringApplication.run(Springboot010CommendlinerunnerApplication.class, args);
+
+        System.out.println(&quot;容器对象创建之后&quot;);
+
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        helloService.sayHello(&quot;zhangsan&quot;);
+        //可以做自定义操作，比如读取文件、数据库等
+        System.out.println(&quot;在容器对象创建好、执行的方法&quot;);
+    }
+}
+</code></pre>
+<h2 id="web">三、WEB组件</h2>
+<h3 id="31">3.1 拦截器</h3>
+<p>拦截器是springmvc中的一种对象，能拦截对Controller的请求</p>
+<p>拦截器框架中有系统的拦截器，还可以自定义拦截器，实现对请求的预先处理</p>
+<p>实现自定义拦截器：</p>
+<ol>
+<li>创建类实现springmvc框架中的HandlerInterceptor接口</li>
+</ol>
+<p>```java
+   public interface HandlerInterceptor {
+       default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+           return true;
+       }</p>
+<pre><code>   default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
+   }
+
+   default void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
+   }
+</code></pre>
+<p>}
+   ```</p>
+<ol>
+<li>需在springmvc的配置文件中，声明拦截器</li>
+</ol>
+<p><code>xml
+   &lt;mvc:interceptors&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;mvc:path="url"/&gt;
+           &lt;bean class="拦截器类全限定名称"/&gt;
+       &lt;/mvc:interceptor&gt;
+   &lt;/mvc:interceptors&gt;</code></p>
+<p>SpringBoot中注册拦截器</p>
+<pre><code class="language-java">@Configuration
+public class MyAppConfig implements WebMvcConfigurer {
+
+    //添加拦截器对象，注入到容器中
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        //创建拦截器对象
+        HandlerInterceptor handler = new LoginInterceptor();
+
+        //指定拦截的uri地址
+        String[] path = {&quot;/user/**&quot;};
+        //指定不拦截的地址
+        String[] excludePath = {&quot;/user/login&quot;};
+        registry.addInterceptor(handler).addPathPatterns(path).excludePathPatterns(excludePath);
+    }
+}
+</code></pre>
+<h3 id="32-servlet">3.2 Servlet</h3>
+<p>在SpringBoot框架中使用Servlet对象</p>
+<p>使用步骤：</p>
+<ol>
+<li>创建Servlet类，创建类继承HttpServlet</li>
+<li>注册Servlet，让框架能找到Servlet</li>
+</ol>
+<p>例子：</p>
+<ol>
+<li>创建自定义Servlet</li>
+</ol>
+<p>```java
+   //创建servlet类
+   public class MyServlet extends HttpServlet {
+       @Override
+       protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+           doPost(req, resp);
+       }</p>
+<pre><code>   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       //使用HttpServletResponse输出数据，应答结果
+       response.setContentType("text/html;charset=utf-8");
+       PrintWriter out = response.getWriter();
+       out.println("执行的是Servlet");
+       out.flush();
+       out.close();
+   }
+</code></pre>
+<p>}</p>
+<p>```</p>
+<ol>
+<li>注册Servlet</li>
+</ol>
+<p>```java
+   @Configuration
+   public class WebApplicationConfig {</p>
+<pre><code>   //定义方法，注册Servlet对象
+   @Bean
+   public ServletRegistrationBean servletRegistrationBean(){
+       //public ServletRegistrationBean(T servlet, String... urlMappings)
+       //第一个参数是Servlet对象，第二个是url地址
+
+       //ServletRegistrationBean&lt;Servlet&gt; bean = new ServletRegistrationBean&lt;&gt;(new MyServlet(), "/myservlet");
+       ServletRegistrationBean&lt;Servlet&gt; bean = new ServletRegistrationBean&lt;&gt;();
+       bean.setServlet(new MyServlet());
+       bean.addUrlMappings("/login","/test");  //&lt;url-pattern&gt;
+       return bean;
+   }
+</code></pre>
+<p>}
+   ```</p>
+<h3 id="33-filter">3.3 过滤器Filter</h3>
+<p>Filter是Servlet规范中的过滤器，可以处理请求，对请求参数，属性进行调整。常在过滤器中处理字符编码</p>
+<p>在框架中使用过滤器：</p>
+<ol>
+<li>创建自定义过滤器类</li>
+</ol>
+<p><code>java
+   public class MyFilter implements Filter {
+       @Override
+       public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+           System.out.println("执行了MyFilter的doFilter");
+           filterChain.doFilter(servletRequest, servletResponse);
+       }
+   }</code></p>
+<ol>
+<li>注册Filter过滤器对象</li>
+</ol>
+<p>```java
+   @Configuration
+   public class WebApplicationConfig {
+       @Bean
+       public FilterRegistrationBean filterRegistrationBean(){</p>
+<pre><code>       FilterRegistrationBean&lt;Filter&gt; bean = new FilterRegistrationBean&lt;&gt;();
+       bean.setFilter(new MyFilter());
+       bean.addUrlPatterns("/user/*");
+       return bean;
+   }
+</code></pre>
+<p>}
+   ```</p>
+<h3 id="34">3.4 字符集过滤器</h3>
+<p>CharacterEncodingFilter：解决post请求中乱码的问题</p>
+<p>在SpringMVC框架，在web.xml中注册过滤器，配置它的属性</p>
+<p>第一种方式</p>
+<p>使用步骤：</p>
+<ol>
+<li>配置字符集过滤器</li>
+</ol>
+<p>```java
+   @Configuration
+   public class Config {
+       //注册servlet
+       @Bean
+       public ServletRegistrationBean servletRegistrationBean(){
+           ServletRegistrationBean<Servlet> bean = new ServletRegistrationBean&lt;&gt;();
+           bean.setServlet(new MyServlet());
+           bean.addUrlMappings("/servlet");
+           return bean;
+       }</p>
+<pre><code>   //注册Filter
+   @Bean
+   public FilterRegistrationBean filterRegistrationBean(){
+       FilterRegistrationBean&lt;Filter&gt; bean = new FilterRegistrationBean&lt;&gt;();
+
+       //使用框架中的过滤器类
+       CharacterEncodingFilter filter = new CharacterEncodingFilter();
+       //指定使用的编码方式
+       filter.setEncoding("utf-8");
+       //指定request，response都是要encoding的值
+       filter.setForceEncoding(true);
+       /*
+       public void setForceEncoding(boolean forceEncoding) {
+           this.forceRequestEncoding = forceEncoding;
+           this.forceResponseEncoding = forceEncoding;
+       }
+        */
+       bean.setFilter(filter);
+       //指定过滤的url地址
+       bean.addUrlPatterns("/*");
+       return bean;
+   }
+</code></pre>
+<p>}
+   ```</p>
+<ol>
+<li>修改application.properties文件，让自定义的过滤器起作用</li>
+</ol>
+<p><code>properties
+   #SpringBoot中默认已经配置了CharacterEncodingFilter。默认编码ISO-8859-1
+   #设置enabled-false  作用是关闭系统中配置好的过滤器，使用自定义的CharacterEncodingFilter
+   server.servlet.encoding.enabled=false</code></p>
+<p>第二种方式</p>
+<p>修改application.properties文件</p>
+<pre><code class="language-properties">#让系统的CharacterEncodingFilter生效
+#server.servlet.encoding.enabled=true
+#指定使用编码的方式
+server.servlet.encoding.charset=utf-8
+#强制request、response都是要charset的值
+server.servlet.encoding.force=true
+</code></pre>
+<h2 id="ormmysql">四、ORM操作MySQL</h2>
+<p>使用mybatis框架操作数据，在SpringBoot框架中集成mybatis</p>
+<p>使用步骤：</p>
+<ol>
+<li>
+<p>mybatis起步依赖：完成mybatis对象自动配置，对象放在容器中</p>
+</li>
+<li>
+<p>pom.xml指定把src/main/java目录中的xml文件包含到classpath中</p>
+</li>
+<li>
+<p>创建实体类Student</p>
+</li>
+<li>
+<p>创建Dao接口 StudentDao，创建查询方法</p>
+</li>
+<li>
+<p>创建Dao接口对应的Mapper文件，xml文件，写sql语句</p>
+</li>
+<li>
+<p>创建Service层对象，创建StudentService接口和实现类，去实现Dao对象的方法，完成数据库的操作</p>
+</li>
+<li>
+<p>创建Controller对象，访问Service</p>
+</li>
+<li>
+<p>写application.properties文件</p>
+</li>
+</ol>
+<p>配置数据库的连接信息</p>
+<h3 id="mapper">第一种方式：@Mapper</h3>
+<p>@Mapper：放在dao接口的上面，每个接口都需要使用这个注解</p>
+<p><code>java
+ /**
+  * @Mapper：告诉mybatis这是dao接口，创建此接口的代理对象
+  * 位置：在类的上面
+  */
+ @Mapper
+ public interface StudentDao {
+     Student selectById(@PathParam("stuId")Integer id);
+ }</code></p>
+<h3 id="mapperscan">第二种方式：@MapperScan</h3>
+<pre><code class="language-java">/**
+ * @MapperScan：找到Dao接口和Mapper 文件
+ * basePackages：Dao接口所在的包名
+ */
+@SpringBootApplication
+@MapperScan(basePackages = &quot;com.bjpowernode.dao&quot;)
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+</code></pre>
+<h3 id="mapperdao">第三种方式：Mapper文件和Dao接口分开管理</h3>
+<p>把Mapper文件放在resources目录下</p>
+<ol>
+<li>在resources目录中创建子目录(自定义)，例如：mapper</li>
+<li>把mapper文件放到  mapper目录中</li>
+<li>在application.properties文件中，指定mapper文件的目录</li>
+</ol>
+<pre><code class="language-properties">#指定mapper文件的位置
+mybatis.mapper-locations=classpath:mapper/*.xml
+
+#指定mybatis的日志
+mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre>
+<h3 id="_1">第四个：事务</h3>
+<p>Spring框架中的事务：</p>
+<ol>
+<li>管理事务的对象：事务管理器(接口，接口有很多实现类)</li>
+</ol>
+<p>例如：使用jdbc或mybatis访问数据库，使用事务管理器：DataSourceTransactionManager</p>
+<ol>
+<li>声明式事务：在xml配置文件或使用注解说明事务控制的内容</li>
+</ol>
+<p>控制事务：隔离级别、传播行为、超时时间</p>
+<ol>
+<li>
+<p>事务处理方式：</p>
+</li>
+<li>
+<p>Spring框架中的@Transactional</p>
+</li>
+<li>aspectj框架可以在xml配置文件中，声明事务控制的内容</li>
+</ol>
+<p>SpringBoot中使用事务：以上两种方式都可使用</p>
+<ol>
+<li>在业务方法的上面加入@Transactional，加入注解后，方法就有事务功能了</li>
+<li>明确的在主启动类的上面加入@EnableTransactionManagement</li>
+</ol>
+<p>例如：</p>
+<pre><code class="language-java">/**
+ * @Transactional：表示方法有事务支持
+ * 默认：使用数据库的隔离界别，REQUIRED传播行为；超时时间  -1
+ * 抛出运行时异常，目的是回滚事务
+ */
+@Transactional
+@Override
+public int insertStudent(Student student) {
+    System.out.println(&quot;业务方法insertStudent&quot;);
+    int count = studentMapper.insert(student);
+    System.out.println(&quot;执行sql语句&quot;);
+
+    //抛出运行时异常，目的是回滚事务
+    //int i = 10 / 0;
+
+    return count;
+}
+</code></pre>
+<h2 id="-restful">五、接口架构风格-RESTful</h2>
+<p>接口：API</p>
+<p><strong>应用程序接口</strong>（英语：<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface，简称：<strong>API</strong>），又称为<strong>应用编程接口</strong>，就是软件系统不同组成部分衔接的约定。由于近年来软件的规模日益庞大，常常需要把复杂的系统划分成小的组成部分，编程接口的设计十分重要。程序设计的实践中，编程接口的设计首先要使软件系统的职责得到合理划分。良好的接口设计可以降低系统各部分的相互依赖，提高组成单元的内聚性，降低组成单元间的耦合程度，从而提高系统的维护性和扩展性。</p>
+<p>接口(API0)：可以指访问servlet、controller的url、调用其他程序的函数</p>
+<p>架构风格：API组织方式(样子)</p>
+<p>​   就是一个传统的URL：http://localhost:8080/mytransaction/insertStudent?name=zhangsan&amp;age=20</p>
+<p>​                                           在地址上提供了访问的资源名称insertStudent，在其后使用了get方式传递参数</p>
+<h3 id="51-rest">5.1 REST</h3>
+<p><strong>RESTful</strong>架构风格</p>
+<ol>
+<li>REST : （英文： <strong>Re</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer , 中文： 表现层状态转移)。</li>
+</ol>
+<p>REST：是一种接口的架构风格和设计的理念，不是标准</p>
+<p>优点：更简洁，更有层次</p>
+<p>表现层状态转移：</p>
+<ol>
+<li>
+<p>表现层：视图层，显示资源的，通过视图页面，jsp等等显示操作资源的结果</p>
+</li>
+<li>
+<p>状态：资源变化</p>
+</li>
+<li>
+<p>转移：资源可以变化的。资源能创建，new状态。资源创建后可以查询资源，能看到资源的内容</p>
+<p>​         这个资源的内容可以被修改，修改后资源和之前的不一样</p>
+</li>
+<li>
+<p>REST中的要素：</p>
+</li>
+</ol>
+<p>用REST表示资源和对资源的操作。在互联网中，表示一个资源或者一个操作</p>
+<p>资源使用URL表示的，在互联网中，使用的图片、视频、文本、万叶等等都是资源</p>
+<p>资源是用名词表示</p>
+<p>对资源：</p>
+<ol>
+<li>查询资源：看，通过url找到资源 </li>
+<li>创建资源：添加资源</li>
+<li>更新资源：更新资源。编辑</li>
+<li>删除资源：去除</li>
+</ol>
+<p>资源使用url表示，通过名词表示资源</p>
+<p>​    在url中，使用名词表示资源，以及访问资源的信息，在url中使用“/”分割对资源的信息</p>
+<p>​    http://locathost:8080/myboot/student/1001</p>
+<p>使用http中的动作(请求方式)，表示对资源的操作(CURD)</p>
+<p>​    GET：查询资源 -- sql select</p>
+<p>​        处理单个资源：用它单数的方式</p>
+<p>​        http://locathost:8080/myboot/student/1001</p>
+<p>​        http://locathost:8080/myboot/student/1001/1</p>
+<p>​        处理多个资源：使用复数形式</p>
+<p>​        http://locathost:8080/myboot/student/1001/1002</p>
+<p>​    POST：创建资源 -- sql insert</p>
+<p>​        http://locathost:8080/myboot/student/1002</p>
+<p>​        在post请求中传递数据</p>
+<p>```html
+ <br />
+<form action="http://locathost:8080/myboot/student/1002" method="post">
+       姓名：<input type="text" name="name"/>
+       年龄：<input type="text" name="age"/>
+   </form></p>
+<p>```</p>
+<p>​    PUT：更新资源 -- sql update</p>
+<p>```html
+ <br />
+<form action="http://locathost:8080/myboot/student/1002" method="post">
+       姓名：<input type="text" name="name"/>
+       年龄：<input type="text" name="age"/>
+         <input type="hidden" name="_method" value="PUT">
+   </form></p>
+<p>```</p>
+<p>​    DELETE：删除资源 -- sql  delete</p>
+<p><code>html
+   &lt;a href="http://locathost:8080/myboot/student/1"&gt;删除1的数据&lt;/a&gt;</code></p>
+<p>需要的分页，排序等参数，依然放在url后面</p>
+<p>http://locathost:8080/myboot/student?page=1&amp;pageSize=20</p>
+<ol>
+<li>一句话说明REST：</li>
+</ol>
+<p>使用url表示资源，使用http动作操作资源</p>
+<ol>
+<li>注解</li>
+</ol>
+<p>@PathVariable：从url中获取数据 </p>
+<p>@GetMapping：支持get请求方式，等同于@RequestMapping(method = RequestMethod.Get)</p>
+<p>@PostMapping：支持post请求方式，等同于@RequestMapping(method = RequestMethod.Post)</p>
+<p>@PutMapping：支持put请求方式，等同于@RequestMapping(method = RequestMethod.Put)</p>
+<p>@DeleteMapping：支持delete请求方式，等同于@RequestMapping(method = RequestMethod.Delete)</p>
+<p>@RestController：符合注解，是@Controller和@ResponseBody组合</p>
+<p>​                                 在类的上面使用@RestController，表示当前类中的所有方法都加入了@ResponseBody</p>
+<ol>
+<li>Postman：测试工具</li>
+</ol>
+<p>使用Postman：可以测试各种请求方式</p>
+<h3 id="52-ajaxputdelete">5.2 在页面中或ajax中，支持put、delete请求</h3>
+<p>在SpringMVC中有个过滤器，支持post请求转为put、delete请求</p>
+<p>过滤器：org.springframework.web.filter.HiddenHttpMethodFilter</p>
+<p>作用：把请求中的post请求转为put、delete</p>
+<p>实现步骤：</p>
+<ol>
+<li>application.properties中开启启用HiddenHttpMethodFilter过滤器</li>
+<li>在请求页面中，包含_method参数，它的值是put、delete，发起这个请求使用的是post方式</li>
+</ol>
+<h2 id="redis">六、Redis</h2>
+<p>Redis：一个NoSQL数据库，常用作缓存使用(cache)</p>
+<p>Redis的数据类型：string、hash、set、zset、list</p>
+<p>Redis是一个中间件：是一个独立的服务器</p>
+<p>java中著名的客户端：Jedis、lettuce、Redisson</p>
+<p>Spring、SpringBoot中有个RedisTemplate(StringRedisTemplate)，处理和Redis交互</p>
+<p>RedisTemplate使用lettuce客户端库</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+data-redis使用的  lettuce 客户端
+在程序中使用RedisTemplate类的方法 操作redis数据，实际就是调用lettuce客户端中的方法
+</code></pre>
+<h3 id="61-redistemplate-stringredistemplate">6.1 RedisTemplate 和 StringRedisTemplate</h3>
+<ul>
+<li>
+<p>StringRedisTemplate：把k，v都作为String处理，使用的是String的序列化，可读性好</p>
+</li>
+<li>
+<p>RedisTemplate ：把k，v经过了序列化存到redis。k，v是序列化的内容，不能直接识别</p>
+</li>
+</ul>
+<p>​                             默认使用JDK的序列化，可以修改为其他的序列化</p>
+<p>序列化：把对象转化为可传输的字节序列过程称为序列化</p>
+<p>反序列化：把字节序列还原为对象的过程称为反序列化</p>
+<p>为什么需要序列化：</p>
+<ul>
+<li>序列化的最终目的是为了对象可以跨平台存储，和进行网络传输。而我们进行跨平台存储和网络传输的方式就是IO，而我们的IO支持的数据格式就是字节数组。我们必须在吧对象转成字节数组的时候就指定一种规则(序列化)，那么我们从IO流里面读出数据的的时候再以这种规则把对象还原回来(反序列化)</li>
+</ul>
+<p>序列化的方式：</p>
+<ul>
+<li>序列化只是一种拆装组装对象的规则，那么这种规则肯定也可能有多种多样，比如现在创建的序列化的方式有：</li>
+</ul>
+<p>JDK（不支持跨语言）、JSON、XML、Hessian、Kryo（不支持跨语言）、Thrift等</p>
+<p>设置key，value的序列化方式（在存取值之前设置）</p>
+<pre><code class="language-java">//使用RedisTemplate
+//设置key使用String的序列化
+//设置value使用String的序列化
+redisTemplate.setKeySerializer(new StringRedisSerializer());
+redisTemplate.setValueSerializer(new StringRedisSerializer());
+redisTemplate.opsForValue().set(k, v);
+
+//设置value使用json序列化
+redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer&lt;&gt;(Student.class));
+</code></pre>
+<h2 id="springbootdubbo">七、SpringBoot集成Dubbo</h2>
+<h3 id="71">7.1 公共项目</h3>
+<p>独立的maven项目：定义了接口和数据类</p>
+<pre><code class="language-java">public class Student implements Serializable {
+    private static final long serialVersionUID = 1901229007746699151L;
+
+    private Integer id;
+    private String name;
+    private Integer age;
+}
+
+public interface StudentService {
+    Student queryStudentById(Integer id);
+}
+</code></pre>
+<h3 id="72">7.2 提供者</h3>
+<p>创建SpringBoot项目：</p>
+<ol>
+<li>提供pom依赖</li>
+</ol>
+<p>```xml
+   <dependencies>
+       <!--加入公共项目的GAV-->
+       <dependency>
+           <groupId>com.bjpowernode</groupId>
+           <artifactId>springboot021-interface-api</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency></p>
+<pre><code>   &lt;!--dubbo依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+   &lt;/dependency&gt;
+
+   &lt;!--zookeeper依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+       &lt;type&gt;pom&lt;/type&gt;
+       &lt;!--排除log4j依赖--&gt;
+       &lt;exclusions&gt;
+           &lt;exclusion&gt;
+               &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+               &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+           &lt;/exclusion&gt;
+       &lt;/exclusions&gt;
+   &lt;/dependency&gt;
+</code></pre>
+<p></dependencies>
+   ```</p>
+<ol>
+<li>实现接口</li>
+</ol>
+<p><code>java
+   /**
+    * 使用dubbo注解暴露服务，@Component可以不用加
+    * @Component是为了将类创建的对象注入到容器中，@DubboService已经可以将对象注入到容器中，所以不用加
+    */
+   @DubboService(version = "1.0.0", timeout = 5000)
+   public class StudentServiceImpl implements StudentService {
+       @Override
+       public Student queryStudentById(Integer id) {
+           Student student = new Student();
+           if (1001 == id){
+               student.setId(1001);
+               student.setName("==张三");
+               student.setAge(20);
+           } else if (1002 == id) {
+               student.setId(1002);
+               student.setName("==李四");
+               student.setAge(22);
+           }
+           return student;
+       }
+   }</code></p>
+<ol>
+<li>修改application.properties</li>
+</ol>
+<p>```properties
+   #配置服务名称  dubbo:application name="名称"
+   spring.application.name=studentservice-provider</p>
+<p>#配置扫描的包，扫描的@DubboService
+   dubbo.scan.base-packages=com.bjpowernode.service</p>
+<p>#配置dubbo协议
+   #dubbo.protocol.name=dubbo
+   #dubbo.protocol.port=2081</p>
+<p>#注册中心
+   dubbo.registry.address=zookeeper://192.168.233.130:2181
+   dubbo.config-center.timeout=15000
+   ```</p>
+<ol>
+<li>在启动类上加@EnableDubbo</li>
+</ol>
+<p>```java
+   @SpringBootApplication
+   @EnableDubbo
+   public class ServiceProviderApplication {
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceProviderApplication.class, args);
+       }</p>
+<p>}
+   ```</p>
+<h3 id="73">7.3 消费者</h3>
+<p>创建SpringBoot项目：</p>
+<ol>
+<li>pom.xml</li>
+</ol>
+<p>```xml
+   <dependencies>
+       <!--加入公共项目的GAV-->
+       <dependency>
+           <groupId>com.bjpowernode</groupId>
+           <artifactId>springboot021-interface-api</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency></p>
+<pre><code>   &lt;!--dubbo依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+   &lt;/dependency&gt;
+
+   &lt;!--zookeeper依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+       &lt;type&gt;pom&lt;/type&gt;
+       &lt;!--排除log4j依赖--&gt;
+       &lt;exclusions&gt;
+           &lt;exclusion&gt;
+               &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+               &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+           &lt;/exclusion&gt;
+       &lt;/exclusions&gt;
+   &lt;/dependency&gt;
+</code></pre>
+<p></dependencies>
+   ```</p>
+<ol>
+<li>创建Controller或者Service都可以</li>
+</ol>
+<p>```java
+   @RestController   //此类中所有的方法都加上了@ResponseBody
+   public class MyController {</p>
+<pre><code>   /**
+    * 引用远程服务，把创建好的代理队形，注入给studentService
+    */
+   //@DubboReference(interfaceClass = StudentService.class, version = "1.0.0")
+   /**
+    * 没有使用interfaceClass，默认使用的就是 引用类型的 数据类型
+    */
+   @DubboReference(version = "1.0.0")
+   private StudentService studentService;
+
+   @GetMapping("/query")
+   public String queryStudentById(Integer id) {
+       Student student = studentService.queryStudentById(id);
+       return "调用远程接口获取对象：" + student;
+   }
+</code></pre>
+<p>}
+   ```</p>
+<ol>
+<li>修改application.properties</li>
+</ol>
+<p><code>properties
+   #指定服务名称
+   spring.application.name=consumer-application
+   #指定注册中心
+   dubbo.registry.address=zookeeper://192.168.233.130:2181</code></p>
+<h2 id="_2">八、打包</h2>
+<h3 id="81-war">8.1 打包为war</h3>
+<ol>
+<li>
+<p>创建包含jsp的项目</p>
+</li>
+<li>
+<p>修改pom.xml</p>
+</li>
+<li>
+<p>指定打包后的文件名称</p>
+<p><code>xml
+  &lt;build&gt;
+      &lt;finalName&gt;myboot&lt;/finalName&gt;
+  &lt;/build&gt;</code></p>
+</li>
+<li>
+<p>指定jsp编译目录</p>
+<p><code>xml
+  &lt;resources&gt;
+      &lt;resource&gt;
+          &lt;directory&gt;src/main/java&lt;/directory&gt;
+          &lt;includes&gt;
+              &lt;include&gt;**/*.properties&lt;/include&gt;
+              &lt;include&gt;**/*.xml&lt;/include&gt;
+          &lt;/includes&gt;
+          &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+      &lt;resource&gt;
+          &lt;directory&gt;src/main/resources&lt;/directory&gt;
+          &lt;includes&gt;
+              &lt;include&gt;**/*.properties&lt;/include&gt;
+              &lt;include&gt;**/*.xml&lt;/include&gt;
+          &lt;/includes&gt;
+          &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+      &lt;resource&gt;
+          &lt;directory&gt;src/main/webapp&lt;/directory&gt;
+          &lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;
+          &lt;includes&gt;
+              &lt;include&gt;**/*.*&lt;/include&gt;
+          &lt;/includes&gt;
+      &lt;/resource&gt;
+  &lt;/resources&gt;</code></p>
+</li>
+<li>
+<p>执行打包是war</p>
+</li>
+</ol>
+<p><code>xml
+   &lt;packaging&gt;war&lt;/packaging&gt;</code></p>
+<ol>
+<li>主启动类继承SpringBootServletInitializer</li>
+</ol>
+<p>```java
+   /*<em>
+    * SpringBootServletInitializer：继承这个类才能够使用独立的Tomcat服务器
+    </em>/
+   @SpringBootApplication
+   public class WarApplication extends SpringBootServletInitializer {</p>
+<pre><code>   public static void main(String[] args) {
+       SpringApplication.run(WarApplication.class, args);
+   }
+
+   @Override
+   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+       return builder.sources(WarApplication.class);
+   }
+</code></pre>
+<p>}
+   ```</p>
+<ol>
+<li>部署war</li>
+</ol>
+<p>把war放到Tomcat等服务器的发布目录中。Tomcat为例，myboot.war放到Tomcat/webapps目录下</p>
+<h3 id="82-jar">8.2 打包为jar</h3>
+<ol>
+<li>
+<p>创建包含jsp的项目</p>
+</li>
+<li>
+<p>修改pom.xml</p>
+</li>
+<li>
+<p>指定打包后的文件名称</p>
+<p><code>xml
+  &lt;build&gt;
+      &lt;finalName&gt;myboot&lt;/finalName&gt;
+  &lt;/build&gt;</code></p>
+</li>
+<li>
+<p>指定spring-boot-maven-plugin版本</p>
+<p><code>xml
+  &lt;plugins&gt;
+      &lt;plugin&gt;
+          &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+          &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+          &lt;!--打包为jar，有jsp文件时，必须指定maven-plugin插件的版本--&gt;
+          &lt;version&gt;1.4.2.RELEASE&lt;/version&gt;
+      &lt;/plugin&gt;
+  &lt;/plugins&gt;</code></p>
+</li>
+<li>
+<p>最后执行maven clean package</p>
+</li>
+</ol>
+<p>在target目录中，生成jar文件，例子是myboot.jar</p>
+<p>执行独立的springboot项目，在cmd中 java -jar myboot.jar</p>
+<h2 id="thymeleaf">九、Thymeleaf模板引擎</h2>
+<p>Thymeleaf：是使用java开发的模板技术，在服务器端运行。把处理后的数据发送给浏览器</p>
+<p>​   模板是作视图层工作的，显示数据的。Thymeleaf是基于HTML语言。Thymeleaf语法是应用在HTML标签中。</p>
+<p>​   SpringBoot框架集成Thymeleaf，使用Thymeleaf代替JSP</p>
+<h3 id="91">9.1 表达式</h3>
+<ol>
+<li>标准变量表达式</li>
+</ol>
+<p>语法：${key}</p>
+<p>作用：获取key对应的文本数据，key是request作用域中的key，使用request.setAttrebute()或model.addAttrebute()</p>
+<p>在页面中的html标签中，使用th:text=“${key}”</p>
+<p>```html
+ <br />
+<div style="margin-left: 400px">
+       <h3>标准变量表达式：${key}</h3>
+       <p th:text="${site}"></p>
+       <br/>
+       <p>获取User对象属性值</p>
+       <p th:text="${myuser.id}">id</p>
+       <p th:text="${myuser.getName()}">name</p>
+   </div></p>
+<p>```</p>
+<ol>
+<li>选择变量表达式（星号变量表达式）</li>
+</ol>
+<p>语法：*{key}</p>
+<p>作用：获取这个key对应的数据，*{key}要和th:object这个属性一起使用</p>
+<p>目的是简单获取对象的属性值</p>
+<p>```html
+ <br />
+<h3>选择变量表达式：*{key}</h3></p>
+<p>使用*{key} 获取User的属性值</p>
+<div th:object="${myuser}">
+       <p th:text="*{id}"></p>
+       <p th:text="*{name}"></p>
+   </div>
+<p>```</p>
+<ol>
+<li>连接表达式（URL表达式）</li>
+</ol>
+<p>语法：@{url}</p>
+<p>作用：表示连接</p>
+<p><code>html
+    &lt;script src="..."&gt;,&lt;link href="..."&gt;,&lt;a href="..."&gt;,&lt;form action="..."&gt;,&lt;img src="..."&gt;</code></p>
+<h3 id="92-thymeleaf">9.2 Thymeleaf属性</h3>
+<p>属性是放在html元素中的，就是html元素的属性，加入了th前缀。属性的作用不变，加上th。属性的值由模板引擎处理了，在属性就可以使用变量表达式</p>
+<pre><code class="language-html">&lt;form action=&quot;/loginServlet&quot; method=&quot;post&quot;&gt;&lt;/form&gt;
+
+&lt;form th:action=&quot;/loginServlet&quot; th:method=&quot;${methodAttr}&quot;&gt;&lt;/form&gt;
+</code></pre>
+<h3 id="93-each">9.3 each</h3>
+<p>each循环吗，可以循环List，Array，Map</p>
+<p>语法：</p>
+<p>在一个html标签中，使用th:each</p>
+<pre><code class="language-html">&lt;div th:each=&quot;集合循环成员，循环的状态变量:${key}&quot;&gt;
+    &lt;p th:text=&quot;${集合循环成员}&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+集合循环成员，循环的状态变量：两个名称都是自定义的。“循环的状态变量”这个名称可以不定义，默认是“集合循环成员Stat”
+</code></pre>
+<p>each循环变量Map</p>
+<p>在一个html标签中，使用th:each</p>
+<pre><code class="language-html">&lt;div th:each=&quot;集合循环成员，循环的状态变量:${key}&quot;&gt;
+    &lt;p th:text=&quot;${集合循环成员.key}&quot;&gt;&lt;/p&gt;
+    &lt;p th:text=&quot;${集合循环成员.value}&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+key:map集合中的key
+value:map集合中key对应的value值
+</code></pre>
+<h3 id="94-thif">9.4 th:if</h3>
+<p>“th:if”：判断语句，当条件为true，显示html标签体内容，反之不显示，没有else语句</p>
+<pre><code class="language-html">语法：
+&lt;div th:if=&quot;10 &gt; 0&quot;&gt;显示文本内容&lt;/div&gt;
+</code></pre>
+<p>还有一个th:unless 和 th;if 相反的行为</p>
+<pre><code class="language-html">语法：
+&lt;div th:unless=&quot;10 &lt; 0&quot;&gt;当条件为false显示文本内容&lt;/div&gt;
+</code></pre>
+<h3 id="95-thswitch">9.5 th:switch</h3>
+<p>th:switch和java中的switch</p>
+<pre><code class="language-html">语法：
+&lt;div th:switch=&quot;要比对的值&quot;&gt;
+    &lt;p th:case=&quot;值1&quot;&gt;结果1&lt;/p&gt;
+    &lt;p th:case=&quot;值2&quot;&gt;结果2&lt;/p&gt;
+    &lt;p th:case=&quot;*&quot;&gt;默认结果&lt;/p&gt;
+    以上的case已有一个值符合
+&lt;/div&gt;
+</code></pre>
+<h3 id="96-thinline">9.6 th:inline</h3>
+<ol>
+<li>内联text：在html标签外，获取表达式的值</li>
+</ol>
+<p>语法：</p>
+<p>```html
+ <br />
+<p>显示姓名是：[[${key}]]</p>
+</p>
+<div style="margin-left: 400px">
+       <h3>内联 text，使用内联表达式显示变量值</h3>
+       <div th:inline="text">
+           <p>我是[[${name}]],id是[[${id}]]</p>
+       </div>
+
+       <div>
+           <p>我是[[${name}]],id是[[${id}]]</p>
+       </div>
+   </div>
+
+<p>th:inline="text"：可写可不写
+   ```</p>
+<ol>
+<li>内联javascript</li>
+</ol>
+<p>```html
+ <br />
+<script type="text/javascript" th:inline="javascript">
+       var name = [[${name}]];
+       var id = [[${id}]];
+
+       // alert("获取模板中数据name=" + name + ",id=" + id);
+
+       function on() {
+           alert("获取模板中数据name=" + name + ",id=" + id);
+       }
+   </script></p>
+<p>```</p>
+<h3 id="97">9.7 字面量</h3>
+<pre><code class="language-html">&lt;div style=&quot;margin-left: 400px&quot;&gt;
+    &lt;h3&gt;文本字面量：使用单引号括起来的字符串&lt;/h3&gt;
+    &lt;p th:text=&quot;'我是'+${name}+'id是'+${id}&quot;&gt;数据显示&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="98">9.8 字符串连接</h3>
+<p>连接字符串有两种语法：</p>
+<ol>
+<li>语法使用单引号括起来字符串，使用+号连接其他的字符串或者表达式</li>
+</ol>
+<p>```html
+ <br />
+<p th:text="'我是'+${name}+'id是'+${id}">数据显示</p></p>
+<p>```</p>
+<ol>
+<li>语法：使用双竖线，|字符串和表达式|</li>
+</ol>
+<p>```html
+ <br />
+<p th:text="|我是${name}id是+${id}|">数据显示</p></p>
+<p>```</p>
+<h3 id="99">9.9 运算符</h3>
+<pre><code class="language-html">&lt;h3&gt;使用运算符&lt;/h3&gt;
+&lt;p th:if=&quot;${id == 1001}&quot;&gt;id=1001&lt;/p&gt;
+&lt;p th:if=&quot;${name == 'zhangsan'}&quot;&gt;name==zhangsan&lt;/p&gt;
+&lt;p th:if=&quot;${user == null}&quot;&gt;user是null&lt;/p&gt;
+&lt;p th:if=&quot;${user eq null}&quot;&gt;user是null&lt;/p&gt;
+&lt;p th:if=&quot;${user ne null}&quot;&gt;user不是null&lt;/p&gt;
+
+&lt;p th:text=&quot;${isLogin == true ? '已经登录' : '未登录'}&quot;&gt;&lt;/p&gt;
+
+&lt;p th:text=&quot;${isLogin == true ? (id == 1001 ? '用户是1001' : '不是1001') : '未登录'}&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="910">9.10 内置对象</h3>
+<h1 id="requesthttpservletrequest">request表示HttpServletRequest</h1>
+<h1 id="sessionhttpsession">session表示HttpSession</h1>
+<p>session表示Map对象，是#session的简单表示方式，用来获取session中指定key的值</p>
+<p>​           #session.getAttribute(“loginName”) == session.loginName</p>
+<p>这些是内置对象，可以在模板文件中直接使用</p>
+<pre><code class="language-html">&lt;h3&gt;内置对象#request, #session, session的使用&lt;/h3&gt;
+&lt;p&gt;获取作用域中的数据&lt;/p&gt;
+&lt;p th:text=&quot;${#request.getAttribute('requestData')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#session.getAttribute('sessionData')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${session.loginName}&quot;&gt;&lt;/p&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3&gt;使用内置对象方法&lt;/h3&gt;
+getRequestURL=&lt;span th:text=&quot;${#request.getRequestURL()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getRequestURI=&lt;span th:text=&quot;${#request.getRequestURI()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getQueryString=&lt;span th:text=&quot;${#request.getQueryString()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getContextPath=&lt;span th:text=&quot;${#request.getContextPath()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getServerName=&lt;span th:text=&quot;${#request.getServerName()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getServerPort=&lt;span th:text=&quot;${#request.getServerPort()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+
+getRequestURL=http://localhost:8080/myboot/tpl/baseObject
+getRequestURI=/myboot/tpl/baseObject
+getQueryString=name=lisi    获取地址栏的参数
+getContextPath=/myboot
+getServerName=localhost
+getServerPort=8080
+</code></pre>
+<h3 id="911">9.11 内置工具类对象</h3>
+<p>内置工具类：Thymeleaf自己的一些类，提供对string，date，集合的一些处理方法</p>
+<h1 id="dates">dates：处理日期的</h1>
+<h1 id="number">number：处理数字的</h1>
+<h1 id="list">list：处理集合的</h1>
+<pre><code class="language-html">&lt;p&gt;日期类对象 #dates&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.format(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.format(date, 'yyyy/MM/dd HH:mm:ss')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.format(date, 'yyyy-MM-dd HH:mm:ss')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.year(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.month(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.monthName(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.day(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.createNow}&quot;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;p&gt;内置工具类#numbers，操作数字的&lt;/p&gt;
+&lt;p th:text=&quot;${#numbers.formatCurrency(num)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#numbers.formatDecimal(num, 5, 2)}&quot;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;p&gt;内置工具类#strings，操作字符串的&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.toUpperCase(str)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.indexOf(str, 'power')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.substring(str, 2, 5)}&quot;&gt;&lt;/p&gt;  &lt;!--[2,5)--&gt;
+&lt;p th:text=&quot;${#strings.substring(str, 2)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.concat(str, '---java')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.length(str)}&quot;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h3&gt;内置工具类#list&lt;/h3&gt;
+&lt;p th:text=&quot;${#lists.size(list)}&quot;&gt;&lt;/p&gt;
+&lt;p th:unless=&quot;${#lists.contains(list, 'd')}&quot;&gt;无成员d&lt;/p&gt;
+&lt;p th:unless=&quot;${#lists.isEmpty(list)}&quot;&gt;list不是空&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h3&gt;处理null&lt;/h3&gt;
+&lt;p th:text=&quot;${zoo?.dog?.name}&quot;&gt;&lt;/p&gt;  &lt;!--在变量后加上?，可以判断是否为空，若为空则不显示，不为空则显示--&gt; 
+&lt;p th:text=&quot;${zoo?.cat?.name}&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="912">9.12 自定义模板</h3>
+<p>模板是内容复用，定义一次，在其他的模板文件中多次使用</p>
+<p>模板使用：</p>
+<ol>
+<li>定义模板</li>
+<li>使用模板</li>
+</ol>
+<p>模板定义语法：</p>
+<pre><code class="language-html">th:fragment=&quot;模板自定义名称&quot;
+
+例如：
+&lt;div th:fragment=&quot;head&quot;&gt;
+    &lt;p&gt;百度&lt;/p&gt;
+    &lt;p&gt;www.baidu.com&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>引用模板语法：</p>
+<pre><code class="language-html">1.~{templatename :: selector}
+    templatename：文件名称
+    selector：自定义模板名称
+2.templatename :: selector   空格不能省
+    templatename：文件名称
+    selector：自定义模板名称
+
+对于使用模板：有包含模板(th:include)，插入模板(th:insert)
+</code></pre>
+<h2 id="springspringmvcspringboot">十、总结 Spring+SpringMVC+SpringBoot注解</h2>
+<h3 id="101">10.1 创建对象的</h3>
+<ol>
+<li>
+<p>@Controller：放在类的上面，创建控制器对象，注入到容器中</p>
+</li>
+<li>
+<p>@RestController：放在类的上面，创建控制器对象，注入到容器中
+            作用：复合型注解：@Controller，@ResponseBody，使用这个注解的类，里面的控制器方法的返回值都是数据</p>
+</li>
+<li>
+<p>@Service：放在业务层的实现类上面，创建service对象，注入到容器</p>
+</li>
+<li>
+<p>@Repository：放在dao层的实现类上面，创建dao对象，放入到容器，没有使用这个注解，是因为现在使用MyBatis框架，dao对象  是MyBatis通过代理生成的。不需要使用@Repository</p>
+</li>
+<li>
+<p>@Component：放在类的上面，创建此类的对象，放入到容器中</p>
+</li>
+</ol>
+<h3 id="102">10.2 赋值的</h3>
+<ol>
+<li>@Value：简单类型的赋值，例如在属性上使用@Value(“lisi”)  private String name</li>
+</ol>
+<p>​                 还可以使用@Value获取配置文件中的数据(properties或yml)</p>
+<p>​                @Value(“${server.port”) private Integer port</p>
+<ol>
+<li>
+<p>@Autowired：引用类型赋值自动注入，支持byName，buType。默认是byType。放在属性的上面，也可以放在构造方法上面。                       推荐放在构造方法上</p>
+</li>
+<li>
+<p>@Qualifer：给引用类型赋值，使用byName方式</p>
+</li>
+</ol>
+<p>​                      @Autowired，@Qualifer都是Spring框架提供的</p>
+<ol>
+<li>@Resource：来自JDK中的定义，javax.annotation。实现引用类型的自动注入，支持byName，buType，默认byName，在属                     性上使用</li>
+</ol>
+<h3 id="103">10.3 其他</h3>
+<ol>
+<li>
+<p>@Configuration：放在类的上面，表示这是个配置类，相当于xml配置文件</p>
+</li>
+<li>
+<p>@Bean：放在方法上面，吧方法的返回值对象注入到Spring容器中</p>
+</li>
+<li>
+<p>@ImportResource：加载其他的xml配置文件，把文件中的对象注入到Spring容器中</p>
+</li>
+<li>
+<p>@PropertySource：读取其他的properties属性配置文件</p>
+</li>
+<li>
+<p>@ComponentScan：扫描器，指定包名扫描注解</p>
+</li>
+<li>
+<p>@ResponseBody：放在方法上面，表示方法的返回值是数据，不是视图</p>
+</li>
+<li>
+<p>@RequestBody：把请求体中的数据赌徒出来，转为java对象使用</p>
+</li>
+<li>
+<p>@ControllerAdvice：控制器增强，放在类上面，表示此类提供了方法，可以对controller增加功能</p>
+</li>
+<li>
+<p>@ExceptionHandler：处理异常，放在方法上面</p>
+</li>
+<li>
+<p>@Transactional：处理事务的，放在service实现类的public方法上面，表示此方法有事务</p>
+</li>
+</ol>
+<h3 id="104-springboot">10.4 SpringBoot使用的注解</h3>
+<ol>
+<li>
+<p>@SpringBootApplication：启动类的上面，包含了：</p>
+</li>
+<li>
+<p>@SpringBootConfiguration：配置类</p>
+</li>
+<li>
+<p>@EnableAutoConfiguration：启用自动配置</p>
+</li>
+<li>
+<p>@ComponentScan：扫描器</p>
+</li>
+</ol>
+<h3 id="105-mybatis">10.5 MyBatis相关注解</h3>
+<ol>
+<li>
+<p>@Mapper：放在类上，让MyBatis找到接口，创建其代理对象</p>
+</li>
+<li>
+<p>@MapperScan：放在主类上（指带有@SpringBootApplication的类），指定扫描的包，把这个包中的所有接口都创建代理对象。把对象注入到容器中</p>
+</li>
+<li>
+<p>@Param：放在dao接口 的方法形参前，作为命名参数使用</p>
+</li>
+</ol>
+<h3 id="106-dubbo">10.6 Dubbo注解</h3>
+<ol>
+<li>@DubboService：放在提供者端使用，暴露服务的，放在接口的实现类上</li>
+<li>@DubboReference：在消费者端使用，引用远程服务。放在属性上使用</li>
+<li>@EnableDubbo：放在主类上，表示当前应用启用Dubbo功能</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>

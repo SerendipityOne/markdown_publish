@@ -1,0 +1,884 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+      
+      
+        <link rel="next" href="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>计算机组成原理 - Serendipity_Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Serendipity_Docs" class="md-header__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Serendipity_Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              计算机组成原理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Serendipity_Docs" class="md-nav__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Serendipity_Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        数据结构和算法
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        微服务
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C51%E5%8D%95%E7%89%87%E6%9C%BA/" class="md-nav__link">
+        C51单片机
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Centos7%E5%AE%89%E8%A3%85Docker/" class="md-nav__link">
+        Centos7安装Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Docker操作命令
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nacos%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        Nacos集群搭建
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RabbitMQ%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        RabbitMQ部署指南
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis7/" class="md-nav__link">
+        Redis7
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spring6/" class="md-nav__link">
+        Spring6
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vue%EF%BC%88%E9%9D%9E%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（非脚手架）
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vue%EF%BC%88%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（脚手架）
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%89%E8%A3%85elasticsearch/" class="md-nav__link">
+        安装elasticsearch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        计算机组成原理
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        习题总结
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">计算机组成原理</h1>
+<h1 id="_2">第一章 计算机系统概述</h1>
+<h2 id="_3">计算机发展历程</h2>
+<p><img alt="image-20230316190750605" src="../assets/image-20230316190750605.png" /></p>
+<p><img alt="image-20230316185634276" src="../assets/image-20230316185634276.png" /></p>
+<p><img alt="image-20230316185745367" src="../assets/image-20230316185745367.png" /></p>
+<h3 id="_4">计算机发展历程</h3>
+<table>
+<thead>
+<tr>
+<th>发展阶段</th>
+<th>时间</th>
+<th>逻辑元件</th>
+<th>速度（次/秒）</th>
+<th>内存</th>
+<th>外存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一代</td>
+<td>1946-1957</td>
+<td>电子管</td>
+<td>几千-几万</td>
+<td>汞延迟线、磁鼓</td>
+<td>穿孔卡片、纸带</td>
+</tr>
+<tr>
+<td>第二代</td>
+<td>1958-1964</td>
+<td>晶体管</td>
+<td>几万-几十万</td>
+<td>磁芯存储器</td>
+<td>磁带</td>
+</tr>
+<tr>
+<td>第三代</td>
+<td>1964-1971</td>
+<td>中小规模集成电路</td>
+<td>几十万-几百万</td>
+<td>半导体存储器</td>
+<td>磁带、磁盘</td>
+</tr>
+<tr>
+<td>第四代</td>
+<td>1972-现在</td>
+<td>大规模、超大规模集成电路</td>
+<td>上千万-万亿</td>
+<td>半导体存储器</td>
+<td>磁盘、磁带、光盘、半导体存储器</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="image-20230316190417814" src="../assets/image-20230316190417814.png" /></p>
+<h3 id="_5">目前发展趋势</h3>
+<p>“两极”分化：</p>
+<ol>
+<li>
+<p>一极是微型计算机向更微型化、网络化、高性能、多用途方向发展。</p>
+</li>
+<li>
+<p>另一极是巨型机向更巨型化、超高速、并行处理、智能化方向发展。</p>
+</li>
+</ol>
+<h2 id="_6">计算机硬件的基本组成</h2>
+<p><img alt="image-20230316191929285" src="../assets/image-20230316191929285.png" /></p>
+<h3 id="_7">早期冯诺依曼机</h3>
+<p><span style="color:blue">“存储程序”</span>的概念是指将<span style="color:red">指令以二进制代码的形式事先输入计算机的主存储器</span>,然后按其在存储器中的首地址执行程序的第一条指令,以后就按该程序的规定顺序执行其他指令,直至程序执行结束。</p>
+<p><img alt="image-20230316191318207" src="../assets/image-20230316191318207.png" /></p>
+<p>eg: 对于乘法运算，可以设计一个专门的硬件电路实现乘法运算<strong>(成本高，效率高)</strong>
+    也可以用软件的方式,执行多次加法运算来实现<strong>(成本低，效率低)</strong></p>
+<p><strong>冯·诺依曼计算机的特点</strong>：</p>
+<ol>
+<li>计算机由五大部件组成</li>
+<li>指令和数据以同等地位存于存储器，可按地址寻访</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由操作码和地址码组成</li>
+<li>存储程序</li>
+<li><strong>以运算器为中心</strong>(输入/输出设备与存储器之间的数据传送通过运算器完成)</li>
+</ol>
+<h3 id="_8">现代计算机的结构</h3>
+<p><img alt="image-20230316191830266" src="../assets/image-20230316191830266.png" /></p>
+<h2 id="_9">各个硬件部件</h2>
+<p><img alt="image-20230316201105976" src="../assets/image-20230316201105976.png" /></p>
+<h3 id="_10">主存储器的基本组成</h3>
+<p><img alt="image-20230318191727632" src="../assets/image-20230318191727632.png" /></p>
+<p><img alt="image-20230316192725238" src="../assets/image-20230316192725238.png" /></p>
+<h3 id="_11">运算器的基本组成</h3>
+<p><img alt="image-20230316192857597" src="../assets/image-20230316192857597.png" /></p>
+<h3 id="_12">控制器的基本组成</h3>
+<p><img alt="image-20230316193113899" src="../assets/image-20230316193113899.png" /></p>
+<h3 id="_13">计算机的工作过程</h3>
+<p><img alt="image-20230316193330658" src="../assets/image-20230316193330658.png" /></p>
+<p><img alt="image-20230316193617181" src="../assets/image-20230316193617181.png" /></p>
+<p><img alt="image-20230316194248319" src="../assets/image-20230316194248319.png" /></p>
+<p><img alt="image-20230318191337968" src="../assets/image-20230318191337968.png" /></p>
+<p><img alt="image-20230316200919647" src="../assets/image-20230316200919647.png" /></p>
+<h2 id="_14">计算机的多级层次结构</h2>
+<p><img alt="image-20230316201529237" src="../assets/image-20230316201529237.png" /></p>
+<h3 id="_15">计算机的层次结构</h3>
+<p><img alt="image-20230316201349971" src="../assets/image-20230316201349971.png" /></p>
+<h3 id="_16">三种级别的语言</h3>
+<p><img alt="image-20230316201453706" src="../assets/image-20230316201453706.png" /></p>
+<h2 id="_17">计算机性能指标</h2>
+<p><img alt="image-20230316202906262" src="../assets/image-20230316202906262.png" /></p>
+<h3 id="_18">存储器的性能指标</h3>
+<p><img alt="image-20230316201818936" src="../assets/image-20230316201818936.png" /></p>
+<h3 id="cpu">CPU的性能指标</h3>
+<p><img alt="image-20230316202058136" src="../assets/image-20230316202058136.png" /></p>
+<p><img alt="image-20230316202203779" src="../assets/image-20230316202203779.png" /></p>
+<p><img alt="image-20230316202306838" src="../assets/image-20230316202306838.png" /></p>
+<h3 id="_19">系统整体的性能指标</h3>
+<p><img alt="image-20230316202647593" src="../assets/image-20230316202647593.png" /></p>
+<p><img alt="image-20230316202815866" src="../assets/image-20230316202815866.png" /></p>
+<h2 id="_20">重要概念</h2>
+<p><span style="color:red">摩尔定律：</span>揭示了<strong>信息技术进步的速度集成电路上可容纳的晶体管数目,约每隔18个月便会增加一倍，整体性能也将提升一倍。</strong></p>
+<p><span style="color:red">机器字长：</span>计算机<strong>一次</strong>整数运算所能处理的二进制位数</p>
+<p>MAR：存储<strong>地址寄存器</strong></p>
+<p>MDR：存储<strong>数据寄存器</strong></p>
+<p>运算器：</p>
+<ul>
+<li>
+<p>ACC：累加器,用于存放操作数,或运算结果。</p>
+</li>
+<li>
+<p>MQ：乘商寄存器,在乘、除运算时,用于存放操作数或运算结果。</p>
+</li>
+<li>
+<p>X：通用的操作数寄存器,用于存放操作数</p>
+</li>
+<li>
+<p><span style="color:red">ALU：</span>算术逻辑单元,通过内部复杂的电路实现算数运算、逻辑运算</p>
+</li>
+</ul>
+<p>控制器：</p>
+<ul>
+<li>CU：控制单元,分析指令,给出控制信号</li>
+<li>IR：指令寄存器,存放当前执行的指令</li>
+<li>PC：程序计数器，存放下一条指令地址，有<strong>自动加1功能</strong></li>
+</ul>
+<p><img alt="image-20230318191749764" src="../assets/image-20230318191749764.png" /></p>
+<p>描述文件大小时：<img alt="image-20230318191351217" src="../assets/image-20230318191351217.png" /></p>
+<p>描述频率：<img alt="image-20230316202508628" src="../assets/image-20230316202508628.png" /></p>
+<h1 id="_21">第二章 数据的表示和运算</h1>
+<h2 id="_22">进位计数制</h2>
+<p><img alt="image-20230316204212411" src="../assets/image-20230316204212411.png" /></p>
+<h3 id="r">r进制计数法</h3>
+<p><img alt="image-20230316203430134" src="../assets/image-20230316203430134.png" /></p>
+<h3 id="-">任意进制-&gt;十进制</h3>
+<p><img alt="image-20230316203522779" src="../assets/image-20230316203522779.png" /></p>
+<h3 id="-_1">二进制&lt;-&gt;八进制、十六进制</h3>
+<p><img alt="image-20230316203904267" src="../assets/image-20230316203904267.png" /></p>
+<h3 id="_23">各种进制的常见书写方式</h3>
+<p><img alt="image-20230318191418688" src="../assets/image-20230318191418688.png" /></p>
+<h3 id="-_2">十进制-&gt;任意进制</h3>
+<p><img alt="image-20230316204021922" src="../assets/image-20230316204021922.png" /></p>
+<p><img alt="image-20230316204053977" src="../assets/image-20230316204053977.png" /></p>
+<p>整数部分用：除基、取余</p>
+<p>小数部分用：乘基、取整</p>
+<h2 id="bcd">BCD码</h2>
+<p><img alt="image-20230316205028376" src="../assets/image-20230316205028376.png" /></p>
+<p>2421码，规定示0\~4时最高位为0，表示5~9时最高位为1，目的是为了防止编码时出现歧义</p>
+<p><img alt="image-20230316204315268" src="../assets/image-20230316204315268.png" /></p>
+<p><img alt="image-20230316204414590" src="../assets/image-20230316204414590.png" /></p>
+<h2 id="_24">字符与字符串</h2>
+<p><img alt="image-20230316205948245" src="../assets/image-20230316205948245.png" /></p>
+<h3 id="ascii">ASCII码</h3>
+<p><img alt="image-20230316205410412" src="../assets/image-20230316205410412.png" /></p>
+<p><img alt="image-20230316205448469" src="../assets/image-20230316205448469.png" /></p>
+<h3 id="_25">字符串</h3>
+<p><img alt="image-20230316205706380" src="../assets/image-20230316205706380.png" /></p>
+<p><img alt="image-20230316205740918" src="../assets/image-20230316205740918.png" /></p>
+<h2 id="_26">奇偶校验码</h2>
+<p><img alt="image-20230316211358697" src="../assets/image-20230316211358697.png" /></p>
+<h3 id="_27">原理</h3>
+<p><img alt="image-20230316210533650" src="../assets/image-20230316210533650.png" /></p>
+<p><img alt="image-20230316211016633" src="../assets/image-20230316211016633.png" /></p>
+<p>局限性：如果出现偶数个bit跳变，无法检测出错误</p>
+<p><img alt="image-20230316211222324" src="../assets/image-20230316211222324.png" /></p>
+<p><img alt="image-20230316211323553" src="../assets/image-20230316211323553.png" /></p>
+<h2 id="_28">海明校验码</h2>
+<p><img alt="image-20230316212529768" src="../assets/image-20230316212529768.png" /></p>
+<h3 id="_29">设计思路</h3>
+<p><img alt="image-20230316211634300" src="../assets/image-20230316211634300.png" /></p>
+<p><img alt="image-20230316211734064" src="../assets/image-20230316211734064.png" /></p>
+<p>例题：</p>
+<p><img alt="image-20230316211827858" src="../assets/image-20230316211827858.png" /></p>
+<p><img alt="image-20230316212039399" src="../assets/image-20230316212039399.png" /></p>
+<p><img alt="image-20230318191446037" src="../assets/image-20230318191446037.png" /></p>
+<p><img alt="image-20230316212424490" src="../assets/image-20230316212424490.png" /></p>
+<h2 id="_30">循环冗余校验码</h2>
+<p><img alt="image-20230316213824545" src="../assets/image-20230316213824545.png" /></p>
+<h3 id="_31">基本思想</h3>
+<p><img alt="image-20230316212717290" src="../assets/image-20230316212717290.png" /></p>
+<hr />
+<p>例题</p>
+<p><img alt="image-20230316212804911" src="../assets/image-20230316212804911.png" /></p>
+<p>模2除：被除数最高位是1则为1</p>
+<p><img alt="image-20230316212926546" src="../assets/image-20230316213010898.png" /></p>
+<p>模2减(类似模2除，也就是异或)</p>
+<p><img alt="image-20230318191500992" src="../assets/image-20230318191500992.png" /></p>
+<p><img alt="image-20230318191505317" src="../assets/image-20230318191505317.png" /></p>
+<p><img alt="image-20230316213400747" src="../assets/image-20230316213400747.png" /></p>
+<p><img alt="image-20230318191516577" src="../assets/image-20230318191516577.png" /></p>
+<p><img alt="image-20230318191803182" src="../assets/image-20230318191803182.png" /></p>
+<hr />
+<p><img alt="image-20230316213659358" src="../assets/image-20230316213659358.png" /></p>
+<p><img alt="image-20230316213738799" src="../assets/image-20230316213738799.png" /></p>
+<h2 id="_32">定点数的表示</h2>
+<p><img alt="image-20230316220101030" src="../assets/image-20230316220101030.png" /></p>
+<h3 id="vs">定点数 v.s. 浮点数</h3>
+<p><img alt="image-20230316214012334" src="../assets/image-20230316214012334.png" /></p>
+<h3 id="_33">无符号数的表示</h3>
+<p><img alt="image-20230316214328332" src="../assets/image-20230316214328332.png" /></p>
+<h3 id="_34">有符号数的定点表示</h3>
+<p>符号位：0 -&gt; +,1 -&gt; -</p>
+<p><img alt="image-20230316214432966" src="../assets/image-20230316214432966.png" /></p>
+<h3 id="_35">原码</h3>
+<p>原码：用尾数表示真值的绝对值,符号位"0/1”对应“正/负”</p>
+<p><img alt="image-20230316214705785" src="../assets/image-20230316214705785.png" /></p>
+<p><img alt="image-20230318191820153" src="../assets/image-20230318191820153.png" /></p>
+<p>+0/-0对应了同一个真值-&gt;0，所以2^n+1^-1</p>
+<hr />
+<p><img alt="image-20230318191825986" src="../assets/image-20230318191825986.png" /></p>
+<h3 id="_36">反码</h3>
+<p><img alt="image-20230316215159047" src="../assets/image-20230316215159047.png" /></p>
+<h3 id="_37">补码</h3>
+<p><img alt="image-20230316215517922" src="../assets/image-20230316215517922.png" /></p>
+<p><img alt="image-20230318191836329" src="../assets/image-20230318191836329.png" /></p>
+<p><strong>将负数补码转回原码的方法相同：尾数取反，末位+1</strong></p>
+<h3 id="_38">移码</h3>
+<p><img alt="image-20230316215757275" src="../assets/image-20230316215757275.png" /></p>
+<p>将移码的二进制数看成无符号数</p>
+<p><img alt="image-20230318191532710" src="../assets/image-20230318191532710.png" /></p>
+<h3 id="_39">几种码表示定点整数</h3>
+<p><img alt="image-20230316220013250" src="../assets/image-20230316220013250.png" /></p>
+<h2 id="_40">原码补码移码的作用</h2>
+<h3 id="_41">模运算的性质</h3>
+<p><img alt="image-20230318154945977" src="../assets/image-20230318154945977.png" /></p>
+<hr />
+<p><img alt="image-20230318191548627" src="../assets/image-20230318191548627.png" /></p>
+<p><strong>补码的作用</strong>--&gt;让减法操作转变为加法操作，节省硬件成本</p>
+<p>移码的作用--&gt;移码表示的整数很方便对比大小</p>
+<h2 id="_42">移位运算</h2>
+<p><img alt="image-20230318155805202" src="../assets/image-20230318155805202.png" /></p>
+<h3 id="_43">算数移位</h3>
+<p><img alt="image-20230318191844739" src="../assets/image-20230318191844739.png" /></p>
+<h3 id="_44">原码的算数移位</h3>
+<p><img alt="image-20230318155400802" src="../assets/image-20230318155400802.png" /></p>
+<p><img alt="image-20230318155414961" src="../assets/image-20230318155414961.png" /></p>
+<h3 id="_45">反码的算数移位</h3>
+<p><img alt="image-20230318191604316" src="../assets/image-20230318191604316.png" /></p>
+<h3 id="_46">补码的算数移位</h3>
+<p><img alt="image-20230318191718917" src="../assets/image-20230318191718917.png" /></p>
+<hr />
+<p><img alt="image-20230318191616517" src="../assets/image-20230318191616517.png" /></p>
+<h3 id="_47">逻辑移位</h3>
+<p><img alt="image-20230318191622251" src="../assets/image-20230318191622251.png" /></p>
+<h3 id="_48">循环移位</h3>
+<p><img alt="image-20230318155651837" src="../assets/image-20230318155651837.png" /></p>
+<p>大端存储与小端存储的相互转换可以使用循环移位</p>
+<h2 id="_49">加减运算和溢出判断</h2>
+<p><img alt="image-20230318160731654" src="../assets/image-20230318160731654.png" /></p>
+<h3 id="_50">原码的加减运算</h3>
+<p><img alt="image-20230318160143703" src="../assets/image-20230318160143703.png" /></p>
+<h3 id="_51">补码的加减运算</h3>
+<p><img alt="image-20230318160236979" src="../assets/image-20230318160236979.png" /></p>
+<h3 id="_52">溢出判断</h3>
+<p><img alt="image-20230318191633315" src="../assets/image-20230318191633315.png" /></p>
+<hr />
+<p><img alt="image-20230318160410907" src="../assets/image-20230318160410907.png" /></p>
+<hr />
+<p><img alt="image-20230318160445260" src="../assets/image-20230318160445260.png" /></p>
+<hr />
+<p><img alt="image-20230318160546951" src="../assets/image-20230318160546951.png" /></p>
+<h3 id="_53">符号扩展</h3>
+<p><img alt="image-20230318160619033" src="../assets/image-20230318160619033.png" /></p>
+<h2 id="_54">原码的乘法运算</h2>
+<h3 id="_55">原码一位乘法</h3>
+<p><img alt="image-20230318163844528" src="../assets/image-20230318163844528.png" /></p>
+<p><img alt="image-20230318163939782" src="../assets/image-20230318163939782.png" /></p>
+<p><img alt="image-20230318164019438" src="../assets/image-20230318164019438.png" /></p>
+<p><strong>红色部分：部分积</strong></p>
+<p><img alt="image-20230318164321230" src="../assets/image-20230318164321230.png" /></p>
+<p><img alt="image-20230318164402278" src="../assets/image-20230318164402278.png" /></p>
+<hr />
+<p><img alt="image-20230318164633427" src="../assets/image-20230318164633427.png" /></p>
+<h2 id="_56">补码的乘法运算</h2>
+<h3 id="_57">补码一位乘法</h3>
+<p><img alt="image-20230318165214821" src="../assets/image-20230318165214821.png" /></p>
+<hr />
+<p><img alt="image-20230318165310315" src="../assets/image-20230318165310315.png" /></p>
+<p><img alt="image-20230318191644357" src="../assets/image-20230318191644357.png" /></p>
+<hr />
+<p><img alt="image-20230318165443701" src="../assets/image-20230318165443701.png" /></p>
+<hr />
+<p><img alt="image-20230318170200648" src="../assets/image-20230318170200648.png" /></p>
+<h2 id="_58">原码的除法运算</h2>
+<p><img alt="image-20230318171240665" src="../assets/image-20230318171240665.png" /></p>
+<hr />
+<h3 id="_59">原码除法：恢复余数法</h3>
+<p><img alt="image-20230318171705161" src="../assets/image-20230318171705161.png" /></p>
+<hr />
+<p><img alt="image-20230318171746539" src="../assets/image-20230318171746539.png" /></p>
+<hr />
+<p><img alt="image-20230318171950290" src="../assets/image-20230318171950290.png" /></p>
+<p><img alt="image-20230318172304648" src="../assets/image-20230318172304648.png" /></p>
+<p><img alt="image-20230318172828085" src="../assets/image-20230318172828085.png" /></p>
+<p><img alt="image-20230318184106073" src="../assets/image-20230318184106073.png" /></p>
+<hr />
+<p><img alt="image-20230318184355143" src="../assets/image-20230318184355143.png" /></p>
+<h3 id="_60">加减交替法</h3>
+<p><img alt="image-20230318184518151" src="../assets/image-20230318184518151.png" /></p>
+<hr />
+<p><img alt="image-20230318184609479" src="../assets/image-20230318184609479.png" /></p>
+<hr />
+<p><img alt="image-20230318184726824" src="../assets/image-20230318184726824.png" /></p>
+<h2 id="_61">补码除法</h2>
+<h3 id="_62">加减交替法</h3>
+<h2 id="_63">重要概念</h2>
+<p><strong>基数</strong>：每个数码位所用到的不同符号的个数, r进制的基数为r</p>
+<p>ASCII码：</p>
+<ul>
+<li>大写字母：65~90</li>
+<li>小写字母：97~122</li>
+</ul>
+<p>字符串：</p>
+<ul>
+<li>大端模式：将数据的最高有效字节存放在低地址单元中</li>
+<li>小端模式：将数据的最高有效字节存放在高地址单元中</li>
+</ul>
+<p>奇偶校验码：</p>
+<ul>
+<li>由若干位代码组成的一个字叫<strong>码字</strong>。</li>
+<li>将两个码字逐位进行对比,具有不同的位的个数称为<strong>两个码字间的距离</strong>。</li>
+<li>一种编码方案可能有若干个合法码字,各合法码字间的最小距离称为“<strong>码距</strong>”。(有多少个二进制位不一样，码距就是多少)</li>
+</ul>
+<p>无符号数：整个机器字长的全部二进制位均为数值位,没有符号位,相当于数的绝对值。</p>
+<p>原码：用尾数表示真值的绝对值,符号位"0/1”对应“正/负”</p>
+<p>反码：若符号位为0，则反码与原码相同
+     若符号位为1,则数值位全部取反</p>
+<p>补码：正数的补码 = 原码
+     负数的补码=反码末位+1 (要考虑进位)</p>
+<p>移码：补码的基础上将符号位取反。注意:移码只能用于表示整数</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
