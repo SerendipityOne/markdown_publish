@@ -1,0 +1,3231 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+      
+      
+        <link rel="next" href="../Centos7%E5%AE%89%E8%A3%85Docker/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>微服务 - Serendipity_Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Serendipity_Docs" class="md-header__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Serendipity_Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              微服务
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Serendipity_Docs" class="md-nav__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Serendipity_Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          数据结构和算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构和算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        数据结构和算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        算法总结
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="md-nav__link">
+        动态规划
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          java学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          java学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          微服务
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        微服务
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    微服务调用方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    跨服务远程调用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eureka" class="md-nav__link">
+    Eureka注册中心
+  </a>
+  
+    <nav class="md-nav" aria-label="Eureka注册中心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eureka_1" class="md-nav__link">
+    搭建Eureka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    服务注册
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    服务拉取/发现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ribbon" class="md-nav__link">
+    Ribbon负载均衡
+  </a>
+  
+    <nav class="md-nav" aria-label="Ribbon负载均衡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    负载均衡策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    自定义负载均衡策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    饥饿加载
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nacos" class="md-nav__link">
+    Nacos注册中心
+  </a>
+  
+    <nav class="md-nav" aria-label="Nacos注册中心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nacos_1" class="md-nav__link">
+    Nacos服务搭建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_2" class="md-nav__link">
+    Nacos服务的注册或发现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_3" class="md-nav__link">
+    Nacos服务分级模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    如何设置实例的集群属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacosrule" class="md-nav__link">
+    NacosRule负载均衡策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_4" class="md-nav__link">
+    Nacos加权负载均衡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_5" class="md-nav__link">
+    Nacos环境隔离
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacoseureka" class="md-nav__link">
+    Nacos与Eureka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_6" class="md-nav__link">
+    Nacos配置管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_7" class="md-nav__link">
+    Nacos集群
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpfeign" class="md-nav__link">
+    http客户端Feign
+  </a>
+  
+    <nav class="md-nav" aria-label="http客户端Feign">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    快速入门
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feign" class="md-nav__link">
+    自定义Feign配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feign_1" class="md-nav__link">
+    Feign优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feign_2" class="md-nav__link">
+    Feign最佳实践
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    统一网关Gateway
+  </a>
+  
+    <nav class="md-nav" aria-label="统一网关Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    搭建网关
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-predicate-factory" class="md-nav__link">
+    路由断言工厂Route Predicate Factory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gatewayfilter" class="md-nav__link">
+    路由过滤器GatewayFilter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    全局过滤器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    过滤器执行顺序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    跨域问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    自定义镜像
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义镜像">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    镜像结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockercompose" class="md-nav__link">
+    DockerCompose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    私有镜像服务器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mq" class="md-nav__link">
+    MQ
+  </a>
+  
+    <nav class="md-nav" aria-label="MQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    同步
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    异步
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mq_1" class="md-nav__link">
+    MQ框架间的区别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq" class="md-nav__link">
+    RabbitMQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#springamqp" class="md-nav__link">
+    SpringAMQP
+  </a>
+  
+    <nav class="md-nav" aria-label="SpringAMQP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#springamqp_1" class="md-nav__link">
+    SpringAMQP如何发送消息？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#springamqp_2" class="md-nav__link">
+    SpringAMQP如何接收消息？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-queue" class="md-nav__link">
+    Work Queue 工作队列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fanout-exchange" class="md-nav__link">
+    发布订阅-Fanout Exchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-directexchange" class="md-nav__link">
+    发布订阅-DirectExchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-topicexchange" class="md-nav__link">
+    发布订阅-TopicExchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    消息转换器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    elasticsearch
+  </a>
+  
+    <nav class="md-nav" aria-label="elasticsearch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    倒排索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysqlelasticsearch" class="md-nav__link">
+    Mysql与Elasticsearch的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    分词器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    索引库
+  </a>
+  
+    <nav class="md-nav" aria-label="索引库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping" class="md-nav__link">
+    mapping属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    索引库操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    文档操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restclient" class="md-nav__link">
+    RestClient
+  </a>
+  
+    <nav class="md-nav" aria-label="RestClient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    操作索引库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    操作文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Centos7%E5%AE%89%E8%A3%85Docker/" class="md-nav__link">
+        Centos7安装Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Docker命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MyBatis-Plus/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nacos%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        nacos集群搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RabbitMQ%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        RabbitMQ部署指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis7/" class="md-nav__link">
+        Redis7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spring6/" class="md-nav__link">
+        Spring6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%89%E8%A3%85elasticsearch/" class="md-nav__link">
+        安装elasticsearch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          前端学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          前端学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%89%8D%E7%AB%AF/Vue%EF%BC%88%E9%9D%9E%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（非脚手架）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%89%8D%E7%AB%AF/Vue%EF%BC%88%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（脚手架）
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          嵌入式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          嵌入式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/C51%E5%8D%95%E7%89%87%E6%9C%BA/" class="md-nav__link">
+        C51单片机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          考研
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          考研
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%80%83%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%80%83%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        计算机组成原理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    微服务调用方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    跨服务远程调用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eureka" class="md-nav__link">
+    Eureka注册中心
+  </a>
+  
+    <nav class="md-nav" aria-label="Eureka注册中心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eureka_1" class="md-nav__link">
+    搭建Eureka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    服务注册
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    服务拉取/发现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ribbon" class="md-nav__link">
+    Ribbon负载均衡
+  </a>
+  
+    <nav class="md-nav" aria-label="Ribbon负载均衡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    负载均衡策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    自定义负载均衡策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    饥饿加载
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nacos" class="md-nav__link">
+    Nacos注册中心
+  </a>
+  
+    <nav class="md-nav" aria-label="Nacos注册中心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nacos_1" class="md-nav__link">
+    Nacos服务搭建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_2" class="md-nav__link">
+    Nacos服务的注册或发现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_3" class="md-nav__link">
+    Nacos服务分级模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    如何设置实例的集群属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacosrule" class="md-nav__link">
+    NacosRule负载均衡策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_4" class="md-nav__link">
+    Nacos加权负载均衡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_5" class="md-nav__link">
+    Nacos环境隔离
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacoseureka" class="md-nav__link">
+    Nacos与Eureka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_6" class="md-nav__link">
+    Nacos配置管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacos_7" class="md-nav__link">
+    Nacos集群
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpfeign" class="md-nav__link">
+    http客户端Feign
+  </a>
+  
+    <nav class="md-nav" aria-label="http客户端Feign">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    快速入门
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feign" class="md-nav__link">
+    自定义Feign配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feign_1" class="md-nav__link">
+    Feign优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feign_2" class="md-nav__link">
+    Feign最佳实践
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    统一网关Gateway
+  </a>
+  
+    <nav class="md-nav" aria-label="统一网关Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    搭建网关
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-predicate-factory" class="md-nav__link">
+    路由断言工厂Route Predicate Factory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gatewayfilter" class="md-nav__link">
+    路由过滤器GatewayFilter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    全局过滤器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    过滤器执行顺序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    跨域问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    自定义镜像
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义镜像">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    镜像结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockercompose" class="md-nav__link">
+    DockerCompose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    私有镜像服务器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mq" class="md-nav__link">
+    MQ
+  </a>
+  
+    <nav class="md-nav" aria-label="MQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    同步
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    异步
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mq_1" class="md-nav__link">
+    MQ框架间的区别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq" class="md-nav__link">
+    RabbitMQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#springamqp" class="md-nav__link">
+    SpringAMQP
+  </a>
+  
+    <nav class="md-nav" aria-label="SpringAMQP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#springamqp_1" class="md-nav__link">
+    SpringAMQP如何发送消息？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#springamqp_2" class="md-nav__link">
+    SpringAMQP如何接收消息？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-queue" class="md-nav__link">
+    Work Queue 工作队列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fanout-exchange" class="md-nav__link">
+    发布订阅-Fanout Exchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-directexchange" class="md-nav__link">
+    发布订阅-DirectExchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-topicexchange" class="md-nav__link">
+    发布订阅-TopicExchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    消息转换器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    elasticsearch
+  </a>
+  
+    <nav class="md-nav" aria-label="elasticsearch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    倒排索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysqlelasticsearch" class="md-nav__link">
+    Mysql与Elasticsearch的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    分词器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    索引库
+  </a>
+  
+    <nav class="md-nav" aria-label="索引库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping" class="md-nav__link">
+    mapping属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    索引库操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    文档操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restclient" class="md-nav__link">
+    RestClient
+  </a>
+  
+    <nav class="md-nav" aria-label="RestClient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    操作索引库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    操作文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">微服务</h1>
+<p>单体架构的特点：</p>
+<ul>
+<li>简单方便、高度耦合、扩展性差，适合小型项目。例如：学生管理系统</li>
+</ul>
+<p>分布式架构特点：</p>
+<ul>
+<li>松耦合、扩展性好，但架构复杂，难度大。适合大型互联网项目，例如：京东、淘宝</li>
+</ul>
+<p>微服务：一张良好的分布式架构方案</p>
+<ul>
+<li>优点：拆分粒度更小、服务更独立、耦合度更低</li>
+<li>缺点：架构非常复杂，运维、监控、部署难度提高</li>
+</ul>
+<hr />
+<ol>
+<li>微服务需要根据业务模块拆分,做到单一职责,不要重复开发相同
+   业务</li>
+<li>微服务可以将业务暴露为接口,供其它微服务使用</li>
+</ol>
+<h2 id="_2">微服务调用方式</h2>
+<ul>
+<li>基于RestTemplate法器的http请求实现远程调用</li>
+<li>http请求做远程调用是与语言无关的调用，只要知道对方的ip、端口、接口路径、请求参数即可</li>
+</ul>
+<h2 id="_3">跨服务远程调用</h2>
+<p>步骤：</p>
+<ol>
+<li>注册RestTemplate
+   在order-service的OrderAcpplication中注册RestTemplate</li>
+</ol>
+<p>```java
+   @MapperScan("cn.itcast.order.mapper")
+   @SpringBootApplication
+   public class OrderApplication {</p>
+<pre><code>   public static void main(String[] args) {
+       SpringApplication.run(OrderApplication.class, args);
+   }
+
+   /**
+    * 创建RestTemplate注入spring容器
+    */
+   @Bean
+   public RestTemplate restTemplate(){
+       return new RestTemplate();
+   }
+</code></pre>
+<p>}
+   ```</p>
+<ol>
+<li>
+<p>服务远程调用RestTemplate
+   ```java
+   @Service
+   public class OrderService {</p>
+<p>@Resource
+  private OrderMapper orderMapper;</p>
+<p>@Resource
+  private RestTemplate restTemplate;</p>
+<p>public Order queryOrderById(Long orderId) {
+     // 查询订单
+     Order order = orderMapper.findById(orderId);
+     // 利用RestTemplate发送http请求，得到user数据
+     String url = "http://localhost:8081/user/" + order.getUserId();
+     User user = restTemplate.getForObject(url, User.class);
+     order.setUser(user);
+     // 返回
+     return order;
+  }
+   }
+   ```</p>
+</li>
+</ol>
+<p>结果：</p>
+<p><img alt="image-20230318192007296" src="../assets/image-20230318192007296.png" /></p>
+<h2 id="eureka">Eureka注册中心</h2>
+<p>在Eureka架构中，微服务角色有两类：</p>
+<ol>
+<li>EurekaServer：服务端，注册中心</li>
+<li>记录服务信息</li>
+<li>心跳监控</li>
+<li>EurekaClient：客户端</li>
+<li>Provider：服务提供者，例如案例中的user-service<ul>
+<li>注册自己的信息到EurekaServer</li>
+<li>每隔30秒向EurekaServer发送心跳</li>
+</ul>
+</li>
+<li>consumer：服务消费者，例如案例中的order-service<ul>
+<li>根据服务名称冲EurekaServer拉取服务列表</li>
+<li>基于服务列表做负载均衡，选中一个微服务后法器远程调用</li>
+</ul>
+</li>
+</ol>
+<h3 id="eureka_1">搭建Eureka</h3>
+<ol>
+<li>引入eureka-server依赖
+   ```xml
+   <!--Eureka服务端--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>添加@EnableEurekaServer注解</li>
+</ol>
+<p><code>java
+   @EnableEurekaServer
+   @SpringBootApplication
+   public class EurekaApplication {
+      public static void main(String[] args) {
+         SpringApplication.run(EurekaApplication.class, args);
+      }
+   }</code></p>
+<ol>
+<li>在application.yml中配置eureka地址
+   <code>yml
+   server:
+     port: 10086
+   spring:
+     application:
+       name: eureka-server # Eureka的服务名称
+   eureka:
+     client:
+       service-url: # eureka的地址信息
+         defaultZone: http://localhost:10086/eureka</code></li>
+</ol>
+<h3 id="_4">服务注册</h3>
+<ol>
+<li>引入eureka-client依赖
+   ```xml
+   <!--eureka客户端--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>在application.yml中配置eureka地址
+   <code>yaml
+   server:
+     port: 8081
+   spring:
+     application:
+       name: user-service # Eureka的服务名称
+   eureka:
+     client:
+       service-url: # eureka的地址信息
+         defaultZone: http://localhost:10086/eureka</code></li>
+</ol>
+<h3 id="_5">服务拉取/发现</h3>
+<p>服务拉取是基于服务名称获取服务列表，然后再对服务列表做负载均衡</p>
+<ol>
+<li>
+<p>修改的代码，修改访问的url路径，用服务名代替ip、端口
+   <code>java
+   // String url = "http://localhost:8081/user/" + order.getUserId();
+   String url = "http://user-service/user/" + order.getUserId();</code></p>
+</li>
+<li>
+<p>在order-service项目的启动类中的RestTemplate添加<strong>负载均衡</strong>注解<span style="color: red">@LoadBalanced</span>
+   <code>java
+   @Bean
+   @LoadBalanced
+   public RestTemplate restTemplate(){
+       return new RestTemplate();
+   }</code></p>
+</li>
+</ol>
+<h2 id="ribbon">Ribbon负载均衡</h2>
+<h3 id="_6">负载均衡策略</h3>
+<table>
+<thead>
+<tr>
+<th align="left">内置负载均衡规则类</th>
+<th align="left">规则描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">RoundRobinRule</td>
+<td align="left">简单轮询服务列表来选择服务。它是Ribbon默认的负载均衡规则</td>
+</tr>
+<tr>
+<td align="left">AvailabilityFilteringRule</td>
+<td align="left">对一下两种默认服务器进行忽略：<br />（1）在默认情况下，这台服务器如果3次连接失败，这台服务器就会被设置为“短路状态”。短路状态将持续30秒，如果再次连接失败，短路的持续时间就会几何级地增加。<br />（2）并发数过高的服务器。如果一个服务器的并发连接数过高，配置了该规则的客户端也会将其忽略。并发连接数的上限，可以由客户端的<clientName>,<clientConfigNameSapce>,ActiveConnectionsLimit属性进行配置</td>
+</tr>
+<tr>
+<td align="left">WeightedResponseTimeRule</td>
+<td align="left">为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小。这个规则会随机选择服务器，这个权重会影响服务器的选择</td>
+</tr>
+<tr>
+<td align="left"><span style="color: red">ZoneAvoidanceRule(默认)</span></td>
+<td align="left">以区域可用的服务器为基础进行服务器的选择。使用Zone对服务器进行分类，这个Zone可用理解为一个机房、一个机架等。而后再对Zone内的多个服务做轮询</td>
+</tr>
+<tr>
+<td align="left">RestAvailableRule</td>
+<td align="left">忽略哪些短路的服务器，并选择并发数较低的服务器</td>
+</tr>
+<tr>
+<td align="left">RandomRule</td>
+<td align="left">随机选择一个可用的服务器</td>
+</tr>
+<tr>
+<td align="left">RetryRule</td>
+<td align="left">重试机制的选择逻辑</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">自定义负载均衡策略</h3>
+<p>通过定义IRule实现可用修改负载均衡规则，有两种方式：</p>
+<ol>
+<li>
+<p>代码方式：在order-service中的OrderApplication类中，定义一个新的IRule<span style="color: red">（作用范围是全局）</span>
+   ```java
+   /**</p>
+<ul>
+<li>修改Ribbon负载均衡规则
+*/
+   @Bean
+   public IRule randomRule() {
+   return new RandomRule();
+   }
+   ```</li>
+</ul>
+</li>
+<li>
+<p>配置文件方式：在order-service中的application.yml文件中，添加新的配置也可以修改规则<span style="color: red">（针对某个服务）</span>
+   <code>yml
+   user-service:
+     ribbon:
+       NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  # 负载均衡规则</code></p>
+</li>
+</ol>
+<h3 id="_8">饥饿加载</h3>
+<ol>
+<li>
+<p>开启饥饿加载</p>
+</li>
+<li>
+<p>指定饥饿加载的微服务名称
+   <code>yml
+   ribbon:
+     eager-load:
+       enabled: true # 开启饥饿加载
+       clients:  # 指定饥饿加载的服务名称
+         - user-service</code></p>
+</li>
+</ol>
+<h2 id="nacos">Nacos注册中心</h2>
+<h3 id="nacos_1">Nacos服务搭建</h3>
+<ol>
+<li>下载安装包</li>
+<li>解压</li>
+<li>在bin目录下运行指令：startup.cmd -m standalone</li>
+<li>在浏览器输入地址：http://localhost:8848/nacos即可</li>
+</ol>
+<p>默认的账号和密码都是nacos</p>
+<h3 id="nacos_2">Nacos服务的注册或发现</h3>
+<ol>
+<li>引入nacos.discovery依赖</li>
+</ol>
+<p>父工程：</p>
+<p><code>xml
+   &lt;dependency&gt;
+       &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+       &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
+       &lt;version&gt;2.2.5.RELEASE&lt;/version&gt;
+       &lt;type&gt;pom&lt;/type&gt;
+       &lt;scope&gt;import&lt;/scope&gt;
+   &lt;/dependency&gt;</code></p>
+<p>客户端：</p>
+<p>```xml
+   <!-- nacos客户端依赖包 --></p>
+<p><dependency>
+       <groupId>com.alibaba.cloud</groupId>
+       <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>配置nacos地址spring.cloud.nacos.server-addr
+   <code>yml
+   spring:
+     cloud:
+       nacos:
+         server-addr: localhost:8848 # nacos服务地址</code></li>
+</ol>
+<h3 id="nacos_3">Nacos服务分级模型</h3>
+<ol>
+<li>一级是服务，例如userservice</li>
+<li>二级是集群，例如杭州、上海</li>
+<li>三级是实例，例如杭州机房的某台部署了userservice的服务器</li>
+</ol>
+<h3 id="_9">如何设置实例的集群属性</h3>
+<ul>
+<li>修改application.yml文件，添加spring.cloud.nacos.discovery.cluster-name属性
+  <code>yml
+  spring:  
+    cloud:
+      nacos:
+        discovery:
+          cluster-name: SH</code></li>
+</ul>
+<h3 id="nacosrule">NacosRule负载均衡策略</h3>
+<ol>
+<li>
+<p>有限选择同集群服务实例列表</p>
+</li>
+<li>
+<p>本地集群找不到提供者，才去其他集群寻找，并且会报警告
+   <code>sh
+   01-20 12:38:55:786  WARN 27920 --- [nio-8080-exec-9] c.alibaba.cloud.nacos.ribbon.NacosRule   : A cross-cluster call occurs，name = user-service, clusterName = HZ, instance = [Instance{instanceId='192.168.3.250#8083#SH#DEFAULT_GROUP@@user-service', ip='192.168.3.250', port=8083, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='SH', serviceName='DEFAULT_GROUP@@user-service', metadata={preserved.register.source=SPRING_CLOUD}}</code></p>
+</li>
+<li>
+<p>确定了可用实例列表后，再采用<strong>随机负载均衡挑选实例</strong></p>
+</li>
+</ol>
+<h3 id="nacos_4">Nacos加权负载均衡</h3>
+<p>实例的权重控制</p>
+<ol>
+<li>Nacos控制台可以设置实例的权重值，0~1之间</li>
+<li>同集群内的多个实例，权重越高被访问的频率越高</li>
+<li>权重设置为0则完全不会被访问</li>
+</ol>
+<h3 id="nacos_5">Nacos环境隔离</h3>
+<ol>
+<li>namespace用来做环境隔离</li>
+<li>每个namespace都有唯一id</li>
+<li>不同namespace下的服务不可见</li>
+</ol>
+<p>添加命名空间：</p>
+<pre><code class="language-yml">spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: ed3999ae-1370-4d9f-bfde-2884d75ff2f3 # dev环境
+</code></pre>
+<h3 id="nacoseureka">Nacos与Eureka</h3>
+<p>共同点：</p>
+<ol>
+<li>都支持服务注册和服务拉取</li>
+<li>都支持服务提供者心跳方式做健康检测</li>
+</ol>
+<p>区别：</p>
+<ol>
+<li>Nacos支持服务端主动检测提供者状态：零食实例采用心跳模式，非临时实例采用主动检测模式</li>
+<li><strong>临时实例</strong>心跳不正常<strong>会被剔除</strong>,<strong>非临时实例</strong>则不会被剔除</li>
+<li>Nacos支持服务列表变更的消息推送模式,服务列表更新更及时</li>
+<li>Nacos集群默认采用AP方式,当集群中存在非临时实例时，采用CP模式; Eureka采用AP方式</li>
+</ol>
+<h3 id="nacos_6">Nacos配置管理</h3>
+<ol>
+<li>
+<p>在nacos中添加配置文件</p>
+</li>
+<li>
+<p>在微服务中引入nacos的config依赖
+   ```xml
+   <!--nacos的配置管理依赖--></p>
+</li>
+</ol>
+<p><dependency>
+       <groupId>com.alibaba.cloud</groupId>
+       <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>在微服务中添加bootstrap.yml,配置nacos地址、当前环境、服务名称、文件后缀名。这些决定了程序启动时去nacos读取哪个文件
+   <code>yml
+   spring:
+     application:
+       name: user-service  # 服务名称
+     profiles:
+       active: dev # 环境
+     cloud:
+       nacos:
+         server-addr: localhost:8848
+         config:
+           file-extension: yaml  # 文件后缀名</code></li>
+</ol>
+<p>Nacos配置更改后，微服务可以实现热更新，方式:</p>
+<ol>
+<li>
+<p>通过@Value注解注入,结合@RefreshScope来刷新
+   <code>java
+   @Slf4j
+   @RestController
+   @RequestMapping("/user")
+   @RefreshScope
+   public class UserController {
+       @Value("${pattern.dataformat}")
+       private String dataformat;
+   }</code></p>
+</li>
+<li>
+<p>通过@ConfigurationProperties注入，自动刷新
+   ```java
+   @Data
+   @Component
+   @ConfigurationProperties(prefix = "pattern")
+   public class PatternProperties {
+      private String dataformat;
+   }</p>
+</li>
+</ol>
+<p>@Slf4j
+   @RestController
+   @RequestMapping("/user")
+   public class UserController {
+       @Resource
+       private PatternProperties properties;
+   }
+   ```</p>
+<p><span style="color: red">注意：</span></p>
+<ol>
+<li>不是所有的配置都适合放到配置中心,维护起来比较麻烦</li>
+<li>建议将一些关键参数，需要运行时调整的参数放到nacos配置中心，一般都是自定义配置</li>
+</ol>
+<p>微服务会从nacos读取的配置文件:</p>
+<ol>
+<li>[服务名]-[spring.profile.active].yaml,环境配置</li>
+<li>[服务名].yaml,默认配置,多环境共享</li>
+</ol>
+<p><span style="color: red">优先级：</span></p>
+<p>[服务名]-[环境].yaml &gt; [服务名].yaml &gt; 本地配置</p>
+<h3 id="nacos_7">Nacos集群</h3>
+<p>集群搭建步骤：</p>
+<ol>
+<li>搭建MySQL集群并初始化数据库表</li>
+<li>下载解压nacos</li>
+<li>修改集群配置(节点信息)、数据库配置</li>
+<li>分别启动多个nacos节点</li>
+<li>nginx反向代理</li>
+</ol>
+<h2 id="httpfeign">http客户端Feign</h2>
+<h3 id="_10">快速入门</h3>
+<p>Feign的使用步骤</p>
+<ol>
+<li>引入依赖
+   ```xml
+   <!--Feign依赖--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-openfeign</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>添加@EnableFeignClients注解
+   ```java
+   @MapperScan("cn.itcast.order.mapper")
+   @SpringBootApplication
+   @EnableFeignClients
+   public class OrderApplication {
+      public static void main(String[] args) {
+         SpringApplication.run(OrderApplication.class, args);
+      }
+   }</li>
+</ol>
+<p>```</p>
+<ol>
+<li>
+<p>编写FeignClient接口
+   <code>java
+   @FeignClient("userservice")
+   public interface UserClient {
+      @GetMapping("user/{id}")
+      User findById(@PathVariable Long id);
+   }</code></p>
+</li>
+<li>
+<p>使用FeignClient中定义的方法代替RestTemplate
+   ```java
+   @Service
+   public class OrderService {</p>
+<p>@Resource
+  private OrderMapper orderMapper;</p>
+<p>@Resource
+  private UserClient userClient;</p>
+<p>public Order queryOrderById(Long orderId) {
+     // 查询订单
+     Order order = orderMapper.findById(orderId);
+     // 利用Feign发送http请求，得到user数据
+     User user = userClient.findById(order.getUserId());
+     order.setUser(user);
+     // 返回
+     return order;
+  }
+   }
+   ```</p>
+</li>
+</ol>
+<h3 id="feign">自定义Feign配置</h3>
+<p>Feign运行自定义配置来覆盖默认配置,可以修改的配置如下:</p>
+<p><img alt="image-20230127170218038" src="../assets/image-20230127170218038.png" /></p>
+<p>一般我们需要配置的就是日志级别。</p>
+<p>Feign的日志配置:</p>
+<ol>
+<li>
+<p>方式一是配置文件, feign.client.config.xxx.loggerLevel</p>
+</li>
+<li>
+<p>如果xxx是default则代表全局
+     <code>yml
+     feign:
+       client:
+         config:
+           default:
+             logger-level: full</code></p>
+</li>
+<li>
+<p>如果xxx是服务名称，例如userservice则代表某服务
+     <code>yml
+     feign:
+       client:
+         config:
+           userserivce:
+             logger-level: full</code></p>
+</li>
+<li>
+<p>方式二是java代码配置Logger.Level这个Bean
+   <code>java
+   public class DefaultFeignConfig {
+      @Bean
+      public Logger.Level logLevel(){
+         return Logger.Level.BASIC;
+      }
+   }</code></p>
+</li>
+<li>
+<p>如果在@EnableFeignClients注解声明则代表全局
+     <code>java
+     @MapperScan("cn.itcast.order.mapper")
+     @SpringBootApplication
+     @EnableFeignClients(defaultConfiguration =  DefaultFeignConfig.class)
+     public class OrderApplication {
+        public static void main(String[] args) {
+           SpringApplication.run(OrderApplication.class, args);
+        }
+     }</code></p>
+</li>
+<li>
+<p>如果在@FeignClient注解中声明则代表某服务
+     <code>java
+     @FeignClient("userservice")
+     public class DefaultFeignConfig {
+        @Bean
+        public Logger.Level logLevel(){
+           return Logger.Level.BASIC;
+        }
+     }</code></p>
+</li>
+</ol>
+<h3 id="feign_1">Feign优化</h3>
+<ol>
+<li>
+<p>日志级别尽量用basic</p>
+</li>
+<li>
+<p>使用HttpClient或OKHttp代替URLConnection</p>
+</li>
+<li>
+<p>引入feign-httpClient依赖
+     <code>xml
+     &lt;!--HttpClient--&gt;
+     &lt;dependency&gt;
+         &lt;groupId&gt;io.github.openfeign&lt;/groupId&gt;
+         &lt;artifactId&gt;feign-httpclient&lt;/artifactId&gt;
+     &lt;/dependency&gt;</code></p>
+</li>
+<li>
+<p>配置文件开启httpClient功能，设置连接池参数
+     <code>yml
+     feign:
+       httpclient:
+         enabled: true # 支持HttpClient的开关
+         max-connections: 200  # 最大连接数
+         max-connections-per-route: 50 # 单个路径最大的连接数</code></p>
+</li>
+</ol>
+<h3 id="feign_2">Feign最佳实践</h3>
+<ol>
+<li>让controller和FeignClient继承同一接口</li>
+<li>将FeignClient、POJO、Feign的默认配置都定义到一个项目中，供所有消费者使用</li>
+</ol>
+<p>不同包的FeignClient的导入有两种方式:</p>
+<ol>
+<li>在@EnableFeignClients注解中添加basePackages，指定FeignClient所在的包</li>
+</ol>
+<p><code>java
+   @EnableFeignClients(basePackages = "cn.itcast.feign.clients")</code></p>
+<ol>
+<li>在@EnableFeignClients注解中添加clients，指定具体FeignClient的字节码
+   <code>java
+   @EnableFeignClients(clients = UserClient.class)</code></li>
+</ol>
+<h2 id="gateway">统一网关Gateway</h2>
+<p>网关的作用:</p>
+<ul>
+<li>对用户请求做身份认证、权限校验</li>
+<li>将用户请求路由到微服务,并实现负载均衡</li>
+<li>对用户请求做限流</li>
+</ul>
+<h3 id="_11">搭建网关</h3>
+<p><img alt="image-20230128172302399" src="../assets/image-20230128172302399.png" /></p>
+<ol>
+<li>创建项目，引入nacos服务发现和gateway依赖
+  ```xml
+  <!--nacos服务发现依赖--></li>
+</ol>
+<p><dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+  </dependency>
+  <!--Gateway网关依赖--></p>
+<p><dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
+  </dependency>
+  ```</p>
+<ol>
+<li>配置application.yml,包括服务基本信息、nacos地址、路由</li>
+</ol>
+<p><code>yml
+  server:
+    port: 10010
+  spring:
+    application:
+      name: gateway
+    cloud:
+      nacos:
+        server-addr: localhost:8848
+      gateway:
+        routes:
+          - id: user-service # 路由标识，必须唯一
+            uri: lb://userserivce # 路由的目标地址
+            predicates: # 路径断言，判断请求是否符合规则
+              - Path=/user/** # 路径断言，判断请求是否是以/user开头
+          - id: order-service
+            uri: lb://orderservice
+            predicates:
+              - Path=/order/**</code></p>
+<p>路由配置包括:</p>
+<ol>
+<li>路由id: 路由的唯一标示</li>
+<li>路由目标(uri): 路由的目标地址，http代表固定地址，lb代表根据服务名负载均衡</li>
+<li>
+<p><span style="color: red">路由断言(predicates): 判断路由的规则，判断请求是否符合要求，符合则转发到路由目的地</span></p>
+</li>
+<li>
+<p>路由过滤器(filters): 对请求或响应做处理</p>
+</li>
+</ol>
+<h3 id="route-predicate-factory">路由断言工厂Route Predicate Factory</h3>
+<p><img alt="image-20230128172641592" src="../assets/image-20230128172641592.png" /></p>
+<ul>
+<li>PredicateFactory的作用是什么?</li>
+</ul>
+<p>读取用户定义的断言条件,对请求做出判断</p>
+<ul>
+<li>Path=/user/**是什么含义?</li>
+</ul>
+<p>路径是以/user开头的就认为是符合的</p>
+<h3 id="gatewayfilter">路由过滤器GatewayFilter</h3>
+<p><img alt="image-20230128174313299" src="../assets/image-20230128174313299.png" /></p>
+<p>过滤器的作用是什么？</p>
+<ol>
+<li>对路由的请求或响应做加工处理，比如添加请求头</li>
+<li>配置在路由下的过滤器只对当前路由的请求生效</li>
+</ol>
+<p>defaultFilters的作用是什么?</p>
+<ul>
+<li>对所有路由都生效的过滤器</li>
+</ul>
+<h3 id="_12">全局过滤器</h3>
+<ul>
+<li>全局过滤器的作用是什么？</li>
+</ul>
+<p>对所有路由都生效的过滤器，并且可以自定义处理逻辑</p>
+<ul>
+<li>
+<p>实现全局过滤器的步骤？</p>
+</li>
+<li>
+<p>实现GlobalFilter接口</p>
+</li>
+<li>添加@Order注解或实现Ordered接口</li>
+<li>编写处理逻辑</li>
+</ul>
+<p><code>java
+  @Component
+  @Order(-1)    // 设置执行顺序优先级，一定要有！！！！
+  public class AuthorizeFilter implements GlobalFilter {
+     @Override
+     public Mono&lt;Void&gt; filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        // 获取请求参数
+        ServerHttpRequest request = exchange.getRequest();
+        MultiValueMap&lt;String, String&gt; params = request.getQueryParams();
+        // 获取参数中的authorize参数
+        String authorize = params.getFirst("authorize");
+        // 判断参数是否等于admin
+        if ("admin".equals(authorize)) {
+           // 是，放行
+           return chain.filter(exchange);
+        }
+        // 否
+        // 设置状态码
+        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+        // 拦截
+        return exchange.getResponse().setComplete();
+     }
+  }</code></p>
+<h3 id="_13">过滤器执行顺序</h3>
+<ul>
+<li>每一个过滤器都必须指定一个int类型的order值,<strong>order值越小,优先级越高,执行顺序越靠前</strong>。</li>
+<li>GlobalFilter通过实现Ordered接口,或者添加@Order注解来指定order值,由我们自己指定</li>
+<li>路由过滤器和defaultFilter的order由Spring指定,默认是按照声明顺序从1递增。</li>
+<li>当过滤器的order值一样时,会按照defaultFilter &gt;路由过滤器&gt; GlobalFilter的顺序执行。</li>
+</ul>
+<p>路由过滤器、defaultFilter、全局过滤器的执行顺序?</p>
+<ol>
+<li>order值越小，优先级越高</li>
+<li>当order值一样时，顺序是defaultFilter最先，然后是局部的路由过滤器,最后是全局过滤器</li>
+</ol>
+<h3 id="_14">跨域问题</h3>
+<p>跨域：域名个一致就是跨域，土要包括</p>
+<ul>
+<li>域名不同: www.taobao.com和www.taobao.org和www.jd.com和miaosha.jd.com</li>
+<li>域名相同,端口不同: localhost:8080和localhost:8081</li>
+</ul>
+<p>跨域问题：浏览器禁止请求的发起者与服务端发生跨域ajax请求,请求被浏览器拦截的问题</p>
+<pre><code class="language-yml">spring:
+    gateway:
+      globalcors: # 全局的跨域处理
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: # 允许那些网站的跨域请求
+              - &quot;http://localhost:8090&quot;
+              - &quot;http://www.leyou.com&quot;
+            allowedMethods: # 允许的跨域ajax的请求方式
+              - &quot;GET&quot;
+              - &quot;POST&quot;
+              - &quot;PUT&quot;
+              - &quot;DELETE&quot;
+              - &quot;OPTIONS&quot;
+            allowedHeaders: &quot;*&quot; # 允许在请求中携带的头信息
+            allowCredentials: true # 是否允许携带cookie
+            maxAge: 360000 # 这次跨域检测的有效期
+</code></pre>
+<h2 id="docker">Docker</h2>
+<ul>
+<li>
+<p>Docker如何解决大型项目依赖关系复杂,不同组件依赖的兼容性问题?</p>
+</li>
+<li>
+<p>Docker允许开发中将应用、依赖、函数库、配置一起<strong>打包</strong>，形成可移植镜像</p>
+</li>
+<li>
+<p>Docker应用运行在容器中，使用沙箱机制，相互<strong>隔离</strong></p>
+</li>
+<li>
+<p>Docker如何解决开发、测试、生产环境有差异的问题</p>
+</li>
+<li>
+<p>Docker镜像中包含完整运行环境，包括系统函数库，仅依赖系统的Linux内核，因此可以在任意Linux操作系统上运行</p>
+</li>
+<li>
+<p>Docker是一个快速交付应用、运行应用的技术:</p>
+</li>
+<li>
+<p>可以将程序及其依赖、运行环境一起打包为一个镜像,可以迁移到任意Linux操作系统</p>
+</li>
+<li>
+<p>运行时利用沙箱机制形成隔离容器,各个应用互不干扰</p>
+</li>
+<li>
+<p>启动、移除都可以通过一行命令完成,方便快捷</p>
+</li>
+<li>
+<p>Docker和虚拟机的差异：</p>
+</li>
+<li>docker是一个系统进程；虚拟机是在操作系统中的操作系统</li>
+<li>
+<p>docker体积小、启动速度快、性能好;虚拟机体积大、启动速度慢、性能一般</p>
+</li>
+<li>
+<p>镜像：</p>
+</li>
+<li>将应用程序及其依赖、环境、配置打包在一起</li>
+<li>容器：</li>
+<li>镜像运行起来就是容器,一个镜像可以运行多个容器</li>
+<li>Docker结构：</li>
+<li>服务端:接收命令或远程请求,操作镜像或容器</li>
+<li>客户端:发送命令或者请求到Docker服务端</li>
+<li>DockerHub:</li>
+<li>一个镜像托管的服务器，类似的还有阿里云镜像服务，统称为DockerRegistry</li>
+</ul>
+<h3 id="_15">自定义镜像</h3>
+<h4 id="_16">镜像结构</h4>
+<p><img alt="image-20230131105541823" src="../assets/image-20230131105541823.png" /></p>
+<p>镜像是分层结构,每一层称为一个Layer</p>
+<ul>
+<li>Baselmage层:包含基本的系统函数库、环境变量、文件系统</li>
+<li>Entrypoint:入口，是镜像中应用启动的命令</li>
+<li>其它:在Baselmage基础上添加依赖、安装程序、完成整个应用的安装和配置</li>
+</ul>
+<h3 id="dockerfile">Dockerfile</h3>
+<p><img alt="image-20230131105616466" src="../assets/image-20230131105616466.png" /></p>
+<ol>
+<li>Dockerfile的本质是一个文件,通过指令描述镜像的构建过程</li>
+<li>Dockerfile的第一行必须是FROM，从一个基础镜像来构建</li>
+<li>基础镜像可以是基本操作系统,如Ubuntu。也可以是其他人制作好的镜像,例如: java:8-alpine</li>
+</ol>
+<h3 id="dockercompose">DockerCompose</h3>
+<p>DockerCompose有什么作用？</p>
+<ul>
+<li>帮助我们快速部署分布式应用,无需一个个微服务去构建镜像和部署。</li>
+</ul>
+<h3 id="_17">私有镜像服务器</h3>
+<ol>
+<li>推送本地镜像到仓库前都必须重命名(docker tag)镜像，以镜像仓库地址为前缀</li>
+<li>
+<p>镜像仓库推送前需要把仓库地址配置到docker服务的daemon.json文件中，</p>
+</li>
+<li>
+<p>推送使用docker push命令</p>
+</li>
+<li>拉取使用docker pull命令</li>
+</ol>
+<h2 id="mq">MQ</h2>
+<h3 id="_18">同步</h3>
+<p>同步调用的优点：</p>
+<ul>
+<li>时效性较强，可以立即得到结果</li>
+</ul>
+<p>同步调用的问题：</p>
+<ul>
+<li>耦合度高</li>
+<li>性能和吞吐能力下降</li>
+<li>有额外的资源消耗</li>
+<li>有级联失败问题</li>
+</ul>
+<h3 id="_19">异步</h3>
+<p>异步通信的优点：</p>
+<ul>
+<li>耦合度低</li>
+<li>吞吐量提升</li>
+<li>故障隔离</li>
+<li>流量削峰</li>
+</ul>
+<p>异步通信的缺点：</p>
+<ul>
+<li>依赖于Broker的可靠性、安全性、吞吐能力</li>
+<li>架构复杂了，业务没有明显的流程线，不好追踪管理</li>
+</ul>
+<p><img alt="image-20230203114814044" src="../assets/image-20230203114814044.png" /></p>
+<h3 id="mq_1">MQ框架间的区别</h3>
+<p><img alt="image-20230203115733821" src="../assets/image-20230203115733821.png" /></p>
+<h3 id="rabbitmq">RabbitMQ</h3>
+<p>RabbitMQ中的几个概念:</p>
+<ul>
+<li>channel:操作MQ的工具</li>
+<li>exchange：路由消息到队列中</li>
+<li>queue：缓存消息</li>
+<li>virtual host:虚拟主机，是对queue、exchange等资源的逻辑分组</li>
+</ul>
+<p><img alt="image-20230203124957179" src="../assets/image-20230203124957179.png" /></p>
+<p>基本消息队列的消息发送流程：
+1. 建立connection
+2. 创建channel
+3. 利用channel声明队列
+4. 利用channel向队列发送消息</p>
+<p>基本消息队列的消息接收流程：</p>
+<ol>
+<li>建立connection</li>
+<li>创建channel</li>
+<li>利用channel声明队列<span style='color: red'>(为了避免队列不存在，所以再次声明队列)</span></li>
+<li>定义consumer的消费行为handleDelivery()</li>
+<li>利用channel将消费者与队列绑定</li>
+</ol>
+<h3 id="springamqp">SpringAMQP</h3>
+<p>什么是AMQP?</p>
+<ul>
+<li>应用间消息通信的一种协议,与语言和平台无关。</li>
+</ul>
+<h4 id="springamqp_1">SpringAMQP如何发送消息？</h4>
+<ul>
+<li>引入amqp的starter依赖
+  ```xml
+  <!--AMQP依赖，包含RabbitMQ--></li>
+</ul>
+<p><dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+  </dependency>
+  ```</p>
+<ul>
+<li>
+<p>配置RabbitMQ地址
+  <code>yml
+  spring:
+    rabbitmq:
+      host: 192.168.58.129 # rabbitMQ的ip地址
+      port: 5672
+      username: itcast
+      password: 123321
+      virtual-host: /</code></p>
+</li>
+<li>
+<p>利用RabbitTemplate的convertAndSend方法
+  ```java
+  @SpringBootTest
+  @RunWith(SpringRunner.class)
+  public class SpringAMQPTest {
+     @Resource
+     private RabbitTemplate rabbitTemplate;</p>
+<p>@Test
+ public void testSendMsgSimpleQueue() {
+    String queueName = "simple.queue";
+    String msg = "hello, springAMQP";
+    rabbitTemplate.convertAndSend(queueName, msg);
+ }
+  }
+  ```</p>
+</li>
+</ul>
+<h4 id="springamqp_2">SpringAMQP如何接收消息？</h4>
+<ol>
+<li>引入amqp的starter依赖
+   ```xml
+   <!--AMQP依赖，包含RabbitMQ--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-amqp</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>
+<p>配置RabbitMQ地址
+   <code>yml
+   spring:
+     rabbitmq:
+       host: 192.168.58.129 # rabbitMQ的ip地址
+       port: 5672
+       username: itcast
+       password: 123321
+       virtual-host: /</code></p>
+</li>
+<li>
+<p>定义类，添加@Component注解</p>
+</li>
+<li>
+<p>类中声明方法，添加@RabbitListener注解，方法参数就时消息
+   <code>java
+   @Component
+   public class SpringRabbitListener {
+      @RabbitListener(queues = "simple.queue")
+      public void listenerSimpleQueue(String msg) {
+         System.out.println("消费者监听到simple.queue的消息：" + msg);
+      }
+   }</code></p>
+</li>
+</ol>
+<p><span style='color:red'>注意：消息一旦消费就会从队列删除，RabbitMQ没有消息回溯功能</span></p>
+<h4 id="work-queue">Work Queue 工作队列</h4>
+<p>Work queue,工作队列,可以提高消息处理速度,避免队列消息堆积</p>
+<p>Work模型的使用：</p>
+<ol>
+<li>
+<p>多个消费者绑定到一个队列,同一条消息只会被一个消费者处理</p>
+</li>
+<li>
+<p>通过设置prefetch来控制消费者预取的消息数量
+   <code>yml
+   spring:
+     rabbitmq:
+       host: 192.168.58.129 # rabbitMQ的ip地址
+       port: 5672
+       username: itcast
+       password: 123321
+       virtual-host: /
+       listener:
+         simple:
+           prefetch: 1 # 设置消息预取上限，每次只能获取1条消息，处理完才能获取下一个消息</code></p>
+</li>
+</ol>
+<h4 id="-fanout-exchange">发布订阅-Fanout Exchange</h4>
+<p>Fanout Exchange会将接收到的消息路由到每一个跟其绑定的queue</p>
+<p>交换机的作用是什么？</p>
+<ul>
+<li>接收publisher发送的消息</li>
+<li>将消息按照规则路由到与之绑定的队列</li>
+<li>不能缓存消息，路由失败，消息丢失</li>
+<li>FanoutExchange的会将消息路由到每个绑定的队列</li>
+</ul>
+<p>声明队列、交换机、绑定关系的Bean是什么?</p>
+<ul>
+<li>Queue</li>
+<li>FanoutExchange</li>
+<li>Binding</li>
+</ul>
+<p>步骤：</p>
+<ol>
+<li>实现交换机与队列的绑定</li>
+</ol>
+<pre><code class="language-java">@Configuration
+public class FanoutConfig {
+   //声明交换机
+   @Bean
+   public FanoutExchange fanoutExchange() {
+      return new FanoutExchange(&quot;itcast.fanout&quot;);
+   }
+
+   //声明队列fanout.queue1
+   @Bean
+   public Queue fanoutQueue1() {
+      return new Queue(&quot;fanout.queue1&quot;);
+   }
+
+   //绑定
+   @Bean
+   public Binding fanoutBinding1(Queue fanoutQueue1, FanoutExchange fanoutExchange) {
+      return BindingBuilder.bind(fanoutQueue1).to(fanoutExchange);
+   }
+
+   //声明队列fanout.queue2
+   @Bean
+   public Queue fanoutQueue2() {
+      return new Queue(&quot;fanout.queue2&quot;);
+   }
+
+   @Bean
+   public Binding fanoutBinding2(Queue fanoutQueue2, FanoutExchange fanoutExchange) {
+      return BindingBuilder.bind(fanoutQueue2).to(fanoutExchange);
+   }
+}
+</code></pre>
+<ol>
+<li>接收</li>
+</ol>
+<pre><code class="language-java">@Component
+public class SpringRabbitListener {
+   @RabbitListener(queues = &quot;fanout.queue1&quot;)
+   public void listenerFanoutQueue1(String msg) throws InterruptedException {
+      System.out.println(&quot;消费者[1]接受到fanout.queue的消息：[&quot; + msg + &quot;]&quot;);
+      Thread.sleep(200);
+   }
+
+   @RabbitListener(queues = &quot;fanout.queue2&quot;)
+   public void listenerFanoutQueue2(String msg) throws InterruptedException {
+      System.err.println(&quot;消费者[2]接受到fanout.queue的消息：[&quot; + msg + &quot;]&quot;);
+      Thread.sleep(200);
+   }
+}
+</code></pre>
+<ol>
+<li>发送</li>
+</ol>
+<pre><code class="language-java">@SpringBootTest
+@RunWith(SpringRunner.class)
+public class SpringAMQPTest {
+   @Resource
+   private RabbitTemplate rabbitTemplate;
+
+   @Test
+   public void testSendFanoutExchange() {
+      String exchangeName = &quot;itcast.fanout&quot;;
+      String msg = &quot;hello everyone&quot;;
+      // 发送消息，参数分别是：交互机名称、RoutingKey（暂时为空）、消息
+      rabbitTemplate.convertAndSend(exchangeName, &quot;&quot;, msg);
+   }
+}
+</code></pre>
+<h4 id="-directexchange">发布订阅-DirectExchange</h4>
+<p>Direct Exchange会将接收到的消息根据规则路由到<strong>指定</strong>的Queue,因此称为路由模式(routes) 。</p>
+<p><img alt="image-20230203165114097" src="../assets/image-20230203165114097.png" /></p>
+<p>使用步骤：</p>
+<ol>
+<li>在consumer服务中,编写两个消费者方法,分别监听direct.queue1和direct.queue2,</li>
+<li>并利用@RabbitListener声明Exchange,Queue、 RoutingKey</li>
+</ol>
+<pre><code class="language-java">@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;direct.queue1&quot;),
+    exchange = @Exchange(name = &quot;itcast.direct&quot;, type = ExchangeTypes.DIRECT),
+    key = {&quot;red&quot;, &quot;blue&quot;}
+))
+public void listenDirectQueue1(String msg) {
+    System.out.println(&quot;消费者接受到direct.queue1的消息：[&quot; + msg + &quot;]&quot;);
+}
+
+@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;direct.queue2&quot;),
+    exchange = @Exchange(name = &quot;itcast.direct&quot;, type = ExchangeTypes.DIRECT),
+    key = {&quot;red&quot;, &quot;yellow&quot;}
+))
+public void listenDirectQueue2(String msg) {
+    System.out.println(&quot;消费者接受到direct.queue2的消息：[&quot; + msg + &quot;]&quot;);
+}
+</code></pre>
+<p>描述下Direct交换机与Fanout交换机的差异?</p>
+<ul>
+<li>Fanout交换机将消息路由给每一个与之绑定的队列</li>
+<li>Direct交换机根据RoutingKey判断路由给哪个队列</li>
+<li>如果多个队列具有相同的RoutingKey,则与Fanout功能类似</li>
+</ul>
+<p>基于@RabbitListener注解声明队列和交换机有哪些常见注解?</p>
+<ul>
+<li>@Queue</li>
+<li>@Exchange</li>
+</ul>
+<h4 id="-topicexchange">发布订阅-TopicExchange</h4>
+<p>TopicExchange与DirectExchange类似,区别在于routingKey必须是多个单词的列表,并且以'.'分割。</p>
+<p><img alt="image-20230203170406242" src="../assets/image-20230203170406242.png" /></p>
+<p>实现：</p>
+<p>接收</p>
+<pre><code class="language-java">@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;topic.queue1&quot;),
+    exchange = @Exchange(name = &quot;itcast.topic&quot;, type = ExchangeTypes.TOPIC),
+    key = &quot;china.#&quot;
+))
+public void listenTopicQueue1(String msg) {
+    System.out.println(&quot;消费者接受到topic.queue1的消息：[&quot; + msg + &quot;]&quot;);
+}
+
+@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;topic.queue2&quot;),
+    exchange = @Exchange(name = &quot;itcast.topic&quot;, type = ExchangeTypes.TOPIC),
+    key = &quot;#.news&quot;
+))
+public void listenTopicQueue2(String msg) {
+    System.out.println(&quot;消费者接受到topic.queue2的消息：[&quot; + msg + &quot;]&quot;);
+}
+</code></pre>
+<p>发送</p>
+<pre><code class="language-java">@Test
+public void testSendTopicExchange() {
+    String exchangeName = &quot;itcast.topic&quot;;
+    String msg = &quot;信工之星yyds！！！&quot;;
+    rabbitTemplate.convertAndSend(exchangeName, &quot;china.news&quot;, msg);
+}
+</code></pre>
+<h4 id="_20">消息转换器</h4>
+<p>SpringAMQP中消息的序列化和反序列化是怎么实现的?</p>
+<ul>
+<li>
+<p>利用MessageConverter实现的，默认是JDK的序列化</p>
+</li>
+<li>
+<p>推荐使用自定义的MessageConverter去覆盖默认的MessageConverter</p>
+</li>
+</ul>
+<p>```xml
+  <!--jackson--></p>
+<p><dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+  </dependency>
+  ```</p>
+<p><code>java
+   @Bean
+  public MessageConverter messageConverter(){
+      return new Jackson2JsonMessageConverter();
+  }</code></p>
+<ul>
+<li>注意发送方与接收方必须使用相同的MessageConverter</li>
+</ul>
+<h2 id="elasticsearch">elasticsearch</h2>
+<p>什么是elasticsearch?</p>
+<ul>
+<li>一个开源的分布式搜索引擎，可以用来实现搜索、日志统计、分析、系统监控等功能</li>
+</ul>
+<p>什么是elastic stack (ELK) ?</p>
+<ul>
+<li>
+<p>是以elasticsearch为核心的技术栈，包括beats、Logstash、kibana, elasticsearch</p>
+</li>
+<li>
+<p>beats、Logstash数据收集</p>
+</li>
+<li>kibana数据可视化</li>
+<li>elasticsearch数据存储、搜索</li>
+</ul>
+<p>什么是Lucene?</p>
+<ul>
+<li>是Apache的开源搜索引擎类库，提供了搜索引擎的核心API</li>
+</ul>
+<h3 id="_21">倒排索引</h3>
+<p>什么是文档和词条？</p>
+<ul>
+<li>每一条数据就是一个文档</li>
+<li>对文档中的内容分词，得到的词语就是词条</li>
+</ul>
+<p>什么是正向索引？</p>
+<ul>
+<li>基于文档id创建索引。查询词条时必须先找到文档,而后判断是否包含词条</li>
+</ul>
+<p>什么是倒排索引？</p>
+<ul>
+<li>对文档内容分词，对词条创建索引，并记录词条所在文档的信息。查询时先根据词条查询到文档id，而后获取到文档</li>
+</ul>
+<p><img alt="image-20230218155525245" src="../assets/image-20230218155525245.png" /></p>
+<ul>
+<li>文档：一条数据就是一个文档，es中是Json格式</li>
+<li>字段：Json文档中的字段</li>
+<li>索引：同类型文档的集合</li>
+<li>映射：索引中文档的约束,比如字段名称、类型</li>
+</ul>
+<h3 id="mysqlelasticsearch">Mysql与Elasticsearch的关系</h3>
+<p><img alt="image-20230218155804204" src="../assets/image-20230218155804204.png" /></p>
+<h3 id="_22">分词器</h3>
+<p>分词器的作用是什么？</p>
+<ul>
+<li>创建倒排索引时对文档分词</li>
+<li>用户搜索时，对输入的内容分词</li>
+</ul>
+<p>iK分词器有几种模式？</p>
+<ul>
+<li>ik_smart：智能切分，粗粒度</li>
+<li>ik_max_word:最细切分,细粒度</li>
+</ul>
+<p>iK分词器如何拓展词条?如何停用词条?</p>
+<ul>
+<li>利用config目录的lkAnalyzer.cfg.xml文件添加拓展词典和停用词典</li>
+<li>在词典中添加拓展词条或者停用词条</li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;comment&gt;IK Analyzer 扩展配置&lt;/comment&gt;
+    &lt;!--用户可以在这里配置自己的扩展字典 --&gt;
+    &lt;entry key=&quot;ext_dict&quot;&gt;ext.dic&lt;/entry&gt;
+     &lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;
+    &lt;entry key=&quot;ext_stopwords&quot;&gt;stopword.dic&lt;/entry&gt;
+    &lt;!--用户可以在这里配置远程扩展字典 --&gt;
+    &lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;
+    &lt;!--用户可以在这里配置远程扩展停止词字典--&gt;
+    &lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;
+&lt;/properties&gt;
+</code></pre>
+<h3 id="_23">索引库</h3>
+<h4 id="mapping">mapping属性</h4>
+<p>mapping常见属性有哪些？</p>
+<ul>
+<li>type:数据类型</li>
+<li>index:是否索引</li>
+<li>analyzer: 分词器</li>
+<li>properties： 子字段</li>
+</ul>
+<p>type常见的有哪些？</p>
+<ul>
+<li>字符串: text、keyword</li>
+<li>数字：long、integer、short、byte、double、float</li>
+<li>布尔: boolean</li>
+<li>日期: date</li>
+<li>对象：object</li>
+</ul>
+<h4 id="_24">索引库操作</h4>
+<ul>
+<li>
+<p>创建索引库： PUT/索引库名
+  <img alt="image-20230218181836701" src="../assets/image-20230218181836701.png" /></p>
+</li>
+<li>
+<p>查询索引库： GET /索引库名
+  <img alt="image-20230218182901016" src="../assets/image-20230218182901016.png" /></p>
+</li>
+<li>
+<p>删除索引库: DELETE /索引库名
+  <img alt="image-20230218182905960" src="../assets/image-20230218182905960.png" /></p>
+</li>
+<li>
+<p>添加字段: PUT /索引库名/_mapping</p>
+</li>
+</ul>
+<p><img alt="image-20230318192045909" src="../assets/image-20230318192045909.png" /></p>
+<h3 id="_25">文档操作</h3>
+<ul>
+<li>创建文档: POST/索引库名/_doc/文档id {json文档}</li>
+</ul>
+<p><img alt="image-20230218184133921" src="../assets/image-20230218184133921.png" /></p>
+<ul>
+<li>查询文档: GET/索引库名/_doc/文档id</li>
+<li>删除文档: DELETE /索引库名/_doc/文档id</li>
+<li>修改文档：</li>
+<li>全量修改: PUT /索引库名/_doc/文档id {json文档}</li>
+<li>增量修改: POST /索引库名/_updatey文档id { "doc": {字段}}</li>
+</ul>
+<p><img alt="image-20230218184029496" src="../assets/image-20230218184029496.png" /></p>
+<h3 id="restclient">RestClient</h3>
+<h4 id="_26">操作索引库</h4>
+<p>基本操作：</p>
+<ul>
+<li>初始化RestHighLevelClient</li>
+<li>创建XxxIndexRequest。XXX是CREATE、 Get、 Delete</li>
+<li>准备DSL (CREATE时需要）</li>
+<li>发送请求。调用RestHighLevelClient#indices().xxx()方法, xxx是create、exists、 delete</li>
+</ul>
+<p>```java
+ public class HotelIndexTest {
+    private RestHighLevelClient client;</p>
+<pre><code>@Test
+void testInit() {
+   System.out.println(client);
+}
+
+/**
+ * 删除
+ */
+@Test
+void deleteHotelIndex() throws IOException {
+   client.indices().delete(new DeleteIndexRequest("hotel"), RequestOptions.DEFAULT);
+}
+
+/**
+ * 判断是否存在
+ */
+@Test
+void existsHotelIndex() throws IOException {
+   boolean exists = client.indices().exists(new GetIndexRequest("hotel"), RequestOptions.DEFAULT);
+   System.out.println(exists ? "索引库存在" : "索引库不存在");
+}
+
+/**
+ * 创建
+ */
+@Test
+void creatHotelIndex() throws IOException {
+   // 1.创建Request对象
+   CreateIndexRequest request = new CreateIndexRequest("hotel");
+   // 2.准备请求参数,准备DSL
+   request.source(MAPPING_TEMPLATE, XContentType.JSON);
+   // 3.发送请求
+   client.indices().create(request, RequestOptions.DEFAULT);
+}
+
+/**
+ * 初始化
+ */
+@BeforeEach
+void setUp() {
+   client = new RestHighLevelClient(RestClient.builder(
+           HttpHost.create("http://192.168.58.130:9200")
+   ));
+}
+
+@AfterEach
+void tearDown() throws IOException {
+   client.close();
+}
+</code></pre>
+<p>}
+ ```</p>
+<h4 id="_27">操作文档</h4>
+<ol>
+<li>初始化RestHighLevelClient</li>
+<li>创建XxxRequest, XXX是Index, Get, Update, Delete</li>
+<li>准备参数（Index和Update时需要）</li>
+<li>发送请求。调用RestHighLevelClient#.xxx()方法，xxx是index, get, update, delete</li>
+<li>解析结果（Get时需要）</li>
+</ol>
+<pre><code class="language-java">@SpringBootTest
+public class HotelDocumentTest {
+   @Resource
+   private IHotelService hotelService;
+
+   private RestHighLevelClient client;
+
+   /**
+    * 添加文档
+    */
+   @Test
+   void testAddDocument() throws IOException {
+      Hotel hotel = hotelService.getById(36934L);
+      HotelDoc hotelDoc = new HotelDoc(hotel);
+      // 1.准备Request对象
+      IndexRequest request = new IndexRequest(&quot;hotel&quot;).id(hotelDoc.getId().toString());
+      // 2.准备JSON文档
+      request.source(JSON.toJSONString(hotelDoc), XContentType.JSON);
+      // 3.发送请求
+      client.index(request, RequestOptions.DEFAULT);
+   }
+
+   /**
+    * 获取文档
+    */
+   @Test
+   void testGetDocument() throws IOException {
+      // 1.获取Request对象
+      GetRequest request = new GetRequest(&quot;hotel&quot;, &quot;36934&quot;);
+      // 2.发送请求，获取响应
+      GetResponse response = client.get(request, RequestOptions.DEFAULT);
+      // 3.解析响应结果
+      String json = response.getSourceAsString();
+      HotelDoc hotelDoc = JSON.parseObject(json, HotelDoc.class);
+      System.out.println(hotelDoc);
+   }
+
+   /**
+    * 更新文档
+    */
+   @Test
+   void testUpdateDocument() throws IOException {
+      // 1.获取Request对象
+      UpdateRequest request = new UpdateRequest(&quot;hotel&quot;, &quot;36934&quot;);
+      // 2.准备请求参数
+      request.doc(
+              &quot;price&quot;, &quot;10000&quot;,
+              &quot;starName&quot;, &quot;五钻&quot;
+      );
+      // 3.发送请求
+      client.update(request, RequestOptions.DEFAULT);
+   }
+
+   /**
+    * 删除文档
+    */
+   @Test
+   void testDeleteDocument() throws IOException {
+      client.delete(new DeleteRequest(&quot;hotel&quot;, &quot;36934&quot;), RequestOptions.DEFAULT);
+   }
+
+   /**
+    * 批量添加
+    */
+   @Test
+   void testBulkRequest() throws IOException {
+      // 获取全部的hotel
+      List&lt;Hotel&gt; hotels = hotelService.list();
+
+      // 1.创建Request
+      BulkRequest request = new BulkRequest();
+      // 2.准备参数，添加多个新增的Request
+      hotels.forEach(hotel -&gt; {
+         HotelDoc hotelDoc = new HotelDoc(hotel);
+         request.add(new IndexRequest(&quot;hotel&quot;)
+                 .id(hotelDoc.getId().toString())
+                 .source(JSON.toJSONString(hotelDoc), XContentType.JSON));
+      });
+      // 3.发送请求
+      client.bulk(request, RequestOptions.DEFAULT);
+   }
+
+   @BeforeEach
+   void setUp() {
+      client = new RestHighLevelClient(RestClient.builder(
+              HttpHost.create(&quot;http://192.168.58.130:9200&quot;)
+      ));
+   }
+
+   @AfterEach
+   void tearDown() throws IOException {
+      client.close();
+   }
+}
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>

