@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/">
+        <link rel="prev" href="../%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">
       
       
-        <link rel="next" href="../%E8%83%8C%E5%8C%85DP/">
+        <link rel="next" href="../../../java%E5%AD%A6%E4%B9%A0/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>记忆化搜素 - Serendipity_Docs</title>
+        <title>背包DP - Serendipity_Docs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#dp" class="md-skip">
           跳转至
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              记忆化搜素
+              背包DP
             
           </span>
         </div>
@@ -355,6 +355,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        记忆化搜素
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -366,24 +380,48 @@
         
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        记忆化搜素
-      </a>
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          背包DP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E8%83%8C%E5%8C%85DP/" class="md-nav__link">
+      <a href="./" class="md-nav__link md-nav__link--active">
         背包DP
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-1" class="md-nav__link">
+    0-1背包
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    完全背包
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -821,6 +859,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-1" class="md-nav__link">
+    0-1背包
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    完全背包
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -834,8 +894,57 @@
                   
 
 
-<h1 id="_1">记忆化搜索</h1>
-<p>参考文档:<a href="https://oi-wiki.org/dp/memo/">记忆化搜索 - OI Wiki (oi-wiki.org)</a></p>
+<h1 id="dp">背包DP</h1>
+<p>详细文档:<a href="https://oi-wiki.org/dp/knapsack/">背包 DP - OI Wiki (oi-wiki.org)</a></p>
+<h2 id="0-1">0-1背包</h2>
+<p>例题：</p>
+<p>[P2871 <a href="https://www.luogu.com.cn/problem/P2871">USACO07DEC]Charm Bracelet S - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<p>题意概要:有n个物品和一个容量为W的背包,每个物品有重量w~i~和价值v~i~两种属性,要求选若干物品放入背包使背包中物品的总价值最大且背包中物品的总重量不超过背包的容量。</p>
+<p>参考代码(模板)：</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int n, m;
+int w[3500], d[3500];
+int f[13000];
+int main() {
+   cin &gt;&gt; n &gt;&gt; m;
+   for (int i = 1; i &lt;= n; i++) {
+      cin &gt;&gt; w[i] &gt;&gt; d[i];
+   }
+   for (int i = 1; i &lt;= n; i++) {        // 遍历所有物品
+      for (int j = m; j &gt;= w[i]; j--) {  // 剩余多少
+         f[j] = max(f[j], f[j - w[i]] + d[i]);
+      }
+   }
+   cout &lt;&lt; f[m] &lt;&lt; endl;
+}
+</code></pre>
+<h2 id="_1">完全背包</h2>
+<p>完全背包模型与 0-1 背包类似，与 0-1 背包的区别仅在于一个物品可以选取无限次，而非仅能选取一次。</p>
+<p>例题:<a href="[P1616 疯狂的采药 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/P1616)">疯狂的采药</a></p>
+<p>优质题解：<a href="https://www.luogu.com.cn/blog/100910/solution-p1616">题解 P1616 【疯狂的采药】 - 欢迎来到⚡小林子⚡的博客 - 洛谷博客 (luogu.com.cn)</a></p>
+<p>模板：</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+#define ll long long
+#define maxm (ll)1e7
+#define maxn (int)1e4 + 5
+using namespace std;
+int n;
+ll m, w[maxn], v[maxn];
+ll dp[maxm];  // 表示i个物品j的容量
+int main() {
+   cin &gt;&gt; m &gt;&gt; n;
+   for (int i = 1; i &lt;= n; i++) {
+      cin &gt;&gt; w[i] &gt;&gt; v[i];
+   }
+   for (int i = 1; i &lt;= n; i++) {
+      for (int j = w[i]; j &lt;= m; j++) { // 与01背包的区别就是循环是正向的
+         dp[j] = max(dp[j], dp[j - w[i]] + v[i]);   // 核心状态方程
+      }
+   }
+   cout &lt;&lt; dp[m] &lt;&lt; endl;
+}
+</code></pre>
 
 
 
