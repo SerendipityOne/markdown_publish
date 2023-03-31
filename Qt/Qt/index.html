@@ -675,9 +675,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
+  <a href="#qt_2" class="md-nav__link">
+    二、Qt安装
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qt_3" class="md-nav__link">
+    三、第一个Qt项目
+  </a>
+  
+    <nav class="md-nav" aria-label="三、第一个Qt项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1qt" class="md-nav__link">
+    1.Qt框架及文件介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.设置窗口属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.按钮的创建和属性设置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -777,12 +811,61 @@
       
       
         <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-          嵌入式
+          Android
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Android
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Android/Android/" class="md-nav__link">
+        Android
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          嵌入式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           嵌入式
         </label>
@@ -821,17 +904,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
           考研
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_7">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           考研
         </label>
@@ -939,9 +1022,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
+  <a href="#qt_2" class="md-nav__link">
+    二、Qt安装
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qt_3" class="md-nav__link">
+    三、第一个Qt项目
+  </a>
+  
+    <nav class="md-nav" aria-label="三、第一个Qt项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1qt" class="md-nav__link">
+    1.Qt框架及文件介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.设置窗口属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.按钮的创建和属性设置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -992,7 +1109,155 @@
 有很好的社区氛围，市场份额在缓慢上升。
 可以进行嵌入式开发。</p>
 </blockquote>
-<h2 id="_1"></h2>
+<h2 id="qt_2">二、Qt安装</h2>
+<p>装5.15版本之前的：<a href="https://download.qt.io/archive/qt/">Index of /archive/qt</a></p>
+<h2 id="qt_3">三、第一个Qt项目</h2>
+<p>新建工程时注意：</p>
+<p>创建类的基类：
+QMainWindow -&gt; 带菜单栏的窗口
+QWidget -&gt; 空白窗口
+QDialog -&gt; 对话框窗口</p>
+<h3 id="1qt">1.Qt框架及文件介绍</h3>
+<p><img alt="image-20230329211724902" src="../Qt.assets/image-20230329211724902.png" /></p>
+<p>.pro文件：工程文件，是qmake自动生成的用于生产makfile的配置文件</p>
+<pre><code class="language-c++">QT       += core gui    //包含模块
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets //大于Qt4版本才包含次模块
+
+SOURCES += \
+    main.cpp \
+    widget.cpp  //源文件
+
+HEADERS += \
+    widget.h    //头文件
+</code></pre>
+<p>main.cpp</p>
+<pre><code class="language-c++">#include &quot;widget.h&quot; //Qt中一个类对应一个头文件,类名就是头文件名
+
+#include &lt;QApplication&gt; //Qt系统提供的标准类名声明头文件
+
+int main(int argc, char *argv[])
+{
+    //应用程序类(整个后台管理的命脉，处理应用程序的初始化和结束，事件处理调度，注意不管有多少窗口，一个QApplication类即可)
+    QApplication a(argc, argv); 
+    Widget w;   //实例化对象，调用构造函数
+    w.show();   //显示图形界面
+    return a.exec();    //主事件循环，在exec函数中，Qt接受并处理用户和系统的事件并且将他们传递给适当的窗口控件
+}
+</code></pre>
+<p>widget.cpp</p>
+<pre><code class="language-c++">#include &quot;widget.h&quot;
+
+Widget::Widget(QWidget *parent)
+    : QWidget(parent){}
+
+Widget::~Widget(){}
+</code></pre>
+<p>widget.h</p>
+<pre><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+
+class Widget : public QWidget
+{
+    Q_OBJECT
+
+public:
+    Widget(QWidget *parent = nullptr);
+    ~Widget();
+};
+#endif // WIDGET_H
+</code></pre>
+<h3 id="2_1">2.设置窗口属性</h3>
+<ol>
+<li>
+<p>.pro:用于生成可执行文件</p>
+</li>
+<li>
+<p>main.cpp:主函数</p>
+</li>
+<li>
+<p><strong>widget.cpp:类的函数</strong></p>
+</li>
+</ol>
+<p><strong>一般情况,窗口的属性和添加控件和对控件的操作都会在类的构造函数中书写。</strong></p>
+<p><strong>优点：可以让主程序中无多余的代码，程序阅读也方便。</strong></p>
+<ol>
+<li>widget.h:类和头文件</li>
+</ol>
+<pre><code class="language-c++">#include &quot;widget.h&quot;
+
+Widget::Widget(QWidget *parent)
+    : QWidget(parent){
+    //修改窗口的标题
+    this-&gt;setWindowTitle(&quot;第一个窗口&quot;);
+    //设置窗口大小，设置完成可以拉伸
+    //this-&gt;resize(800,600);
+    //设置固定大小，设置完成不可拉伸
+    this-&gt;setFixedSize(600,300);
+}
+
+Widget::~Widget(){
+}
+</code></pre>
+<h3 id="3_1">3.按钮的创建和属性设置</h3>
+<ol>
+<li>步骤1:包含头文件(.cpp)及模块(.pro)</li>
+</ol>
+<pre><code class="language-c++">#include &lt;QPushButton&gt;
+QT += widgets
+</code></pre>
+<ol>
+<li>调用类的构造函数创建按钮</li>
+</ol>
+<pre><code class="language-c++">//创建按钮
+QPushButton *button = new QPushButton;
+</code></pre>
+<ol>
+<li>显示按钮</li>
+</ol>
+<pre><code class="language-c++">//显示方式是另开一个窗口显示按钮
+button-&gt;show();
+
+//设置按钮的父对象为窗口。这样按钮就在窗口上显示
+button-&gt;setParent(this);
+</code></pre>
+<p>创建按钮方式1：</p>
+<pre><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QPushButton&gt;
+
+Widget::Widget(QWidget *parent)
+    : QWidget(parent){
+    this-&gt;resize(800, 600);
+    //创建按钮
+    QPushButton *button = new QPushButton;
+    //button-&gt;show();
+
+    //设置按钮的父对象为窗口
+    button-&gt;setParent(this);
+
+    //设置按钮的属性
+    //设置按钮的文字
+    button-&gt;setText(&quot;第一个按钮&quot;);
+
+    //设置按钮的位置
+    button-&gt;move(100, 100);
+
+    //设置按钮的大小
+    button-&gt;resize(400, 400);
+}
+
+Widget::~Widget(){
+}
+</code></pre>
+<p>创建按钮方式2：</p>
+<pre><code class="language-c++">//方式2
+QPushButton *button2 = new QPushButton(&quot;第二个按钮&quot;,this);
+</code></pre>
+<p>两种方式的区别：
+方式1: 窗口默认大小,按钮显示在左上角
+方式2: 窗口是根据按钮的大小来创建的</p>
 
 
 
