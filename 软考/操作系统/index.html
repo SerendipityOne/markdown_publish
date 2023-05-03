@@ -14,6 +14,8 @@
         <link rel="prev" href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
       
       
+        <link rel="next" href="../%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
@@ -1134,10 +1136,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二、存储管理
+  </a>
+  
+    <nav class="md-nav" aria-label="二、存储管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 分区存储组织
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 页式存储组织
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        刷题笔记
+      </a>
     </li>
   
 
@@ -1250,6 +1293,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二、存储管理
+  </a>
+  
+    <nav class="md-nav" aria-label="二、存储管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 分区存储组织
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 页式存储组织
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1337,6 +1407,15 @@
 <p><img alt="image-20230420172658139" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230420172658139.png" /></p>
 <p>根据剩下的资源数，只能选P2，而执行完P2之后，系统剩下的资源数会加上P2已经分配的资源数，因为P2进程执行完了，系统会释放资源。</p>
 <p><img alt="image-20230420172904558" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230420172904558.png" /></p>
+<h2 id="_3">二、存储管理</h2>
+<h3 id="21">2.1 分区存储组织</h3>
+<p><img alt="image-20230503161247809" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230503161247809.png" /></p>
+<p>首次适应法：可用表或自由链按起始<strong>地址递增</strong>的次序排列，一旦找到<strong>大于或等于</strong>所要求内存长度的分区，则结束搜索。</p>
+<p>最佳适应法：从<strong>小到大</strong>的次序组成空闲区可用表或自由链，从表头开始查找，当找到第一个满足要求的空闲区是，停止查找。</p>
+<p>最坏适应法：从<strong>大到小</strong>的次序组成空闲区可用表或自由链，从表头开始查找，当找到第一个满足要求的空闲区是，停止查找。</p>
+<p>循环首次适应法：地址递增的次序排列，一旦找到<strong>大于或等于</strong>所要求内存长度的分区，则结束搜索，下次则从上次结束的地址的下一位开始</p>
+<h3 id="22">2.2 页式存储组织</h3>
+<p><img alt="image-20230503161623130" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230503161623130.png" /></p>
 
 
 
