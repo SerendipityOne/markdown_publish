@@ -1181,7 +1181,27 @@
         
           <li class="md-nav__item">
   <a href="#26" class="md-nav__link">
-    2.6 页面淘汰算法
+    2.6 页面置换算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    三、文件管理
+  </a>
+  
+    <nav class="md-nav" aria-label="三、文件管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 索引文件结构
   </a>
   
 </li>
@@ -1366,7 +1386,27 @@
         
           <li class="md-nav__item">
   <a href="#26" class="md-nav__link">
-    2.6 页面淘汰算法
+    2.6 页面置换算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    三、文件管理
+  </a>
+  
+    <nav class="md-nav" aria-label="三、文件管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 索引文件结构
   </a>
   
 </li>
@@ -1491,13 +1531,25 @@
 <p><img alt="image-20230505204603594" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505204603594.png" /></p>
 <h3 id="25">2.5 快表</h3>
 <p>快表是一块小容量的相联存储器(Associative Memory) ,由高速缓存器组成,速度快，并且可以从硬件上保证按内容并行查找，一般用来存放当前访问最频繁的少数活动页面的页号。</p>
-<h3 id="26">2.6 页面淘汰算法</h3>
+<h3 id="26">2.6 页面置换算法</h3>
+<p>在系统运行过程中，若程序所要访问的页面不在内存而需要把他们调入内存，但内存已经没有空闲空间时，为了保证该进程能正常运行，系统必须从内存中调出一页程序或数据送到磁盘的交换区中，这个过程称为页面置换。</p>
 <ul>
 <li>最优（Optimal, OPT)算法</li>
 <li>随机（RAND）算法</li>
 <li><strong>先进先出(FIFO)算法</strong>:有可能产生“抖动”。例如,432143543215序列，用3个页面，比4个缺页要少</li>
 <li><strong>最近最少使用(LRU）算法</strong>：不会“抖动”</li>
 </ul>
+<p>页面抖动的产生：</p>
+<p>由于置换算法的局限性，难免会有一些页面，被频繁的置换出置换进去，反反复复，无疑增大了系统的开销。</p>
+<p><img alt="image-20230505205956487" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505205956487.png" /></p>
+<p>例题：</p>
+<p><img alt="image-20230505210427052" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505210427052.png" /></p>
+<p>没有使用快表，说明在访问的时候，要先去内存中查一次表，再从内存中取出。也就是一个操作访问2次内存，有6个页号，说明访问12次</p>
+<p>指令是一次全部读入的，所以swap A,B产生1次却也中断，后面的A,B都是占了两个页号，所以各产生2次。</p>
+<p><img alt="image-20230505211812022" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505211812022.png" /></p>
+<h2 id="_4">三、文件管理</h2>
+<h3 id="31">3.1 索引文件结构</h3>
+<p><img alt="image-20230505212020501" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505212020501.png" /></p>
 
 
 
