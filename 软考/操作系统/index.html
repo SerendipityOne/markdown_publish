@@ -1158,6 +1158,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 段式存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 段页式存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 快表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 页面淘汰算法
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1315,6 +1343,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 段式存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 段页式存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 快表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 页面淘汰算法
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1421,6 +1477,27 @@
 <p><img alt="image-20230504213811101" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230504213811101.png" /></p>
 <p>例题：</p>
 <p><img alt="image-20230504213837426" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230504213837426.png" /></p>
+<ol>
+<li>页面大小为4K，4K=2^12^，对应5A29H的后三位A29H</li>
+<li>5A29H，找到页号为5的页帧号(物理块号)为6</li>
+<li>将6与A29H拼接，即D、6A29H</li>
+<li>页面4不在内存，找到页号4，状态位为0，需找到状态位为1的作为替换，0,1,2,5。</li>
+<li>找到访问位为0的将其替换，也就是1。选B</li>
+</ol>
+<p><img alt="image-20230505201625597" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505201625597.png" /></p>
+<h3 id="23">2.3 段式存储</h3>
+<p><img alt="image-20230505204119447" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505204119447.png" /></p>
+<h3 id="24">2.4 段页式存储</h3>
+<p><img alt="image-20230505204603594" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230505204603594.png" /></p>
+<h3 id="25">2.5 快表</h3>
+<p>快表是一块小容量的相联存储器(Associative Memory) ,由高速缓存器组成,速度快，并且可以从硬件上保证按内容并行查找，一般用来存放当前访问最频繁的少数活动页面的页号。</p>
+<h3 id="26">2.6 页面淘汰算法</h3>
+<ul>
+<li>最优（Optimal, OPT)算法</li>
+<li>随机（RAND）算法</li>
+<li><strong>先进先出(FIFO)算法</strong>:有可能产生“抖动”。例如,432143543215序列，用3个页面，比4个缺页要少</li>
+<li><strong>最近最少使用(LRU）算法</strong>：不会“抖动”</li>
+</ul>
 
 
 
