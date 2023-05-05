@@ -1203,6 +1203,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9.存储器
+  </a>
+  
+    <nav class="md-nav" aria-label="9.存储器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    9.1 读/写存储器、只读存储器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    9.2 按地址访问的存储器、按内容访问的存储器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10cache" class="md-nav__link">
+    10.Cache
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1428,6 +1462,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9.存储器
+  </a>
+  
+    <nav class="md-nav" aria-label="9.存储器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    9.1 读/写存储器、只读存储器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    9.2 按地址访问的存储器、按内容访问的存储器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10cache" class="md-nav__link">
+    10.Cache
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1535,16 +1603,63 @@
 <p>(1)将C7FFFH+1-AC000H=1C000H，再1C000H / 2^10^=112</p>
 <p>(2)(112K*16) / (28*16*x) = 1，求得x=4</p>
 <h2 id="8">8.总线</h2>
-<h4 id="81">8.1 系统总线</h4>
+<h3 id="81">8.1 系统总线</h3>
 <p>系统总线包含三总不同功能的总线：</p>
 <ol>
 <li>数据总线DB(Data Bus)</li>
 <li>地址总线AB(Address Bus)</li>
 <li>控制总线CB(Control Bus)</li>
 </ol>
+<p>常见的总线：</p>
+<ul>
+<li>
 <p>ISA(Industria Standard Architecture)总线，也叫AT总线</p>
+</li>
+<li>
 <p>EISA总线，在两条ISA信号线之间添加一条EISA信号线。</p>
+</li>
+<li>
 <p>PCI总线由Intel公司推出的一种局部总线</p>
+</li>
+<li>前端总线</li>
+<li>RS-232C</li>
+<li>SCSI总线</li>
+<li>SATA</li>
+<li>USB</li>
+<li>IEEE-1394</li>
+<li>IEEE-488</li>
+</ul>
+<h2 id="9">9.存储器</h2>
+<h3 id="91">9.1 读/写存储器、只读存储器</h3>
+<p>按存储器的工作方式可以分为读/写存储器和只读存储器</p>
+<ol>
+<li>读/写存储器(RAM)。既能读取数据也能存入数据</li>
+<li>只读存储器。工作过程中仅能读取。根据数据的写入方式，这种存储器又可细分为ROM、PROM、EPROM、EEPROM</li>
+<li>固定只读存储器(ROM)。内容只能读出，不能改变</li>
+<li>可编程的只读存储器(PROM)。用户可一次性写入，写入后无法修改。<ol>
+<li>可擦除可编程的只读存储器(EPROM)。内容可以读出，也可以由用户写入，写入后可以修改</li>
+<li>电擦除可编程的只读存储器(EEPROM)。与EPROM相似，只不过是用电擦除的方法进行数据的改写</li>
+<li>闪速存储器。简称山村，特性介于EPROM与EEPROM之间。整块闪存可以在数秒内删除，速度比EPROM快</li>
+</ol>
+</li>
+</ol>
+<h3 id="92">9.2 按地址访问的存储器、按内容访问的存储器</h3>
+<p>按访问方式可分为按地址访问的存储器和按内容访问的存储器</p>
+<ul>
+<li>
+<p>按地址访问可分为<strong>随机存储器(RAM)、顺序存储器(SAM)和直接存储器(DAM)</strong></p>
+</li>
+<li>
+<p>按内容访问的有<strong>相联存储器</strong></p>
+</li>
+</ul>
+<h2 id="10cache">10.Cache</h2>
+<p>Cache的地址映射方法：</p>
+<ol>
+<li>直接映射</li>
+<li>全相联映射</li>
+<li>组相联映像</li>
+</ol>
 
 
 
