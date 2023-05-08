@@ -14,6 +14,8 @@
         <link rel="prev" href="../%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
       
       
+        <link rel="next" href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
@@ -1299,14 +1301,42 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    七、分布式数据库
+    七、数据库安全
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    八、数据仓库与数据挖掘
+    八、数据备份
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    九、数据库故障与恢复
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    十、数据仓库与数据挖掘
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    十一、反规范化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    十二、大数据
   </a>
   
 </li>
@@ -1315,6 +1345,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        计算机网络
+      </a>
     </li>
   
 
@@ -1564,14 +1608,42 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    七、分布式数据库
+    七、数据库安全
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    八、数据仓库与数据挖掘
+    八、数据备份
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    九、数据库故障与恢复
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    十、数据仓库与数据挖掘
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    十一、反规范化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    十二、大数据
   </a>
   
 </li>
@@ -1686,12 +1758,205 @@
 </ol>
 <h2 id="_7">六、数据库完整性约束</h2>
 <ol>
-<li>实体完整性约束</li>
-<li>参照完整性约束</li>
-<li>用户自定义完整性约束</li>
+<li>实体完整性约束：实体完整性是对关系中的记录唯一性，也就是主键的约束</li>
+<li>参照完整性约束：参照完整性是对关系数据库中建立关联关系的数据表间数据参照引用的约束，也就是对外键的约束</li>
+<li>用户自定义完整性约束：约束是表级的强制规定，有以下五中：not null，unique，primary key，foreign key，check </li>
+<li>触发器</li>
 </ol>
-<h2 id="_8">七、分布式数据库</h2>
-<h2 id="_9">八、数据仓库与数据挖掘</h2>
+<h2 id="_8">七、数据库安全</h2>
+<table>
+<thead>
+<tr>
+<th align="left">措施</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">用户标识和鉴定</td>
+<td align="left">最外层的安全保护措施,可以使用用户帐户、口令及随机数检验等方式</td>
+</tr>
+<tr>
+<td align="left">存取控制</td>
+<td align="left">对用户进行授权，包括操作类型（如查找、插入、删除、修改等动作)和数据对象(主要是数据范围)的权限。</td>
+</tr>
+<tr>
+<td align="left">密码存储和传输</td>
+<td align="left">对远程终端信息用密码传输</td>
+</tr>
+<tr>
+<td align="left">视图的保护</td>
+<td align="left">对视图进行授权</td>
+</tr>
+<tr>
+<td align="left">审计</td>
+<td align="left">使用一个专用文件或数据库，自动将用户对数据库的所有操作记录下来</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">八、数据备份</h2>
+<ul>
+<li>
+<p>冷备份也称为静态备份,是将数据库正常关闭,在停止状态下,将数据库的文件全部备份（复制)下来。</p>
+</li>
+<li>
+<p>热备份也称为动态备份,是利用备份软件,在数据库正常运行的状态下,将数据库中的数据文件备份出来。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">冷备份</td>
+<td align="left">非常快速的备份方法(只需复制文件);容易归档(简单复制即可) ;容易恢复到某个时间点上(只需将文件再复制回去);能与归档方法相结合，做数据库"最佳状态"的恢复；低度维护，高度安全</td>
+<td align="left">单独使用时,只能提供到某一时间点上的恢复;在实施备份的全过程中,数据库必须要作备份而不能做其他工作;若磁盘空间有限只能复制到磁带等其他外部存储设备上,速度会很慢;不能按表或按用户恢复</td>
+</tr>
+<tr>
+<td align="left">热备份</td>
+<td align="left">可在表空间或数据库文件级备份,备份的时间短;备份时数据库仍可使用;可达到秒级恢复(恢复到某一时间点上);可对几乎所有数据库实体做恢复;恢复是快速的</td>
+<td align="left">不能出错,否则后果严重;若热备份不成功所得结果不可用于时间点的恢复;因难于维护,所以要特别小心,不允许"以失败告终"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>完全备份:备份所有数据</li>
+<li>差量备份:仅备份<strong>上一次完全备份</strong>之后变化的数据</li>
+<li>增量备份:备份上一次备份之后变化的数据</li>
+</ul>
+<p>(1)静态海量转储:在系统中无运行事务时进行,每次转储全部数据库。
+(2)静态增量转储:在系统中无运行事务时进行,每次只转储上一次转储后更新过的数据。
+(3)动态海量转储:转储期间允许对数据库进行存取或修改,每次转储全部数据库。
+(4)动态增量转储:转储期间允许对数据库进行存取或修改,每次只转储上一次转储后更新过的数据。</p>
+<ul>
+<li>日志文件:事务日志是针对数据库改变所做的记录,它可以记录针对数据库的任何操作,并将记录结果保存在独立的文件中</li>
+</ul>
+<h2 id="_10">九、数据库故障与恢复</h2>
+<table>
+<thead>
+<tr>
+<th align="left">故障关系</th>
+<th align="left">故障原因</th>
+<th align="left">解决办法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">事务本身的可预期故障</td>
+<td align="left">本身逻辑</td>
+<td align="left">在程序中预先设置Rollback语句</td>
+</tr>
+<tr>
+<td align="left">事务本身的不可预期故障</td>
+<td align="left">算术溢出、违反存储保护</td>
+<td align="left">由DBMS的恢复子系统通过日志，撤销事务对数据库的修改，回退到事务初始状态</td>
+</tr>
+<tr>
+<td align="left">系统故障</td>
+<td align="left">系统停止运转</td>
+<td align="left">通常使用检查点法</td>
+</tr>
+<tr>
+<td align="left">介质故障</td>
+<td align="left">外存被破坏</td>
+<td align="left">一般使用日志重做业务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">十、数据仓库与数据挖掘</h2>
+<p><img alt="image-20230508160415583" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508160415583.png" /></p>
+<p><strong>数据仓库</strong>：是在数据库已经大量存在的情况下，为了进一步<strong>挖掘数据资源、为了决策需要而产生的</strong>，并不是"大型数据库"。</p>
+<p>数据仓库与数据库的区别：</p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>数据仓库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>事务处理</td>
+<td>决策分析</td>
+</tr>
+<tr>
+<td>保持事务处理的<strong>当前</strong>状态</td>
+<td>保存过去和当前的数据</td>
+</tr>
+<tr>
+<td></td>
+<td>大量数据库的集成</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>数据挖掘定</strong>：是从大量的数据中挖掘出隐含的、未知的、用户可能感兴趣的和对决策有潜在价值的知识和规则</p>
+<p>方法：</p>
+<ul>
+<li>决策树</li>
+<li>神经网络</li>
+<li>遗传算法</li>
+<li>关联规则挖掘算法</li>
+</ul>
+<p>分类：</p>
+<ul>
+<li>关联分析：挖掘出隐藏在数据间的相互关系。</li>
+<li>序列模式分析：侧重点是分析数据间的前后关系（因果关系）。</li>
+<li>分类分析：为每一个记录赋予一个标记再按标记分类。</li>
+<li>聚类分析：分类分析法的逆过程。</li>
+</ul>
+<h2 id="_12">十一、反规范化</h2>
+<p>由于规范化会使表不断的拆分,从而导致数据表过多。这样虽然减少了数据冗余,提高了增、删、改的速度,但会增加查询的工作量。系统需要进行多次连接,才能进行查询操作,使得系统效率大大下降</p>
+<p><strong>技术手段</strong></p>
+<ul>
+<li>增加派生性冗余列</li>
+<li>增加冗余列</li>
+<li>重新组表</li>
+<li>分割表</li>
+</ul>
+<h2 id="_13">十二、大数据</h2>
+<table>
+<thead>
+<tr>
+<th>比较维度</th>
+<th>传统数据</th>
+<th>大数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据量</td>
+<td>GB级或TB级</td>
+<td>PB级或以上</td>
+</tr>
+<tr>
+<td>数据分析需求</td>
+<td>现有数据的分析与检测</td>
+<td>深度分析（关联分析、回归分析)</td>
+</tr>
+<tr>
+<td>硬件平台</td>
+<td>高端服务器</td>
+<td>集群平台</td>
+</tr>
+</tbody>
+</table>
+<p>大数据处理系统应该具有的重要特征</p>
+<ul>
+<li>高度可扩展性</li>
+<li>高性能</li>
+<li>高度容错</li>
+<li>支持异构环境</li>
+<li>较短的分析延迟</li>
+<li>易用且开放的接口</li>
+<li>较低成本</li>
+<li>向下兼容性</li>
+</ul>
 
 
 
