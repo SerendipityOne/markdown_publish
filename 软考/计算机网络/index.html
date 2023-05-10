@@ -1191,6 +1191,88 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#44-ip" class="md-nav__link">
+    4.4 IP地址
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 IP地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441" class="md-nav__link">
+    4.4.1 子网划分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442" class="md-nav__link">
+    4.4.2 无分类编制（无类域间路由）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-ip" class="md-nav__link">
+    4.4.3 特殊含义的IP地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 网络接入技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-ipv6" class="md-nav__link">
+    4.6 IPv6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    4.7 无线网
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、计算机网络与信息安全
+  </a>
+  
+    <nav class="md-nav" aria-label="五、计算机网络与信息安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-html" class="md-nav__link">
+    5.1 HTML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2 信息系统安全属性
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1327,6 +1409,88 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#44-ip" class="md-nav__link">
+    4.4 IP地址
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 IP地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441" class="md-nav__link">
+    4.4.1 子网划分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442" class="md-nav__link">
+    4.4.2 无分类编制（无类域间路由）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-ip" class="md-nav__link">
+    4.4.3 特殊含义的IP地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 网络接入技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-ipv6" class="md-nav__link">
+    4.6 IPv6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    4.7 无线网
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、计算机网络与信息安全
+  </a>
+  
+    <nav class="md-nav" aria-label="五、计算机网络与信息安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-html" class="md-nav__link">
+    5.1 HTML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2 信息系统安全属性
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1448,6 +1612,55 @@
 <li>接入层:向本地网段提供用户接入</li>
 <li>汇聚层：网络访问策略控制、数据包处理、过滤、寻址</li>
 <li>核心层：数据交换</li>
+</ul>
+<h3 id="44-ip">4.4 IP地址</h3>
+<p>国际标准组织ISO定义地址分类：五大类（是以IP地址的第一位进行区分的）</p>
+<p>A类：1-127默认子网掩码：255.0.0.0</p>
+<p>B类：128-191默认子网掩码：255.255.0.0</p>
+<p>C类：192-223默认子网掩码：255.255.255.0</p>
+<p>D类：224-239组播地址</p>
+<p>E类：240-255科研使用</p>
+<blockquote>
+<p>1.目前我们可以使用的只有A、B、C三类 </p>
+<p>2.Ａ、Ｂ、Ｃ三类的子网掩码可以修改 </p>
+<p>A类：网段类比较少，A类每个网段类的主机数量较多。规定前一段(8个bit位)为网络号，后面都为主机号 （主机数2^24^-2台，-2是全0【网络地址】跟全1【网播地址】）</p>
+<p>B类：比较均衡。 规定前两段为网络号，后面都为主机号（2^16^-2）</p>
+<p>C类：网段较多，网段类的每个地址较少。规定前三段为网络号，后面都为主机号（2^8^-2）</p>
+</blockquote>
+<p><img alt="image-20230510165131971" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510165131971.png" /></p>
+<p>172.18.129.0<span style='color:red'>/24</span>，无类域间路由，/24表示前面24个bit位是网络号</p>
+<h4 id="441">4.4.1 子网划分</h4>
+<p><img alt="image-20230510165803447" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510165803447.png" /></p>
+<hr />
+<p><img alt="image-20230510180327958" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510180327958.png" /></p>
+<p>B类地址，前两段为网络号。子网要求27个，那么长度就要为2^k^&gt;=27，所以是k=5，其余后面都是主机号都为0</p>
+<hr />
+<p><img alt="image-20230510183500502" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510183500502.png" /></p>
+<p>根据2^k^-2&gt;=N，算的k=10.所以主机号位数为10位</p>
+<h4 id="442">4.4.2 无分类编制（无类域间路由）</h4>
+<p><img alt="image-20230510183854443" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510183854443.png" /></p>
+<hr />
+<p><img alt="image-20230510183958516" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510183958516.png" /></p>
+<p>/20说明前20个bit位是网络号，有12位是主机号</p>
+<p>C类是前24个bit位是网络号，说明还有4个可以被划为子网号，2^4^=16</p>
+<h4 id="443-ip">4.4.3 特殊含义的IP地址</h4>
+<p><img alt="image-20230510184245419" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510184245419.png" /></p>
+<h3 id="45">4.5 网络接入技术</h3>
+<p><img alt="image-20230510185616764" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510185616764.png" /></p>
+<h3 id="46-ipv6">4.6 IPv6</h3>
+<p><img alt="image-20230510204310675" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510204310675.png" /></p>
+<h3 id="47">4.7 无线网</h3>
+<p><img alt="image-20230510185324976" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510185324976.png" /></p>
+<h2 id="_5">五、计算机网络与信息安全</h2>
+<h3 id="51-html">5.1 HTML</h3>
+<p><img alt="image-20230510185156779" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20230510185156779.png" /></p>
+<h3 id="52">5.2 信息系统安全属性</h3>
+<p>安全属性</p>
+<ul>
+<li>保密性：最小授权原则、防暴露、信息加密、物理保密</li>
+<li>完整性：安全协议、校验码、密码校验、数字签名、公证</li>
+<li>可用性：综合保障 ( IP过滤、业务流控制、路由选择控制、审计跟踪 )</li>
+<li>不可抵赖性：数字签名</li>
 </ul>
 
 
