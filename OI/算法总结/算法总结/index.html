@@ -4131,7 +4131,7 @@
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1 1
 </code></pre></div>
 <h3 id="_9">提示</h3>
-<p><img alt="img" src="https://cdn.luogu.com.cn/upload/image_hosting/9zfncisd.png" /></p>
+<p><img alt="img" src="https://cdn.luogu.com.cn/upload/image_hosting/9zfncisd.jpg" /></p>
 <p><strong>【数据范围】</strong></p>
 <p>对于 $100\%$ 的数据，$1\le n \le 100$，$0 \le k \le 10^{12}$，$|A_{i,j}| \le 1000$。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
@@ -4236,7 +4236,7 @@ $$</p>
 <p>对于 $50 \%$ 的评测用例, $1 \leq N \leq 15$ 。</p>
 <p>对于所有评测用例, $1 \leq N \leq 100, N$ 个砝码总重不超过 $10^5$。 </p>
 <p>蓝桥杯 2021 第一轮省赛 A 组 F 题（B 组 G 题）。</p>
-<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20210501180926598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1N1cHJlbWU3,size_16,color_FFFFFF,t_70" /></p>
+<p><img alt="在这里插入图片描述" src="https://img-blog.csdnimg.cn/20210501180926598.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1N1cHJlbWU3,size_16,color_FFFFFF,t_70" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">puji</span><span class="p">;</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -5090,7 +5090,7 @@ $$</p>
 <a id="__codelineno-45-35" name="__codelineno-45-35" href="#__codelineno-45-35"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-45-36" name="__codelineno-45-36" href="#__codelineno-45-36"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image-20221025160531313" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/image-20221025160531313.png" /></p>
+<p><img alt="image-20221025160531313" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/image-20221025160531313.jpg" /></p>
 <h5 id="_65">记忆化搜索优化</h5>
 <p>暴力明显超时了，下面用到记忆化</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">普及提高减</span><span class="p">;</span>
@@ -5237,22 +5237,22 @@ $$</p>
 <ol>
 <li>当这面墙的最后一列被铺满时，以这种状态结尾的方案数为F[N-1]。</li>
 </ol>
-<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18285.png" /></p>
+<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18285.jpg" /></p>
 <ol>
 <li>当这面墙的最后两列被铺满时，以这种状态结尾的方案数为F[N-2]。</li>
 </ol>
-<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18286.png" /></p>
+<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18286.jpg" /></p>
 <p>一个数组G[N]来表示<strong>铺满前(N+1)*2的面积的墙，但是第(N+1)列有一个瓷砖已经被铺过（注意，是已经被铺过！）</strong>的方案数</p>
 <p>下面这种情况的方案数就是G[N-2]（因为实际上第N列已经铺满了，所以这里要处理的是前N-1列墙，所以多减了1）</p>
-<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18287.png" /></p>
+<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18287.jpg" /></p>
 <p>同理，这一种情况的方案数也是G[N-2]</p>
-<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18288.png" /></p>
+<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18288.jpg" /></p>
 <p>这个G数组应该怎么维护呢？</p>
 <p>首先，第一种情况就是直接先让它变成一个长方形：</p>
-<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18289.png" /></p>
+<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18289.jpg" /></p>
 <p>以这种状态结尾的方案数为F[N-3]。</p>
 <p>第二种情况是，加上一块砖后，它仍然不是一个长方形：</p>
-<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18290.png" /></p>
+<p><img alt="img" src="../%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.assets/18290.jpg" /></p>
 <p>这第二种情况的方案数就是G[N-3]</p>
 <p>所以，G[N-2]（注意，不是G[N]）的方案数就等于F[N-3]+G[N-3]。</p>
 <p>稍微化简一下，就可以得出：G[N]=F[N-1]+G[N-1]。</p>

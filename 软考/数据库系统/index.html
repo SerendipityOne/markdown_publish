@@ -1685,7 +1685,7 @@
 <h3 id="11">1.1 三级模式两级映射</h3>
 <h4 id="111">1.1.1 三级模式</h4>
 <p>外模式、概念模式、内模式</p>
-<p><img alt="image-20230507132259490" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507132259490.png" /></p>
+<p><img alt="image-20230507132259490" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507132259490.jpg" /></p>
 <p>数据按外模式的描述提供给用户；按内模式的描述存储在磁盘上；而概念模式提供了连接这两级模式的相对稳定的中间层，并使得两级中任意一级的改变都不受另一级的牵制。</p>
 <p>数据的独立性是指数据与程序独立，将数据的定义从程序中分离出来，由DBMS（数据库管理系统）负责数据的存储，从而简化应用程序，大大减少应用程序编制的工作量。</p>
 <p>数据的独立性是由DBMS的二级映像功能来保证的。数据的独立性包括数据的<strong>物理独立性</strong>和数据的<strong>逻辑独立性</strong>。</p>
@@ -1696,73 +1696,73 @@
 <li>外模式/模式的映像：实现外模式到概念模式之间的相互转换。</li>
 </ul>
 <h2 id="_3">二、数据库设计过程</h2>
-<p><img alt="image-20230507142104912" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507142104912.png" /></p>
+<p><img alt="image-20230507142104912" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507142104912.jpg" /></p>
 <h3 id="21-er">2.1 ER模型</h3>
-<p><img alt="image-20230507142425786" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507142425786.png" /></p>
-<p><img alt="image-20230507150137307" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507150137307.png" /></p>
-<p><img alt="image-20230507151211608" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151211608.png" /></p>
-<p><img alt="image-20230507151136202" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151136202.png" /></p>
+<p><img alt="image-20230507142425786" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507142425786.jpg" /></p>
+<p><img alt="image-20230507150137307" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507150137307.jpg" /></p>
+<p><img alt="image-20230507151211608" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151211608.jpg" /></p>
+<p><img alt="image-20230507151136202" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151136202.jpg" /></p>
 <h2 id="_4">三、关系代数与元组演算</h2>
-<p><img alt="image-20230507151310727" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151310727.png" /></p>
-<p><img alt="image-20230507151412128" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151412128.png" /></p>
-<p><img alt="image-20230507151516595" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151516595.png" /></p>
+<p><img alt="image-20230507151310727" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151310727.jpg" /></p>
+<p><img alt="image-20230507151412128" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151412128.jpg" /></p>
+<p><img alt="image-20230507151516595" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507151516595.jpg" /></p>
 <h2 id="_5">四、规范化理论</h2>
 <h3 id="41">4.1 函数依赖</h3>
-<p><img alt="image-20230507153328868" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507153328868.png" /></p>
+<p><img alt="image-20230507153328868" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507153328868.jpg" /></p>
 <p><strong>部分函数依赖</strong>：当1个关系模式中主键由2个及以上的属性组成时，非主属性只依赖于其中1个主属性</p>
-<p><img alt="image-20230507154017908" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154017908.png" /></p>
+<p><img alt="image-20230507154017908" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154017908.jpg" /></p>
 <p><strong>传递函数依赖</strong></p>
-<p><img alt="image-20230507154007466" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154007466.png" /></p>
+<p><img alt="image-20230507154007466" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154007466.jpg" /></p>
 <h3 id="42">4.2 价值与用途</h3>
-<p><img alt="image-20230507154148614" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154148614.png" /></p>
+<p><img alt="image-20230507154148614" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154148614.jpg" /></p>
 <h3 id="43">4.3 键</h3>
-<p><img alt="image-20230507154548747" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154548747.png" /></p>
+<p><img alt="image-20230507154548747" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507154548747.jpg" /></p>
 <h3 id="44">4.4 求候选键</h3>
-<p><img alt="image-20230507155023535" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507155023535.png" /></p>
-<p><img alt="image-20230507160547822" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507160547822.png" /></p>
-<p><img alt="image-20230507160826239" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507160826239.png" /></p>
-<p><img alt="image-20230507161012145" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161012145.png" /></p>
+<p><img alt="image-20230507155023535" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507155023535.jpg" /></p>
+<p><img alt="image-20230507160547822" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507160547822.jpg" /></p>
+<p><img alt="image-20230507160826239" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507160826239.jpg" /></p>
+<p><img alt="image-20230507161012145" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161012145.jpg" /></p>
 <h3 id="45">4.5 范式</h3>
-<p><img alt="image-20230507161048090" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161048090.png" /></p>
+<p><img alt="image-20230507161048090" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161048090.jpg" /></p>
 <h4 id="451">4.5.1 第一范式</h4>
-<p><img alt="image-20230507161441919" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161441919.png" /></p>
+<p><img alt="image-20230507161441919" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161441919.jpg" /></p>
 <h4 id="452">4.5.2 第二范式</h4>
-<p><img alt="image-20230507161526684" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161526684.png" /></p>
+<p><img alt="image-20230507161526684" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161526684.jpg" /></p>
 <h4 id="453">4.5.3 第三范式</h4>
-<p><img alt="image-20230507161903113" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161903113.png" /></p>
+<p><img alt="image-20230507161903113" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507161903113.jpg" /></p>
 <h4 id="454-bc">4.5.4 BC范式</h4>
-<p><img alt="image-20230507162647026" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507162647026.png" /></p>
+<p><img alt="image-20230507162647026" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507162647026.jpg" /></p>
 <h4 id="455">4.5.5 范式例题</h4>
-<p><img alt="image-20230507164228397" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507164228397.png" /></p>
+<p><img alt="image-20230507164228397" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507164228397.jpg" /></p>
 <p>部分函数依赖：当1个关系模式中主键由2个及以上的属性组成时，非主属性只依赖于其中1个主属性</p>
 <p>(1)图1可知，部门号可以充当主键，所以不存在部分函数依赖。排除A、B、D。选C</p>
 <p>(2)分析选项可知，主要修改表1、2、3的结构，而表1、3分析得知，无法确定每个职工属于哪个部门，所以选D。</p>
 <p>(3)根据图4，分析选项得知，职工号不需要考虑，而在(2)中，已经为表1与表3添加联系，通过职工号可以确定部门号，排除C、D。分析A、B、图2得，通过商品号可以得到商品名，所以选A</p>
 <p>(1)C  (2)D  (3)A</p>
 <h3 id="46">4.6 模式分解</h3>
-<p><img alt="image-20230507165956463" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507165956463.png" /></p>
+<p><img alt="image-20230507165956463" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507165956463.jpg" /></p>
 <h4 id="461">4.6.1 模式分解例题</h4>
-<p><img alt="image-20230507172754203" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507172754203.png" /></p>
+<p><img alt="image-20230507172754203" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507172754203.jpg" /></p>
 <hr />
-<p><img alt="image-20230507173010732" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507173010732.png" /></p>
-<p><img alt="image-20230507181908408" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507181908408.png" /></p>
+<p><img alt="image-20230507173010732" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507173010732.jpg" /></p>
+<p><img alt="image-20230507181908408" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507181908408.jpg" /></p>
 <hr />
-<p><img alt="image-20230507181946677" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507181946677.png" /></p>
-<p><img alt="image-20230508151717335" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508151717335.png" /></p>
+<p><img alt="image-20230507181946677" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230507181946677.jpg" /></p>
+<p><img alt="image-20230508151717335" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508151717335.jpg" /></p>
 <h2 id="_6">五、并发控制</h2>
-<p><img alt="image-20230508151758142" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508151758142.png" /></p>
+<p><img alt="image-20230508151758142" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508151758142.jpg" /></p>
 <p>S锁：读锁</p>
 <p>X锁：写锁</p>
 <h3 id="51">5.1 存在问题</h3>
 <p>(1) 丢失更新</p>
 <p>​   当两个或多个事物读入同一数据并修改，会发生丢失更新问题，即后一个事物更新的结果被前一事务所做<strong>更新覆盖</strong> 即当事务A和B同事进行时，事务A对数据已经改变但并未提交时B又对同一数据进行了修改（注意此时数据是A还未提交改变的数据），到时A做的数据改动丢失了</p>
-<p><img alt="image-20230508153105216" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508153105216.png" /></p>
+<p><img alt="image-20230508153105216" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508153105216.jpg" /></p>
 <p>(2) 不可重复读</p>
 <p>​   当两个数据读取某个数据后，另一事务执行了对该数据的<strong>更新</strong>，当前一事务再次读取该数据（希望与第一次读取的是相同的值）时，得到的数据与前一次的不一样，这是由于第一次读取数据后，事务B对其做了修改，导致再次读取数据时与第一次读取的数据不想同</p>
-<p><img alt="image-20230508153114287" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508153114287.png" /></p>
+<p><img alt="image-20230508153114287" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508153114287.jpg" /></p>
 <p>(3) 读"脏数据"</p>
 <p>​   当一个事务修改某个数据后，另一事务对该数据进行了读取(读到临时值)，由于某种原因前一事务<strong>撤销</strong>了对改数据的修改，即将修改过的数据恢复原值，那么后一事务读到的数据与数据可得不一致，称之为读脏数据</p>
-<p><img alt="image-20230508153128013" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508153128013.png" /></p>
+<p><img alt="image-20230508153128013" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508153128013.jpg" /></p>
 <h3 id="52">5.2 封锁协议</h3>
 <ol>
 <li>一级封锁协议。事务T在修改数据R之前必须先对其加X锁,直到事务结束才释放。可防止<strong>丢失修改</strong>(丢失更新)</li>
@@ -1883,7 +1883,7 @@
 </tbody>
 </table>
 <h2 id="_11">十、数据仓库与数据挖掘</h2>
-<p><img alt="image-20230508160415583" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508160415583.png" /></p>
+<p><img alt="image-20230508160415583" src="../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.assets/image-20230508160415583.jpg" /></p>
 <p><strong>数据仓库</strong>：是在数据库已经大量存在的情况下，为了进一步<strong>挖掘数据资源、为了决策需要而产生的</strong>，并不是"大型数据库"。</p>
 <p>数据仓库与数据库的区别：</p>
 <table>

@@ -3080,7 +3080,7 @@
 <ul>
 <li>在Java代码中调用setTextColor方法即可设置文本颜色,具体色值可从Color类取。</li>
 </ul>
-<p><img alt="image-20230330164436552" src="../Android.assets/image-20230330164436552.png" /></p>
+<p><img alt="image-20230330164436552" src="../Android.assets/image-20230330164436552.jpg" /></p>
 <h3 id="2">2.视图</h3>
 <h4 id="21">2.1设置视图的宽高</h4>
 <ol>
@@ -3148,7 +3148,7 @@
 </ul>
 <p>如果不设定下级视图的参照物，那么下级视图默认显示在RelativeLayout内部的左上角。</p>
 <h4 id="34">3.4 相对位置的取值</h4>
-<p><img alt="image-20230330194612369" src="../Android.assets/image-20230330194612369.png" /></p>
+<p><img alt="image-20230330194612369" src="../Android.assets/image-20230330194612369.jpg" /></p>
 <h4 id="35-gridlayout">3.5 网格布局GridLayout</h4>
 <p>网格布局支持多行多列的表格排列。</p>
 <p>网格布局默认从左往右、从上到下排列，它新增了两个属性：</p>
@@ -3190,7 +3190,7 @@
 </ul>
 <p>图像视图的缩放类型
 ImageView本身默认图片居中显示,若要改变图片的显示方式,可通过scaleType属性设定，该属性的取值说明如下：</p>
-<p><img alt="image-20230330215615094" src="../Android.assets/image-20230330215615094.png" /></p>
+<p><img alt="image-20230330215615094" src="../Android.assets/image-20230330215615094.jpg" /></p>
 <h4 id="44-imagebutton">4.4 图像按钮ImageButton</h4>
 <p>ImageButton是显示图片的图像按钮,但它继承自ImageView,而非继承Button。</p>
 <p>ImageButton和Button之间的区别有：</p>
@@ -3229,7 +3229,7 @@ ImageView本身默认图片居中显示,若要改变图片的显示方式,可通
 <li>finish(); //结束当前的活动页面</li>
 </ul>
 <h3 id="2activity">2.Activity的生命周期</h3>
-<p><img alt="image-20230401163224781" src="../Android.assets/image-20230401163224781.png" /></p>
+<p><img alt="image-20230401163224781" src="../Android.assets/image-20230401163224781.jpg" /></p>
 <p><strong>onCreate</strong>:创建活动。把页面布局加载进内存,进入了初始状态。
 onStart:开始活动。把活动页面显示在屏幕上,进入了就绪状态。
 <strong>onResume</strong>：恢复活动。活动页面进入活跃状态，能够与用户正常交互，例如允许响应用户的点击动作、允许用户输入文字等等。
@@ -3238,7 +3238,7 @@ onStop：停止活动。页面将不在屏幕上显示。
 onDestroy:销毁活动。回收活动占用的系统资源,把页面从内存中清除。活
 onRestart:重启活动。重新加载内存中的页面数据。
 onNewlntent:重用已有的活动实例。</p>
-<p><img alt="image-20230401163811175" src="../Android.assets/image-20230401163811175.png" /></p>
+<p><img alt="image-20230401163811175" src="../Android.assets/image-20230401163811175.jpg" /></p>
 <blockquote>
 <p>如果一个Activity已经启动过，并且存在当前应用的Activity任务栈中，启动模式为singleTask, singlelnstance或singleTop(此时已
 在任务栈顶端)，那么在此启动或回到这个Activity的时候,不会创建新的实例，也就是不会执行onCreate方法,而是执行
@@ -3250,7 +3250,7 @@ onCreate-&gt;onStart-&gt;onResume
 关闭旧页面的方法调用顺序为：
 onPause-&gt;onStop-&gt;onDestroy</p>
 <h3 id="3activity">3.Activity 的启动模式</h3>
-<p><img alt="image-20230401164051392" src="../Android.assets/image-20230401164051392.png" /></p>
+<p><img alt="image-20230401164051392" src="../Android.assets/image-20230401164051392.jpg" /></p>
 <h4 id="31">3.1 在配置文件中指定启动模式</h4>
 <p>打开AndroidManifest.xml，给activity节点添加属性android:launchMode，属性值填入standard表示采取标准模式，当然不添加属性的
 话默认就是标准模式。具体的activity节点配置内容示例如下：</p>
@@ -3285,27 +3285,27 @@ onPause-&gt;onStop-&gt;onDestroy</p>
 </table>
 <h4 id="32-standard">3.2 默认启动模式standard</h4>
 <p>该模式可以被设定,不在manifest设定时候, Activity的默认模式就是standard。在该模式下,<strong>启动的Activity会依照启动顺序被依次压入Task栈中</strong>:
-<img alt="image-20230401164333048" src="../Android.assets/image-20230401164333048.png" /></p>
+<img alt="image-20230401164333048" src="../Android.assets/image-20230401164333048.jpg" /></p>
 <h4 id="33-singletop">3.3 栈顶复用模式singleTop</h4>
 <p>在该模式下,<strong>如果栈顶Activity为我们要新建的Activity (目标Activity) ,那么就不会重复创建新的Activity</strong>。</p>
-<p><img alt="image-20230401164440400" src="../Android.assets/image-20230401164440400.png" /></p>
+<p><img alt="image-20230401164440400" src="../Android.assets/image-20230401164440400.jpg" /></p>
 <p><strong>应用场景</strong>
 适合开启渠道多、多应用开启调用的 Activity,通过这种设置可以避免已经创建过的Activity 被重复创建，多数通过动态设置使用。</p>
 <h4 id="34-singletask">3.4 栈内复用模式singleTask</h4>
 <p>与 singleTop 模式相似,只不过 singleTop 模式是只是针对栈顶的元素,而 singleTask 模式下,如果 task 栈内存在目标 Activity 实例,
 则将 task 内的对应 Activity实例之上的所有 Activity弹出栈,并将对应 Activity 置于栈顶,获得焦点。</p>
-<p><img alt="image-20230401164534364" src="../Android.assets/image-20230401164534364.png" /></p>
+<p><img alt="image-20230401164534364" src="../Android.assets/image-20230401164534364.jpg" /></p>
 <p><strong>应用场景</strong>
 <strong>程序主界面</strong>:我们肯定不希望主界面被创建多次,而且在主界面退出的时候退出整个App是最好的效果。
 <strong>耗费系统资源的Activity</strong>:对于那些及其耗费系统资源的Activity,我们可以考虑将其设为singleTask模式,减少资源耗费。</p>
 <h4 id="35-singlelnstance">3.5 全局唯一模式singlelnstance</h4>
 <p>在该模式下,我们会为目标Activity创建一个新的Task栈,将目标Activity放入新的Task,并让目标Activity获得焦点。新的Task有且只有这一个 Activity 实例。
 如果已经创建过目标 Activity 实例,则不会创建新的 Task,而是将以前创建过的 Activity 唤醒。</p>
-<p><img alt="image-20230401164734441" src="../Android.assets/image-20230401164734441.png" /></p>
+<p><img alt="image-20230401164734441" src="../Android.assets/image-20230401164734441.jpg" /></p>
 <hr />
-<p><img alt="image-20230401164807940" src="../Android.assets/image-20230401164807940.png" /></p>
-<p><img alt="image-20230401164906324" src="../Android.assets/image-20230401164906324.png" /></p>
-<p><img alt="image-20230401164918816" src="../Android.assets/image-20230401164918816.png" /></p>
+<p><img alt="image-20230401164807940" src="../Android.assets/image-20230401164807940.jpg" /></p>
+<p><img alt="image-20230401164906324" src="../Android.assets/image-20230401164906324.jpg" /></p>
+<p><img alt="image-20230401164918816" src="../Android.assets/image-20230401164918816.jpg" /></p>
 <h4 id="36">3.6 动态设置启动模式</h4>
 <p>在代码里面设置启动标志</p>
 <p>启动标志的取值说明如下：</p>
@@ -3344,7 +3344,7 @@ onPause-&gt;onStop-&gt;onDestroy</p>
 <li>发起方携带本次通信需要的数据内容，接收方从收到的意图中解析数据。</li>
 <li>发起方若想判断接收方的处理结果，意图就要负责让接收方传回应答的数据内容。</li>
 </ul>
-<p><img alt="image-20230401201358550" src="../Android.assets/image-20230401201358550.png" /></p>
+<p><img alt="image-20230401201358550" src="../Android.assets/image-20230401201358550.jpg" /></p>
 <h5 id="371-intent">3.7.1 显示Intent</h5>
 <p>显式Intent，直接指定来源活动与目标活动,属于精确匹配。它有三种构建方式：</p>
 <ul>
@@ -3422,7 +3422,7 @@ onPause-&gt;onStop-&gt;onDestroy</p>
 <h3 id="38-activity">3.8 向下一个Activity发送数据</h3>
 <p>Intent使用Bundle对象存放待传递的数据信息。
 Bundle对象操作各类型数据的读写方法说明见下表。</p>
-<p><img alt="image-20230401212651118" src="../Android.assets/image-20230401212651118.png" /></p>
+<p><img alt="image-20230401212651118" src="../Android.assets/image-20230401212651118.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">//发送放</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nd">@Override</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onClick</span><span class="p">(</span><span class="n">View</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3560,7 +3560,7 @@ Bundle对象操作各类型数据的读写方法说明见下表。</p>
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="312">3.12 给应用页面注册快捷方式</h3>
-<p><img alt="image-20230401224408488" src="../Android.assets/image-20230401224408488.png" /></p>
+<p><img alt="image-20230401224408488" src="../Android.assets/image-20230401224408488.jpg" /></p>
 <ol>
 <li>定义一个value的xml文件，并用shortcut标签，将要显示的内容放在里面(注意：ShortLabel、LongLabel必须是在strings.xml中的)</li>
 </ol>
@@ -3822,14 +3822,14 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <p>Button按钮的背景在正常情况下是凸起的,在按下时是凹陷的,从按下到弹起的过程,用户便能知道点击了这个按钮。</p>
 <p><strong>状态类型的取值说明</strong></p>
 <p>状态列表图形不仅用于按钮控件，还可用于其他拥有多种状态的控件。</p>
-<p><img alt="image-20230402170514055" src="../Android.assets/image-20230402170514055.png" /></p>
+<p><img alt="image-20230402170514055" src="../Android.assets/image-20230402170514055.jpg" /></p>
 <h3 id="2_1">2.选择按钮</h3>
 <h4 id="21-checkbox">2.1 复选框CheckBox</h4>
 <ul>
 <li>CompoundButton类是抽象的复合按钮,由它派生而来的子类包括:复选框CheckBox、单选按钮RadioButton以及开关按钮Switch。</li>
 <li>下图描述了复合按钮的继承关系：</li>
 </ul>
-<p><img alt="image-20230402182947736" src="../Android.assets/image-20230402182947736.png" /></p>
+<p><img alt="image-20230402182947736" src="../Android.assets/image-20230402182947736.jpg" /></p>
 <p>CompoundButton在XML文件中主要使用下面两个属性。</p>
 <ul>
 <li>checked:指定按钮的勾选状态，true表示勾选，false则表示未勾选。默认为未勾选。</li>
@@ -3885,7 +3885,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <li>textColorHint:指定提示文本的颜色。</li>
 </ul>
 <p><code>android:inputType=""</code>能输入的文本有</p>
-<p><img alt="image-20230402193239060" src="../Android.assets/image-20230402193239060.png" /></p>
+<p><img alt="image-20230402193239060" src="../Android.assets/image-20230402193239060.jpg" /></p>
 <h4 id="32_1">3.2 焦点变更监听器</h4>
 <p>编辑框点击两次后才会触发点击事件，因为第一次点击只触发焦点变更事件，第二次点击才触发点击事件。</p>
 <p>若要判断是否切换编辑框输入，应当监听焦点变更事件，而非监听点击事件。</p>
@@ -4160,7 +4160,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <h4 id="33_1">3.3 在存储卡上读写 图片文件</h4>
 <p>文本文件可以转化为对字符串的读写，而图像的读写就需要借助专门的位图工具Bitmap处理。不同图像来源获取Bitmap的方式不同，有三种：</p>
 <ol>
-<li>从指定资源文件中获取：decodeResource，例如从资源文件img.png获取位图对象：</li>
+<li>从指定资源文件中获取：decodeResource，例如从资源文件img.jpg获取位图对象：</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">Bitmap</span><span class="w"> </span><span class="n">bitmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BitmapFactory</span><span class="p">.</span><span class="na">decodeResource</span><span class="p">(</span><span class="n">getResources</span><span class="p">(),</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">drawable</span><span class="p">.</span><span class="na">img</span><span class="p">);</span>
 </code></pre></div>
@@ -4228,7 +4228,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <li>不方便通过intent传递的数据，如位图对象，非字符串的集合对象等。</li>
 <li>容易因频繁分配内存而导致内存泄漏的对象，如Handler处理器实例等。</li>
 </ul>
-<p><img alt="image-20230405162953151" src="../Android.assets/image-20230405162953151.png" /></p>
+<p><img alt="image-20230405162953151" src="../Android.assets/image-20230405162953151.jpg" /></p>
 <p>通过Application实现对全局内存的读写：</p>
 <ol>
 <li>先继承Application，并获取唯一实例：</li>
@@ -4255,7 +4255,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <ol>
 <li>在AndroidManifest.xml 通过name属性添加该Application</li>
 </ol>
-<p><img alt="image-20230117121213401" src="../Android.assets/cdfc2740f936ab8ece57b6f9a3f507bd.png" /></p>
+<p><img alt="image-20230117121213401" src="../Android.assets/cdfc2740f936ab8ece57b6f9a3f507bd.jpg" /></p>
 <ol>
 <li>接下来就可以通过该Application在整个App中存取数据了：</li>
 </ol>
@@ -4372,9 +4372,9 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-38-31" name="__codelineno-38-31" href="#__codelineno-38-31"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image-20230127162217527" src="../Android.assets/20230127162217.png" /></p>
+<p><img alt="image-20230127162217527" src="../Android.assets/20230127162217.jpg" /></p>
 <hr />
-<p><img alt="image-20230127162240169" src="../Android.assets/20230127162240.png" /></p>
+<p><img alt="image-20230127162240169" src="../Android.assets/20230127162240.jpg" /></p>
 <h4 id="12-simpleadaper">1.2 SimpleAdaper</h4>
 <p>上面用的适配器是ArrayAdapter，数组适配器简单但是只能用于文本列表，如果想要加上图标之类的，则需要用到简单适配器SimpleAdapter了。</p>
 <p>以下是示例代码：</p>
@@ -4476,10 +4476,10 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-41-47" name="__codelineno-41-47" href="#__codelineno-41-47"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image-20230127163710381" src="../Android.assets/20230127163710.png" /> <img alt="image-20230127163731754" src="../Android.assets/20230127163731.png" /></p>
+<p><img alt="image-20230127163710381" src="../Android.assets/20230127163710.jpg" /> <img alt="image-20230127163731754" src="../Android.assets/20230127163731.jpg" /></p>
 <h4 id="13-baseadapter">1.3 BaseAdapter</h4>
 <p>Android的Adapter继承结构如下：</p>
-<p><img alt="image-20230127163956417" src="../Android.assets/c7b4896b10f64bb908f1cfd9a919e767.png" /></p>
+<p><img alt="image-20230127163956417" src="../Android.assets/c7b4896b10f64bb908f1cfd9a919e767.jpg" /></p>
 <p>可以看到上面已经提到的ArrayAdapter和SimpleAdapter都是比较具体的实现类，想要有更多的扩展，必然是需要自定义适配器的，我们可以通过继承BaseAdapter，根据业务自定义数据适配器。</p>
 <p>示例代码如下：</p>
 <p>item_list.xml：</p>
@@ -4673,7 +4673,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-46-27" name="__codelineno-46-27" href="#__codelineno-46-27"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image-20230127221151366" src="../Android.assets/20230127221151.png" /> <img alt="image-20230127221203368" src="../Android.assets/20230127221203.png" /></p>
+<p><img alt="image-20230127221151366" src="../Android.assets/20230127221151.jpg" /> <img alt="image-20230127221203368" src="../Android.assets/20230127221203.jpg" /></p>
 <h3 id="2_2">2.列表类视图</h3>
 <h4 id="21-listview">2.1 列表视图 ListView</h4>
 <p>ListView允许在页面上分行展示相似的数据列表，例如新闻列表、商品列表、图书列表等，方便用户浏览与操作。</p>
@@ -4781,7 +4781,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-48-59" name="__codelineno-48-59" href="#__codelineno-48-59"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行效果如下：</p>
-<p><img alt="image-20230127230950436" src="../Android.assets/20230127230950.png" /></p>
+<p><img alt="image-20230127230950436" src="../Android.assets/20230127230950.jpg" /></p>
 <h4 id="22-gridview">2.2 网格视图 GridView</h4>
 <p>除了列表视图，网格视图GridView也是常见的列表类视图，它用于分行分列显示表格信息，比列表视图更适合展示物品清单。</p>
 <p>在XML文件中添加GridView需要指定列的数目，以及空隙的拉伸模式，示例如下：</p>
@@ -4793,7 +4793,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="na">android:stretchMode=</span><span class="s">&quot;columnWidth&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>网格布局在页面布局上有很多细节，这里就暂不扩展，可以找些相关介绍文章再详细学习。</p>
-<p><img alt="image-20230127231336279" src="../Android.assets/20230127231336.png" /></p>
+<p><img alt="image-20230127231336279" src="../Android.assets/20230127231336.jpg" /></p>
 <h3 id="3_3">3.翻页类视图</h3>
 <h4 id="31-viewpager">3.1 翻页视图 ViewPager</h4>
 <p>翻页视图的原理类似列表视图和网格视图，它们的用法也很类似。例如，列表视图和网格视图使用基本适配器BaseAdapter，翻页视图则使用翻页适配器PagerAdapter；列表视图和网格视图使用列表项的点击监听器OnItemClickListener，翻页视图则使用页面变更监听器OnPageChangeListener监听页面切换事件。</p>
@@ -5015,7 +5015,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image-20230205144743855" src="../Android.assets/47761213df45ce6bc13dde8b6ba14521.png" /></p>
+<p><img alt="image-20230205144743855" src="../Android.assets/47761213df45ce6bc13dde8b6ba14521.jpg" /></p>
 <h4 id="42_1">4.2 动态注册：</h4>
 <p>对上面的翻页标签页进行改进，使用Fragment实现：</p>
 <p>创建Fragment：</p>
@@ -5158,7 +5158,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <a id="__codelineno-61-20" name="__codelineno-61-20" href="#__codelineno-61-20"></a><span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image-20230205164111340" src="../Android.assets/20230205164111.png" /></p>
+<p><img alt="image-20230205164111340" src="../Android.assets/20230205164111.jpg" /></p>
 <h2 id="broadcast">七、广播组件 Broadcast</h2>
 <p>广播组件 Broadcast 是Android 四大组件之一。</p>
 <p>广播有以下特点：</p>
@@ -5704,7 +5704,7 @@ shape：字符串类型，表示图形的形状。形状类型的取值说明见
 <li>MessageQueue：消息队列，主要用来存放Handler发送过来的消息。</li>
 <li>Looper：消息循环，不断的从MessageQueue中抽取Message并执行。</li>
 </ul>
-<p><img alt="image-20230206160931731" src="../Android.assets/0095833f2fbc11976b7f462e30f6f896.png" /></p>
+<p><img alt="image-20230206160931731" src="../Android.assets/0095833f2fbc11976b7f462e30f6f896.jpg" /></p>
 <p>以下通过获取高德天气信息为例，介绍Handler的基本使用</p>
 <p>创建获取天气的线程WeatherThread：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WeatherThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>

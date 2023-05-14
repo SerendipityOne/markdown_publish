@@ -1237,14 +1237,14 @@
 </code></pre></div>
 <h2 id="11-ocp">1.1 OCP开闭原则</h2>
 <p>这样一来就违背了开闭原则OCP。开闭原则是这样说的：在软件开发过程中应该<strong>对扩展开放</strong>，<strong>对修改关闭</strong>。也就是说，如果在进行功能扩展的时候，<strong>添加额外的类是没问题的</strong>，但因为功能扩展而<strong>修改之前运行正常写的程序</strong>，这是忌讳的，是不被允许的。因为一旦修改之前运行正常的程序，就会导致项目整体要进行全方位的重新测试。这是想当麻烦的过程，导致以上问题的主要原因是：代码和代码之间的耦<strong>合度太高</strong>。如下图：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663658802926-4c783887-3bd3-4a35-b32a-b2cd57d0061c.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663658802926-4c783887-3bd3-4a35-b32a-b2cd57d0061c.jpg" /></p>
 <p>从以上图可以明显的看出，<strong>上层</strong>是依赖<strong>下层</strong>的。UserController依赖UserServiceImpl，而UserServiceImpl依赖UserDaoImplForMySQL，这样就会导致<strong>下面只要改动</strong>，<strong>上面必然会受到牵连（跟着也会改动）</strong>，所谓牵一发而动全身，这样也就同时违背了另一个开发原则：<strong>依赖倒置原则</strong></p>
 <h2 id="12-dip">1.2 依赖倒置原则DIP</h2>
 <p>依赖倒置原则（Dependence Inversion Principle），简称DIP。主要倡导<strong>面向对象编程</strong>，<strong>面向接口编程</strong>，不要面向具体编程，让上层不再依赖下层，下面改动了，上面的代码不会受到牵连。这样就可以大大降低程序的耦合度，耦合度低了，扩展力就增强了，同时代码复用性也会增强。<strong>（软件七大开发原则都是在为解耦合服务）</strong></p>
 <p>你可能会说，下面面的代码已经面向接口编程了呀：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663663167652-73de3acd-61de-4f32-8a78-6c7698e910d3.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663663167652-73de3acd-61de-4f32-8a78-6c7698e910d3.jpg" /></p>
 <p>确实已经面向接口编程了，但对象的创建是：new UserDaoImplForOracle()显然并没有完全面向接口编程，还是使用到了具体的接口实现类。什么叫完全面向接口编程？什么叫完全符合依赖倒置原则呢？请看以下代码：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663663356201-4e57a395-503b-41ec-b98a-c3cd38f9279a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663663356201-4e57a395-503b-41ec-b98a-c3cd38f9279a.jpg" /></p>
 <p>如果代码是这样编写的，才算是完全面向想接口编程，才符合依赖倒置原则。那你可能会问，这样userDao是null，在执行的时候就会出现空指针异常啊。是的，确实是这样，所以我们要解决这个问题。解决空指针异常的问题，其实就是解决<strong>两个核心</strong>的问题：</p>
 <ol>
 <li>谁来负责对象的创建。（也就是说谁来：new UserDaoImplForOracle()/new UserDaoImplForMySQL()）</li>
@@ -1253,7 +1253,7 @@
 <p>如果以上两个核心问题解决了，就可以坐到符合OCP开闭原则，又符合DIP依赖倒置原则。</p>
 <p>很荣幸的通知你：Spring框架可以做到。</p>
 <p>Spring框架中，它可以帮助我们new对象，并且它还可以将new出来的对象赋到属性上。换句话说，Spring框架可以帮助我们创建对象，并且可以帮助我们维护对象与对象之间的关系。比如：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663664672011-b1f5c534-5c8b-412b-adb3-f7c60a3ab359.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663664672011-b1f5c534-5c8b-412b-adb3-f7c60a3ab359.jpg" /></p>
 <p>Spring可以new出来UserDaoImplForMySQL对象，也可以new出来UserDaoImplForOracle对象，并且还可以让new出来的dao对象和service对象产生关系（<strong>产生关系其实本质上就是给属性赋值</strong>）</p>
 <p>很显然，这种方式是将对象的创建权/管理权交出去了，不再使用硬编码的方式了。同时也把对象关系的管理权交出去了，也不再使用硬编码的方式了，像这种把对象关系的管理权交出去，被称为<strong>控制反转</strong>。</p>
 <h2 id="13-ioc">1.3 控制反转IOC</h2>
@@ -1288,7 +1288,7 @@
 <strong>Spring为简化开发而生，让程序员只需关注核心业务的实现，尽可能的不再关注非业务逻辑代码（事务控制，安全日志等）。</strong></p>
 <h2 id="22-spring8">2.2 Spring的8大模块</h2>
 <p>注意：Spring5版本之后是8个模块。在Spring5中新增了WebFlux模块。</p>
-<p><img alt="image.png" src="../Spring6.assets/1663726169861-b5acb757-17e0-4d3d-a811-400eb7edd1b3.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663726169861-b5acb757-17e0-4d3d-a811-400eb7edd1b3.jpg" /></p>
 <ol>
 <li>Spring Core模块</li>
 </ol>
@@ -1318,7 +1318,7 @@
 <li>Spring WebFlux模块</li>
 </ol>
 <p>Spring Framework 中包含的原始 Web 框架 Spring Web MVC 是专门为 Servlet API 和 Servlet 容器构建的。反应式堆栈 Web 框架 Spring WebFlux 是在 5.0 版的后期添加的。它是完全非阻塞的，支持反应式流(Reactive Stream)背压，并在Netty，Undertow和Servlet 3.1+容器等服务器上运行。</p>
-<p><img alt="image.png" src="../Spring6.assets/1663740062570-1823e8ac-1794-4590-87de-87e4a139a722.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663740062570-1823e8ac-1794-4590-87de-87e4a139a722.jpg" /></p>
 <ol>
 <li>Spring Web模块</li>
 </ol>
@@ -1344,12 +1344,12 @@
 <p>官网地址（中文）：http://spring.p2hp.com/</p>
 <h2 id="32-springjar">3.2 Spring的jar文件</h2>
 <p>打开libs目录，会看到很多jar包：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663809473261-c5c10c35-7407-44d4-81da-8f0baa236179.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663809473261-c5c10c35-7407-44d4-81da-8f0baa236179.jpg" /></p>
 <p>spring-core-5.3.9.jar：字节码（<strong>这个是支撑程序运行的jar包</strong>）
 spring-core-5.3.9-javadoc.jar：代码中的注释
 spring-core-5.3.9-sources.jar：源码
 我们来看一下spring框架都有哪些jar包：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663809688152-48c02538-b2c0-4649-a415-3ae25feeadab.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663809688152-48c02538-b2c0-4649-a415-3ae25feeadab.jpg" /></p>
 <table>
 <thead>
 <tr>
@@ -1576,7 +1576,7 @@ spring expression：spring表达式</p>
 <ol>
 <li>编写spring的配置文件：beans.xml。<strong>该文件放在类的根路径下。</strong></li>
 </ol>
-<p><img alt="image.png" src="../Spring6.assets/1663816617460-ee35243c-fddc-4771-af28-0017f8af2ab5.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663816617460-ee35243c-fddc-4771-af28-0017f8af2ab5.jpg" /></p>
 <p>配置文件中进行bean的配置。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">&lt;beans</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
@@ -1617,7 +1617,7 @@ spring expression：spring表达式</p>
 <ol>
 <li><strong>运行测试程序</strong></li>
 </ol>
-<p><img alt="image.png" src="../Spring6.assets/1663818370960-22cf8670-7e79-48d2-b4fe-008ead1a6607.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663818370960-22cf8670-7e79-48d2-b4fe-008ead1a6607.jpg" /></p>
 <h2 id="34-spring">3.4 第一个Spring程序详细剖析</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;userBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.bean.User&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
@@ -1648,7 +1648,7 @@ spring expression：spring表达式</p>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
 <p>运行测试程序：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663829044856-faaf4569-26f0-475b-a8c3-ba28b1753873.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663829044856-faaf4569-26f0-475b-a8c3-ba28b1753873.jpg" /></p>
 <p><strong>通过测试得出：在spring的配置文件中id是不能重名。</strong></p>
 <ol>
 <li><strong>底层是怎么创建对象的，是通过反射机制调用无参数构造方法吗？</strong></li>
@@ -1669,7 +1669,7 @@ spring expression：spring表达式</p>
 </code></pre></div>
 <p>在User类中添加无参数构造方法，如上。
 运行测试程序：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663829191565-09e55ce2-e426-4f34-a49d-1ecde4c66dd2.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663829191565-09e55ce2-e426-4f34-a49d-1ecde4c66dd2.jpg" /></p>
 <p><strong>通过测试得知：创建对象时确实调用了无参数构造方法。</strong>
 如果提供一个有参数构造方法，不提供无参数构造方法会怎样呢？</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean</span><span class="p">;</span>
@@ -1691,7 +1691,7 @@ spring expression：spring表达式</p>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行测试程序：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663829413955-bda77d32-bf39-44e2-bbd8-0ed87f72bd7e.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663829413955-bda77d32-bf39-44e2-bbd8-0ed87f72bd7e.jpg" /></p>
 <p><strong>通过测试得知：spring是通过调用类的无参数构造方法来创建对象的，所以要想让spring给你创建对象，必须保证无参数构造方法是存在的。</strong>
 Spring是如何创建对象的呢？原理是什么？</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// dom4j解析beans.xml文件，从中获取class的全限定类名</span>
@@ -1702,7 +1702,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <ol>
 <li><strong>把创建好的对象存储到一个什么样的数据结构当中了呢？</strong></li>
 </ol>
-<p><img alt="image.png" src="../Spring6.assets/1663829973365-59ca2f4c-4d81-471f-8e4c-aa272f8c2b81.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663829973365-59ca2f4c-4d81-471f-8e4c-aa272f8c2b81.jpg" /></p>
 <ol>
 <li><strong>spring配置文件的名字必须叫做beans.xml吗？</strong></li>
 </ol>
@@ -1742,9 +1742,9 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1663830539482-a0454bc6-9d9b-41cb-81c3-1c02e58d3669.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663830539482-a0454bc6-9d9b-41cb-81c3-1c02e58d3669.jpg" /></p>
 <p>通过测试得知，spring的配置文件可以有多个，在ClassPathXmlApplicationContext构造方法的参数上传递文件路径即可。这是为什么呢？通过源码可以看到：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663830614508-d00ecc07-5b51-4d2d-bc1d-8f2cb4f0c785.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663830614508-d00ecc07-5b51-4d2d-bc1d-8f2cb4f0c785.jpg" /></p>
 <ol>
 <li><strong>在配置文件中配置的类必须是自定义的吗，可以使用JDK中的类吗，例如：java.util.Date？</strong></li>
 </ol>
@@ -1783,13 +1783,13 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1663830975135-0fce3972-3b4e-4f54-878a-a4058f8d6ca6.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663830975135-0fce3972-3b4e-4f54-878a-a4058f8d6ca6.jpg" /></p>
 <p>通过测试得知，在spring配置文件中配置的bean可以任意类，只要这个类不是抽象的，并且提供了无参数构造方法。</p>
 <ol>
 <li><strong>getBean()方法调用时，如果指定的id不存在会怎样？</strong></li>
 </ol>
-<p><img alt="image.png" src="../Spring6.assets/1663831841228-eda809d8-3e51-4b08-913c-76ff78efae1f.png" /></p>
-<p><img alt="image.png" src="../Spring6.assets/1663831885196-43acddcf-29e5-46b7-814c-33c4dfe78386.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663831841228-eda809d8-3e51-4b08-913c-76ff78efae1f.jpg" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663831885196-43acddcf-29e5-46b7-814c-33c4dfe78386.jpg" /></p>
 <p>通过测试得知，当id不存在的时候，会出现异常。</p>
 <ol>
 <li><strong>getBean()方法返回的类型是Object，如果访问子类的特有属性和方法时，还需要向下转型，有其它办法可以解决这个问题吗？</strong></li>
@@ -1799,7 +1799,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <ol>
 <li><strong>ClassPathXmlApplicationContext是从类路径中加载配置文件，如果没有在类路径当中，又应该如何加载配置文件呢？</strong></li>
 </ol>
-<p><img alt="image.png" src="../Spring6.assets/1663832523920-8df601e0-1fd3-43c2-92ad-dc57207b006a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663832523920-8df601e0-1fd3-43c2-92ad-dc57207b006a.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nt">&lt;beans</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">       </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
@@ -1979,7 +1979,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a><span class="p">}</span>
 </code></pre></div>
 <p>运行结果：</p>
-<p><img alt="image.png" src="../Spring6.assets/1663905094332-411b6249-dcf5-48df-830f-33335846bed8.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663905094332-411b6249-dcf5-48df-830f-33335846bed8.jpg" /></p>
 <p>重点内容是，什么原理：</p>
 <p>spring.xml</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -2002,7 +2002,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <p>property标签的name是属性名</p>
 <p>property标签的ref是要注入的bean对象的id。（通过ref属性来完成bean的装配，这是bean最简单的一种装配方式。装配指的是：创建系统组件之间关联的动作）</p>
 <p><strong>可以把set方法注释掉，再测试一下：</strong></p>
-<p><img alt="image.png" src="../Spring6.assets/1663905304326-b982124b-3dea-4a3a-b808-53403627a791.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663905304326-b982124b-3dea-4a3a-b808-53403627a791.jpg" /></p>
 <p>通过测试得知，底层实际上调用了setUserDao()方法，所以需要确保这个方法的存在</p>
 <p>我们现在把属性名修改一下，但方法名还是setUserDao()，我们来测试一下：</p>
 <p>UserService:</p>
@@ -2031,7 +2031,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1663913608149-ae3df3f6-cff3-4189-9b57-9b6e41e5e157.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663913608149-ae3df3f6-cff3-4189-9b57-9b6e41e5e157.jpg" /></p>
 <p>通过测试看到程序仍然可以正常执行，说明property标签的name是：setUserDao()方法名演变得到的，演变的规律是：</p>
 <ul>
 <li>setUsername() 演变为 username</li>
@@ -2104,7 +2104,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">    </span><span class="n">orderServiceBean</span><span class="p">.</span><span class="na">delete</span><span class="p">();</span>
 <a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1663916302936-91af70a1-30f4-4527-b92c-f9d3c83128ca.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1663916302936-91af70a1-30f4-4527-b92c-f9d3c83128ca.jpg" /></p>
 <p><strong>如果构造方法有两个参数：</strong></p>
 <p>OrderService</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
@@ -2146,7 +2146,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>
 <a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;userDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.UserDao&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664347904052-41cd13ad-f38f-41f0-949d-a339a30a24f0.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664347904052-41cd13ad-f38f-41f0-949d-a339a30a24f0.jpg" /></p>
 <p><strong>不使用参数下标，使用参数的名字可以吗？</strong></p>
 <p>spring.xml</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;orderDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.OrderDao&quot;</span><span class="nt">/&gt;</span>
@@ -2159,7 +2159,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>
 <a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;userDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.UserDao&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664348053136-ecd18e6d-af92-416b-9c60-8025d929c202.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664348053136-ecd18e6d-af92-416b-9c60-8025d929c202.jpg" /></p>
 <p><strong>不指定参数下标，不指定参数名字，可以吗？</strong></p>
 <p>spring.xml</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;orderDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.OrderDao&quot;</span><span class="nt">/&gt;</span>
@@ -2171,7 +2171,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>
 <a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;userDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.UserDao&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664348190304-b4da661d-2fa7-4acb-8d32-b60b0112113e.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664348190304-b4da661d-2fa7-4acb-8d32-b60b0112113e.jpg" /></p>
 <p><strong>配置文件中构造方法参数的类型顺序和构造方法参数的类型顺序不一致呢？</strong></p>
 <p>spring.xml</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;orderDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.OrderDao&quot;</span><span class="nt">/&gt;</span>
@@ -2184,7 +2184,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
 <a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;userDaoBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.dao.UserDao&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664348350392-94e354b2-143e-4ebf-8af3-23e957d6a434.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664348350392-94e354b2-143e-4ebf-8af3-23e957d6a434.jpg" /></p>
 <p>通过测试得知，通过构造方法注入的时候</p>
 <ul>
 <li>可以通过下标</li>
@@ -2233,7 +2233,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">    </span><span class="n">userService</span><span class="p">.</span><span class="na">save</span><span class="p">();</span>
 <a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664443574869-143a6d21-9b3f-4eaa-bd9c-6d9b0e9908b5.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664443574869-143a6d21-9b3f-4eaa-bd9c-6d9b0e9908b5.jpg" /></p>
 <p>这种方式作为了解。</p>
 <h3 id="433">4.3.3 注入简单类型</h3>
 <p>我们之前在进行注入的时候，对象的属性是另一个对象。</p>
@@ -2311,7 +2311,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
 <a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="1664444974497(1).png" src="../Spring6.assets/1664444978134-0cdbca10-4322-4e31-a2f8-a177d3ae2e75.png" /></p>
+<p><img alt="1664444974497(1).jpg" src="../Spring6.assets/1664444978134-0cdbca10-4322-4e31-a2f8-a177d3ae2e75.jpg" /></p>
 <p><strong>需要特别注意：如果给简单类型赋值，使用value属性或value标签。而不是ref</strong></p>
 <p>简单类型包括哪些呢？可以通过Spring的源码来分析一下：BeanUtils类</p>
 <p>BeanUtils</p>
@@ -2496,7 +2496,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
 <a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664445950974-57eb35af-c4ad-47c7-9a70-341d61596656.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664445950974-57eb35af-c4ad-47c7-9a70-341d61596656.jpg" /></p>
 <p><strong>接下来，我们编写一个程序，把所有的简单类型全部测试一遍：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.beans</span><span class="p">;</span>
 <a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>
@@ -2603,7 +2603,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 <a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1664524514681-c680e261-eeaf-4536-b5db-e4f28361a03d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1664524514681-c680e261-eeaf-4536-b5db-e4f28361a03d.jpg" /></p>
 <p><strong>需要注意的是：</strong></p>
 <ul>
 <li><strong>如果吧Date当做简单类型的话，日期字符串格式不能随便写。格式必须符合Date的toString()方法格式。显然这就比较鸡肋了。如果我们提供一个这样的日期字符串：2010-10-11，在这里是无法赋值给Date类型的属性的。</strong></li>
@@ -2712,7 +2712,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student</span><span class="p">);</span>
 <a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665196735272-17e84eb6-8dcd-4c69-9ed7-e35c7c8ad36d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665196735272-17e84eb6-8dcd-4c69-9ed7-e35c7c8ad36d.jpg" /></p>
 <p><strong>要点：</strong></p>
 <ul>
 <li><strong>在spring配置文件中，如上，注意顺序</strong></li>
@@ -2865,7 +2865,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
 <a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665193773078-0a30da90-244d-460e-bc2c-901d99873668.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665193773078-0a30da90-244d-460e-bc2c-901d99873668.jpg" /></p>
 <p><strong>要点：</strong></p>
 <ul>
 <li><strong>如果数组中是简单类型，使用value标签</strong></li>
@@ -2925,7 +2925,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">peopleBean</span><span class="p">);</span>
 <a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665199057422-a5f94a7c-711e-4846-9d69-2caf05d11e88.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665199057422-a5f94a7c-711e-4846-9d69-2caf05d11e88.jpg" /></p>
 <p><strong>注意：注入List集合的时候使用list标签，如果List集合中是简单类型使用value标签，反之使用ref标签</strong></p>
 <h3 id="437-set">4.3.7 注入Set集合</h3>
 <p>Set集合：无序不可重复</p>
@@ -2979,7 +2979,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-76-18" name="__codelineno-76-18" href="#__codelineno-76-18"></a><span class="w">    </span><span class="nt">&lt;/bean&gt;</span>
 <a id="__codelineno-76-19" name="__codelineno-76-19" href="#__codelineno-76-19"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665199868843-bc721edd-e89a-4298-b41a-7c5ac8c93530.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665199868843-bc721edd-e89a-4298-b41a-7c5ac8c93530.jpg" /></p>
 <p><strong>要点：</strong></p>
 <ul>
 <li><strong>使用\<set>标签</strong></li>
@@ -3037,7 +3037,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-78-16" name="__codelineno-78-16" href="#__codelineno-78-16"></a><span class="w">    </span><span class="nt">&lt;/bean&gt;</span>
 <a id="__codelineno-78-17" name="__codelineno-78-17" href="#__codelineno-78-17"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665200352800-0b980533-2d1f-4222-8aaf-1b253cb19a39.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665200352800-0b980533-2d1f-4222-8aaf-1b253cb19a39.jpg" /></p>
 <p><strong>要点：</strong></p>
 <ul>
 <li><strong>使用\<map>标签</strong></li>
@@ -3097,7 +3097,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-80-15" name="__codelineno-80-15" href="#__codelineno-80-15"></a><span class="w">    </span><span class="nt">&lt;/bean&gt;</span>
 <a id="__codelineno-80-16" name="__codelineno-80-16" href="#__codelineno-80-16"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665201002733-ae9273da-1fb9-495c-907e-e6c8489a7ec5.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665201002733-ae9273da-1fb9-495c-907e-e6c8489a7ec5.jpg" /></p>
 <p><strong>要点：</strong></p>
 <ul>
 <li><strong>使用\<props>标签嵌套\<prop>标签完成</strong></li>
@@ -3152,7 +3152,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">vipBean</span><span class="p">);</span>
 <a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665202057919-ba40e1bb-405b-455e-9719-0c56f1f9144b.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665202057919-ba40e1bb-405b-455e-9719-0c56f1f9144b.jpg" /></p>
 <p><strong>怎么注入null呢？</strong></p>
 <ol>
 <li>不给属性赋值</li>
@@ -3166,7 +3166,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-84-7" name="__codelineno-84-7" href="#__codelineno-84-7"></a>
 <a id="__codelineno-84-8" name="__codelineno-84-8" href="#__codelineno-84-8"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665202218759-f35ed2da-e136-4ef0-92e5-8ae4ea029620.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665202218759-f35ed2da-e136-4ef0-92e5-8ae4ea029620.jpg" /></p>
 <ol>
 <li>使用\<null/></li>
 </ol>
@@ -3183,11 +3183,11 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-85-11" name="__codelineno-85-11" href="#__codelineno-85-11"></a>
 <a id="__codelineno-85-12" name="__codelineno-85-12" href="#__codelineno-85-12"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665202218759-f35ed2da-e136-4ef0-92e5-8ae4ea029620-166712981271143.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665202218759-f35ed2da-e136-4ef0-92e5-8ae4ea029620-166712981271143.jpg" /></p>
 <h3 id="4311">4.3.11 注入的值中含有特殊符号</h3>
 <p>XML 中有5个特殊字符，分别是：&lt;、&gt;、'、"、&amp;</p>
 <p>以上5个特殊户号在XML中会被特殊对待，会被当做XML语法的一部分进行解析，如果这些特殊符号直接出现在注入的字符串中，会报错</p>
-<p><img alt="image.png" src="../Spring6.assets/1665209144602-479d8a8d-d79d-4da8-bb13-6a9c7e76a949.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665209144602-479d8a8d-d79d-4da8-bb13-6a9c7e76a949.jpg" /></p>
 <p>解决方案包括两种：</p>
 <ul>
 <li>特殊符号使用转义字符代替</li>
@@ -3264,7 +3264,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-88-5" name="__codelineno-88-5" href="#__codelineno-88-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mathBean</span><span class="p">);</span>
 <a id="__codelineno-88-6" name="__codelineno-88-6" href="#__codelineno-88-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665210216232-b41609a9-2ead-4179-9f0c-dd9a9a4e033e.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665210216232-b41609a9-2ead-4179-9f0c-dd9a9a4e033e.jpg" /></p>
 <p>使用CDATA方式：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a><span class="nt">&lt;beans</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
@@ -3281,7 +3281,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-89-13" name="__codelineno-89-13" href="#__codelineno-89-13"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
 <p><strong>注意：使用CDATA时，不能使用value属性，只能使用value标签</strong></p>
-<p><img alt="image.png" src="../Spring6.assets/1665210754241-75f884a4-a77b-4918-b398-9f7be2a58873.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665210754241-75f884a4-a77b-4918-b398-9f7be2a58873.jpg" /></p>
 <h2 id="44-p">4.4 p命名空间注入</h2>
 <p>目的：简化配置</p>
 <p>使用p命名空间注入的前提条件包括两个：</p>
@@ -3335,9 +3335,9 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-92-5" name="__codelineno-92-5" href="#__codelineno-92-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">customerBean</span><span class="p">);</span>
 <a id="__codelineno-92-6" name="__codelineno-92-6" href="#__codelineno-92-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665215638858-c5ae8aef-43ec-455d-90a3-ac3f97c92746.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665215638858-c5ae8aef-43ec-455d-90a3-ac3f97c92746.jpg" /></p>
 <p>把setter方法去掉：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665215713205-fcebda06-c4bb-486b-a2d7-6a238088625b.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665215713205-fcebda06-c4bb-486b-a2d7-6a238088625b.jpg" /></p>
 <p><strong>所以p命名空间实际上是对set注入的简化。</strong></p>
 <h2 id="45-c">4.5 c命名空间注入</h2>
 <p>c命名空间是简化构造方法注入的。
@@ -3394,15 +3394,15 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-95-5" name="__codelineno-95-5" href="#__codelineno-95-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">myTimeBean</span><span class="p">);</span>
 <a id="__codelineno-95-6" name="__codelineno-95-6" href="#__codelineno-95-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665216171317-2dc02c42-3f3e-42f5-80e7-c578888e2fbb.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665216171317-2dc02c42-3f3e-42f5-80e7-c578888e2fbb.jpg" /></p>
 <p>把构造方法注释掉：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665216339051-c5eecc20-6801-46dd-a331-e5b33c66c7ed.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665216339051-c5eecc20-6801-46dd-a331-e5b33c66c7ed.jpg" /></p>
 <p><strong>所以，c命名空间是依靠构造方法的。</strong></p>
 <p><strong>注意：不管是p命名空间还是c命名空间，注入的时候都可以注入简单类型和非简单类型</strong></p>
 <h2 id="46-util">4.6 util命名空间</h2>
 <p>使用util命名空间可以让<strong>配置复用</strong>。</p>
 <p>使用util命名空间的前提是：在spring配置文件头部添加配置信息。如下：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665218059794-30411b76-a22c-4339-ab60-acad8f02ab28.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665218059794-30411b76-a22c-4339-ab60-acad8f02ab28.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.beans</span><span class="p">;</span>
 <a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a>
 <a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Properties</span><span class="p">;</span>
@@ -3487,7 +3487,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-99-9" name="__codelineno-99-9" href="#__codelineno-99-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dataSource2</span><span class="p">);</span>
 <a id="__codelineno-99-10" name="__codelineno-99-10" href="#__codelineno-99-10"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665218430727-c81e399e-294e-4bb5-b98b-2c8875b0884f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665218430727-c81e399e-294e-4bb5-b98b-2c8875b0884f.jpg" /></p>
 <h2 id="47-xml">4.7 基于XML的自动装配</h2>
 <p>Spring还可以完成自动化的注入，自动化注入又被称为自动装配。它可以根据<strong>名字</strong>进行自动装配，也可以根据<strong>类型</strong>进行自动装配。</p>
 <h3 id="471">4.7.1 根据名称自动装配</h3>
@@ -3553,7 +3553,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-103-5" name="__codelineno-103-5" href="#__codelineno-103-5"></a><span class="w">    </span><span class="n">userService</span><span class="p">.</span><span class="na">save</span><span class="p">();</span>
 <a id="__codelineno-103-6" name="__codelineno-103-6" href="#__codelineno-103-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665535913374-7031648f-fad4-4fa1-a3f1-68dcf2318bef.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665535913374-7031648f-fad4-4fa1-a3f1-68dcf2318bef.jpg" /></p>
 <p>byName装配是和属性名有关还是和set方法名有关系：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
 <a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a>
@@ -3583,7 +3583,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-104-26" name="__codelineno-104-26" href="#__codelineno-104-26"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-104-27" name="__codelineno-104-27" href="#__codelineno-104-27"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665536092171-afa2acd5-68c8-4289-95bd-ab8c0f88a66d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665536092171-afa2acd5-68c8-4289-95bd-ab8c0f88a66d.jpg" /></p>
 <p>通过测试得知，aaa属性并没有赋值成功。也就是并没有装配成功。
 我们将spring配置文件修改以下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -3597,7 +3597,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-105-9" name="__codelineno-105-9" href="#__codelineno-105-9"></a>
 <a id="__codelineno-105-10" name="__codelineno-105-10" href="#__codelineno-105-10"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665536194436-6efd0c08-72da-437e-b3ad-143cdb00834d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665536194436-6efd0c08-72da-437e-b3ad-143cdb00834d.jpg" /></p>
 <p>这说明，如果根据名称装配(byName)，底层会调用set方法进行注入。
 例如：setAge() 对应的名字是age，setPassword()对应的名字是password，setEmail()对应的名字是email。</p>
 <h3 id="472">4.7.2 根据类型自动装配</h3>
@@ -3656,9 +3656,9 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-109-5" name="__codelineno-109-5" href="#__codelineno-109-5"></a><span class="w">    </span><span class="n">accountService</span><span class="p">.</span><span class="na">save</span><span class="p">();</span>
 <a id="__codelineno-109-6" name="__codelineno-109-6" href="#__codelineno-109-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665537096983-d3c25b4c-21e1-499f-b348-6f829bc84a48.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665537096983-d3c25b4c-21e1-499f-b348-6f829bc84a48.jpg" /></p>
 <p>我们把UserService中的set方法注释掉，再执行：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665537145356-cf979b68-e11b-4b4f-b1b4-7c20649aa199.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665537145356-cf979b68-e11b-4b4f-b1b4-7c20649aa199.jpg" /></p>
 <p>可以看到无论是byName还是byType，在装配的时候都是基于set方法的。所以set方法是必须要提供的。<strong>提供构造方法是不行的</strong>
 如果byType，根据类型装配时，如果配置文件中有两个类型一样的bean会出现什么问题呢？</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -3673,7 +3673,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-110-10" name="__codelineno-110-10" href="#__codelineno-110-10"></a>
 <a id="__codelineno-110-11" name="__codelineno-110-11" href="#__codelineno-110-11"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665537341888-57af14a1-eeb4-4070-8713-b4368003251d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665537341888-57af14a1-eeb4-4070-8713-b4368003251d.jpg" /></p>
 <p><strong>测试结果说明了，当byType进行自动装配的时候，配置文件中某种类型的Bean必须是唯一的，不能出现多个</strong></p>
 <h2 id="48-spring">4.8 spring引入外部属性配置文件</h2>
 <p>我们都知道编写数据源的时候是需要连接数据库的信息的，例如：driver url username password等信息，这些信息可以单独写到一个属性配置文件中吗，这样用户修改起来会更加的方便。当然可以。</p>
@@ -3812,7 +3812,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-118-9" name="__codelineno-118-9" href="#__codelineno-118-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb2</span><span class="p">);</span>
 <a id="__codelineno-118-10" name="__codelineno-118-10" href="#__codelineno-118-10"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665220014331-a1e4cac5-c749-4b67-bab8-43d6957c35e4.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665220014331-a1e4cac5-c749-4b67-bab8-43d6957c35e4.jpg" /></p>
 <p>通过测试得知：Spring的IoC容器中，默认情况下，Bean对象是单例的。
 这个对象在什么时候创建的呢？可以为SpringBean提供一个无参数构造方法，测试一下，如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.beans</span><span class="p">;</span>
@@ -3835,7 +3835,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-120-3" name="__codelineno-120-3" href="#__codelineno-120-3"></a><span class="w">    </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">applicationContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassPathXmlApplicationContext</span><span class="p">(</span><span class="s">&quot;spring-scope.xml&quot;</span><span class="p">);</span>
 <a id="__codelineno-120-4" name="__codelineno-120-4" href="#__codelineno-120-4"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665220250081-036fe814-8328-4b58-adf4-b3a37eb0cb4d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665220250081-036fe814-8328-4b58-adf4-b3a37eb0cb4d.jpg" /></p>
 <h2 id="52-prototype">5.2 prototype</h2>
 <p>如果想让Spring的Bean对象以多例的形式存在，可以在bean标签中指定scope属性的值为：<strong>prototype</strong>，这样Spring会在每一次执行getBean()方法的时候创建Bean对象，调用几次则创建几次。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -3858,14 +3858,14 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-122-9" name="__codelineno-122-9" href="#__codelineno-122-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb2</span><span class="p">);</span>
 <a id="__codelineno-122-10" name="__codelineno-122-10" href="#__codelineno-122-10"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665220593171-19b1a750-551c-441d-8f8f-9c7aa7601e77.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665220593171-19b1a750-551c-441d-8f8f-9c7aa7601e77.jpg" /></p>
 <p>我们可以把测试代码中的getBean()方法所在行代码注释掉：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a><span class="nd">@Test</span>
 <a id="__codelineno-123-2" name="__codelineno-123-2" href="#__codelineno-123-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testScope</span><span class="p">(){</span>
 <a id="__codelineno-123-3" name="__codelineno-123-3" href="#__codelineno-123-3"></a><span class="w">    </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">applicationContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassPathXmlApplicationContext</span><span class="p">(</span><span class="s">&quot;spring-scope.xml&quot;</span><span class="p">);</span>
 <a id="__codelineno-123-4" name="__codelineno-123-4" href="#__codelineno-123-4"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665220698959-ff4ad909-670e-4745-960d-5c215e2af71e.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665220698959-ff4ad909-670e-4745-960d-5c215e2af71e.jpg" /></p>
 <p>可以看到这一次在初始化Spring上下文的时候，并没有创建Bean对象。
 那你可能会问：scope如果没有配置，它的默认值是什么呢？默认值是<strong>singleton</strong>，单例的。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -3888,7 +3888,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-125-9" name="__codelineno-125-9" href="#__codelineno-125-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb2</span><span class="p">);</span>
 <a id="__codelineno-125-10" name="__codelineno-125-10" href="#__codelineno-125-10"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665221074412-9b48c6e3-44f0-492c-a712-37b4baa24341.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665221074412-9b48c6e3-44f0-492c-a712-37b4baa24341.jpg" /></p>
 <p>通过测试得知，没有指定scope属性时，默认是singleton单例的。</p>
 <h2 id="53-scope">5.3 其它scope</h2>
 <p><strong>scope属性的值不止两个，它一共包括8个选项：</strong></p>
@@ -3942,7 +3942,7 @@ Spring是如何创建对象的呢？原理是什么？</p>
 <a id="__codelineno-128-17" name="__codelineno-128-17" href="#__codelineno-128-17"></a><span class="w">    </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
 <a id="__codelineno-128-18" name="__codelineno-128-18" href="#__codelineno-128-18"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665297614749-ae92b97d-85fd-4792-af87-e72d35784187.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665297614749-ae92b97d-85fd-4792-af87-e72d35784187.jpg" /></p>
 <h1 id="gof">六、GoF之工厂模式</h1>
 <ul>
 <li>设计模式：一种可以被重复利用的解决方案</li>
@@ -4131,7 +4131,7 @@ Weapon</p>
 <a id="__codelineno-134-19" name="__codelineno-134-19" href="#__codelineno-134-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-134-20" name="__codelineno-134-20" href="#__codelineno-134-20"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665304945315-8bd0c855-6eff-44a8-8051-42a2c1edb712.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665304945315-8bd0c855-6eff-44a8-8051-42a2c1edb712.jpg" /></p>
 <p>简单工厂模式的优点：</p>
 <ul>
 <li>客户端程序不需要关心对象的创建细节，需要哪个对象时，只需要向工厂索要即可，初步实现了责任的分离。客户端只负责“消费”，工厂负责“生产”。生产和消费分离</li>
@@ -4269,7 +4269,7 @@ Weapon</p>
 <a id="__codelineno-141-18" name="__codelineno-141-18" href="#__codelineno-141-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-141-19" name="__codelineno-141-19" href="#__codelineno-141-19"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665362593949-73061a01-391f-4926-ba24-575903fd11bb.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665362593949-73061a01-391f-4926-ba24-575903fd11bb.jpg" /></p>
 <p>如果想扩展一个新的产品，只要新增一个产品类，在新增一个该产品对应的工厂即可，例如新增：匕首</p>
 <p>增加：具体产品角色</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-142-1" name="__codelineno-142-1" href="#__codelineno-142-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.factory</span><span class="p">;</span>
@@ -4328,7 +4328,7 @@ Weapon</p>
 <a id="__codelineno-144-22" name="__codelineno-144-22" href="#__codelineno-144-22"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-144-23" name="__codelineno-144-23" href="#__codelineno-144-23"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665362890109-5db8f42d-677b-450d-bc76-6842abe9640a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665362890109-5db8f42d-677b-450d-bc76-6842abe9640a.jpg" /></p>
 <p>我们可以看到在进行功能扩展的时候，不需要修改之前的源代码，显然工厂方法模式符合OCP原则</p>
 <p>工厂方法模式的优点：</p>
 <ul>
@@ -4351,7 +4351,7 @@ Weapon</p>
 <li>具体产品角色</li>
 </ul>
 <p>抽象工厂模式的类图如下：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665370116084-46b714b8-95d2-45c5-89b6-564057c45694.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665370116084-46b714b8-95d2-45c5-89b6-564057c45694.jpg" /></p>
 <p>抽象工厂模式代码如下：</p>
 <ol>
 <li>武器产品族</li>
@@ -4575,7 +4575,7 @@ Weapon</p>
 <a id="__codelineno-154-31" name="__codelineno-154-31" href="#__codelineno-154-31"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-154-32" name="__codelineno-154-32" href="#__codelineno-154-32"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665370862172-3753f689-d7c7-40d8-8a50-1e4144f2be97.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665370862172-3753f689-d7c7-40d8-8a50-1e4144f2be97.jpg" /></p>
 <p>抽象工厂模式的优缺点：</p>
 <ul>
 <li>优点：当一个产品族中的多个对象被设计成一起工作时，它能保证客户端始终只使用同一个产品族中的对象</li>
@@ -4637,7 +4637,7 @@ Weapon</p>
 <a id="__codelineno-157-21" name="__codelineno-157-21" href="#__codelineno-157-21"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-157-22" name="__codelineno-157-22" href="#__codelineno-157-22"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665373293580-f86edf28-3303-44bd-a9a1-855dcd575e0d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665373293580-f86edf28-3303-44bd-a9a1-855dcd575e0d.jpg" /></p>
 <h2 id="72">7.2 通过简单工厂模式实例化</h2>
 <ol>
 <li>定义一个Bean</li>
@@ -4682,7 +4682,7 @@ Weapon</p>
 <a id="__codelineno-161-5" name="__codelineno-161-5" href="#__codelineno-161-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">vip</span><span class="p">);</span>
 <a id="__codelineno-161-6" name="__codelineno-161-6" href="#__codelineno-161-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665373835672-90312dd8-81e3-4d0a-8b2d-06f90a3e9203.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665373835672-90312dd8-81e3-4d0a-8b2d-06f90a3e9203.jpg" /></p>
 <h2 id="73-factory-bean">7.3 通过factory-bean实例化</h2>
 <p>这种方式本质上是：通过工厂方法模式进行实例化。</p>
 <ol>
@@ -4729,7 +4729,7 @@ Weapon</p>
 <a id="__codelineno-165-5" name="__codelineno-165-5" href="#__codelineno-165-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">orderBean</span><span class="p">);</span>
 <a id="__codelineno-165-6" name="__codelineno-165-6" href="#__codelineno-165-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665374686365-c2f211e2-8594-4994-8b37-09259057ad8d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665374686365-c2f211e2-8594-4994-8b37-09259057ad8d.jpg" /></p>
 <h2 id="74-factorybean">7.4 通过FactoryBean接口实例化</h2>
 <p>以上的第三种方式中，factory-bean是我们自定义的，factory-method也是我们自己定义的</p>
 <p>在Spring中，当你编写的类直接实现FactoryBean接口之后，factory-bean不需要指定了，factory-method也不需要指定了</p>
@@ -4784,7 +4784,7 @@ Weapon</p>
 <a id="__codelineno-169-8" name="__codelineno-169-8" href="#__codelineno-169-8"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">personBean2</span><span class="p">);</span>
 <a id="__codelineno-169-9" name="__codelineno-169-9" href="#__codelineno-169-9"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665382305162-81e16b33-be0f-4256-ae49-89a59c946823.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665382305162-81e16b33-be0f-4256-ae49-89a59c946823.jpg" /></p>
 <p>FactoryBean在Spring中是一个接口。被称为“工厂Bean”。“工厂Bean”是一种特殊的Bean。所有的“工厂Bean”都是用来协助Spring框架来创建其他Bean对象的</p>
 <h2 id="75-beanfactoryfactorybean">7.5 BeanFactory和FactoryBean的区别</h2>
 <h3 id="751-beanfactory">7.5.1 BeanFactory</h3>
@@ -4829,13 +4829,13 @@ Weapon</p>
 <a id="__codelineno-172-5" name="__codelineno-172-5" href="#__codelineno-172-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">studentBean</span><span class="p">);</span>
 <a id="__codelineno-172-6" name="__codelineno-172-6" href="#__codelineno-172-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665383744481-75de8e77-ac4e-46b8-90dc-1cd5264f66f2.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665383744481-75de8e77-ac4e-46b8-90dc-1cd5264f66f2.jpg" /></p>
 <p>如果把日期格式修改一下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-173-1" name="__codelineno-173-1" href="#__codelineno-173-1"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;studentBean&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.bean.Student&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-173-2" name="__codelineno-173-2" href="#__codelineno-173-2"></a><span class="w">  </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;birth&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;2002-10-10&quot;</span><span class="nt">/&gt;</span>
 <a id="__codelineno-173-3" name="__codelineno-173-3" href="#__codelineno-173-3"></a><span class="nt">&lt;/bean&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665383871708-89cd2ac9-6d31-40fc-a4a8-27d27cd35ad2.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665383871708-89cd2ac9-6d31-40fc-a4a8-27d27cd35ad2.jpg" /></p>
 <p>这种情况下，我们就可以使用FactoryBean来完成这个操作。
 编写DateFactoryBean实现FactoryBean接口：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-174-1" name="__codelineno-174-1" href="#__codelineno-174-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean</span><span class="p">;</span>
@@ -4875,7 +4875,7 @@ Weapon</p>
 <a id="__codelineno-175-6" name="__codelineno-175-6" href="#__codelineno-175-6"></a><span class="w">  </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;birth&quot;</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;dateBean&quot;</span><span class="nt">/&gt;</span>
 <a id="__codelineno-175-7" name="__codelineno-175-7" href="#__codelineno-175-7"></a><span class="nt">&lt;/bean&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665384407377-3fb70ee0-09d6-4d44-904a-10af88cb1a2a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665384407377-3fb70ee0-09d6-4d44-904a-10af88cb1a2a.jpg" /></p>
 <h1 id="bean_2">八、Bean的生命周期</h1>
 <h2 id="81-bean">8.1 什么是Bean的生命周期</h2>
 <p>Spring其实就是一个管理Bean对象的工厂，他负责对象的创建，对象的销毁等</p>
@@ -4899,7 +4899,7 @@ Weapon</p>
 <li>使用Bean</li>
 <li>销毁Bean</li>
 </ol>
-<p><img alt="image.png" src="../Spring6.assets/1665388735200-444405f6-283d-4b3a-8cdf-8c3e01743618.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665388735200-444405f6-283d-4b3a-8cdf-8c3e01743618.jpg" /></p>
 <ol>
 <li>定义一个Bean</li>
 </ol>
@@ -4961,7 +4961,7 @@ Weapon</p>
 <a id="__codelineno-178-17" name="__codelineno-178-17" href="#__codelineno-178-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-178-18" name="__codelineno-178-18" href="#__codelineno-178-18"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665392526476-d0efb004-51bf-4eef-bc8c-d3b6a315ee39.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665392526476-d0efb004-51bf-4eef-bc8c-d3b6a315ee39.jpg" /></p>
 <p>需要注意：</p>
 <ol>
 <li>只有正常关闭Spring容器，bean的销毁方法才会被调用</li>
@@ -4995,12 +4995,12 @@ Weapon</p>
 <a id="__codelineno-180-2" name="__codelineno-180-2" href="#__codelineno-180-2"></a><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.powernode.spring6.bean.LogBeanPostProcessor&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p><strong>一定要注意：在spring.xml文件中配置的Bean后处理器将做哟甘雨当前配置文件中所有的Bean</strong></p>
-<p><img alt="image.png" src="../Spring6.assets/1665393219244-4763ce2a-1cec-4b67-b3b4-54c2d28bc46a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665393219244-4763ce2a-1cec-4b67-b3b4-54c2d28bc46a.jpg" /></p>
 <p>如果加上Bean后处理器的话，Bean的生命周期就是7步了：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665393936765-0ea5dcdd-859a-4ac5-9407-f06022c498b9.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665393936765-0ea5dcdd-859a-4ac5-9407-f06022c498b9.jpg" /></p>
 <h2 id="85-bean10">8.5 Bean生命周期之10步</h2>
 <p>如果根据源码跟踪，可以划分更细粒度的步骤，10步：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665394697870-15de433a-8d50-4b31-9b75-b2ca7090c1c6.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665394697870-15de433a-8d50-4b31-9b75-b2ca7090c1c6.jpg" /></p>
 <p>上图中检查Bean是否实现了Aware的相关接口是什么意思？</p>
 <p>Aware相关的接口包括：BeanNameAware、BeanClassLoaderAware、BeanFactoryAware</p>
 <ul>
@@ -5088,7 +5088,7 @@ Weapon</p>
 <a id="__codelineno-182-18" name="__codelineno-182-18" href="#__codelineno-182-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-182-19" name="__codelineno-182-19" href="#__codelineno-182-19"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665395466500-d95b1a58-24e1-46f0-b72a-aa7764b0336a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665395466500-d95b1a58-24e1-46f0-b72a-aa7764b0336a.jpg" /></p>
 <p>通过测试可以看出来：</p>
 <ul>
 <li><strong>InitializingBean的方法早于init-method的执行。</strong></li>
@@ -5120,7 +5120,7 @@ Weapon</p>
 <a id="__codelineno-183-16" name="__codelineno-183-16" href="#__codelineno-183-16"></a>
 <a id="__codelineno-183-17" name="__codelineno-183-17" href="#__codelineno-183-17"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665395807399-a3b71b4d-d871-4230-8fe4-b939ed03b301.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665395807399-a3b71b4d-d871-4230-8fe4-b939ed03b301.jpg" /></p>
 <p>通过测试一目了然。只执行了前8步，第9和10都没有执行。</p>
 <h2 id="87-newspring">8.7 自己new的对象如何让Spring管理</h2>
 <p>有些时候可能会遇到这样的需求，某个java对象是我们自己new的，然后我们希望这个对象被Spring容器管理，怎么实现？</p>
@@ -5153,12 +5153,12 @@ Weapon</p>
 <a id="__codelineno-185-22" name="__codelineno-185-22" href="#__codelineno-185-22"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-185-23" name="__codelineno-185-23" href="#__codelineno-185-23"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1666262245551-b00bbba7-4107-4d44-8441-fbcd6f799293.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666262245551-b00bbba7-4107-4d44-8441-fbcd6f799293.jpg" /></p>
 <h1 id="bean_3">九、Bean的循环依赖问题</h1>
 <h2 id="91-bean">9.1 什么是Bean的循环依赖</h2>
 <p>A对象中有B属性，B对象中有A属性。这就是循环依赖，我依赖你，你也依赖我</p>
 <p>比如：丈夫类Husband，妻子类Wife。Husband中有Wife的引用。Wife中有Husband的引用</p>
-<p><img alt="image.png" src="../Spring6.assets/1665452274046-82594b87-2974-4e08-a6ab-2218d001d14f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665452274046-82594b87-2974-4e08-a6ab-2218d001d14f.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-186-1" name="__codelineno-186-1" href="#__codelineno-186-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean</span><span class="p">;</span>
 <a id="__codelineno-186-2" name="__codelineno-186-2" href="#__codelineno-186-2"></a>
 <a id="__codelineno-186-3" name="__codelineno-186-3" href="#__codelineno-186-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Husband</span><span class="w"> </span><span class="p">{</span>
@@ -5266,7 +5266,7 @@ Weapon</p>
 <a id="__codelineno-191-18" name="__codelineno-191-18" href="#__codelineno-191-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-191-19" name="__codelineno-191-19" href="#__codelineno-191-19"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665453201014-160bb88e-08d4-4d37-a1d9-44d4911a32df.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665453201014-160bb88e-08d4-4d37-a1d9-44d4911a32df.jpg" /></p>
 <p>通过测试得知：在singleton+set注入的情况下，循环依赖的没有问题的，Spring可以解决这个问题</p>
 <h2 id="93-prototypeset">9.3 prototype下的set注入产生的循环依赖</h2>
 <p>我们再来测试一下：prototype+set注入的方式下，循环依赖会不会出现问题？</p>
@@ -5295,7 +5295,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <p>通过测试得知，当循环依赖的所有Bean的scope=“prototype”的时候，产生的循环依赖，Spring是无法解决的，会出现<strong>BeanCurrentlyInCreationException</strong>异常</p>
 <p>大家可以测试一下，以上两个Bean，如果其中一个是singleton，另一个是prototype，是没有问题的。
 为什么两个Bean都是prototype时会出错呢？</p>
-<p><img alt="image.png" src="../Spring6.assets/1665454469042-69668f45-5d71-494f-8537-18142d354abd.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665454469042-69668f45-5d71-494f-8537-18142d354abd.jpg" /></p>
 <h2 id="94-singleton">9.4 singleton下的构造注入产生的循环依赖</h2>
 <p>我们再来测试一下singleton + 构造注入的方式下，spring是否能够解决这种循环依赖</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-193-1" name="__codelineno-193-1" href="#__codelineno-193-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean2</span><span class="p">;</span>
@@ -5392,16 +5392,16 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <p>两个步骤是完全可以分离开去完成的，并且这两步不要求在同一个时间点上完成</p>
 <p>也就是说，Bean都是单例的，我们可以先把所有的单例Bean实例化出来，放到一个集合中（我们可以称之为缓存），所有的单例Bean全部实例化之后，然后我们再慢慢的调用setter方法给属性赋值，这样就解决了循环依赖的问题</p>
 <p>那么在Spring框架底层源码级别上是如何实现的呢？请看：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665456331018-18c45ae3-fa4c-4cd8-aabf-d9bace567693.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665456331018-18c45ae3-fa4c-4cd8-aabf-d9bace567693.jpg" /></p>
 <p>在以上类中包含三个重要的属性：</p>
 <p><strong>Cache of singleton objects: bean name to bean instance. 单例对象的缓存：key存储bean名称，value存储Bean对象【一级缓存】</strong></p>
 <p><strong>Cache of early singleton objects: bean name to bean instance. 早期单例对象的缓存：key存储bean名称，value存储早期的Bean对象【二级缓存】</strong></p>
 <p><strong>Cache of singleton factories: bean name to ObjectFactory. 单例工厂缓存：key存储bean名称，value存储该Bean对应的ObjectFactory对象【三级缓存】</strong></p>
 <p>这三个缓存其实本质上是三个Map集合。</p>
 <p>我们再来看，在该类中有这样一个方法addSingletonFactory()，这个方法的作用是：将创建Bean对象的ObjectFactory对象提前曝光。</p>
-<p><img alt="image.png" src="../Spring6.assets/1665460724682-2222366d-cc07-43db-a8d0-fb27712b20a4.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665460724682-2222366d-cc07-43db-a8d0-fb27712b20a4.jpg" /></p>
 <p>再分析下面的源码</p>
-<p><img alt="image.png" src="../Spring6.assets/1665460240687-3d0794c4-e6ed-4653-9463-767a7f943ff9.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665460240687-3d0794c4-e6ed-4653-9463-767a7f943ff9.jpg" /></p>
 <p>从源码中可以看到，Spring会先从一级缓存中获取Bean，如果获取不到，则从二级缓存中获取Bean，如果二级缓存还是获取不到，则从三级缓存中获取之前曝光的ObjectFactory对象，通过ObjectFactory对象获取Bean实例，这样就解决了循环依赖的问题</p>
 <p><strong>总结：</strong></p>
 <p><strong>Spring只能解决setter方法注入的单例Bean之间的循环依赖，Class A依赖Class B， Class B又依赖Class A，形成依赖闭环。Spring在创建Class A对象后，不需要等给属性赋值，直接将其曝光到Bean缓存中。在解析Class A的属性时，又发现依赖于Class B，再次去获取Class B，当解析Class B的属性时，有发现需要Class A的属性，但此时的Class A已经被提前曝光加入了正在创建的Bean缓存中，则无序创建新的Class A的实例，直接从缓存中获取即可，从而解决循环依赖问题</strong></p>
@@ -5441,7 +5441,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-198-13" name="__codelineno-198-13" href="#__codelineno-198-13"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-198-14" name="__codelineno-198-14" href="#__codelineno-198-14"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665469402327-e4cdba7c-2441-4c37-bb6d-c7138ac19bc4.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665469402327-e4cdba7c-2441-4c37-bb6d-c7138ac19bc4.jpg" /></p>
 <p>通过以上第16行代码可以看出，调用一个方法，一般涉及到4个要素：</p>
 <ul>
 <li>调用那个对象</li>
@@ -5571,7 +5571,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-210-12" name="__codelineno-210-12" href="#__codelineno-210-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-210-13" name="__codelineno-210-13" href="#__codelineno-210-13"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665471501974-88a80910-1c8e-495b-956f-d6b7a82bf5b4.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665471501974-88a80910-1c8e-495b-956f-d6b7a82bf5b4.jpg" /></p>
 <p>那如果调用既没有参数，又没有返回值的logout方法，应该怎么做?</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-211-1" name="__codelineno-211-1" href="#__codelineno-211-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.reflect</span><span class="p">;</span>
 <a id="__codelineno-211-2" name="__codelineno-211-2" href="#__codelineno-211-2"></a>
@@ -5586,7 +5586,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-211-11" name="__codelineno-211-11" href="#__codelineno-211-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-211-12" name="__codelineno-211-12" href="#__codelineno-211-12"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665471647046-386be2b3-e848-4a3d-82ea-7faf1c802a04.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665471647046-386be2b3-e848-4a3d-82ea-7faf1c802a04.jpg" /></p>
 <h2 id="104">10.4 假设你知道属性名</h2>
 <p>假设有这样一个类：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-212-1" name="__codelineno-212-1" href="#__codelineno-212-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.reflect</span><span class="p">;</span>
@@ -5655,13 +5655,13 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-213-26" name="__codelineno-213-26" href="#__codelineno-213-26"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-213-27" name="__codelineno-213-27" href="#__codelineno-213-27"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665472287604-1994754e-51c1-4bd4-8a50-2fc0b0995ea6.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665472287604-1994754e-51c1-4bd4-8a50-2fc0b0995ea6.jpg" /></p>
 <h1 id="spring_3">十一、手写Spring框架</h1>
 <p>Spring IoC容器的实现原理：工厂模式+解析XML+反射机制</p>
 <p>我们给自己的框架起名为：myspring（我的春天）</p>
 <h2 id="myspring">第一步：创建模块myspring</h2>
 <p>采用Maven方式新建Module：myspring</p>
-<p><img alt="image.png" src="../Spring6.assets/1665475207334-bd779f04-b490-4237-9ab1-306989458f22.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665475207334-bd779f04-b490-4237-9ab1-306989458f22.jpg" /></p>
 <p>打包方式采用jar，并且引入dom4j和jaxen的依赖，因为要使用它解析XML文件，还有junit依赖。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-214-1" name="__codelineno-214-1" href="#__codelineno-214-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-214-2" name="__codelineno-214-2" href="#__codelineno-214-2"></a><span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
@@ -5921,7 +5921,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-222-15" name="__codelineno-222-15" href="#__codelineno-222-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-222-16" name="__codelineno-222-16" href="#__codelineno-222-16"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665478707450-7e52f70c-97b2-4e6d-b96f-cc5bea8b51a4.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665478707450-7e52f70c-97b2-4e6d-b96f-cc5bea8b51a4.jpg" /></p>
 <p>通过测试Bean已经实例化成功了，属性的值是null，这是我们能够想到的，毕竟我们调用的是无参数构造方法，所以属性都是默认值。
 下一步就是我们应该如何给Bean的属性赋值呢？</p>
 <h2 id="bean_6">第九步：给Bean的属性赋值</h2>
@@ -6056,13 +6056,13 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-223-127" name="__codelineno-223-127" href="#__codelineno-223-127"></a><span class="p">}</span>
 </code></pre></div>
 <p><strong>重点处理：当property标签中是value怎么办？是ref怎么办？</strong></p>
-<p><img alt="image.png" src="../Spring6.assets/1665481050714-a41f73d9-67bb-40b9-9137-601a0775450d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665481050714-a41f73d9-67bb-40b9-9137-601a0775450d.jpg" /></p>
 <h2 id="_2">第十步：打包发布</h2>
-<p><img alt="image.png" src="../Spring6.assets/1665481384984-b9b107a7-6566-473a-95df-fc7fcb613f18.png" /></p>
-<p><img alt="image.png" src="../Spring6.assets/1665481462831-bbd5bfd3-d647-4c04-990a-9c39a4116d21.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665481384984-b9b107a7-6566-473a-95df-fc7fcb613f18.jpg" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665481462831-bbd5bfd3-d647-4c04-990a-9c39a4116d21.jpg" /></p>
 <h2 id="myspring_1">第十一步：站在程序员角度使用myspring框架</h2>
 <p>新建模块：myspring-test</p>
-<p><img alt="image.png" src="../Spring6.assets/1665481605553-46ba6264-a360-4700-a696-1aa536c44cf1.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665481605553-46ba6264-a360-4700-a696-1aa536c44cf1.jpg" /></p>
 <p>引入myspring框架的依赖：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-224-1" name="__codelineno-224-1" href="#__codelineno-224-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-224-2" name="__codelineno-224-2" href="#__codelineno-224-2"></a><span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
@@ -6150,7 +6150,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-228-15" name="__codelineno-228-15" href="#__codelineno-228-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-228-16" name="__codelineno-228-16" href="#__codelineno-228-16"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665482096446-2015f7a8-3e86-4d74-a26b-a3d417c250fa.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665482096446-2015f7a8-3e86-4d74-a26b-a3d417c250fa.jpg" /></p>
 <h1 id="spring-ioc">十二、Spring IoC注解式开发</h1>
 <h2 id="121">12.1 回顾注解</h2>
 <p>注解的存在主要是为了简化XML的配置。Spring6倡导全注解开发</p>
@@ -6262,7 +6262,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-234-38" name="__codelineno-234-38" href="#__codelineno-234-38"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-234-39" name="__codelineno-234-39" href="#__codelineno-234-39"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665543007882-24036142-350b-4209-bb20-46a61e35716d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665543007882-24036142-350b-4209-bb20-46a61e35716d.jpg" /></p>
 <h2 id="122-bean">12.2 声明Bean的注解</h2>
 <p>负责声明Bean的注解，常见的包括四个：</p>
 <ol>
@@ -6354,7 +6354,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <li>dao类上使用：@Repository</li>
 </ul>
 <p>他们都是只有一个value属性，value属性用来制定bean的id，也就是bean的名字</p>
-<p><img alt="image.png" src="../Spring6.assets/1665545099269-ebd7e446-bc2f-4442-89b8-3f513e546a8b.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665545099269-ebd7e446-bc2f-4442-89b8-3f513e546a8b.jpg" /></p>
 <h2 id="123-spring">12.3 Spring注解的使用</h2>
 <p>如何使用以上的注解呢？</p>
 <ol>
@@ -6365,7 +6365,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 </ol>
 <p><strong>第一步：加入aop的依赖</strong>
 我们可以看到当加入spring-context依赖之后，会关联加入aop的依赖。所以这一步不用做。</p>
-<p><img alt="image.png" src="../Spring6.assets/1665545268001-e3fb24f3-6688-4f52-a8c7-7c3084fa10a2.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665545268001-e3fb24f3-6688-4f52-a8c7-7c3084fa10a2.jpg" /></p>
 <p><strong>第二步：在配置文件中添加context命名空间</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-239-1" name="__codelineno-239-1" href="#__codelineno-239-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-239-2" name="__codelineno-239-2" href="#__codelineno-239-2"></a><span class="nt">&lt;beans</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
@@ -6411,7 +6411,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-242-14" name="__codelineno-242-14" href="#__codelineno-242-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-242-15" name="__codelineno-242-15" href="#__codelineno-242-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665545669944-c067eacb-f65b-45ab-b68b-2320647cdfb4.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665545669944-c067eacb-f65b-45ab-b68b-2320647cdfb4.jpg" /></p>
 <p><strong>如果注解的属性名是value，那么value是可以省略的。</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-243-1" name="__codelineno-243-1" href="#__codelineno-243-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean</span><span class="p">;</span>
 <a id="__codelineno-243-2" name="__codelineno-243-2" href="#__codelineno-243-2"></a>
@@ -6437,7 +6437,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-244-14" name="__codelineno-244-14" href="#__codelineno-244-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-244-15" name="__codelineno-244-15" href="#__codelineno-244-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665545860738-8bae2a45-efa8-40eb-9213-0dbd2ae1b54a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665545860738-8bae2a45-efa8-40eb-9213-0dbd2ae1b54a.jpg" /></p>
 <p><strong>如果把value属性彻底去掉，spring会被Bean自动取名吗？会的。并且默认名字的规律是：Bean类名首字母小写即可</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-245-1" name="__codelineno-245-1" href="#__codelineno-245-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean</span><span class="p">;</span>
 <a id="__codelineno-245-2" name="__codelineno-245-2" href="#__codelineno-245-2"></a>
@@ -6464,7 +6464,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-246-14" name="__codelineno-246-14" href="#__codelineno-246-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-246-15" name="__codelineno-246-15" href="#__codelineno-246-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665546100844-e0ffc213-8126-419a-ab67-7f433ad43105.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665546100844-e0ffc213-8126-419a-ab67-7f433ad43105.jpg" /></p>
 <p>我们将Component注解换成其它三个注解，看看是否可以用：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-247-1" name="__codelineno-247-1" href="#__codelineno-247-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean</span><span class="p">;</span>
 <a id="__codelineno-247-2" name="__codelineno-247-2" href="#__codelineno-247-2"></a>
@@ -6474,7 +6474,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-247-6" name="__codelineno-247-6" href="#__codelineno-247-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BankDao</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-247-7" name="__codelineno-247-7" href="#__codelineno-247-7"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665546198246-f9d6adc1-ecc8-4e8c-babf-49f2ed7b87cd.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665546198246-f9d6adc1-ecc8-4e8c-babf-49f2ed7b87cd.jpg" /></p>
 <p><strong>如果是多个包怎么办？有两种解决方案：</strong></p>
 <ol>
 <li><strong>在配置文件中指定多个包，用逗号隔开</strong></li>
@@ -6518,7 +6518,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-250-17" name="__codelineno-250-17" href="#__codelineno-250-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-250-18" name="__codelineno-250-18" href="#__codelineno-250-18"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665546710304-8ebbe95d-1d1d-44fa-9605-9dad43e487b7.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665546710304-8ebbe95d-1d1d-44fa-9605-9dad43e487b7.jpg" /></p>
 <p>我们再来看看，指定共同的父包行不行：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-251-1" name="__codelineno-251-1" href="#__codelineno-251-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-251-2" name="__codelineno-251-2" href="#__codelineno-251-2"></a><span class="nt">&lt;beans</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
@@ -6529,7 +6529,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-251-7" name="__codelineno-251-7" href="#__codelineno-251-7"></a><span class="w">    </span><span class="nt">&lt;context:component-scan</span><span class="w"> </span><span class="na">base-package=</span><span class="s">&quot;com.powernode.spring6&quot;</span><span class="nt">/&gt;</span>
 <a id="__codelineno-251-8" name="__codelineno-251-8" href="#__codelineno-251-8"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665546777022-4eb8c5e3-22ed-4baf-8722-a5fa98df253d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665546777022-4eb8c5e3-22ed-4baf-8722-a5fa98df253d.jpg" /></p>
 <h2 id="124-bean">12.4 选择性实例化Bean</h2>
 <p>假设在某个包邮很多Bean，有的Bean上标注了Component，有的标注了Controller，有的标注了Service，有的标注了Repository，现在由于某种特殊业务的需要，只允许其中所有的Controller参与Bean管理，其他的都不实例化。这应该怎么办呢？</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-252-1" name="__codelineno-252-1" href="#__codelineno-252-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean3</span><span class="p">;</span>
@@ -6603,7 +6603,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-254-3" name="__codelineno-254-3" href="#__codelineno-254-3"></a><span class="w">    </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">applicationContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassPathXmlApplicationContext</span><span class="p">(</span><span class="s">&quot;spring-choose.xml&quot;</span><span class="p">);</span>
 <a id="__codelineno-254-4" name="__codelineno-254-4" href="#__codelineno-254-4"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665556059297-de0d7dbc-aa37-46a3-9b1d-1d4c246b0ffc.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665556059297-de0d7dbc-aa37-46a3-9b1d-1d4c246b0ffc.jpg" /></p>
 <p>也可以将use-default-filters设置为true（不写就是true），并且采用exclude-filter方式排出哪些注解标注的Bean不参与实例化：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-255-1" name="__codelineno-255-1" href="#__codelineno-255-1"></a><span class="nt">&lt;context:component-scan</span><span class="w"> </span><span class="na">base-package=</span><span class="s">&quot;com.powernode.spring6.bean3&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-255-2" name="__codelineno-255-2" href="#__codelineno-255-2"></a><span class="w">  </span><span class="nt">&lt;context:exclude-filter</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;annotation&quot;</span><span class="w"> </span><span class="na">expression=</span><span class="s">&quot;org.springframework.stereotype.Repository&quot;</span><span class="nt">/&gt;</span>
@@ -6611,7 +6611,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-255-4" name="__codelineno-255-4" href="#__codelineno-255-4"></a><span class="w">  </span><span class="nt">&lt;context:exclude-filter</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;annotation&quot;</span><span class="w"> </span><span class="na">expression=</span><span class="s">&quot;org.springframework.stereotype.Controller&quot;</span><span class="nt">/&gt;</span>
 <a id="__codelineno-255-5" name="__codelineno-255-5" href="#__codelineno-255-5"></a><span class="nt">&lt;/context:component-scan&gt;</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665556372417-14f2208c-4151-4bcd-9f22-80db5e3ed837.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665556372417-14f2208c-4151-4bcd-9f22-80db5e3ed837.jpg" /></p>
 <h2 id="125">12.5 负责注入的注解</h2>
 <p>@Component @Controller @Service @Repository 这四个注解是用来声明Bean的，声明后这些Bean将被实例化。接下来我们看一下，如何给Bean的属性赋值。给Bean属性赋值需要用到这些注解：</p>
 <ul>
@@ -6660,7 +6660,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-258-5" name="__codelineno-258-5" href="#__codelineno-258-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
 <a id="__codelineno-258-6" name="__codelineno-258-6" href="#__codelineno-258-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665557109935-e0300b67-fd35-4d66-99d1-dac41cb0f13d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665557109935-e0300b67-fd35-4d66-99d1-dac41cb0f13d.jpg" /></p>
 <p>通过以上代码可以发现，我们并没有给属性提供setter方法，但仍然可以完成属性赋值。
 如果提供setter方法，并且在setter方法上添加@Value注解，可以完成注入吗？尝试一下</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-259-1" name="__codelineno-259-1" href="#__codelineno-259-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.bean4</span><span class="p">;</span>
@@ -6723,7 +6723,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-260-24" name="__codelineno-260-24" href="#__codelineno-260-24"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-260-25" name="__codelineno-260-25" href="#__codelineno-260-25"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665557643220-1010bea9-5578-4388-8868-4beb11dfbe95.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665557643220-1010bea9-5578-4388-8868-4beb11dfbe95.jpg" /></p>
 <p>通过测试得知：@Value注解可以出现在属性上、setter方法上、以及构造方法的形参上。可见Spring给我们提供了多样化的注入。太灵活了。</p>
 <h3 id="1252-autowiredqualifier">12.5.2 @Autowired与@Qualifier</h3>
 <p>@Autowired注解可以用来注入<strong>非简单类型</strong>。被翻译为：自动连线的，或者自动装配。
@@ -6808,7 +6808,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-266-5" name="__codelineno-266-5" href="#__codelineno-266-5"></a><span class="w">    </span><span class="n">userService</span><span class="p">.</span><span class="na">save</span><span class="p">();</span>
 <a id="__codelineno-266-6" name="__codelineno-266-6" href="#__codelineno-266-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665561365140-b0200308-0c25-4a29-96be-5a93594e2d2b.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665561365140-b0200308-0c25-4a29-96be-5a93594e2d2b.jpg" /></p>
 <p>以上构造方法和setter方法都没有提供，经过测试，仍然可以注入成功。
 <strong>接下来，再来测试一下@Autowired注解出现在setter方法上：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-267-1" name="__codelineno-267-1" href="#__codelineno-267-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
@@ -6832,7 +6832,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-267-19" name="__codelineno-267-19" href="#__codelineno-267-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-267-20" name="__codelineno-267-20" href="#__codelineno-267-20"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665562770986-e19377a6-af3e-4082-9463-16c795742ad5.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665562770986-e19377a6-af3e-4082-9463-16c795742ad5.jpg" /></p>
 <p><strong>我们再来看看能不能出现在构造方法上：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-268-1" name="__codelineno-268-1" href="#__codelineno-268-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
 <a id="__codelineno-268-2" name="__codelineno-268-2" href="#__codelineno-268-2"></a>
@@ -6855,7 +6855,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-268-19" name="__codelineno-268-19" href="#__codelineno-268-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-268-20" name="__codelineno-268-20" href="#__codelineno-268-20"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665562985700-7820d3d8-cf43-43af-8c81-46f301ea2835.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665562985700-7820d3d8-cf43-43af-8c81-46f301ea2835.jpg" /></p>
 <p><strong>再来看看，这个注解能不能只标注在构造方法的形参上：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-269-1" name="__codelineno-269-1" href="#__codelineno-269-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
 <a id="__codelineno-269-2" name="__codelineno-269-2" href="#__codelineno-269-2"></a>
@@ -6877,7 +6877,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-269-18" name="__codelineno-269-18" href="#__codelineno-269-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-269-19" name="__codelineno-269-19" href="#__codelineno-269-19"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665563225083-172d5675-cfcb-4f63-9b83-ce85b29b953e.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665563225083-172d5675-cfcb-4f63-9b83-ce85b29b953e.jpg" /></p>
 <p><strong>还有更劲爆的，当有参数的构造方法只有一个时，@Autowired注解可以省略</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-270-1" name="__codelineno-270-1" href="#__codelineno-270-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
 <a id="__codelineno-270-2" name="__codelineno-270-2" href="#__codelineno-270-2"></a>
@@ -6898,7 +6898,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-270-17" name="__codelineno-270-17" href="#__codelineno-270-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-270-18" name="__codelineno-270-18" href="#__codelineno-270-18"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665563320900-df9e4cb3-c046-4f5c-b482-42951f18fb16.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665563320900-df9e4cb3-c046-4f5c-b482-42951f18fb16.jpg" /></p>
 <p><strong>当然，如果有多个构造方法，@Autowired肯定是不能省略的。</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-271-1" name="__codelineno-271-1" href="#__codelineno-271-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
 <a id="__codelineno-271-2" name="__codelineno-271-2" href="#__codelineno-271-2"></a>
@@ -6923,7 +6923,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-271-21" name="__codelineno-271-21" href="#__codelineno-271-21"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-271-22" name="__codelineno-271-22" href="#__codelineno-271-22"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665563410134-267b2484-54a3-4204-8e02-a9499ecbe614.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665563410134-267b2484-54a3-4204-8e02-a9499ecbe614.jpg" /></p>
 <p>到此为止，我们已经清楚@Autowired注解可以出现在哪些位置了。
 @Autowired注解默认是byType进行注入的，也就是说根据类型注入的，如果以上程序中，UserDao接口还有另外一个实现类，会出现问题吗？</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-272-1" name="__codelineno-272-1" href="#__codelineno-272-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.dao</span><span class="p">;</span>
@@ -6939,7 +6939,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-272-11" name="__codelineno-272-11" href="#__codelineno-272-11"></a><span class="p">}</span>
 </code></pre></div>
 <p>当你写完这个新的实现类之后，此时IDEA工具已经提示错误信息了：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665563729880-0421bc02-19ca-4353-8a10-5b0ef9972b90.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665563729880-0421bc02-19ca-4353-8a10-5b0ef9972b90.jpg" /></p>
 <p>错误信息中说：不能装配，UserDao这个Bean的数量大于1.
 怎么解决这个问题呢？<strong>当然要byName，根据名称进行装配了。</strong>
 @Autowired注解和@Qualifier注解联合起来才可以根据名称进行装配，在@Qualifier注解中指定Bean名称。</p>
@@ -6978,7 +6978,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-274-21" name="__codelineno-274-21" href="#__codelineno-274-21"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-274-22" name="__codelineno-274-22" href="#__codelineno-274-22"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665564055076-ffda3ad0-f957-4216-bf6c-957d62724d5f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665564055076-ffda3ad0-f957-4216-bf6c-957d62724d5f.jpg" /></p>
 <p>总结：</p>
 <ul>
 <li>@Autowired注解可以出现在：属性上、构造方法上、构造方法的参数上、setter方法上</li>
@@ -7012,7 +7012,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-276-5" name="__codelineno-276-5" href="#__codelineno-276-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 <p>@Resource注解源码如下：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665565515435-2ad5614a-8572-4c6f-80c1-efa236dbe35f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665565515435-2ad5614a-8572-4c6f-80c1-efa236dbe35f.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-277-1" name="__codelineno-277-1" href="#__codelineno-277-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.dao</span><span class="p">;</span>
 <a id="__codelineno-277-2" name="__codelineno-277-2" href="#__codelineno-277-2"></a>
 <a id="__codelineno-277-3" name="__codelineno-277-3" href="#__codelineno-277-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
@@ -7042,7 +7042,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-278-15" name="__codelineno-278-15" href="#__codelineno-278-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-278-16" name="__codelineno-278-16" href="#__codelineno-278-16"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665622877352-0ae69e3c-e7f3-452d-a405-392901612465.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665622877352-0ae69e3c-e7f3-452d-a405-392901612465.jpg" /></p>
 <p><strong>我们把UserDaoForOracle的名字xyz修改为userDao，让这个Bean的名字和UserService类中的UserDao属性名一致：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-279-1" name="__codelineno-279-1" href="#__codelineno-279-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.dao</span><span class="p">;</span>
 <a id="__codelineno-279-2" name="__codelineno-279-2" href="#__codelineno-279-2"></a>
@@ -7073,7 +7073,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-280-15" name="__codelineno-280-15" href="#__codelineno-280-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-280-16" name="__codelineno-280-16" href="#__codelineno-280-16"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665623044796-c4051a04-c56b-4ce9-b627-333ab7ca7b6a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665623044796-c4051a04-c56b-4ce9-b627-333ab7ca7b6a.jpg" /></p>
 <p>通过测试得知，当@Resource注解使用时没有指定name的时候，还是根据name进行查找，这个name是属性名。</p>
 <p>接下来把UserService类中的属性名修改一下</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-281-1" name="__codelineno-281-1" href="#__codelineno-281-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
@@ -7093,7 +7093,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-281-15" name="__codelineno-281-15" href="#__codelineno-281-15"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-281-16" name="__codelineno-281-16" href="#__codelineno-281-16"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665623273523-aff8ef45-b484-4462-bacc-fba7e14c8fee.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665623273523-aff8ef45-b484-4462-bacc-fba7e14c8fee.jpg" /></p>
 <p>根据异常信息得知：显然当通过name找不到的时候，自然会启动byType进行注入。以上的错误是因为UserDao接口下有两个实现类导致的。所以根据类型注入就会报错。
 我们再来看@Resource注解使用在setter方法上可以吗？</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-282-1" name="__codelineno-282-1" href="#__codelineno-282-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
@@ -7119,7 +7119,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 </code></pre></div>
 <p>注意这个setter方法的方法名，setUserDao去掉set之后，将首字母变小写userDao，userDao就是name
 执行结果：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665623530366-79b8e09d-2559-4657-83eb-0b722261045f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665623530366-79b8e09d-2559-4657-83eb-0b722261045f.jpg" /></p>
 <p>当然，也可以指定name：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-283-1" name="__codelineno-283-1" href="#__codelineno-283-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
 <a id="__codelineno-283-2" name="__codelineno-283-2" href="#__codelineno-283-2"></a>
@@ -7142,7 +7142,7 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-283-19" name="__codelineno-283-19" href="#__codelineno-283-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-283-20" name="__codelineno-283-20" href="#__codelineno-283-20"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665623611980-a66591e7-bd29-4327-a43c-6c6492c8612f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665623611980-a66591e7-bd29-4327-a43c-6c6492c8612f.jpg" /></p>
 <p><strong>一句话总结@Resource注解：默认byName注入，没有指定name时把属性名当做name，根据name找不到时，才会byType注入。byType注入时，某种类型的Bean只能有一个</strong></p>
 <h2 id="126">12.6 全注解式开发</h2>
 <p>所谓的全注解开发就是不再使用spring配置文件了。写一个配置类来代替配置文件。</p>
@@ -7165,14 +7165,14 @@ Caused by: org.springframework.beans.factory.<strong>BeanCurrentlyInCreationExce
 <a id="__codelineno-285-5" name="__codelineno-285-5" href="#__codelineno-285-5"></a><span class="w">    </span><span class="n">userService</span><span class="p">.</span><span class="na">save</span><span class="p">();</span>
 <a id="__codelineno-285-6" name="__codelineno-285-6" href="#__codelineno-285-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1665624710824-61ee0ae9-ae96-49bf-b189-4a1f358e084a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665624710824-61ee0ae9-ae96-49bf-b189-4a1f358e084a.jpg" /></p>
 <h1 id="jdbctemplate">十三、JdbcTemplate</h1>
 <p>JdbcTemplate是Spring提供的一个JDBC模板类，是对JDBC的封装简化JDBC代码。
 当然，你也可以不用，可以让Spring集成其它的ORM框架，例如：MyBatis、Hibernate等。
 接下来我们简单来学习一下，使用JdbcTemplate完成增删改查。</p>
 <h2 id="131">13.1 环境准备</h2>
 <p>数据库表：t_user</p>
-<p><img alt="image.png" src="../Spring6.assets/1665633536319-466a1b96-90ff-4a87-82ad-fb14f32a8d12.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665633536319-466a1b96-90ff-4a87-82ad-fb14f32a8d12.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-286-1" name="__codelineno-286-1" href="#__codelineno-286-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-286-2" name="__codelineno-286-2" href="#__codelineno-286-2"></a><span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
 <a id="__codelineno-286-3" name="__codelineno-286-3" href="#__codelineno-286-3"></a><span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
@@ -7287,7 +7287,7 @@ JdbcTemplate是Spring提供好的类，这类的完整类名是：org.springfram
 <a id="__codelineno-288-6" name="__codelineno-288-6" href="#__codelineno-288-6"></a><span class="nt">&lt;/beans&gt;</span>
 </code></pre></div>
 <p>我们来看一下这个JdbcTemplate源码：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665641540149-8f44a8b1-35b6-4c8a-bd27-f08ebd911e01.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665641540149-8f44a8b1-35b6-4c8a-bd27-f08ebd911e01.jpg" /></p>
 <p>可以看到JdbcTemplate中有一个DataSource属性，这个属性是数据源，我们都知道连接数据库需要Connection对象，而生成Connection对象是数据源负责的。所以我们需要给JdbcTemplate设置数据源属性。
 所有的数据源都是要实现javax.sql.DataSource接口的。这个数据源可以自己写一个，也可以用写好的，比如：阿里巴巴的德鲁伊连接池，c3p0，dbcp等。我们这里自己先手写一个数据源。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-289-1" name="__codelineno-289-1" href="#__codelineno-289-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.jdbc</span><span class="p">;</span>
@@ -7620,7 +7620,7 @@ JdbcTemplate是Spring提供好的类，这类的完整类名是：org.springfram
 <li>代理类和目标类的公共接口（抽象主题）：客户端在使用代理类时就像在使用目标类，不被客户端所察觉所以代理类和目标类要有共同的行为，也就是实现共同的接口</li>
 </ul>
 <p>代理模式的类图：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665651817094-af9ecbad-24ae-4c11-9fa2-efe46653df25.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665651817094-af9ecbad-24ae-4c11-9fa2-efe46653df25.jpg" /></p>
 <p>代理模式在代码实现上，包括两种形式：</p>
 <ul>
 <li>静态代理</li>
@@ -8031,7 +8031,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 <p>而且最重要的是，以后程序员只需要关注核心业务的编写了，像这种统计时间的代码根本不需要关注。因为这种统计时间的代码只需要在调用处理器中编写一次即可。</p>
 <p>到这里，JDK动态代理的原理就结束了。</p>
 <p>不过我们看以下这个代码确实有点繁琐，对于客户端来说，用起来不方便：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665716434406-4e092df4-b1a7-4d16-bbc1-1f134b8f51f7.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665716434406-4e092df4-b1a7-4d16-bbc1-1f134b8f51f7.jpg" /></p>
 <p>我们可以提供一个工具类：ProxyUtil，封装一个方法：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-316-1" name="__codelineno-316-1" href="#__codelineno-316-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.mall.util</span><span class="p">;</span>
 <a id="__codelineno-316-2" name="__codelineno-316-2" href="#__codelineno-316-2"></a>
@@ -8188,7 +8188,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 <a id="__codelineno-323-22" name="__codelineno-323-22" href="#__codelineno-323-22"></a><span class="p">}</span>
 </code></pre></div>
 <p>对于高版本的JDK，如果使用CGLIB，需要在启动项中添加两个启动参数：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665719287350-761d69a9-2666-40b3-9332-91d695f1eb86.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665719287350-761d69a9-2666-40b3-9332-91d695f1eb86.jpg" /></p>
 <ul>
 <li>--add-opens java.base/java.lang=ALL-UNNAMED</li>
 <li>--add-opens java.base/sun.net.util=ALL-UNNAMED</li>
@@ -8209,7 +8209,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 </ol>
 <p>使用AOP可以很轻松的解决以上问题</p>
 <p>请看下图，可以帮助你快速理解AOP的思想：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665732609757-d8ae52ba-915e-49cf-9ef4-c7bcada0d601.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665732609757-d8ae52ba-915e-49cf-9ef4-c7bcada0d601.jpg" /></p>
 <p>用一句话总结AOP：将于核心业务无关的代码独立的抽取出阿里，形成一个独立的组件，然后以横向交叉的方式应用到业务流程当中的过程被称为AOP</p>
 <p>AOP的优点：</p>
 <ol>
@@ -8280,7 +8280,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 <li>被织入通知的对象</li>
 </ul>
 <p>通过下图，大家可以很好的理解AOP的相关术语：</p>
-<p><img alt="image.png" src="../Spring6.assets/1665735638342-44194599-66e2-4c02-a843-8a8b3ba5b0c8.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1665735638342-44194599-66e2-4c02-a843-8a8b3ba5b0c8.jpg" /></p>
 <h2 id="153">15.3 切点表达式</h2>
 <p>切点表达式用来定义通知（Advice）往哪些方法上切入</p>
 <p>切入点表达式语法格式</p>
@@ -8578,7 +8578,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 <a id="__codelineno-340-14" name="__codelineno-340-14" href="#__codelineno-340-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-340-15" name="__codelineno-340-15" href="#__codelineno-340-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="5F9597E7-7930-4384-95C2-CF64C9DDA9F3.png" src="../Spring6.assets/1665892617792-22cc74a2-6876-4cd1-bb17-87d3b5211cae.png" /></p>
+<p><img alt="5F9597E7-7930-4384-95C2-CF64C9DDA9F3.jpg" src="../Spring6.assets/1665892617792-22cc74a2-6876-4cd1-bb17-87d3b5211cae.jpg" /></p>
 <p>通过上面的执行结果就可以判断他们的执行顺序了，这里不再赘述。
 结果中没有异常通知，这是因为目标程序执行过程中没有发生异常。我们尝试让目标方法发生异常：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-341-1" name="__codelineno-341-1" href="#__codelineno-341-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.spring6.service</span><span class="p">;</span>
@@ -8597,7 +8597,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 <a id="__codelineno-341-14" name="__codelineno-341-14" href="#__codelineno-341-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-341-15" name="__codelineno-341-15" href="#__codelineno-341-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="5F9597E7-7930-4384-95C2-CF64C9DDA9F3.png" src="../Spring6.assets/1665892847715-75045cd0-63b1-47f9-a77e-05911dc72339.png" /></p>
+<p><img alt="5F9597E7-7930-4384-95C2-CF64C9DDA9F3.jpg" src="../Spring6.assets/1665892847715-75045cd0-63b1-47f9-a77e-05911dc72339.jpg" /></p>
 <p>通过测试得知，当发生异常之后，最终通知也会执行，因为最终通知@After会出现在finally语句块中。
 出现异常之后，<strong>后置通知</strong>和环<strong>绕通知的结束部分</strong>不会执行。</p>
 <p><strong>切面的先后顺序</strong></p>
@@ -9144,7 +9144,7 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 <p>以银行账户转账为例学习事务。两个账户act-001和act-002。act-001账户向act-002账户转账10000，必须同时成功，或者同时失败。（一个减成功，一个加成功， 这两条update语句必须同时成功，或同时失败。）</p>
 <p>连接数据库的技术采用Spring框架的JdbcTemplate。</p>
 <p>采用三层架构搭建：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666495641174-069ee06f-097c-4f44-9a29-ca3e701d666b.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666495641174-069ee06f-097c-4f44-9a29-ca3e701d666b.jpg" /></p>
 <p>模块名：spring6-013-tx-bank（依赖如下）</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-358-1" name="__codelineno-358-1" href="#__codelineno-358-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <a id="__codelineno-358-2" name="__codelineno-358-2" href="#__codelineno-358-2"></a><span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
@@ -9217,9 +9217,9 @@ OrderService orderServiceProxy = Proxy.newProxyInstance(target.getClass().getCla
 </code></pre></div>
 <h3 id="_3">第一步：准备数据库表</h3>
 <p>表结构：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666496097440-75d21db2-588b-4f6a-bd40-149c3de6f27d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666496097440-75d21db2-588b-4f6a-bd40-149c3de6f27d.jpg" /></p>
 <p>表数据：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666496136146-5cc1d848-0ad4-425d-a1fc-8b59b5d0b91f.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666496136146-5cc1d848-0ad4-425d-a1fc-8b59b5d0b91f.jpg" /></p>
 <h3 id="_4">第二步：创建包结构</h3>
 <p>com.powernode.bank.pojo
 com.powernode.bank.service
@@ -9411,9 +9411,9 @@ com.powernode.bank.dao.impl</p>
 <a id="__codelineno-365-19" name="__codelineno-365-19" href="#__codelineno-365-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-365-20" name="__codelineno-365-20" href="#__codelineno-365-20"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1666497683531-b14430f2-b90e-4555-8552-1de9747c9fcc.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666497683531-b14430f2-b90e-4555-8552-1de9747c9fcc.jpg" /></p>
 <p>数据变化：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666497727323-b2ca34c9-99c6-4b23-8d3b-8dbe3009d3e9.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666497727323-b2ca34c9-99c6-4b23-8d3b-8dbe3009d3e9.jpg" /></p>
 <h3 id="_8">模拟异常</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-366-1" name="__codelineno-366-1" href="#__codelineno-366-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.powernode.bank.service.impl</span><span class="p">;</span>
 <a id="__codelineno-366-2" name="__codelineno-366-2" href="#__codelineno-366-2"></a>
@@ -9453,9 +9453,9 @@ com.powernode.bank.dao.impl</p>
 <a id="__codelineno-366-36" name="__codelineno-366-36" href="#__codelineno-366-36"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-366-37" name="__codelineno-366-37" href="#__codelineno-366-37"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1666497808309-c50af959-1a57-480c-9f31-76f6ce3b555a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666497808309-c50af959-1a57-480c-9f31-76f6ce3b555a.jpg" /></p>
 <p>数据库表中数据：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666497824308-bdd8f11f-8f99-4195-81c4-c37721627f4c.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666497824308-bdd8f11f-8f99-4195-81c4-c37721627f4c.jpg" /></p>
 <p><strong>丢了1万</strong></p>
 <h2 id="163-spring">16.3 Spring对事务的支持</h2>
 <h3 id="spring_6">Spring实现事务的两种方式</h3>
@@ -9472,7 +9472,7 @@ com.powernode.bank.dao.impl</p>
 </ul>
 <h3 id="springapi">Spring事务管理API</h3>
 <p>Spring对事务的管理底层实现方式是基于AOP实现的。采用AOP的方式进行了封装。所以Spring专门针对事务开发了一套API，API的核心接口如下：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666504216275-1b6a9ac4-6958-4cdf-9323-7a79a08d059d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666504216275-1b6a9ac4-6958-4cdf-9323-7a79a08d059d.jpg" /></p>
 <p>PlatformTransactionManager接口：spring事务管理器的核心接口。在<strong>Spring6</strong>中它有两个实现：</p>
 <ul>
 <li>DataSourceTransactionManager：支持JdbcTemplate、MyBatis、Hibernate等事务管理。</li>
@@ -9549,14 +9549,14 @@ com.powernode.bank.dao.impl</p>
 <a id="__codelineno-370-39" name="__codelineno-370-39" href="#__codelineno-370-39"></a><span class="p">}</span>
 </code></pre></div>
 <p>当前数据库表中的数据：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666505321919-85dd9adb-bceb-49ef-826f-5a3ddf7699a0.png" /></p>
-<p><img alt="image.png" src="../Spring6.assets/1666505358758-2a264b1c-3435-4f90-a42f-801001170a2b.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666505321919-85dd9adb-bceb-49ef-826f-5a3ddf7699a0.jpg" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666505358758-2a264b1c-3435-4f90-a42f-801001170a2b.jpg" /></p>
 <p>虽然出现异常了，再次查看数据库表中数据：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666505321919-85dd9adb-bceb-49ef-826f-5a3ddf7699a0-1667656898791-21.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666505321919-85dd9adb-bceb-49ef-826f-5a3ddf7699a0-1667656898791-21.jpg" /></p>
 <p>通过测试，发现数据没有变化，事务起作用了。</p>
 <h3 id="_10">事务属性</h3>
 <h4 id="_11">事务属性包括哪些</h4>
-<p><img alt="image.png" src="../Spring6.assets/1666506552984-8a4f9d42-73ba-4ded-853d-564d27340db5.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666506552984-8a4f9d42-73ba-4ded-853d-564d27340db5.jpg" /></p>
 <p>事务中的重点属性：</p>
 <ul>
 <li>事务传播行为</li>
@@ -9571,7 +9571,7 @@ com.powernode.bank.dao.impl</p>
 <p>在service类中有a()方法和b()方法，</p>
 <p>a()方法上有事务，b()方法上也有事务，当a()方法执行过程中调用了b()方法，事务是如何传递的？合并到一个事务里？还是开启一个新的事务？这就是事务传播行为。</p>
 <p>事务传播行为在spring框架中被定义为枚举类型：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666505960049-06173489-15fc-4d16-94f3-1a9025f85d8c.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666505960049-06173489-15fc-4d16-94f3-1a9025f85d8c.jpg" /></p>
 <p>一共有七种传播行为：</p>
 <ul>
 <li>REQUIRED：支持当前事务吗，如果不存在就新建一个（默认）<strong>【没有就新建，有就加入】</strong></li>
@@ -9680,7 +9680,7 @@ com.powernode.bank.dao.impl</p>
 </table>
 <p>在Spring代码中如何设置隔离级别？</p>
 <p>隔离级别在spring中以枚举类型存在：</p>
-<p><img alt="image.png" src="../Spring6.assets/1666508609641-2c838566-7334-4cf1-b452-0fed9aaebf3d.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666508609641-2c838566-7334-4cf1-b452-0fed9aaebf3d.jpg" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-374-1" name="__codelineno-374-1" href="#__codelineno-374-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">READ_COMMITTED</span><span class="p">)</span>
 </code></pre></div>
 <p>测试事务隔离级别：READ_UNCOMMITTED 和 READ_COMMITTED
@@ -9860,8 +9860,8 @@ com.powernode.bank.dao.impl</p>
 <a id="__codelineno-385-10" name="__codelineno-385-10" href="#__codelineno-385-10"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-385-11" name="__codelineno-385-11" href="#__codelineno-385-11"></a><span class="p">}</span>
 </code></pre></div>
-<p><img alt="image.png" src="../Spring6.assets/1666511446141-925a1a0e-05ab-4306-996f-532878d5c5a3.png" /></p>
-<p><img alt="image.png" src="../Spring6.assets/1666511460275-5ede53ce-9ad1-4bce-935a-32436a46c83a.png" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666511446141-925a1a0e-05ab-4306-996f-532878d5c5a3.jpg" /></p>
+<p><img alt="image.jpg" src="../Spring6.assets/1666511460275-5ede53ce-9ad1-4bce-935a-32436a46c83a.jpg" /></p>
 <h1 id="spring6junit5">十七、Spring6整合JUnit5</h1>
 <h2 id="171-springjunit4">17.1 Spring对JUnit4的支持</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-386-1" name="__codelineno-386-1" href="#__codelineno-386-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -10052,7 +10052,7 @@ com.powernode.bank.dao.impl</p>
 <p>FactoryBean是典型的工厂方法模式，在配置文件中通过factory-method属性来指定工厂方法，该方法是一个实例方法</p>
 <h2 id="193">19.3 单例模式</h2>
 <p>Spring用的是双重判断加锁的单例模式</p>
-<p><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1666663352271-4ba8d737-1e32-4f0e-b01a-aa305ad3abea.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_34%2Ctext_5Yqo5Yqb6IqC54K5%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fresize%2Cw_1190%2Climit_0" /></p>
+<p><img alt="image.jpg" src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1666663352271-4ba8d737-1e32-4f0e-b01a-aa305ad3abea.jpg?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_34%2Ctext_5Yqo5Yqb6IqC54K5%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fresize%2Cw_1190%2Climit_0" /></p>
 <h2 id="194">19.4 代理模式</h2>
 <p>Spring的AOP就是使用了动态代理实现的</p>
 <h2 id="195">19.5 装饰器模式</h2>
