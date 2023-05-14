@@ -1788,23 +1788,23 @@
 
 <h1 id="vue">Vue（脚手架）</h1>
 <h2 id="_1">脚手架文件结构</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>├── node_modules 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── public
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── favicon.ico: 页签图标
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   └── index.html: 主页面
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── src
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   ├── assets: 存放静态资源
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   │   └── logo.jpg
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   │── component: 存放组件
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   │   └── HelloWorld.vue
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   │── App.vue: 汇总所有组件
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   │── main.js: 入口文件
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── .gitignore: git版本管制忽略的配置
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── babel.config.js: babel的配置文件
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── package.json: 应用包配置文件 
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── README.md: 应用描述文件
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>├── package-lock.json：包版本控制文件
-</code></pre></div>
+<pre><code>├── node_modules 
+├── public
+│   ├── favicon.ico: 页签图标
+│   └── index.html: 主页面
+├── src
+│   ├── assets: 存放静态资源
+│   │   └── logo.jpg
+│   │── component: 存放组件
+│   │   └── HelloWorld.vue
+│   │── App.vue: 汇总所有组件
+│   │── main.js: 入口文件
+├── .gitignore: git版本管制忽略的配置
+├── babel.config.js: babel的配置文件
+├── package.json: 应用包配置文件 
+├── README.md: 应用描述文件
+├── package-lock.json：包版本控制文件
+</code></pre>
 <h2 id="vue_1">关于不同版本的Vue</h2>
 <ol>
 <li>vue.js与vue.runtime.xxx.js的区别：</li>
@@ -1844,14 +1844,14 @@
 </li>
 <li>
 <p>第三种方式（限制类型、限制必要性、指定默认值）：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">props</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="c1">//类型</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">required</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//必要性</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">default</span><span class="o">:</span><span class="s1">&#39;老王&#39;</span><span class="w"> </span><span class="c1">//默认值</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+  props:{
+    name:{
+    type:String, //类型
+    required:true, //必要性
+    default:'老王' //默认值
+    }
+  }</code></p>
 </li>
 </ol>
 <blockquote>
@@ -1867,12 +1867,11 @@
 </li>
 </ol>
 <p>第一步定义混合：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    data(){....},
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    methods:{....}
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ....
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>}
-</code></pre></div>
+<p><code>{
+       data(){....},
+       methods:{....}
+       ....
+   }</code></p>
 <p>第二步使用混入：</p>
 <p>​    全局混入：<code>Vue.mixin(xxx)</code>
    ​    局部混入：<code>mixins:['xxx']</code></p>
@@ -1888,21 +1887,22 @@
 <p>定义插件：</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">对象</span><span class="p">.</span><span class="nx">install</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Vue</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="c1">// 1. 添加全局过滤器</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nx">Vue</span><span class="p">.</span><span class="nx">filter</span><span class="p">(....)</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 2. 添加全局指令</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nx">Vue</span><span class="p">.</span><span class="nx">directive</span><span class="p">(....)</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">// 3. 配置全局混入(合)</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nx">Vue</span><span class="p">.</span><span class="nx">mixin</span><span class="p">(....)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="c1">// 4. 添加实例方法</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nx">Vue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">$myMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{...}</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="nx">Vue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">$myProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xxxx</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+<p>```js
+   对象.install = function (Vue, options) {
+       // 1. 添加全局过滤器
+       Vue.filter(....)</p>
+<div class="highlight"><pre><span></span><code>   // 2. 添加全局指令
+   Vue.directive(....)
+
+   // 3. 配置全局混入(合)
+   Vue.mixin(....)
+
+   // 4. 添加实例方法
+   Vue.prototype.$myMethod = function () {...}
+   Vue.prototype.$myProperty = xxxx
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
 <li>使用插件：<code>Vue.use()</code></li>
 </ol>
@@ -1986,12 +1986,12 @@
 </li>
 <li>
 <p>第二种方式，在父组件中：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&lt;</span><span class="nx">Demo</span><span class="w"> </span><span class="nx">ref</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="o">/&gt;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">......</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nx">mounted</span><span class="p">(){</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">   </span><span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">xxx</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;atguigu&#39;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">test</span><span class="p">)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+  &lt;Demo ref="demo"/&gt;
+  ......
+  mounted(){
+     this.$refs.xxx.$on('atguigu',this.test)
+  }</code></p>
 </li>
 <li>
 <p>若想让自定义事件只能触发一次，可以使用<code>once</code>修饰符，或<code>$once</code>方法。</p>
@@ -2018,28 +2018,28 @@
 <p>安装全局事件总线：</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ow">new</span><span class="w"> </span><span class="nx">Vue</span><span class="p">({</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w"> </span><span class="p">......</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w"> </span><span class="nx">beforeCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">     </span><span class="nx">Vue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">$bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="c1">//安装全局事件总线，$bus就是当前应用的vm</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">......</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">})</span><span class="w"> </span>
-</code></pre></div>
+<p><code>js
+   new Vue({
+    ......
+    beforeCreate() {
+        Vue.prototype.$bus = this //安装全局事件总线，$bus就是当前应用的vm
+    },
+       ......
+   })</code></p>
 <ol>
 <li>
 <p>使用事件总线：</p>
 </li>
 <li>
 <p>接收数据：A组件想接收数据，则在A组件中给$bus绑定自定义事件，事件的<span style="color:red">回调留在A组件自身。</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">methods</span><span class="p">(){</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nx">demo</span><span class="p">(</span><span class="nx">data</span><span class="p">){......}</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">......</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nx">mounted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">$bus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;xxxx&#39;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">demo</span><span class="p">)</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+  methods(){
+    demo(data){......}
+  }
+  ......
+  mounted() {
+    this.$bus.$on('xxxx',this.demo)
+  }</code></p>
 </li>
 <li>
 <p>提供数据：<code>this.$bus.$emit('xxxx',数据)</code></p>
@@ -2064,14 +2064,14 @@
 </li>
 <li>
 <p>接收数据：A组件想接收数据，则在A组件中订阅消息，订阅的<span style="color:red">回调留在A组件自身。</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">methods</span><span class="p">(){</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nx">demo</span><span class="p">(</span><span class="nx">data</span><span class="p">){......}</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">......</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nx">mounted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pubsub</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">demo</span><span class="p">)</span><span class="w"> </span><span class="c1">//订阅消息</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+  methods(){
+    demo(data){......}
+  }
+  ......
+  mounted() {
+    this.pid = pubsub.subscribe('xxx',this.demo) //订阅消息
+  }</code></p>
 </li>
 <li>
 <p>提供数据：<code>pubsub.publish('xxx',数据)</code></p>
@@ -2116,10 +2116,10 @@
 </li>
 <li>
 <p>使用<code>&lt;transition&gt;</code>包裹要过度的元素，并配置name属性：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&lt;transition name=&quot;hello&quot;&gt;
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  &lt;h1 v-show=&quot;isShow&quot;&gt;你好啊！&lt;/h1&gt;
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&lt;/transition&gt;
-</code></pre></div>
+<p><code>vue
+  &lt;transition name="hello"&gt;
+    &lt;h1 v-show="isShow"&gt;你好啊！&lt;/h1&gt;
+  &lt;/transition&gt;</code></p>
 </li>
 <li>
 <p>备注：若有多个元素需要过度，则需要使用：<code>&lt;transition-group&gt;</code>，且每个元素都要指定<code>key</code>值。</p>
@@ -2128,10 +2128,10 @@
 <h2 id="vue_3">vue脚手架配置代理</h2>
 <h3 id="_4">方法一</h3>
 <p>​   在vue.config.js中添加如下配置：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">devServer</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nx">proxy</span><span class="o">:</span><span class="s2">&quot;http://localhost:5000&quot;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-js">devServer:{
+  proxy:&quot;http://localhost:5000&quot;
+}
+</code></pre>
 <p>说明：</p>
 <ol>
 <li>优点：配置简单，请求资源时直接发给前端（8080）即可。</li>
@@ -2140,28 +2140,28 @@
 </ol>
 <h3 id="_5">方法二</h3>
 <p>​   编写vue.config.js配置具体代理规则：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nx">devServer</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">      </span><span class="nx">proxy</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">      </span><span class="s1">&#39;/api1&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="c1">// 匹配所有以 &#39;/api1&#39;开头的请求路径</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:5000&#39;</span><span class="p">,</span><span class="c1">// 代理目标的基础路径</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nx">changeOrigin</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="nx">pathRewrite</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;^/api1&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">}</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="s1">&#39;/api2&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="c1">// 匹配所有以 &#39;/api2&#39;开头的请求路径</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:5001&#39;</span><span class="p">,</span><span class="c1">// 代理目标的基础路径</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="nx">changeOrigin</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="nx">pathRewrite</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;^/api2&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">}</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="p">}</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="cm">/*</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="cm">   changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="cm">   changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:8080</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="cm">   changeOrigin默认值为true</span>
-<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="cm">*/</span>
-</code></pre></div>
+<pre><code class="language-js">module.exports = {
+    devServer: {
+      proxy: {
+      '/api1': {// 匹配所有以 '/api1'开头的请求路径
+        target: 'http://localhost:5000',// 代理目标的基础路径
+        changeOrigin: true,
+        pathRewrite: {'^/api1': ''}
+      },
+      '/api2': {// 匹配所有以 '/api2'开头的请求路径
+        target: 'http://localhost:5001',// 代理目标的基础路径
+        changeOrigin: true,
+        pathRewrite: {'^/api2': ''}
+      }
+    }
+  }
+}
+/*
+   changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
+   changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:8080
+   changeOrigin默认值为true
+*/
+</code></pre>
 <p>说明：</p>
 <ol>
 <li>优点：可以配置多个代理，且可以灵活的控制请求是否走代理。</li>
@@ -2180,40 +2180,41 @@
 </li>
 <li>
 <p>默认插槽：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>父组件中：
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>        &lt;Category&gt;
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>           &lt;div&gt;html结构1&lt;/div&gt;
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        &lt;/Category&gt;
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>子组件中：
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        &lt;template&gt;
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>            &lt;div&gt;
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>               &lt;!-- 定义插槽 --&gt;
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>               &lt;slot&gt;插槽默认内容...&lt;/slot&gt;
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>            &lt;/div&gt;
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        &lt;/template&gt;
-</code></pre></div>
+<p><code>vue
+  父组件中：
+          &lt;Category&gt;
+             &lt;div&gt;html结构1&lt;/div&gt;
+          &lt;/Category&gt;
+  子组件中：
+          &lt;template&gt;
+              &lt;div&gt;
+                 &lt;!-- 定义插槽 --&gt;
+                 &lt;slot&gt;插槽默认内容...&lt;/slot&gt;
+              &lt;/div&gt;
+          &lt;/template&gt;</code></p>
 </li>
 <li>
 <p>具名插槽：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>父组件中：
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>        &lt;Category&gt;
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>            &lt;template slot=&quot;center&quot;&gt;
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>              &lt;div&gt;html结构1&lt;/div&gt;
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>            &lt;/template&gt;
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>            &lt;template v-slot:footer&gt;
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>               &lt;div&gt;html结构2&lt;/div&gt;
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>            &lt;/template&gt;
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        &lt;/Category&gt;
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>子组件中：
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>        &lt;template&gt;
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>            &lt;div&gt;
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>               &lt;!-- 定义插槽 --&gt;
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>               &lt;slot name=&quot;center&quot;&gt;插槽默认内容...&lt;/slot&gt;
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>               &lt;slot name=&quot;footer&quot;&gt;插槽默认内容...&lt;/slot&gt;
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>            &lt;/div&gt;
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>        &lt;/template&gt;
+<p>```vue
+  父组件中：
+          <Category>
+              <template slot="center">
+                <div>html结构1</div>
+              </template></p>
+<div class="highlight"><pre><span></span><code>          &lt;template v-slot:footer&gt;
+             &lt;div&gt;html结构2&lt;/div&gt;
+          &lt;/template&gt;
+      &lt;/Category&gt;
 </code></pre></div>
+<p>子组件中：
+          <template>
+              <div>
+                 <!-- 定义插槽 -->
+                 <slot name="center">插槽默认内容...</slot>
+                 <slot name="footer">插槽默认内容...</slot>
+              </div>
+          </template>
+  ```</p>
 </li>
 <li>
 <p>作用域插槽：</p>
@@ -2223,48 +2224,49 @@
 </li>
 <li>
 <p>具体编码：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>父组件中：
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>       &lt;Category&gt;
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>           &lt;template scope=&quot;scopeData&quot;&gt;
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>               &lt;!-- 生成的是ul列表 --&gt;
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>               &lt;ul&gt;
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>                   &lt;li v-for=&quot;g in scopeData.games&quot; :key=&quot;g&quot;&gt;{{g}}&lt;/li&gt;
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>               &lt;/ul&gt;
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>           &lt;/template&gt;
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>       &lt;/Category&gt;
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>       &lt;Category&gt;
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>           &lt;template slot-scope=&quot;scopeData&quot;&gt;
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>               &lt;!-- 生成的是h4标题 --&gt;
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>               &lt;h4 v-for=&quot;g in scopeData.games&quot; :key=&quot;g&quot;&gt;{{g}}&lt;/h4&gt;
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>           &lt;/template&gt;
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>       &lt;/Category&gt;
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>子组件中：
-<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>        &lt;template&gt;
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>            &lt;div&gt;
-<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>                &lt;slot :games=&quot;games&quot;&gt;&lt;/slot&gt;
-<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>            &lt;/div&gt;
-<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>        &lt;/template&gt;
-<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>
-<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        &lt;script&gt;
-<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>            export default {
-<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>                name:&#39;Category&#39;,
-<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>                props:[&#39;title&#39;],
-<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>                //数据在子组件自身
-<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>                data() {
-<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>                    return {
-<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>                        games:[&#39;红色警戒&#39;,&#39;穿越火线&#39;,&#39;劲舞团&#39;,&#39;超级玛丽&#39;]
-<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>                    }
-<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>                },
-<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>            }
-<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>        &lt;/script&gt;
+<p>```vue
+ 父组件中：
+        <Category>
+            <template scope="scopeData">
+                <!-- 生成的是ul列表 -->
+                <ul>
+                    <li v-for="g in scopeData.games" :key="g">{{g}}</li>
+                </ul>
+            </template>
+        </Category></p>
+<div class="highlight"><pre><span></span><code>    &lt;Category&gt;
+        &lt;template slot-scope=&quot;scopeData&quot;&gt;
+            &lt;!-- 生成的是h4标题 --&gt;
+            &lt;h4 v-for=&quot;g in scopeData.games&quot; :key=&quot;g&quot;&gt;{{g}}&lt;/h4&gt;
+        &lt;/template&gt;
+    &lt;/Category&gt;
 </code></pre></div>
+<p>子组件中：
+         <template>
+             <div>
+                 <slot :games="games"></slot>
+             </div>
+         </template></p>
+<div class="highlight"><pre><span></span><code>     &lt;script&gt;
+         export default {
+             name:&#39;Category&#39;,
+             props:[&#39;title&#39;],
+             //数据在子组件自身
+             data() {
+                 return {
+                     games:[&#39;红色警戒&#39;,&#39;穿越火线&#39;,&#39;劲舞团&#39;,&#39;超级玛丽&#39;]
+                 }
+             },
+         }
+     &lt;/script&gt;
+</code></pre></div>
+<p>```</p>
 </li>
 </ol>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>
-</code></pre></div>
+<p>```</p>
+<p>```</p>
 <h2 id="vuex">Vuex</h2>
 <h3 id="1">1.概念</h3>
 <p>​       在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。</p>
@@ -2274,81 +2276,77 @@
 <ol>
 <li>创建文件：<code>src/store/index.js</code></li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">//引入Vue核心库</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">Vue</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">//引入Vuex</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">import</span><span class="w"> </span><span class="nx">Vuex</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vuex&#39;</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1">//应用Vuex插件</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">Vuex</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1">//准备actions对象——响应组件中用户的动作</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="kd">const</span><span class="w"> </span><span class="nx">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1">//准备mutations对象——修改state中的数据</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">mutations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1">//准备state对象——保存具体的数据</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1">//创建并暴露store</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w"> </span><span class="nx">actions</span><span class="p">,</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w"> </span><span class="nx">mutations</span><span class="p">,</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w"> </span><span class="nx">state</span>
-<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="p">})</span>
-</code></pre></div>
+<p>```js
+   //引入Vue核心库
+   import Vue from 'vue'
+   //引入Vuex
+   import Vuex from 'vuex'
+   //应用Vuex插件
+   Vue.use(Vuex)</p>
+<p>//准备actions对象——响应组件中用户的动作
+   const actions = {}
+   //准备mutations对象——修改state中的数据
+   const mutations = {}
+   //准备state对象——保存具体的数据
+   const state = {}</p>
+<p>//创建并暴露store
+   export default new Vuex.Store({
+    actions,
+    mutations,
+    state
+   })
+   ```</p>
 <ol>
 <li>在<code>main.js</code>中创建vm时传入<code>store</code>配置项</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">......</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1">//引入store</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./store&#39;</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">......</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1">//创建vm</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="ow">new</span><span class="w"> </span><span class="nx">Vue</span><span class="p">({</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w"> </span><span class="nx">el</span><span class="o">:</span><span class="s1">&#39;#app&#39;</span><span class="p">,</span>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w"> </span><span class="nx">render</span><span class="o">:</span><span class="w"> </span><span class="nx">h</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">),</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w"> </span><span class="nx">store</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">})</span>
-</code></pre></div>
+<p>```js
+   ......
+   //引入store
+   import store from './store'
+   ......</p>
+<p>//创建vm
+   new Vue({
+    el:'#app',
+    render: h =&gt; h(App),
+    store
+   })
+   ```</p>
 <h3 id="4">4.基本使用</h3>
 <ol>
 <li>初始化数据、配置<code>actions</code>、配置<code>mutations</code>，操作文件<code>store.js</code></li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">//引入Vue核心库</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">Vue</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1">//引入Vuex</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="k">import</span><span class="w"> </span><span class="nx">Vuex</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vuex&#39;</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1">//引用Vuex</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">Vuex</span><span class="p">)</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="c1">//响应组件中加的动作</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w"> </span><span class="nx">jia</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span><span class="nx">value</span><span class="p">){</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">     </span><span class="c1">// console.log(&#39;actions中的jia被调用了&#39;,miniStore,value)</span>
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">     </span><span class="nx">context</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;JIA&#39;</span><span class="p">,</span><span class="nx">value</span><span class="p">)</span>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="p">}</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="kd">const</span><span class="w"> </span><span class="nx">mutations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="c1">//执行加</span>
-<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w"> </span><span class="nx">JIA</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="nx">value</span><span class="p">){</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">     </span><span class="c1">// console.log(&#39;mutations中的JIA被调用了&#39;,state,value)</span>
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">     </span><span class="nx">state</span><span class="p">.</span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">value</span>
-<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="p">}</span>
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="c1">//初始化数据</span>
-<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">   </span><span class="nx">sum</span><span class="o">:</span><span class="mf">0</span>
-<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="p">}</span>
-<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
-<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="c1">//创建并暴露store</span>
-<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
-<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w"> </span><span class="nx">actions</span><span class="p">,</span>
-<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w"> </span><span class="nx">mutations</span><span class="p">,</span>
-<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w"> </span><span class="nx">state</span><span class="p">,</span>
-<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="p">})</span>
-</code></pre></div>
+<p>```js
+   //引入Vue核心库
+   import Vue from 'vue'
+   //引入Vuex
+   import Vuex from 'vuex'
+   //引用Vuex
+   Vue.use(Vuex)</p>
+<p>const actions = {
+       //响应组件中加的动作
+    jia(context,value){
+        // console.log('actions中的jia被调用了',miniStore,value)
+        context.commit('JIA',value)
+    },
+   }</p>
+<p>const mutations = {
+       //执行加
+    JIA(state,value){
+        // console.log('mutations中的JIA被调用了',state,value)
+        state.sum += value
+    }
+   }</p>
+<p>//初始化数据
+   const state = {
+      sum:0
+   }</p>
+<p>//创建并暴露store
+   export default new Vuex.Store({
+    actions,
+    mutations,
+    state,
+   })
+   ```</p>
 <ol>
 <li>
 <p>组件中读取vuex中的数据：<code>$store.state.sum</code></p>
@@ -2369,20 +2367,19 @@
 <p>在<code>store.js</code>中追加<code>getters</code>配置</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">......</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">getters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w"> </span><span class="nx">bigSum</span><span class="p">(</span><span class="nx">state</span><span class="p">){</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">sum</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">10</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="p">}</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="c1">//创建并暴露store</span>
-<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w"> </span><span class="p">......</span>
-<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w"> </span><span class="nx">getters</span>
-<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="p">})</span>
-</code></pre></div>
+<p>```js
+   ......</p>
+<p>const getters = {
+    bigSum(state){
+        return state.sum * 10
+    }
+   }</p>
+<p>//创建并暴露store
+   export default new Vuex.Store({
+    ......
+    getters
+   })
+   ```</p>
 <ol>
 <li>组件中读取数据：<code>$store.getters.bigSum</code></li>
 </ol>
@@ -2390,47 +2387,51 @@
 <ol>
 <li><strong>mapState方法：</strong>用于帮助我们映射<code>state</code>中的数据为计算属性</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nx">computed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="c1">//借助mapState生成计算属性：sum、school、subject（对象写法）</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">     </span><span class="p">...</span><span class="nx">mapState</span><span class="p">({</span><span class="nx">sum</span><span class="o">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="nx">school</span><span class="o">:</span><span class="s1">&#39;school&#39;</span><span class="p">,</span><span class="nx">subject</span><span class="o">:</span><span class="s1">&#39;subject&#39;</span><span class="p">}),</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="c1">//借助mapState生成计算属性：sum、school、subject（数组写法）</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapState</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="s1">&#39;school&#39;</span><span class="p">,</span><span class="s1">&#39;subject&#39;</span><span class="p">]),</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">},</span>
+<p>```js
+   computed: {
+       //借助mapState生成计算属性：sum、school、subject（对象写法）
+        ...mapState({sum:'sum',school:'school',subject:'subject'}),</p>
+<div class="highlight"><pre><span></span><code>   //借助mapState生成计算属性：sum、school、subject（数组写法）
+   ...mapState([&#39;sum&#39;,&#39;school&#39;,&#39;subject&#39;]),
 </code></pre></div>
+<p>},
+   ```</p>
 <ol>
 <li><strong>mapGetters方法：</strong>用于帮助我们映射<code>getters</code>中的数据为计算属性</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nx">computed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="c1">//借助mapGetters生成计算属性：bigSum（对象写法）</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapGetters</span><span class="p">({</span><span class="nx">bigSum</span><span class="o">:</span><span class="s1">&#39;bigSum&#39;</span><span class="p">}),</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="c1">//借助mapGetters生成计算属性：bigSum（数组写法）</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapGetters</span><span class="p">([</span><span class="s1">&#39;bigSum&#39;</span><span class="p">])</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="p">},</span>
+<p>```js
+   computed: {
+       //借助mapGetters生成计算属性：bigSum（对象写法）
+       ...mapGetters({bigSum:'bigSum'}),</p>
+<div class="highlight"><pre><span></span><code>   //借助mapGetters生成计算属性：bigSum（数组写法）
+   ...mapGetters([&#39;bigSum&#39;])
 </code></pre></div>
+<p>},
+   ```</p>
 <ol>
 <li><strong>mapActions方法：</strong>用于帮助我们生成与<code>actions</code>对话的方法，即：包含<code>$store.dispatch(xxx)</code>的函数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="c1">//靠mapActions生成：incrementOdd、incrementWait（对象形式）</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapActions</span><span class="p">({</span><span class="nx">incrementOdd</span><span class="o">:</span><span class="s1">&#39;jiaOdd&#39;</span><span class="p">,</span><span class="nx">incrementWait</span><span class="o">:</span><span class="s1">&#39;jiaWait&#39;</span><span class="p">})</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="c1">//靠mapActions生成：incrementOdd、incrementWait（数组形式）</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapActions</span><span class="p">([</span><span class="s1">&#39;jiaOdd&#39;</span><span class="p">,</span><span class="s1">&#39;jiaWait&#39;</span><span class="p">])</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
+<p>```js
+   methods:{
+       //靠mapActions生成：incrementOdd、incrementWait（对象形式）
+       ...mapActions({incrementOdd:'jiaOdd',incrementWait:'jiaWait'})</p>
+<div class="highlight"><pre><span></span><code>   //靠mapActions生成：incrementOdd、incrementWait（数组形式）
+   ...mapActions([&#39;jiaOdd&#39;,&#39;jiaWait&#39;])
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
 <li><strong>mapMutations方法：</strong>用于帮助我们生成与<code>mutations</code>对话的方法，即：包含<code>$store.commit(xxx)</code>的函数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="c1">//靠mapActions生成：increment、decrement（对象形式）</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapMutations</span><span class="p">({</span><span class="nx">increment</span><span class="o">:</span><span class="s1">&#39;JIA&#39;</span><span class="p">,</span><span class="nx">decrement</span><span class="o">:</span><span class="s1">&#39;JIAN&#39;</span><span class="p">}),</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="c1">//靠mapMutations生成：JIA、JIAN（对象形式）</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="p">...</span><span class="nx">mapMutations</span><span class="p">([</span><span class="s1">&#39;JIA&#39;</span><span class="p">,</span><span class="s1">&#39;JIAN&#39;</span><span class="p">]),</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="p">}</span>
+<p>```js
+   methods:{
+       //靠mapActions生成：increment、decrement（对象形式）
+       ...mapMutations({increment:'JIA',decrement:'JIAN'}),</p>
+<div class="highlight"><pre><span></span><code>   //靠mapMutations生成：JIA、JIAN（对象形式）
+   ...mapMutations([&#39;JIA&#39;,&#39;JIAN&#39;]),
 </code></pre></div>
+<p>}
+   ```</p>
 <blockquote>
 <p>备注：mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。</p>
 </blockquote>
@@ -2443,64 +2444,63 @@
 <p>修改<code>store.js</code></p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">countAbout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nx">namespaced</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="c1">//开启命名空间</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nx">state</span><span class="o">:</span><span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mf">1</span><span class="p">},</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="nx">mutations</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span><span class="nx">actions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span><span class="nx">getters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="nx">bigSum</span><span class="p">(</span><span class="nx">state</span><span class="p">){</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">sum</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">10</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="p">}</span>
-<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
-<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">personAbout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">  </span><span class="nx">namespaced</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="c1">//开启命名空间</span>
-<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">  </span><span class="nx">state</span><span class="o">:</span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">  </span><span class="nx">mutations</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">  </span><span class="nx">actions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="p">}</span>
-<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>
-<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="kd">const</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
-<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="w">  </span><span class="nx">modules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="w">    </span><span class="nx">countAbout</span><span class="p">,</span>
-<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="w">    </span><span class="nx">personAbout</span>
-<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="p">})</span>
-</code></pre></div>
+<p>```javascript
+   const countAbout = {
+     namespaced:true,//开启命名空间
+     state:{x:1},
+     mutations: { ... },
+     actions: { ... },
+     getters: {
+       bigSum(state){
+          return state.sum * 10
+       }
+     }
+   }</p>
+<p>const personAbout = {
+     namespaced:true,//开启命名空间
+     state:{ ... },
+     mutations: { ... },
+     actions: { ... }
+   }</p>
+<p>const store = new Vuex.Store({
+     modules: {
+       countAbout,
+       personAbout
+     }
+   })
+   ```</p>
 <ol>
 <li>开启命名空间后，组件中读取state数据：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">//方式一：自己直接读取</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">personAbout</span><span class="p">.</span><span class="nx">list</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="c1">//方式二：借助mapState读取：</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">...</span><span class="nx">mapState</span><span class="p">(</span><span class="s1">&#39;countAbout&#39;</span><span class="p">,[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="s1">&#39;school&#39;</span><span class="p">,</span><span class="s1">&#39;subject&#39;</span><span class="p">]),</span>
-</code></pre></div>
+<p><code>js
+   //方式一：自己直接读取
+   this.$store.state.personAbout.list
+   //方式二：借助mapState读取：
+   ...mapState('countAbout',['sum','school','subject']),</code></p>
 <ol>
 <li>开启命名空间后，组件中读取getters数据：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1">//方式一：自己直接读取</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">getters</span><span class="p">[</span><span class="s1">&#39;personAbout/firstPersonName&#39;</span><span class="p">]</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1">//方式二：借助mapGetters读取：</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="p">...</span><span class="nx">mapGetters</span><span class="p">(</span><span class="s1">&#39;countAbout&#39;</span><span class="p">,[</span><span class="s1">&#39;bigSum&#39;</span><span class="p">])</span>
-</code></pre></div>
+<p><code>js
+   //方式一：自己直接读取
+   this.$store.getters['personAbout/firstPersonName']
+   //方式二：借助mapGetters读取：
+   ...mapGetters('countAbout',['bigSum'])</code></p>
 <ol>
 <li>开启命名空间后，组件中调用dispatch</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1">//方式一：自己直接dispatch</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">&#39;personAbout/addPersonWang&#39;</span><span class="p">,</span><span class="nx">person</span><span class="p">)</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1">//方式二：借助mapActions：</span>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="p">...</span><span class="nx">mapActions</span><span class="p">(</span><span class="s1">&#39;countAbout&#39;</span><span class="p">,{</span><span class="nx">incrementOdd</span><span class="o">:</span><span class="s1">&#39;jiaOdd&#39;</span><span class="p">,</span><span class="nx">incrementWait</span><span class="o">:</span><span class="s1">&#39;jiaWait&#39;</span><span class="p">})</span>
-</code></pre></div>
+<p><code>js
+   //方式一：自己直接dispatch
+   this.$store.dispatch('personAbout/addPersonWang',person)
+   //方式二：借助mapActions：
+   ...mapActions('countAbout',{incrementOdd:'jiaOdd',incrementWait:'jiaWait'})</code></p>
 <ol>
 <li>开启命名空间后，组件中调用commit</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1">//方式一：自己直接commit</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;personAbout/ADD_PERSON&#39;</span><span class="p">,</span><span class="nx">person</span><span class="p">)</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="c1">//方式二：借助mapMutations：</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">...</span><span class="nx">mapMutations</span><span class="p">(</span><span class="s1">&#39;countAbout&#39;</span><span class="p">,{</span><span class="nx">increment</span><span class="o">:</span><span class="s1">&#39;JIA&#39;</span><span class="p">,</span><span class="nx">decrement</span><span class="o">:</span><span class="s1">&#39;JIAN&#39;</span><span class="p">}),</span>
-</code></pre></div>
+<p><code>js
+   //方式一：自己直接commit
+   this.$store.commit('personAbout/ADD_PERSON',person)
+   //方式二：借助mapMutations：
+   ...mapMutations('countAbout',{increment:'JIA',decrement:'JIAN'}),</code></p>
 <h2 id="_7">路由</h2>
 <ol>
 <li>理解： 一个路由（route）就是一组映射关系（key - value），多个路由需要路由器（router）进行管理。</li>
@@ -2518,39 +2518,38 @@
 <p>编写router配置项:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1">//引入VueRouter</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">VueRouter</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue-router&#39;</span>
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="c1">//引入Luyou 组件</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="k">import</span><span class="w"> </span><span class="nx">About</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/About&#39;</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/Home&#39;</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
-<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="c1">//创建router实例对象，去管理一组一组的路由规则</span>
-<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">VueRouter</span><span class="p">({</span>
-<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w"> </span><span class="nx">routes</span><span class="o">:</span><span class="p">[</span>
-<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">     </span><span class="p">{</span>
-<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">         </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/about&#39;</span><span class="p">,</span>
-<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">         </span><span class="nx">component</span><span class="o">:</span><span class="nx">About</span>
-<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">     </span><span class="p">},</span>
-<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">     </span><span class="p">{</span>
-<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">         </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span>
-<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">         </span><span class="nx">component</span><span class="o">:</span><span class="nx">Home</span>
-<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">     </span><span class="p">}</span>
-<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w"> </span><span class="p">]</span>
-<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="p">})</span>
-<a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>
-<a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="c1">//暴露router</span>
-<a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">router</span>
-</code></pre></div>
+<p>```js
+   //引入VueRouter
+   import VueRouter from 'vue-router'
+   //引入Luyou 组件
+   import About from '../components/About'
+   import Home from '../components/Home'</p>
+<p>//创建router实例对象，去管理一组一组的路由规则
+   const router = new VueRouter({
+    routes:[
+        {
+            path:'/about',
+            component:About
+        },
+        {
+            path:'/home',
+            component:Home
+        }
+    ]
+   })</p>
+<p>//暴露router
+   export default router
+   ```</p>
 <ol>
 <li>实现切换（active-class可配置高亮样式）</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>&lt;router-link active-class=&quot;active&quot; to=&quot;/about&quot;&gt;About&lt;/router-link&gt;
-</code></pre></div>
+<p><code>vue
+   &lt;router-link active-class="active" to="/about"&gt;About&lt;/router-link&gt;</code></p>
 <ol>
 <li>指定展示位置</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>&lt;router-view&gt;&lt;/router-view&gt;
-</code></pre></div>
+<p><code>vue
+   &lt;router-view&gt;&lt;/router-view&gt;</code></p>
 <h3 id="2_1">2.几个注意点</h3>
 <ol>
 <li>路由组件通常存放在<code>pages</code>文件夹，一般组件通常存放在<code>components</code>文件夹。</li>
@@ -2562,56 +2561,58 @@
 <ol>
 <li>配置路由规则，使用children配置项：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nx">routes</span><span class="o">:</span><span class="p">[</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">     </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/about&#39;</span><span class="p">,</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">     </span><span class="nx">component</span><span class="o">:</span><span class="nx">About</span><span class="p">,</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">     </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span>
-<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">     </span><span class="nx">component</span><span class="o">:</span><span class="nx">Home</span><span class="p">,</span>
-<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">     </span><span class="nx">children</span><span class="o">:</span><span class="p">[</span><span class="w"> </span><span class="c1">//通过children配置子级路由</span>
-<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">         </span><span class="p">{</span>
-<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">             </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;news&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">//此处一定不要写：/news</span>
-<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="w">             </span><span class="nx">component</span><span class="o">:</span><span class="nx">News</span>
-<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="w">         </span><span class="p">},</span>
-<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="w">         </span><span class="p">{</span>
-<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="w">             </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="c1">//此处一定不要写：/message</span>
-<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="w">             </span><span class="nx">component</span><span class="o">:</span><span class="nx">Message</span>
-<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a><span class="w">         </span><span class="p">}</span>
-<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a><span class="w">     </span><span class="p">]</span>
-<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="p">]</span>
-</code></pre></div>
+<p><code>js
+   routes:[
+    {
+        path:'/about',
+        component:About,
+    },
+    {
+        path:'/home',
+        component:Home,
+        children:[ //通过children配置子级路由
+            {
+                path:'news', //此处一定不要写：/news
+                component:News
+            },
+            {
+                path:'message',//此处一定不要写：/message
+                component:Message
+            }
+        ]
+    }
+   ]</code></p>
 <ol>
 <li>跳转（要写完整路径）：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>&lt;router-link to=&quot;/home/news&quot;&gt;News&lt;/router-link&gt;
-</code></pre></div>
+<p><code>vue
+   &lt;router-link to="/home/news"&gt;News&lt;/router-link&gt;</code></p>
 <h3 id="4query">4.路由的query参数</h3>
 <ol>
 <li>传递参数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>&lt;!-- 跳转并携带query参数，to的字符串写法 --&gt;
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>&lt;router-link :to=&quot;/home/message/detail?id=666&amp;title=你好&quot;&gt;跳转&lt;/router-link&gt;
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>&lt;!-- 跳转并携带query参数，to的对象写法 --&gt;
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>&lt;router-link 
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a> :to=&quot;{
-<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>     path:&#39;/home/message/detail&#39;,
-<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>     query:{
-<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>        id:666,
-<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>            title:&#39;你好&#39;
-<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>     }
-<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a> }&quot;
-<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>&gt;跳转&lt;/router-link&gt;
-</code></pre></div>
+<p>```vue
+   <!-- 跳转并携带query参数，to的字符串写法 --></p>
+<p><router-link :to="/home/message/detail?id=666&title=你好">跳转</router-link></p>
+<!-- 跳转并携带query参数，to的对象写法 -->
+<p>&lt;router-link 
+    :to="{
+        path:'/home/message/detail',
+        query:{
+           id:666,
+               title:'你好'
+        }
+    }"</p>
+<blockquote>
+<p>跳转</router-link>
+   ```</p>
+</blockquote>
 <ol>
 <li>接收参数：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">title</span>
-</code></pre></div>
+<p><code>js
+   $route.query.id
+   $route.query.title</code></p>
 <h3 id="5">5.命名路由</h3>
 <ol>
 <li>
@@ -2622,119 +2623,120 @@
 </li>
 <li>
 <p>给路由命名：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/demo&#39;</span><span class="p">,</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">  </span><span class="nx">component</span><span class="o">:</span><span class="nx">Demo</span><span class="p">,</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">  </span><span class="nx">children</span><span class="o">:</span><span class="p">[</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">          </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">          </span><span class="nx">component</span><span class="o">:</span><span class="nx">Test</span><span class="p">,</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">          </span><span class="nx">children</span><span class="o">:</span><span class="p">[</span>
-<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">              </span><span class="p">{</span>
-<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">                      </span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;hello&#39;</span><span class="w"> </span><span class="c1">//给路由命名</span>
-<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">                  </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span>
-<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">                  </span><span class="nx">component</span><span class="o">:</span><span class="nx">Hello</span><span class="p">,</span>
-<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">              </span><span class="p">}</span>
-<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">          </span><span class="p">]</span>
-<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+  {
+    path:'/demo',
+    component:Demo,
+    children:[
+        {
+            path:'test',
+            component:Test,
+            children:[
+                {
+                        name:'hello' //给路由命名
+                    path:'welcome',
+                    component:Hello,
+                }
+            ]
+        }
+    ]
+  }</code></p>
 </li>
 <li>
 <p>简化跳转：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>&lt;!--简化前，需要写完整的路径 --&gt;
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>&lt;router-link to=&quot;/demo/test/welcome&quot;&gt;跳转&lt;/router-link&gt;
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
-<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>&lt;!--简化后，直接通过名字跳转 --&gt;
-<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>&lt;router-link :to=&quot;{name:&#39;hello&#39;}&quot;&gt;跳转&lt;/router-link&gt;
-<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
-<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>&lt;!--简化写法配合传递参数 --&gt;
-<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>&lt;router-link 
-<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>  :to=&quot;{
-<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>      name:&#39;hello&#39;,
-<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>      query:{
-<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>         id:666,
-<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>            title:&#39;你好&#39;
-<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>      }
-<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>  }&quot;
-<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>&gt;跳转&lt;/router-link&gt;
-</code></pre></div>
+<p>```vue
+  <!--简化前，需要写完整的路径 -->
+  <router-link to="/demo/test/welcome">跳转</router-link></p>
+<p><!--简化后，直接通过名字跳转 -->
+  <router-link :to="{name:'hello'}">跳转</router-link></p>
+<p><!--简化写法配合传递参数 -->
+  &lt;router-link 
+    :to="{
+        name:'hello',
+        query:{
+           id:666,
+              title:'你好'
+        }
+    }"</p>
+<blockquote>
+<p>跳转</router-link>
+  ```</p>
+</blockquote>
 </li>
 </ol>
 <h3 id="6params">6.路由的params参数</h3>
 <ol>
 <li>配置路由，声明接收params参数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">{</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="nx">Home</span><span class="p">,</span>
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="p">[</span>
-<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">     </span><span class="p">{</span>
-<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">         </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;news&#39;</span><span class="p">,</span>
-<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">         </span><span class="nx">component</span><span class="o">:</span><span class="nx">News</span>
-<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">     </span><span class="p">},</span>
-<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="w">     </span><span class="p">{</span>
-<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="w">         </span><span class="nx">component</span><span class="o">:</span><span class="nx">Message</span><span class="p">,</span>
-<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a><span class="w">         </span><span class="nx">children</span><span class="o">:</span><span class="p">[</span>
-<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="w">             </span><span class="p">{</span>
-<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="w">                 </span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;xiangqing&#39;</span><span class="p">,</span>
-<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a><span class="w">                 </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;detail/:id/:title&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">//使用占位符声明接收params参数</span>
-<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="w">                 </span><span class="nx">component</span><span class="o">:</span><span class="nx">Detail</span>
-<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a><span class="w">             </span><span class="p">}</span>
-<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a><span class="w">         </span><span class="p">]</span>
-<a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a><span class="w">     </span><span class="p">}</span>
-<a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a><span class="w"> </span><span class="p">]</span>
-<a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+   {
+    path:'/home',
+    component:Home,
+    children:[
+        {
+            path:'news',
+            component:News
+        },
+        {
+            component:Message,
+            children:[
+                {
+                    name:'xiangqing',
+                    path:'detail/:id/:title', //使用占位符声明接收params参数
+                    component:Detail
+                }
+            ]
+        }
+    ]
+   }</code></p>
 <ol>
 <li>传递参数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>&lt;!-- 跳转并携带params参数，to的字符串写法 --&gt;
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>&lt;router-link :to=&quot;/home/message/detail/666/你好&quot;&gt;跳转&lt;/router-link&gt;
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>&lt;!-- 跳转并携带params参数，to的对象写法 --&gt;
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>&lt;router-link 
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a> :to=&quot;{
-<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>     name:&#39;xiangqing&#39;,
-<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>     params:{
-<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>        id:666,
-<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>            title:&#39;你好&#39;
-<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>     }
-<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a> }&quot;
-<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>&gt;跳转&lt;/router-link&gt;
-</code></pre></div>
+<p>```vue
+   <!-- 跳转并携带params参数，to的字符串写法 --></p>
+<p><router-link :to="/home/message/detail/666/你好">跳转</router-link></p>
+<!-- 跳转并携带params参数，to的对象写法 -->
+<p>&lt;router-link 
+    :to="{
+        name:'xiangqing',
+        params:{
+           id:666,
+               title:'你好'
+        }
+    }"</p>
 <blockquote>
+<p>跳转</router-link>
+   ```</p>
 <p>特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！</p>
 </blockquote>
 <ol>
 <li>接收参数：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">title</span>
-</code></pre></div>
+<p><code>js
+   $route.params.id
+   $route.params.title</code></p>
 <h3 id="7props">7.路由的props配置</h3>
 <p>​   作用：让路由组件更方便的收到参数</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">{</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;xiangqing&#39;</span><span class="p">,</span>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="s1">&#39;detail/:id&#39;</span><span class="p">,</span>
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span><span class="nx">component</span><span class="o">:</span><span class="nx">Detail</span><span class="p">,</span>
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">    </span><span class="c1">//第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件</span>
-<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">    </span><span class="c1">// props:{a:900}</span>
-<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>
-<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">    </span><span class="c1">//第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件</span>
-<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="w">    </span><span class="c1">// props:true</span>
-<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>
-<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="w">    </span><span class="c1">//第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件</span>
-<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a><span class="w">    </span><span class="nx">props</span><span class="p">(</span><span class="nx">route</span><span class="p">){</span>
-<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="nx">route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
-<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a><span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="nx">route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">title</span>
-<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-40-19" name="__codelineno-40-19" href="#__codelineno-40-19"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-js">{
+    name:'xiangqing',
+    path:'detail/:id',
+    component:Detail,
+
+    //第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
+    // props:{a:900}
+
+    //第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
+    // props:true
+
+    //第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
+    props(route){
+        return {
+            id:route.query.id,
+            title:route.query.title
+        }
+    }
+}
+</code></pre>
 <h3 id="8router-linkreplace">8.<code>&lt;router-link&gt;</code>的replace属性</h3>
 <ol>
 <li>作用：控制路由跳转时操作浏览器历史记录的模式</li>
@@ -2750,26 +2752,26 @@
 <p>具体编码：</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1">//$router的两个API</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;xiangqing&#39;</span><span class="p">,</span>
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">     </span><span class="nx">params</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">         </span><span class="nx">id</span><span class="o">:</span><span class="nx">xxx</span><span class="p">,</span>
-<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">         </span><span class="nx">title</span><span class="o">:</span><span class="nx">xxx</span>
-<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">     </span><span class="p">}</span>
-<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="p">})</span>
-<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a>
-<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">replace</span><span class="p">({</span>
-<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;xiangqing&#39;</span><span class="p">,</span>
-<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="w">     </span><span class="nx">params</span><span class="o">:</span><span class="p">{</span>
-<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a><span class="w">         </span><span class="nx">id</span><span class="o">:</span><span class="nx">xxx</span><span class="p">,</span>
-<a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a><span class="w">         </span><span class="nx">title</span><span class="o">:</span><span class="nx">xxx</span>
-<a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a><span class="w">     </span><span class="p">}</span>
-<a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a><span class="p">})</span>
-<a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">forward</span><span class="p">()</span><span class="w"> </span><span class="c1">//前进</span>
-<a id="__codelineno-41-18" name="__codelineno-41-18" href="#__codelineno-41-18"></a><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">back</span><span class="p">()</span><span class="w"> </span><span class="c1">//后退</span>
-<a id="__codelineno-41-19" name="__codelineno-41-19" href="#__codelineno-41-19"></a><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">go</span><span class="p">()</span><span class="w"> </span><span class="c1">//可前进也可后退</span>
-</code></pre></div>
+<p>```js
+   //$router的两个API
+   this.$router.push({
+    name:'xiangqing',
+        params:{
+            id:xxx,
+            title:xxx
+        }
+   })</p>
+<p>this.$router.replace({
+    name:'xiangqing',
+        params:{
+            id:xxx,
+            title:xxx
+        }
+   })
+   this.$router.forward() //前进
+   this.$router.back() //后退
+   this.$router.go() //可前进也可后退
+   ```</p>
 <h3 id="10">10.缓存路由组件</h3>
 <ol>
 <li>
@@ -2779,10 +2781,10 @@
 <p>具体编码：</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>&lt;keep-alive include=&quot;News&quot;&gt; 
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>    &lt;router-view&gt;&lt;/router-view&gt;
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>&lt;/keep-alive&gt;
-</code></pre></div>
+<p><code>vue
+   &lt;keep-alive include="News"&gt; 
+       &lt;router-view&gt;&lt;/router-view&gt;
+   &lt;/keep-alive&gt;</code></p>
 <h3 id="11">11.两个新的生命周期钩子</h3>
 <ol>
 <li>作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。</li>
@@ -2802,58 +2804,58 @@
 <p>全局守卫:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1">//全局前置守卫：初始化时执行、每次路由切换前执行</span>
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="nx">router</span><span class="p">.</span><span class="nx">beforeEach</span><span class="p">((</span><span class="nx">to</span><span class="p">,</span><span class="kr">from</span><span class="p">,</span><span class="nx">next</span><span class="p">)=&gt;{</span>
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;beforeEach&#39;</span><span class="p">,</span><span class="nx">to</span><span class="p">,</span><span class="kr">from</span><span class="p">)</span>
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">to</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">isAuth</span><span class="p">){</span><span class="w"> </span><span class="c1">//判断当前路由是否需要进行权限控制</span>
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">     </span><span class="k">if</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;school&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;atguigu&#39;</span><span class="p">){</span><span class="w"> </span><span class="c1">//权限控制的具体规则</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">         </span><span class="nx">next</span><span class="p">()</span><span class="w"> </span><span class="c1">//放行</span>
-<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">     </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">         </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;暂无权限查看&#39;</span><span class="p">)</span>
-<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="w">         </span><span class="c1">// next({name:&#39;guanyu&#39;})</span>
-<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="w">     </span><span class="p">}</span>
-<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="w"> </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="w">     </span><span class="nx">next</span><span class="p">()</span><span class="w"> </span><span class="c1">//放行</span>
-<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a><span class="p">})</span>
-<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a>
-<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a><span class="c1">//全局后置守卫：初始化时执行、每次路由切换后执行</span>
-<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a><span class="nx">router</span><span class="p">.</span><span class="nx">afterEach</span><span class="p">((</span><span class="nx">to</span><span class="p">,</span><span class="kr">from</span><span class="p">)=&gt;{</span>
-<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;afterEach&#39;</span><span class="p">,</span><span class="nx">to</span><span class="p">,</span><span class="kr">from</span><span class="p">)</span>
-<a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">to</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">title</span><span class="p">){</span><span class="w"> </span>
-<a id="__codelineno-43-20" name="__codelineno-43-20" href="#__codelineno-43-20"></a><span class="w">     </span><span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">to</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="c1">//修改网页的title</span>
-<a id="__codelineno-43-21" name="__codelineno-43-21" href="#__codelineno-43-21"></a><span class="w"> </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<a id="__codelineno-43-22" name="__codelineno-43-22" href="#__codelineno-43-22"></a><span class="w">     </span><span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;vue_test&#39;</span>
-<a id="__codelineno-43-23" name="__codelineno-43-23" href="#__codelineno-43-23"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-43-24" name="__codelineno-43-24" href="#__codelineno-43-24"></a><span class="p">})</span>
-</code></pre></div>
+<p>```js
+   //全局前置守卫：初始化时执行、每次路由切换前执行
+   router.beforeEach((to,from,next)=&gt;{
+    console.log('beforeEach',to,from)
+    if(to.meta.isAuth){ //判断当前路由是否需要进行权限控制
+        if(localStorage.getItem('school') === 'atguigu'){ //权限控制的具体规则
+            next() //放行
+        }else{
+            alert('暂无权限查看')
+            // next({name:'guanyu'})
+        }
+    }else{
+        next() //放行
+    }
+   })</p>
+<p>//全局后置守卫：初始化时执行、每次路由切换后执行
+   router.afterEach((to,from)=&gt;{
+    console.log('afterEach',to,from)
+    if(to.meta.title){ 
+        document.title = to.meta.title //修改网页的title
+    }else{
+        document.title = 'vue_test'
+    }
+   })
+   ```</p>
 <ol>
 <li>独享守卫:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nx">beforeEnter</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span><span class="kr">from</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;beforeEnter&#39;</span><span class="p">,</span><span class="nx">to</span><span class="p">,</span><span class="kr">from</span><span class="p">)</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">to</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">isAuth</span><span class="p">){</span><span class="w"> </span><span class="c1">//判断当前路由是否需要进行权限控制</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">     </span><span class="k">if</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;school&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;atguigu&#39;</span><span class="p">){</span>
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">         </span><span class="nx">next</span><span class="p">()</span>
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">     </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">         </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;暂无权限查看&#39;</span><span class="p">)</span>
-<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">         </span><span class="c1">// next({name:&#39;guanyu&#39;})</span>
-<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w">     </span><span class="p">}</span>
-<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w"> </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w">     </span><span class="nx">next</span><span class="p">()</span>
-<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+   beforeEnter(to,from,next){
+    console.log('beforeEnter',to,from)
+    if(to.meta.isAuth){ //判断当前路由是否需要进行权限控制
+        if(localStorage.getItem('school') === 'atguigu'){
+            next()
+        }else{
+            alert('暂无权限查看')
+            // next({name:'guanyu'})
+        }
+    }else{
+        next()
+    }
+   }</code></p>
 <ol>
 <li>组件内守卫：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1">//进入守卫：通过路由规则，进入该组件时被调用</span>
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="nx">beforeRouteEnter</span><span class="w"> </span><span class="p">(</span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="p">},</span>
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1">//离开守卫：通过路由规则，离开该组件时被调用</span>
-<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="nx">beforeRouteLeave</span><span class="w"> </span><span class="p">(</span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>js
+   //进入守卫：通过路由规则，进入该组件时被调用
+   beforeRouteEnter (to, from, next) {
+   },
+   //离开守卫：通过路由规则，离开该组件时被调用
+   beforeRouteLeave (to, from, next) {
+   }</code></p>
 <h3 id="13">13.路由器的两种工作模式</h3>
 <ol>
 <li>

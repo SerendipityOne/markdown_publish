@@ -1988,62 +1988,63 @@
 <p>使用两个注解：</p>
 <p>1)@Configuration:放在一个类的上面，表示这个类是作为配置文件使用的</p>
 <p>2)@Bean:声明对象，把对象注入到容器中</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">例子</span><span class="err">：</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.bjpowernode.vo.Student</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Bean</span><span class="p">;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="cm">/**</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cm"> * Configuration:表示当前类是作为配置文件使用的。就是用来配置容器的</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cm"> * 位置：在类的上方</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm"> * SpringConfig这个类相当于beans.xml</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cm"> */</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="cm">/**</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="cm">     * 创建方法，方法的返回值是对象，在方法的上面加入@bean</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="cm">     * 方法的返回值对象就注入到容器中</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="cm">     *</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="cm">     * @Bean:把对象注入到spring容器中。作用相当于&lt;bean&gt;</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="cm">     *     位置：方法的上面</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="cm">     *     说明：@Bean，不指定对象的名称，默认方法名是id</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="cm">     */</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nd">@Bean</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">createStudent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&quot;张三&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;男&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="cm">/**</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="cm">     * 指定对象在容器中的名称（指定&lt;bean&gt;的id属性）</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="cm">     * @Bean的name属性，指定对象的名称(id)</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="cm">     */</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lisi&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">makeStudent</span><span class="p">(){</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&quot;李四&quot;</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="s">&quot;男&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">例子：
+import com.bjpowernode.vo.Student;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * Configuration:表示当前类是作为配置文件使用的。就是用来配置容器的
+ * 位置：在类的上方
+ * SpringConfig这个类相当于beans.xml
+ */
+@Configuration
+public class SpringConfig {
+    /**
+     * 创建方法，方法的返回值是对象，在方法的上面加入@bean
+     * 方法的返回值对象就注入到容器中
+     *
+     * @Bean:把对象注入到spring容器中。作用相当于&lt;bean&gt;
+     *     位置：方法的上面
+     *     说明：@Bean，不指定对象的名称，默认方法名是id
+     */
+    @Bean
+    public Student createStudent() {
+        return new Student(&quot;张三&quot;, 20, &quot;男&quot;);
+    }
+
+    /**
+     * 指定对象在容器中的名称（指定&lt;bean&gt;的id属性）
+     * @Bean的name属性，指定对象的名称(id)
+     */
+    @Bean(name = &quot;lisi&quot;)
+    public Student makeStudent(){
+        return new Student(&quot;李四&quot;,22,&quot;男&quot;);
+    }
+}
+
+</code></pre>
 <h3 id="12-importresource">1.2 @ImportResource</h3>
 <p>@ImportResource用于导入其他xml配置文件，等于在xml中的<import>标签</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;import</span><span class="w"> </span><span class="na">resource=</span><span class="s">&quot;其他配置文件&quot;</span><span class="nt">/&gt;</span>
-</code></pre></div>
+<pre><code class="language-xml">&lt;import resource=&quot;其他配置文件&quot;/&gt;
+</code></pre>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@ImportResource</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;classpath:applicationContext.xml&quot;</span><span class="p">,</span><span class="s">&quot;classpath:beans.xml&quot;</span><span class="p">})</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringConfig</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div>
+<pre><code class="language-java">@Configuration
+@ImportResource(value = {&quot;classpath:applicationContext.xml&quot;,&quot;classpath:beans.xml&quot;})
+public class SpringConfig {}
+</code></pre>
 <h3 id="13-propertyresource">1.3 @PropertyResource</h3>
 <p>@PropertyResource:读取properties属性配置文件。使用属性配置文件可以实现外部化配置，在程序代码之外提供数据</p>
 <p>步骤：</p>
 <p>​   1.在resource目录下，创建properties文件，使用key=value的格式提供数据</p>
 <p>​   2.在PropertyResource指定properties文件的位置</p>
 <p>​   3.使用@Value(value="${key}")</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@ImportResource</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;classpath:applicationContext.xml&quot;</span><span class="p">,</span><span class="s">&quot;classpath:beans.xml&quot;</span><span class="p">})</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nd">@PropertySource</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;classpath:config.properties&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nd">@ComponentScan</span><span class="p">(</span><span class="n">basePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.bjpowernode.vo&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringConfig</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div>
+<pre><code class="language-java">@Configuration
+@ImportResource(value = {&quot;classpath:applicationContext.xml&quot;,&quot;classpath:beans.xml&quot;})
+@PropertySource(value = &quot;classpath:config.properties&quot;)
+@ComponentScan(basePackages = &quot;com.bjpowernode.vo&quot;)
+public class SpringConfig {}
+</code></pre>
 <h2 id="springboot_1">二、SpringBoot入门</h2>
 <h3 id="21">2.1 介绍</h3>
 <p>SpringBoot是Spring中的一个成员， 可以简化Spring，SpringMVC的使用。 他的核心还是IOC容器。</p>
@@ -2083,32 +2084,32 @@
 <p>https://start.springboot.io</p>
 <p><img alt="image-20220706102701847" src="../SpringBoot.assets/image-20220706102701847.jpg" /></p>
 <h3 id="23">2.3 注解的使用</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">符合注解</span><span class="err">：</span><span class="n">由</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@SpringBootConfiguration</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nd">@EnableAutoConfiguration</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nd">@ComponentScan</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="mf">1.</span><span class="nd">@SpringBootConfiguration</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">SpringBootConfiguration</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nd">@AliasFor</span><span class="p">(</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="n">annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Configuration</span><span class="p">.</span><span class="na">class</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="p">)</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">proxyBeanMethods</span><span class="p">()</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">说明</span><span class="err">：</span><span class="n">用了</span><span class="nd">@SpringBootConfiguration注解标注的类</span><span class="err">，</span><span class="n">可以作为配置文件使用</span><span class="err">，</span><span class="n">可以使用Bean声明对象</span><span class="err">，</span><span class="n">注入容器中</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="mf">2.</span><span class="nd">@EnableAutoConfiguration</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="n">启用自动配置</span><span class="err">，</span><span class="n">把java对象配置好</span><span class="err">，</span><span class="n">注入到spring容器中</span><span class="err">。</span><span class="n">例如可以把mybatis的对象创建好</span><span class="err">，</span><span class="n">放入到容器中</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="mf">3.</span><span class="nd">@ComponentScan</span>
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">扫描器</span><span class="err">，</span><span class="n">找到注解</span><span class="err">，</span><span class="n">根据注解的功能创建对象</span><span class="err">，</span><span class="n">给属性赋值等</span>
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="n">默认扫描的包</span><span class="err">：</span><span class="nd">@ComponentScan所在的类的包和所在类的包的子包</span>
-</code></pre></div>
+<pre><code class="language-java">@SpringBootApplication
+符合注解：由
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan
+
+1.@SpringBootConfiguration
+
+@Configuration
+public @interface SpringBootConfiguration {
+    @AliasFor(
+        annotation = Configuration.class
+    )
+    boolean proxyBeanMethods() default true;
+}
+
+说明：用了@SpringBootConfiguration注解标注的类，可以作为配置文件使用，可以使用Bean声明对象，注入容器中
+
+
+2.@EnableAutoConfiguration
+启用自动配置，把java对象配置好，注入到spring容器中。例如可以把mybatis的对象创建好，放入到容器中
+
+3.@ComponentScan
+扫描器，找到注解，根据注解的功能创建对象，给属性赋值等
+默认扫描的包：@ComponentScan所在的类的包和所在类的包的子包
+</code></pre>
 <h3 id="24-springboot">2.4 SpringBoot的配置文件</h3>
 <ul>
 <li>配置文件名称：application</li>
@@ -2122,19 +2123,19 @@
 <p>例1：application.properties  设置端口和上下文路径</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">#设置端口</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">server.port</span><span class="o">=</span><span class="s">8082</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#设置访问应用的上下文路径，context-path</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="na">server.servlet.context-path</span><span class="o">=</span><span class="s">/myBoot</span>
-</code></pre></div>
+<p><code>properties
+  #设置端口
+  server.port=8082
+  #设置访问应用的上下文路径，context-path
+  server.servlet.context-path=/myBoot</code></p>
 <ul>
 <li>例2：application.yml  设置端口和上下文路径</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>server:
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  port: 8083
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  servlet:
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    context-path: /myboot2
-</code></pre></div>
+<p><code>yml
+  server:
+    port: 8083
+    servlet:
+      context-path: /myboot2</code></p>
 <h3 id="25">2.5 多环境配置</h3>
 <ul>
 <li>开发环境、测试环境、上线的环境</li>
@@ -2158,11 +2159,11 @@
 <ul>
 <li>加入一个处理jsp的依赖，负责编译jsp文件</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.tomact.embed<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>tomcat-embed-jasper<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
+<p><code>xml
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomact.embed&lt;/groupId&gt;
+      &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+  &lt;/dependency&gt;</code></p>
 <ul>
 <li>
 <p>如果需要使用servlet、jsp、jstl的功能则需要添加响应的依赖</p>
@@ -2193,49 +2194,49 @@
 <p>通过SpringApplication.run(Application.class, args);返回值获取容器</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ConfigurableApplicationContext</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">primarySource</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Class</span><span class="o">[]</span><span class="p">{</span><span class="n">primarySource</span><span class="p">},</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">ConfigurableApplicationContext</span><span class="err">：</span><span class="n">接口</span><span class="err">，</span><span class="n">是applicationContext的子接口</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ConfigurableApplicationContext</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div>
+<p>```java
+  public static ConfigurableApplicationContext run(Class&lt;?&gt; primarySource, String... args) {
+      return run(new Class[]{primarySource}, args);
+  }</p>
+<p>ConfigurableApplicationContext：接口，是applicationContext的子接口
+  public interface ConfigurableApplicationContext extends ApplicationContext {}
+  ```</p>
 <h3 id="28-commandlinerunnerapplicationrunner">2.8 CommandLineRunner接口，ApplicationRunner接口</h3>
 <p>这两个接口都有一个run()方法，执行时间在容器对象创建好后，自动执行run()方法</p>
 <p>可以完成自定义的在容器对象创建好的一些操作</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@FunctionalInterface</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CommandLineRunner</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">String</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nd">@FunctionalInterface</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ApplicationRunner</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">ApplicationArguments</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Springboot010CommendlinerunnerApplication</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CommandLineRunner</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nd">@Resource</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">HelloService</span><span class="w"> </span><span class="n">helloService</span><span class="p">;</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;容器对象创建之前&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">Springboot010CommendlinerunnerApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
-<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;容器对象创建之后&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>
-<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>
-<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">String</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">        </span><span class="n">helloService</span><span class="p">.</span><span class="na">sayHello</span><span class="p">(</span><span class="s">&quot;zhangsan&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="c1">//可以做自定义操作，比如读取文件、数据库等</span>
-<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;在容器对象创建好、执行的方法&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@FunctionalInterface
+public interface CommandLineRunner {
+    void run(String... args) throws Exception;
+}
+
+@FunctionalInterface
+public interface ApplicationRunner {
+    void run(ApplicationArguments args) throws Exception;
+}
+
+@SpringBootApplication
+public class Springboot010CommendlinerunnerApplication implements CommandLineRunner {
+
+    @Resource
+    private HelloService helloService;
+
+    public static void main(String[] args) {
+        System.out.println(&quot;容器对象创建之前&quot;);
+
+        SpringApplication.run(Springboot010CommendlinerunnerApplication.class, args);
+
+        System.out.println(&quot;容器对象创建之后&quot;);
+
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        helloService.sayHello(&quot;zhangsan&quot;);
+        //可以做自定义操作，比如读取文件、数据库等
+        System.out.println(&quot;在容器对象创建好、执行的方法&quot;);
+    }
+}
+</code></pre>
 <h2 id="web">三、WEB组件</h2>
 <h3 id="31">3.1 拦截器</h3>
 <p>拦截器是springmvc中的一种对象，能拦截对Controller的请求</p>
@@ -2244,47 +2245,48 @@
 <ol>
 <li>创建类实现springmvc框架中的HandlerInterceptor接口</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">HandlerInterceptor</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">preHandle</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">handler</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">postHandle</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">handler</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">ModelAndView</span><span class="w"> </span><span class="n">modelAndView</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterCompletion</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">handler</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="p">}</span>
+<p>```java
+   public interface HandlerInterceptor {
+       default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+           return true;
+       }</p>
+<div class="highlight"><pre><span></span><code>   default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
+   }
+
+   default void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
 <li>需在springmvc的配置文件中，声明拦截器</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;mvc:interceptors&gt;</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="nt">&lt;mvc:interceptor&gt;</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">     </span><span class="nt">&lt;mvc:path</span><span class="err">=&quot;url&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">        </span><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;拦截器类全限定名称&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&lt;/mvc:interceptor&gt;</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nt">&lt;/mvc:interceptors&gt;</span>
-</code></pre></div>
+<p><code>xml
+   &lt;mvc:interceptors&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;mvc:path="url"/&gt;
+           &lt;bean class="拦截器类全限定名称"/&gt;
+       &lt;/mvc:interceptor&gt;
+   &lt;/mvc:interceptors&gt;</code></p>
 <p>SpringBoot中注册拦截器</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAppConfig</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">WebMvcConfigurer</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="c1">//添加拦截器对象，注入到容器中</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addInterceptors</span><span class="p">(</span><span class="n">InterceptorRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="c1">//创建拦截器对象</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="n">HandlerInterceptor</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoginInterceptor</span><span class="p">();</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">        </span><span class="c1">//指定拦截的uri地址</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;/user/**&quot;</span><span class="p">};</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="c1">//指定不拦截的地址</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">excludePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;/user/login&quot;</span><span class="p">};</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">addInterceptor</span><span class="p">(</span><span class="n">handler</span><span class="p">).</span><span class="na">addPathPatterns</span><span class="p">(</span><span class="n">path</span><span class="p">).</span><span class="na">excludePathPatterns</span><span class="p">(</span><span class="n">excludePath</span><span class="p">);</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@Configuration
+public class MyAppConfig implements WebMvcConfigurer {
+
+    //添加拦截器对象，注入到容器中
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        //创建拦截器对象
+        HandlerInterceptor handler = new LoginInterceptor();
+
+        //指定拦截的uri地址
+        String[] path = {&quot;/user/**&quot;};
+        //指定不拦截的地址
+        String[] excludePath = {&quot;/user/login&quot;};
+        registry.addInterceptor(handler).addPathPatterns(path).excludePathPatterns(excludePath);
+    }
+}
+</code></pre>
 <h3 id="32-servlet">3.2 Servlet</h3>
 <p>在SpringBoot框架中使用Servlet对象</p>
 <p>使用步骤：</p>
@@ -2296,73 +2298,76 @@
 <ol>
 <li>创建自定义Servlet</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">//创建servlet类</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">resp</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="n">doPost</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">resp</span><span class="p">);</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">        </span><span class="c1">//使用HttpServletResponse输出数据，应答结果</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html;charset=utf-8&quot;</span><span class="p">);</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;执行的是Servlet&quot;</span><span class="p">);</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">}</span>
+<p>```java
+   //创建servlet类
+   public class MyServlet extends HttpServlet {
+       @Override
+       protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+           doPost(req, resp);
+       }</p>
+<div class="highlight"><pre><span></span><code>   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       //使用HttpServletResponse输出数据，应答结果
+       response.setContentType(&quot;text/html;charset=utf-8&quot;);
+       PrintWriter out = response.getWriter();
+       out.println(&quot;执行的是Servlet&quot;);
+       out.flush();
+       out.close();
+   }
 </code></pre></div>
+<p>}</p>
+<p>```</p>
 <ol>
 <li>注册Servlet</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebApplicationConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="c1">//定义方法，注册Servlet对象</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="nd">@Bean</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServletRegistrationBean</span><span class="w"> </span><span class="nf">servletRegistrationBean</span><span class="p">(){</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="c1">//public ServletRegistrationBean(T servlet, String... urlMappings)</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="c1">//第一个参数是Servlet对象，第二个是url地址</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="c1">//ServletRegistrationBean&lt;Servlet&gt; bean = new ServletRegistrationBean&lt;&gt;(new MyServlet(), &quot;/myservlet&quot;);</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">        </span><span class="n">ServletRegistrationBean</span><span class="o">&lt;</span><span class="n">Servlet</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServletRegistrationBean</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">setServlet</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyServlet</span><span class="p">());</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">addUrlMappings</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">,</span><span class="s">&quot;/test&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">//&lt;url-pattern&gt;</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="p">}</span>
+<p>```java
+   @Configuration
+   public class WebApplicationConfig {</p>
+<div class="highlight"><pre><span></span><code>   //定义方法，注册Servlet对象
+   @Bean
+   public ServletRegistrationBean servletRegistrationBean(){
+       //public ServletRegistrationBean(T servlet, String... urlMappings)
+       //第一个参数是Servlet对象，第二个是url地址
+
+       //ServletRegistrationBean&lt;Servlet&gt; bean = new ServletRegistrationBean&lt;&gt;(new MyServlet(), &quot;/myservlet&quot;);
+       ServletRegistrationBean&lt;Servlet&gt; bean = new ServletRegistrationBean&lt;&gt;();
+       bean.setServlet(new MyServlet());
+       bean.addUrlMappings(&quot;/login&quot;,&quot;/test&quot;);  //&lt;url-pattern&gt;
+       return bean;
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <h3 id="33-filter">3.3 过滤器Filter</h3>
 <p>Filter是Servlet规范中的过滤器，可以处理请求，对请求参数，属性进行调整。常在过滤器中处理字符编码</p>
 <p>在框架中使用过滤器：</p>
 <ol>
 <li>创建自定义过滤器类</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyFilter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Filter</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doFilter</span><span class="p">(</span><span class="n">ServletRequest</span><span class="w"> </span><span class="n">servletRequest</span><span class="p">,</span><span class="w"> </span><span class="n">ServletResponse</span><span class="w"> </span><span class="n">servletResponse</span><span class="p">,</span><span class="w"> </span><span class="n">FilterChain</span><span class="w"> </span><span class="n">filterChain</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;执行了MyFilter的doFilter&quot;</span><span class="p">);</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="n">filterChain</span><span class="p">.</span><span class="na">doFilter</span><span class="p">(</span><span class="n">servletRequest</span><span class="p">,</span><span class="w"> </span><span class="n">servletResponse</span><span class="p">);</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>java
+   public class MyFilter implements Filter {
+       @Override
+       public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+           System.out.println("执行了MyFilter的doFilter");
+           filterChain.doFilter(servletRequest, servletResponse);
+       }
+   }</code></p>
 <ol>
 <li>注册Filter过滤器对象</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebApplicationConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nd">@Bean</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">FilterRegistrationBean</span><span class="w"> </span><span class="nf">filterRegistrationBean</span><span class="p">(){</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">        </span><span class="n">FilterRegistrationBean</span><span class="o">&lt;</span><span class="n">Filter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FilterRegistrationBean</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">setFilter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyFilter</span><span class="p">());</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">addUrlPatterns</span><span class="p">(</span><span class="s">&quot;/user/*&quot;</span><span class="p">);</span>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">}</span>
+<p>```java
+   @Configuration
+   public class WebApplicationConfig {
+       @Bean
+       public FilterRegistrationBean filterRegistrationBean(){</p>
+<div class="highlight"><pre><span></span><code>       FilterRegistrationBean&lt;Filter&gt; bean = new FilterRegistrationBean&lt;&gt;();
+       bean.setFilter(new MyFilter());
+       bean.addUrlPatterns(&quot;/user/*&quot;);
+       return bean;
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <h3 id="34">3.4 字符集过滤器</h3>
 <p>CharacterEncodingFilter：解决post请求中乱码的问题</p>
 <p>在SpringMVC框架，在web.xml中注册过滤器，配置它的属性</p>
@@ -2371,57 +2376,58 @@
 <ol>
 <li>配置字符集过滤器</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="c1">//注册servlet</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nd">@Bean</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ServletRegistrationBean</span><span class="w"> </span><span class="nf">servletRegistrationBean</span><span class="p">(){</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="n">ServletRegistrationBean</span><span class="o">&lt;</span><span class="n">Servlet</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServletRegistrationBean</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">setServlet</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyServlet</span><span class="p">());</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">addUrlMappings</span><span class="p">(</span><span class="s">&quot;/servlet&quot;</span><span class="p">);</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">    </span><span class="c1">//注册Filter</span>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">    </span><span class="nd">@Bean</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">FilterRegistrationBean</span><span class="w"> </span><span class="nf">filterRegistrationBean</span><span class="p">(){</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">        </span><span class="n">FilterRegistrationBean</span><span class="o">&lt;</span><span class="n">Filter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FilterRegistrationBean</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">        </span><span class="c1">//使用框架中的过滤器类</span>
-<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">        </span><span class="n">CharacterEncodingFilter</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CharacterEncodingFilter</span><span class="p">();</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">        </span><span class="c1">//指定使用的编码方式</span>
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">        </span><span class="n">filter</span><span class="p">.</span><span class="na">setEncoding</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
-<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">        </span><span class="c1">//指定request，response都是要encoding的值</span>
-<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">        </span><span class="n">filter</span><span class="p">.</span><span class="na">setForceEncoding</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">        </span><span class="cm">/*</span>
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="cm">        public void setForceEncoding(boolean forceEncoding) {</span>
-<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="cm">            this.forceRequestEncoding = forceEncoding;</span>
-<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="cm">            this.forceResponseEncoding = forceEncoding;</span>
-<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="cm">        }</span>
-<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="cm">         */</span>
-<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">setFilter</span><span class="p">(</span><span class="n">filter</span><span class="p">);</span>
-<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">        </span><span class="c1">//指定过滤的url地址</span>
-<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">        </span><span class="n">bean</span><span class="p">.</span><span class="na">addUrlPatterns</span><span class="p">(</span><span class="s">&quot;/*&quot;</span><span class="p">);</span>
-<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
-<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="p">}</span>
+<p>```java
+   @Configuration
+   public class Config {
+       //注册servlet
+       @Bean
+       public ServletRegistrationBean servletRegistrationBean(){
+           ServletRegistrationBean<Servlet> bean = new ServletRegistrationBean&lt;&gt;();
+           bean.setServlet(new MyServlet());
+           bean.addUrlMappings("/servlet");
+           return bean;
+       }</p>
+<div class="highlight"><pre><span></span><code>   //注册Filter
+   @Bean
+   public FilterRegistrationBean filterRegistrationBean(){
+       FilterRegistrationBean&lt;Filter&gt; bean = new FilterRegistrationBean&lt;&gt;();
+
+       //使用框架中的过滤器类
+       CharacterEncodingFilter filter = new CharacterEncodingFilter();
+       //指定使用的编码方式
+       filter.setEncoding(&quot;utf-8&quot;);
+       //指定request，response都是要encoding的值
+       filter.setForceEncoding(true);
+       /*
+       public void setForceEncoding(boolean forceEncoding) {
+           this.forceRequestEncoding = forceEncoding;
+           this.forceResponseEncoding = forceEncoding;
+       }
+        */
+       bean.setFilter(filter);
+       //指定过滤的url地址
+       bean.addUrlPatterns(&quot;/*&quot;);
+       return bean;
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
 <li>修改application.properties文件，让自定义的过滤器起作用</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">#SpringBoot中默认已经配置了CharacterEncodingFilter。默认编码ISO-8859-1</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">#设置enabled-false  作用是关闭系统中配置好的过滤器，使用自定义的CharacterEncodingFilter</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="na">server.servlet.encoding.enabled</span><span class="o">=</span><span class="s">false</span>
-</code></pre></div>
+<p><code>properties
+   #SpringBoot中默认已经配置了CharacterEncodingFilter。默认编码ISO-8859-1
+   #设置enabled-false  作用是关闭系统中配置好的过滤器，使用自定义的CharacterEncodingFilter
+   server.servlet.encoding.enabled=false</code></p>
 <p>第二种方式</p>
 <p>修改application.properties文件</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">#让系统的CharacterEncodingFilter生效</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1">#server.servlet.encoding.enabled=true</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1">#指定使用编码的方式</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="na">server.servlet.encoding.charset</span><span class="o">=</span><span class="s">utf-8</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1">#强制request、response都是要charset的值</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="na">server.servlet.encoding.force</span><span class="o">=</span><span class="s">true</span>
-</code></pre></div>
+<pre><code class="language-properties">#让系统的CharacterEncodingFilter生效
+#server.servlet.encoding.enabled=true
+#指定使用编码的方式
+server.servlet.encoding.charset=utf-8
+#强制request、response都是要charset的值
+server.servlet.encoding.force=true
+</code></pre>
 <h2 id="ormmysql">四、ORM操作MySQL</h2>
 <p>使用mybatis框架操作数据，在SpringBoot框架中集成mybatis</p>
 <p>使用步骤：</p>
@@ -2454,29 +2460,29 @@
 <p>配置数据库的连接信息</p>
 <h3 id="mapper">第一种方式：@Mapper</h3>
 <p>@Mapper：放在dao接口的上面，每个接口都需要使用这个注解</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/**</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="cm"> * @Mapper：告诉mybatis这是dao接口，创建此接口的代理对象</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="cm"> * 位置：在类的上面</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="cm"> */</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nd">@Mapper</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">StudentDao</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="nf">selectById</span><span class="p">(</span><span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;stuId&quot;</span><span class="p">)</span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>java
+ /**
+  * @Mapper：告诉mybatis这是dao接口，创建此接口的代理对象
+  * 位置：在类的上面
+  */
+ @Mapper
+ public interface StudentDao {
+     Student selectById(@PathParam("stuId")Integer id);
+ }</code></p>
 <h3 id="mapperscan">第二种方式：@MapperScan</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/**</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="cm"> * @MapperScan：找到Dao接口和Mapper 文件</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="cm"> * basePackages：Dao接口所在的包名</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="cm"> */</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="nd">@MapperScan</span><span class="p">(</span><span class="n">basePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.bjpowernode.dao&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Application</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">/**
+ * @MapperScan：找到Dao接口和Mapper 文件
+ * basePackages：Dao接口所在的包名
+ */
+@SpringBootApplication
+@MapperScan(basePackages = &quot;com.bjpowernode.dao&quot;)
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+</code></pre>
 <h3 id="mapperdao">第三种方式：Mapper文件和Dao接口分开管理</h3>
 <p>把Mapper文件放在resources目录下</p>
 <ol>
@@ -2484,12 +2490,12 @@
 <li>把mapper文件放到  mapper目录中</li>
 <li>在application.properties文件中，指定mapper文件的目录</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">#指定mapper文件的位置</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="na">mybatis.mapper-locations</span><span class="o">=</span><span class="s">classpath:mapper/*.xml</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1">#指定mybatis的日志</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="na">mybatis.configuration.log-impl</span><span class="o">=</span><span class="s">org.apache.ibatis.logging.stdout.StdOutImpl</span>
-</code></pre></div>
+<pre><code class="language-properties">#指定mapper文件的位置
+mybatis.mapper-locations=classpath:mapper/*.xml
+
+#指定mybatis的日志
+mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre>
 <h3 id="_1">第四个：事务</h3>
 <p>Spring框架中的事务：</p>
 <ol>
@@ -2515,24 +2521,24 @@
 <li>明确的在主启动类的上面加入@EnableTransactionManagement</li>
 </ol>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="cm">/**</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="cm"> * @Transactional：表示方法有事务支持</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="cm"> * 默认：使用数据库的隔离界别，REQUIRED传播行为；超时时间  -1</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="cm"> * 抛出运行时异常，目的是回滚事务</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="cm"> */</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="nd">@Transactional</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="nd">@Override</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">insertStudent</span><span class="p">(</span><span class="n">Student</span><span class="w"> </span><span class="n">student</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;业务方法insertStudent&quot;</span><span class="p">);</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">studentMapper</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">student</span><span class="p">);</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;执行sql语句&quot;</span><span class="p">);</span>
-<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
-<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">    </span><span class="c1">//抛出运行时异常，目的是回滚事务</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">    </span><span class="c1">//int i = 10 / 0;</span>
-<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
-<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
-<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">/**
+ * @Transactional：表示方法有事务支持
+ * 默认：使用数据库的隔离界别，REQUIRED传播行为；超时时间  -1
+ * 抛出运行时异常，目的是回滚事务
+ */
+@Transactional
+@Override
+public int insertStudent(Student student) {
+    System.out.println(&quot;业务方法insertStudent&quot;);
+    int count = studentMapper.insert(student);
+    System.out.println(&quot;执行sql语句&quot;);
+
+    //抛出运行时异常，目的是回滚事务
+    //int i = 10 / 0;
+
+    return count;
+}
+</code></pre>
 <h2 id="-restful">五、接口架构风格-RESTful</h2>
 <p>接口：API</p>
 <p><strong>应用程序接口</strong>（英语：<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface，简称：<strong>API</strong>），又称为<strong>应用编程接口</strong>，就是软件系统不同组成部分衔接的约定。由于近年来软件的规模日益庞大，常常需要把复杂的系统划分成小的组成部分，编程接口的设计十分重要。程序设计的实践中，编程接口的设计首先要使软件系统的职责得到合理划分。良好的接口设计可以降低系统各部分的相互依赖，提高组成单元的内聚性，降低组成单元间的耦合程度，从而提高系统的维护性和扩展性。</p>
@@ -2586,21 +2592,25 @@
 <p>​    POST：创建资源 -- sql insert</p>
 <p>​        http://locathost:8080/myboot/student/1002</p>
 <p>​        在post请求中传递数据</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;http://locathost:8080/myboot/student/1002&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    姓名：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">/&gt;</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    年龄：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;age&quot;</span><span class="p">/&gt;</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<form action="http://locathost:8080/myboot/student/1002" method="post">
+       姓名：<input type="text" name="name"/>
+       年龄：<input type="text" name="age"/>
+   </form></p>
+<p>```</p>
 <p>​    PUT：更新资源 -- sql update</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;http://locathost:8080/myboot/student/1002&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    姓名：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">/&gt;</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    年龄：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;age&quot;</span><span class="p">/&gt;</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_method&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;PUT&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<form action="http://locathost:8080/myboot/student/1002" method="post">
+       姓名：<input type="text" name="name"/>
+       年龄：<input type="text" name="age"/>
+         <input type="hidden" name="_method" value="PUT">
+   </form></p>
+<p>```</p>
 <p>​    DELETE：删除资源 -- sql  delete</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://locathost:8080/myboot/student/1&quot;</span><span class="p">&gt;</span>删除1的数据<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
+<p><code>html
+   &lt;a href="http://locathost:8080/myboot/student/1"&gt;删除1的数据&lt;/a&gt;</code></p>
 <p>需要的分页，排序等参数，依然放在url后面</p>
 <p>http://locathost:8080/myboot/student?page=1&amp;pageSize=20</p>
 <ol>
@@ -2637,14 +2647,14 @@
 <p>java中著名的客户端：Jedis、lettuce、Redisson</p>
 <p>Spring、SpringBoot中有个RedisTemplate(StringRedisTemplate)，处理和Redis交互</p>
 <p>RedisTemplate使用lettuce客户端库</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
-<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>data-redis使用的<span class="w">  </span>lettuce<span class="w"> </span>客户端
-<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>在程序中使用RedisTemplate类的方法<span class="w"> </span>操作redis数据，实际就是调用lettuce客户端中的方法
-</code></pre></div>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+data-redis使用的  lettuce 客户端
+在程序中使用RedisTemplate类的方法 操作redis数据，实际就是调用lettuce客户端中的方法
+</code></pre>
 <h3 id="61-redistemplate-stringredistemplate">6.1 RedisTemplate 和 StringRedisTemplate</h3>
 <ul>
 <li>
@@ -2667,188 +2677,189 @@
 </ul>
 <p>JDK（不支持跨语言）、JSON、XML、Hessian、Kryo（不支持跨语言）、Thrift等</p>
 <p>设置key，value的序列化方式（在存取值之前设置）</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1">//使用RedisTemplate</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1">//设置key使用String的序列化</span>
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="c1">//设置value使用String的序列化</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">setKeySerializer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringRedisSerializer</span><span class="p">());</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">setValueSerializer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringRedisSerializer</span><span class="p">());</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
-<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>
-<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="c1">//设置value使用json序列化</span>
-<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">setValueSerializer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Jackson2JsonRedisSerializer</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Student</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
-</code></pre></div>
+<pre><code class="language-java">//使用RedisTemplate
+//设置key使用String的序列化
+//设置value使用String的序列化
+redisTemplate.setKeySerializer(new StringRedisSerializer());
+redisTemplate.setValueSerializer(new StringRedisSerializer());
+redisTemplate.opsForValue().set(k, v);
+
+//设置value使用json序列化
+redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer&lt;&gt;(Student.class));
+</code></pre>
 <h2 id="springbootdubbo">七、SpringBoot集成Dubbo</h2>
 <h3 id="71">7.1 公共项目</h3>
 <p>独立的maven项目：定义了接口和数据类</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Student</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">serialVersionUID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1901229007746699151L</span><span class="p">;</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="p">}</span>
-<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>
-<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">StudentService</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="nf">queryStudentById</span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">public class Student implements Serializable {
+    private static final long serialVersionUID = 1901229007746699151L;
+
+    private Integer id;
+    private String name;
+    private Integer age;
+}
+
+public interface StudentService {
+    Student queryStudentById(Integer id);
+}
+</code></pre>
 <h3 id="72">7.2 提供者</h3>
 <p>创建SpringBoot项目：</p>
 <ol>
 <li>提供pom依赖</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nt">&lt;dependencies&gt;</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="cm">&lt;!--加入公共项目的GAV--&gt;</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>com.bjpowernode<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>springboot021-interface-api<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>
-<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">    </span><span class="cm">&lt;!--dubbo依赖--&gt;</span>
-<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.apache.dubbo<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>dubbo-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>3.0.7<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>
-<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a><span class="w">    </span><span class="cm">&lt;!--zookeeper依赖--&gt;</span>
-<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.apache.dubbo<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>dubbo-dependencies-zookeeper<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>3.0.7<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a><span class="w">        </span><span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-<a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a><span class="w">        </span><span class="cm">&lt;!--排除log4j依赖--&gt;</span>
-<a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a><span class="w">        </span><span class="nt">&lt;exclusions&gt;</span>
-<a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a><span class="w">            </span><span class="nt">&lt;exclusion&gt;</span>
-<a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a><span class="w">                </span><span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a><span class="w">                </span><span class="nt">&lt;artifactId&gt;</span>slf4j-log4j12<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a><span class="w">            </span><span class="nt">&lt;/exclusion&gt;</span>
-<a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a><span class="w">        </span><span class="nt">&lt;/exclusions&gt;</span>
-<a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a><span class="nt">&lt;/dependencies&gt;</span>
+<p>```xml
+   <dependencies>
+       <!--加入公共项目的GAV-->
+       <dependency>
+           <groupId>com.bjpowernode</groupId>
+           <artifactId>springboot021-interface-api</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency></p>
+<div class="highlight"><pre><span></span><code>   &lt;!--dubbo依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+   &lt;/dependency&gt;
+
+   &lt;!--zookeeper依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+       &lt;type&gt;pom&lt;/type&gt;
+       &lt;!--排除log4j依赖--&gt;
+       &lt;exclusions&gt;
+           &lt;exclusion&gt;
+               &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+               &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+           &lt;/exclusion&gt;
+       &lt;/exclusions&gt;
+   &lt;/dependency&gt;
 </code></pre></div>
+<p></dependencies>
+   ```</p>
 <ol>
 <li>实现接口</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="cm">/**</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="cm"> * 使用dubbo注解暴露服务，@Component可以不用加</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="cm"> * @Component是为了将类创建的对象注入到容器中，@DubboService已经可以将对象注入到容器中，所以不用加</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="cm"> */</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="nd">@DubboService</span><span class="p">(</span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="p">)</span>
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StudentServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">StudentService</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">queryStudentById</span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">        </span><span class="n">Student</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">();</span>
-<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">1001</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">id</span><span class="p">){</span>
-<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">            </span><span class="n">student</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">1001</span><span class="p">);</span>
-<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="w">            </span><span class="n">student</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;==张三&quot;</span><span class="p">);</span>
-<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="w">            </span><span class="n">student</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">1002</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="w">            </span><span class="n">student</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">1002</span><span class="p">);</span>
-<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="w">            </span><span class="n">student</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;==李四&quot;</span><span class="p">);</span>
-<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a><span class="w">            </span><span class="n">student</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
-<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">student</span><span class="p">;</span>
-<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>java
+   /**
+    * 使用dubbo注解暴露服务，@Component可以不用加
+    * @Component是为了将类创建的对象注入到容器中，@DubboService已经可以将对象注入到容器中，所以不用加
+    */
+   @DubboService(version = "1.0.0", timeout = 5000)
+   public class StudentServiceImpl implements StudentService {
+       @Override
+       public Student queryStudentById(Integer id) {
+           Student student = new Student();
+           if (1001 == id){
+               student.setId(1001);
+               student.setName("==张三");
+               student.setAge(20);
+           } else if (1002 == id) {
+               student.setId(1002);
+               student.setName("==李四");
+               student.setAge(22);
+           }
+           return student;
+       }
+   }</code></p>
 <ol>
 <li>修改application.properties</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1">#配置服务名称  dubbo:application name=&quot;名称&quot;</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="na">spring.application.name</span><span class="o">=</span><span class="s">studentservice-provider</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1">#配置扫描的包，扫描的@DubboService</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="na">dubbo.scan.base-packages</span><span class="o">=</span><span class="s">com.bjpowernode.service</span>
-<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
-<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="c1">#配置dubbo协议</span>
-<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="c1">#dubbo.protocol.name=dubbo</span>
-<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="c1">#dubbo.protocol.port=2081</span>
-<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>
-<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="c1">#注册中心</span>
-<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="na">dubbo.registry.address</span><span class="o">=</span><span class="s">zookeeper://192.168.233.130:2181</span>
-<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="na">dubbo.config-center.timeout</span><span class="o">=</span><span class="s">15000</span>
-</code></pre></div>
+<p>```properties
+   #配置服务名称  dubbo:application name="名称"
+   spring.application.name=studentservice-provider</p>
+<p>#配置扫描的包，扫描的@DubboService
+   dubbo.scan.base-packages=com.bjpowernode.service</p>
+<p>#配置dubbo协议
+   #dubbo.protocol.name=dubbo
+   #dubbo.protocol.port=2081</p>
+<p>#注册中心
+   dubbo.registry.address=zookeeper://192.168.233.130:2181
+   dubbo.config-center.timeout=15000
+   ```</p>
 <ol>
 <li>在启动类上加@EnableDubbo</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nd">@EnableDubbo</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServiceProviderApplication</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">ServiceProviderApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
-<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="p">}</span>
-</code></pre></div>
+<p>```java
+   @SpringBootApplication
+   @EnableDubbo
+   public class ServiceProviderApplication {
+       public static void main(String[] args) {
+           SpringApplication.run(ServiceProviderApplication.class, args);
+       }</p>
+<p>}
+   ```</p>
 <h3 id="73">7.3 消费者</h3>
 <p>创建SpringBoot项目：</p>
 <ol>
 <li>pom.xml</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">&lt;dependencies&gt;</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">    </span><span class="cm">&lt;!--加入公共项目的GAV--&gt;</span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>com.bjpowernode<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>springboot021-interface-api<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
-<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="w">    </span><span class="cm">&lt;!--dubbo依赖--&gt;</span>
-<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.apache.dubbo<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>dubbo-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>3.0.7<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>
-<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="w">    </span><span class="cm">&lt;!--zookeeper依赖--&gt;</span>
-<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.apache.dubbo<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>dubbo-dependencies-zookeeper<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>3.0.7<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a><span class="w">        </span><span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">        </span><span class="cm">&lt;!--排除log4j依赖--&gt;</span>
-<a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a><span class="w">        </span><span class="nt">&lt;exclusions&gt;</span>
-<a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a><span class="w">            </span><span class="nt">&lt;exclusion&gt;</span>
-<a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a><span class="w">                </span><span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a><span class="w">                </span><span class="nt">&lt;artifactId&gt;</span>slf4j-log4j12<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-34-27" name="__codelineno-34-27" href="#__codelineno-34-27"></a><span class="w">            </span><span class="nt">&lt;/exclusion&gt;</span>
-<a id="__codelineno-34-28" name="__codelineno-34-28" href="#__codelineno-34-28"></a><span class="w">        </span><span class="nt">&lt;/exclusions&gt;</span>
-<a id="__codelineno-34-29" name="__codelineno-34-29" href="#__codelineno-34-29"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-34-30" name="__codelineno-34-30" href="#__codelineno-34-30"></a><span class="nt">&lt;/dependencies&gt;</span>
+<p>```xml
+   <dependencies>
+       <!--加入公共项目的GAV-->
+       <dependency>
+           <groupId>com.bjpowernode</groupId>
+           <artifactId>springboot021-interface-api</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency></p>
+<div class="highlight"><pre><span></span><code>   &lt;!--dubbo依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+   &lt;/dependency&gt;
+
+   &lt;!--zookeeper依赖--&gt;
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;
+       &lt;artifactId&gt;dubbo-dependencies-zookeeper&lt;/artifactId&gt;
+       &lt;version&gt;3.0.7&lt;/version&gt;
+       &lt;type&gt;pom&lt;/type&gt;
+       &lt;!--排除log4j依赖--&gt;
+       &lt;exclusions&gt;
+           &lt;exclusion&gt;
+               &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+               &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+           &lt;/exclusion&gt;
+       &lt;/exclusions&gt;
+   &lt;/dependency&gt;
 </code></pre></div>
+<p></dependencies>
+   ```</p>
 <ol>
 <li>创建Controller或者Service都可以</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nd">@RestController</span><span class="w">   </span><span class="c1">//此类中所有的方法都加上了@ResponseBody</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyController</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="cm">/**</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="cm">     * 引用远程服务，把创建好的代理队形，注入给studentService</span>
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="cm">     */</span>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="c1">//@DubboReference(interfaceClass = StudentService.class, version = &quot;1.0.0&quot;)</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="cm">/**</span>
-<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="cm">     * 没有使用interfaceClass，默认使用的就是 引用类型的 数据类型</span>
-<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="cm">     */</span>
-<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">    </span><span class="nd">@DubboReference</span><span class="p">(</span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">)</span>
-<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">StudentService</span><span class="w"> </span><span class="n">studentService</span><span class="p">;</span>
-<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>
-<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/query&quot;</span><span class="p">)</span>
-<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">queryStudentById</span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">        </span><span class="n">Student</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">studentService</span><span class="p">.</span><span class="na">queryStudentById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
-<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;调用远程接口获取对象：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">student</span><span class="p">;</span>
-<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="p">}</span>
+<p>```java
+   @RestController   //此类中所有的方法都加上了@ResponseBody
+   public class MyController {</p>
+<div class="highlight"><pre><span></span><code>   /**
+    * 引用远程服务，把创建好的代理队形，注入给studentService
+    */
+   //@DubboReference(interfaceClass = StudentService.class, version = &quot;1.0.0&quot;)
+   /**
+    * 没有使用interfaceClass，默认使用的就是 引用类型的 数据类型
+    */
+   @DubboReference(version = &quot;1.0.0&quot;)
+   private StudentService studentService;
+
+   @GetMapping(&quot;/query&quot;)
+   public String queryStudentById(Integer id) {
+       Student student = studentService.queryStudentById(id);
+       return &quot;调用远程接口获取对象：&quot; + student;
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
 <li>修改application.properties</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1">#指定服务名称</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="na">spring.application.name</span><span class="o">=</span><span class="s">consumer-application</span>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="c1">#指定注册中心</span>
-<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="na">dubbo.registry.address</span><span class="o">=</span><span class="s">zookeeper://192.168.233.130:2181</span>
-</code></pre></div>
+<p><code>properties
+   #指定服务名称
+   spring.application.name=consumer-application
+   #指定注册中心
+   dubbo.registry.address=zookeeper://192.168.233.130:2181</code></p>
 <h2 id="_2">八、打包</h2>
 <h3 id="81-war">8.1 打包为war</h3>
 <ol>
@@ -2860,65 +2871,66 @@
 </li>
 <li>
 <p>指定打包后的文件名称</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nt">&lt;build&gt;</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="nt">&lt;finalName&gt;</span>myboot<span class="nt">&lt;/finalName&gt;</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="nt">&lt;/build&gt;</span>
-</code></pre></div>
+<p><code>xml
+  &lt;build&gt;
+      &lt;finalName&gt;myboot&lt;/finalName&gt;
+  &lt;/build&gt;</code></p>
 </li>
 <li>
 <p>指定jsp编译目录</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nt">&lt;resources&gt;</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="nt">&lt;resource&gt;</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">        </span><span class="nt">&lt;directory&gt;</span>src/main/java<span class="nt">&lt;/directory&gt;</span>
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">        </span><span class="nt">&lt;includes&gt;</span>
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">            </span><span class="nt">&lt;include&gt;</span>**/*.properties<span class="nt">&lt;/include&gt;</span>
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="w">            </span><span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
-<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="w">        </span><span class="nt">&lt;/includes&gt;</span>
-<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="w">        </span><span class="nt">&lt;filtering&gt;</span>false<span class="nt">&lt;/filtering&gt;</span>
-<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="w">    </span><span class="nt">&lt;/resource&gt;</span>
-<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="w">    </span><span class="nt">&lt;resource&gt;</span>
-<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="w">        </span><span class="nt">&lt;directory&gt;</span>src/main/resources<span class="nt">&lt;/directory&gt;</span>
-<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a><span class="w">        </span><span class="nt">&lt;includes&gt;</span>
-<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a><span class="w">            </span><span class="nt">&lt;include&gt;</span>**/*.properties<span class="nt">&lt;/include&gt;</span>
-<a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a><span class="w">            </span><span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
-<a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a><span class="w">        </span><span class="nt">&lt;/includes&gt;</span>
-<a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a><span class="w">        </span><span class="nt">&lt;filtering&gt;</span>false<span class="nt">&lt;/filtering&gt;</span>
-<a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a><span class="w">    </span><span class="nt">&lt;/resource&gt;</span>
-<a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a><span class="w">    </span><span class="nt">&lt;resource&gt;</span>
-<a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a><span class="w">        </span><span class="nt">&lt;directory&gt;</span>src/main/webapp<span class="nt">&lt;/directory&gt;</span>
-<a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a><span class="w">        </span><span class="nt">&lt;targetPath&gt;</span>META-INF/resources<span class="nt">&lt;/targetPath&gt;</span>
-<a id="__codelineno-38-21" name="__codelineno-38-21" href="#__codelineno-38-21"></a><span class="w">        </span><span class="nt">&lt;includes&gt;</span>
-<a id="__codelineno-38-22" name="__codelineno-38-22" href="#__codelineno-38-22"></a><span class="w">            </span><span class="nt">&lt;include&gt;</span>**/*.*<span class="nt">&lt;/include&gt;</span>
-<a id="__codelineno-38-23" name="__codelineno-38-23" href="#__codelineno-38-23"></a><span class="w">        </span><span class="nt">&lt;/includes&gt;</span>
-<a id="__codelineno-38-24" name="__codelineno-38-24" href="#__codelineno-38-24"></a><span class="w">    </span><span class="nt">&lt;/resource&gt;</span>
-<a id="__codelineno-38-25" name="__codelineno-38-25" href="#__codelineno-38-25"></a><span class="nt">&lt;/resources&gt;</span>
-</code></pre></div>
+<p><code>xml
+  &lt;resources&gt;
+      &lt;resource&gt;
+          &lt;directory&gt;src/main/java&lt;/directory&gt;
+          &lt;includes&gt;
+              &lt;include&gt;**/*.properties&lt;/include&gt;
+              &lt;include&gt;**/*.xml&lt;/include&gt;
+          &lt;/includes&gt;
+          &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+      &lt;resource&gt;
+          &lt;directory&gt;src/main/resources&lt;/directory&gt;
+          &lt;includes&gt;
+              &lt;include&gt;**/*.properties&lt;/include&gt;
+              &lt;include&gt;**/*.xml&lt;/include&gt;
+          &lt;/includes&gt;
+          &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+      &lt;resource&gt;
+          &lt;directory&gt;src/main/webapp&lt;/directory&gt;
+          &lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;
+          &lt;includes&gt;
+              &lt;include&gt;**/*.*&lt;/include&gt;
+          &lt;/includes&gt;
+      &lt;/resource&gt;
+  &lt;/resources&gt;</code></p>
 </li>
 <li>
 <p>执行打包是war</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
-</code></pre></div>
+<p><code>xml
+   &lt;packaging&gt;war&lt;/packaging&gt;</code></p>
 <ol>
 <li>主启动类继承SpringBootServletInitializer</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="cm">/**</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="cm"> * SpringBootServletInitializer：继承这个类才能够使用独立的Tomcat服务器</span>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="cm"> */</span>
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WarApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SpringBootServletInitializer</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
-<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">WarApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>
-<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">SpringApplicationBuilder</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">SpringApplicationBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="na">sources</span><span class="p">(</span><span class="n">WarApplication</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="p">}</span>
+<p>```java
+   /*<em>
+    * SpringBootServletInitializer：继承这个类才能够使用独立的Tomcat服务器
+    </em>/
+   @SpringBootApplication
+   public class WarApplication extends SpringBootServletInitializer {</p>
+<div class="highlight"><pre><span></span><code>   public static void main(String[] args) {
+       SpringApplication.run(WarApplication.class, args);
+   }
+
+   @Override
+   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+       return builder.sources(WarApplication.class);
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
 <li>部署war</li>
 </ol>
@@ -2933,22 +2945,22 @@
 </li>
 <li>
 <p>指定打包后的文件名称</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nt">&lt;build&gt;</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">    </span><span class="nt">&lt;finalName&gt;</span>myboot<span class="nt">&lt;/finalName&gt;</span>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="nt">&lt;/build&gt;</span>
-</code></pre></div>
+<p><code>xml
+  &lt;build&gt;
+      &lt;finalName&gt;myboot&lt;/finalName&gt;
+  &lt;/build&gt;</code></p>
 </li>
 <li>
 <p>指定spring-boot-maven-plugin版本</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nt">&lt;plugins&gt;</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="nt">&lt;plugin&gt;</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">        </span><span class="cm">&lt;!--打包为jar，有jsp文件时，必须指定maven-plugin插件的版本--&gt;</span>
-<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>1.4.2.RELEASE<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">    </span><span class="nt">&lt;/plugin&gt;</span>
-<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="nt">&lt;/plugins&gt;</span>
-</code></pre></div>
+<p><code>xml
+  &lt;plugins&gt;
+      &lt;plugin&gt;
+          &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+          &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+          &lt;!--打包为jar，有jsp文件时，必须指定maven-plugin插件的版本--&gt;
+          &lt;version&gt;1.4.2.RELEASE&lt;/version&gt;
+      &lt;/plugin&gt;
+  &lt;/plugins&gt;</code></p>
 </li>
 <li>
 <p>最后执行maven clean package</p>
@@ -2967,219 +2979,231 @@
 <p>语法：${key}</p>
 <p>作用：获取key对应的文本数据，key是request作用域中的key，使用request.setAttrebute()或model.addAttrebute()</p>
 <p>在页面中的html标签中，使用th:text=“${key}”</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-left: 400px&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>标准变量表达式：${key}<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${site}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>    <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>获取User对象属性值<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${myuser.id}&quot;</span><span class="p">&gt;</span>id<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${myuser.getName()}&quot;</span><span class="p">&gt;</span>name<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<div style="margin-left: 400px">
+       <h3>标准变量表达式：${key}</h3>
+       <p th:text="${site}"></p>
+       <br/>
+       <p>获取User对象属性值</p>
+       <p th:text="${myuser.id}">id</p>
+       <p th:text="${myuser.getName()}">name</p>
+   </div></p>
+<p>```</p>
 <ol>
 <li>选择变量表达式（星号变量表达式）</li>
 </ol>
 <p>语法：*{key}</p>
 <p>作用：获取这个key对应的数据，*{key}要和th:object这个属性一起使用</p>
 <p>目的是简单获取对象的属性值</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>选择变量表达式：*{key}<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>使用*{key} 获取User的属性值<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:object</span><span class="o">=</span><span class="s">&quot;${myuser}&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;*{id}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;*{name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<h3>选择变量表达式：*{key}</h3></p>
+<p>使用*{key} 获取User的属性值</p>
+<div th:object="${myuser}">
+       <p th:text="*{id}"></p>
+       <p th:text="*{name}"></p>
+   </div>
+<p>```</p>
 <ol>
 <li>连接表达式（URL表达式）</li>
 </ol>
 <p>语法：@{url}</p>
 <p>作用：表示连接</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a> <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">&gt;,</span><span class="o">&lt;</span><span class="nx">link</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="nx">a</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">action</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="o">&gt;</span>
-</code></pre></div>
+<p><code>html
+    &lt;script src="..."&gt;,&lt;link href="..."&gt;,&lt;a href="..."&gt;,&lt;form action="..."&gt;,&lt;img src="..."&gt;</code></p>
 <h3 id="92-thymeleaf">9.2 Thymeleaf属性</h3>
 <p>属性是放在html元素中的，就是html元素的属性，加入了th前缀。属性的作用不变，加上th。属性的值由模板引擎处理了，在属性就可以使用变量表达式</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/loginServlet&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>
-<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">th:action</span><span class="o">=</span><span class="s">&quot;/loginServlet&quot;</span> <span class="na">th:method</span><span class="o">=</span><span class="s">&quot;${methodAttr}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;form action=&quot;/loginServlet&quot; method=&quot;post&quot;&gt;&lt;/form&gt;
+
+&lt;form th:action=&quot;/loginServlet&quot; th:method=&quot;${methodAttr}&quot;&gt;&lt;/form&gt;
+</code></pre>
 <h3 id="93-each">9.3 each</h3>
 <p>each循环吗，可以循环List，Array，Map</p>
 <p>语法：</p>
-<p>在一个html标签中，使用th:each
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;集合循环成员，循环的状态变量:${key}&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${集合循环成员}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
-<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>集合循环成员，循环的状态变量：两个名称都是自定义的。“循环的状态变量”这个名称可以不定义，默认是“集合循环成员Stat”
-</code></pre></div></p>
+<p>在一个html标签中，使用th:each</p>
+<pre><code class="language-html">&lt;div th:each=&quot;集合循环成员，循环的状态变量:${key}&quot;&gt;
+    &lt;p th:text=&quot;${集合循环成员}&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+集合循环成员，循环的状态变量：两个名称都是自定义的。“循环的状态变量”这个名称可以不定义，默认是“集合循环成员Stat”
+</code></pre>
 <p>each循环变量Map</p>
 <p>在一个html标签中，使用th:each</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;集合循环成员，循环的状态变量:${key}&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${集合循环成员.key}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${集合循环成员.value}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>
-<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>key:map集合中的key
-<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>value:map集合中key对应的value值
-</code></pre></div>
+<pre><code class="language-html">&lt;div th:each=&quot;集合循环成员，循环的状态变量:${key}&quot;&gt;
+    &lt;p th:text=&quot;${集合循环成员.key}&quot;&gt;&lt;/p&gt;
+    &lt;p th:text=&quot;${集合循环成员.value}&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+key:map集合中的key
+value:map集合中key对应的value值
+</code></pre>
 <h3 id="94-thif">9.4 th:if</h3>
 <p>“th:if”：判断语句，当条件为true，显示html标签体内容，反之不显示，没有else语句</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>语法：
-<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;10 &gt; 0&quot;</span><span class="p">&gt;</span>显示文本内容<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">语法：
+&lt;div th:if=&quot;10 &gt; 0&quot;&gt;显示文本内容&lt;/div&gt;
+</code></pre>
 <p>还有一个th:unless 和 th;if 相反的行为</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>语法：
-<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:unless</span><span class="o">=</span><span class="s">&quot;10 &lt; 0&quot;</span><span class="p">&gt;</span>当条件为false显示文本内容<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">语法：
+&lt;div th:unless=&quot;10 &lt; 0&quot;&gt;当条件为false显示文本内容&lt;/div&gt;
+</code></pre>
 <h3 id="95-thswitch">9.5 th:switch</h3>
 <p>th:switch和java中的switch</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>语法：
-<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:switch</span><span class="o">=</span><span class="s">&quot;要比对的值&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:case</span><span class="o">=</span><span class="s">&quot;值1&quot;</span><span class="p">&gt;</span>结果1<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:case</span><span class="o">=</span><span class="s">&quot;值2&quot;</span><span class="p">&gt;</span>结果2<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:case</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="p">&gt;</span>默认结果<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>    以上的case已有一个值符合
-<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">语法：
+&lt;div th:switch=&quot;要比对的值&quot;&gt;
+    &lt;p th:case=&quot;值1&quot;&gt;结果1&lt;/p&gt;
+    &lt;p th:case=&quot;值2&quot;&gt;结果2&lt;/p&gt;
+    &lt;p th:case=&quot;*&quot;&gt;默认结果&lt;/p&gt;
+    以上的case已有一个值符合
+&lt;/div&gt;
+</code></pre>
 <h3 id="96-thinline">9.6 th:inline</h3>
 <ol>
 <li>内联text：在html标签外，获取表达式的值</li>
 </ol>
 <p>语法：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>显示姓名是：[[${key}]]<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>
-<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-left: 400px&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>内联 text，使用内联表达式显示变量值<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&quot;text&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>我是[[${name}]],id是[[${id}]]<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a>
-<a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>我是[[${name}]],id是[[${id}]]<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a>
-<a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a>th:inline=&quot;text&quot;：可写可不写
-</code></pre></div>
+<p>```html
+ <br />
+<p>显示姓名是：[[${key}]]</p>
+</p>
+<div style="margin-left: 400px">
+       <h3>内联 text，使用内联表达式显示变量值</h3>
+       <div th:inline="text">
+           <p>我是[[${name}]],id是[[${id}]]</p>
+       </div>
+
+       <div>
+           <p>我是[[${name}]],id是[[${id}]]</p>
+       </div>
+   </div>
+
+<p>th:inline="text"：可写可不写
+   ```</p>
 <ol>
 <li>内联javascript</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&quot;javascript&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="nx">$</span><span class="p">{</span><span class="nx">name</span><span class="p">}]];</span>
-<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="nx">$</span><span class="p">{</span><span class="nx">id</span><span class="p">}]];</span>
-<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>
-<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="w">    </span><span class="c1">// alert(&quot;获取模板中数据name=&quot; + name + &quot;,id=&quot; + id);</span>
-<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>
-<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">on</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="w">        </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;获取模板中数据name=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;,id=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">id</span><span class="p">);</span>
-<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<script type="text/javascript" th:inline="javascript">
+       var name = [[${name}]];
+       var id = [[${id}]];
+
+       // alert("获取模板中数据name=" + name + ",id=" + id);
+
+       function on() {
+           alert("获取模板中数据name=" + name + ",id=" + id);
+       }
+   </script></p>
+<p>```</p>
 <h3 id="97">9.7 字面量</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-left: 400px&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>文本字面量：使用单引号括起来的字符串<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;&#39;我是&#39;+${name}+&#39;id是&#39;+${id}&quot;</span><span class="p">&gt;</span>数据显示<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;div style=&quot;margin-left: 400px&quot;&gt;
+    &lt;h3&gt;文本字面量：使用单引号括起来的字符串&lt;/h3&gt;
+    &lt;p th:text=&quot;'我是'+${name}+'id是'+${id}&quot;&gt;数据显示&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
 <h3 id="98">9.8 字符串连接</h3>
 <p>连接字符串有两种语法：</p>
 <ol>
 <li>语法使用单引号括起来字符串，使用+号连接其他的字符串或者表达式</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;&#39;我是&#39;+${name}+&#39;id是&#39;+${id}&quot;</span><span class="p">&gt;</span>数据显示<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<p th:text="'我是'+${name}+'id是'+${id}">数据显示</p></p>
+<p>```</p>
 <ol>
 <li>语法：使用双竖线，|字符串和表达式|</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;|我是${name}id是+${id}|&quot;</span><span class="p">&gt;</span>数据显示<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>```html
+ <br />
+<p th:text="|我是${name}id是+${id}|">数据显示</p></p>
+<p>```</p>
 <h3 id="99">9.9 运算符</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>使用运算符<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${id == 1001}&quot;</span><span class="p">&gt;</span>id=1001<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${name == &#39;zhangsan&#39;}&quot;</span><span class="p">&gt;</span>name==zhangsan<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${user == null}&quot;</span><span class="p">&gt;</span>user是null<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${user eq null}&quot;</span><span class="p">&gt;</span>user是null<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${user ne null}&quot;</span><span class="p">&gt;</span>user不是null<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>
-<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${isLogin == true ? &#39;已经登录&#39; : &#39;未登录&#39;}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>
-<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${isLogin == true ? (id == 1001 ? &#39;用户是1001&#39; : &#39;不是1001&#39;) : &#39;未登录&#39;}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;h3&gt;使用运算符&lt;/h3&gt;
+&lt;p th:if=&quot;${id == 1001}&quot;&gt;id=1001&lt;/p&gt;
+&lt;p th:if=&quot;${name == 'zhangsan'}&quot;&gt;name==zhangsan&lt;/p&gt;
+&lt;p th:if=&quot;${user == null}&quot;&gt;user是null&lt;/p&gt;
+&lt;p th:if=&quot;${user eq null}&quot;&gt;user是null&lt;/p&gt;
+&lt;p th:if=&quot;${user ne null}&quot;&gt;user不是null&lt;/p&gt;
+
+&lt;p th:text=&quot;${isLogin == true ? '已经登录' : '未登录'}&quot;&gt;&lt;/p&gt;
+
+&lt;p th:text=&quot;${isLogin == true ? (id == 1001 ? '用户是1001' : '不是1001') : '未登录'}&quot;&gt;&lt;/p&gt;
+</code></pre>
 <h3 id="910">9.10 内置对象</h3>
 <h1 id="requesthttpservletrequest">request表示HttpServletRequest</h1>
 <h1 id="sessionhttpsession">session表示HttpSession</h1>
 <p>session表示Map对象，是#session的简单表示方式，用来获取session中指定key的值</p>
 <p>​           #session.getAttribute(“loginName”) == session.loginName</p>
 <p>这些是内置对象，可以在模板文件中直接使用</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>内置对象#request, #session, session的使用<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>获取作用域中的数据<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getAttribute(&#39;requestData&#39;)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#session.getAttribute(&#39;sessionData&#39;)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${session.loginName}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>
-<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>使用内置对象方法<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a>getRequestURL=<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getRequestURL()}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-12" name="__codelineno-58-12" href="#__codelineno-58-12"></a>getRequestURI=<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getRequestURI()}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-13" name="__codelineno-58-13" href="#__codelineno-58-13"></a>getQueryString=<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getQueryString()}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-14" name="__codelineno-58-14" href="#__codelineno-58-14"></a>getContextPath=<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getContextPath()}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-15" name="__codelineno-58-15" href="#__codelineno-58-15"></a>getServerName=<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getServerName()}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-16" name="__codelineno-58-16" href="#__codelineno-58-16"></a>getServerPort=<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#request.getServerPort()}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-58-17" name="__codelineno-58-17" href="#__codelineno-58-17"></a>
-<a id="__codelineno-58-18" name="__codelineno-58-18" href="#__codelineno-58-18"></a>getRequestURL=http://localhost:8080/myboot/tpl/baseObject
-<a id="__codelineno-58-19" name="__codelineno-58-19" href="#__codelineno-58-19"></a>getRequestURI=/myboot/tpl/baseObject
-<a id="__codelineno-58-20" name="__codelineno-58-20" href="#__codelineno-58-20"></a>getQueryString=name=lisi    获取地址栏的参数
-<a id="__codelineno-58-21" name="__codelineno-58-21" href="#__codelineno-58-21"></a>getContextPath=/myboot
-<a id="__codelineno-58-22" name="__codelineno-58-22" href="#__codelineno-58-22"></a>getServerName=localhost
-<a id="__codelineno-58-23" name="__codelineno-58-23" href="#__codelineno-58-23"></a>getServerPort=8080
-</code></pre></div>
+<pre><code class="language-html">&lt;h3&gt;内置对象#request, #session, session的使用&lt;/h3&gt;
+&lt;p&gt;获取作用域中的数据&lt;/p&gt;
+&lt;p th:text=&quot;${#request.getAttribute('requestData')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#session.getAttribute('sessionData')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${session.loginName}&quot;&gt;&lt;/p&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3&gt;使用内置对象方法&lt;/h3&gt;
+getRequestURL=&lt;span th:text=&quot;${#request.getRequestURL()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getRequestURI=&lt;span th:text=&quot;${#request.getRequestURI()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getQueryString=&lt;span th:text=&quot;${#request.getQueryString()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getContextPath=&lt;span th:text=&quot;${#request.getContextPath()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getServerName=&lt;span th:text=&quot;${#request.getServerName()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+getServerPort=&lt;span th:text=&quot;${#request.getServerPort()}&quot;&gt;&lt;/span&gt;&lt;br&gt;
+
+getRequestURL=http://localhost:8080/myboot/tpl/baseObject
+getRequestURI=/myboot/tpl/baseObject
+getQueryString=name=lisi    获取地址栏的参数
+getContextPath=/myboot
+getServerName=localhost
+getServerPort=8080
+</code></pre>
 <h3 id="911">9.11 内置工具类对象</h3>
 <p>内置工具类：Thymeleaf自己的一些类，提供对string，date，集合的一些处理方法</p>
 <h1 id="dates">dates：处理日期的</h1>
 <h1 id="number">number：处理数字的</h1>
 <h1 id="list">list：处理集合的</h1>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>日期类对象 #dates<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.format(date)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.format(date, &#39;yyyy/MM/dd HH:mm:ss&#39;)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.format(date, &#39;yyyy-MM-dd HH:mm:ss&#39;)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.year(date)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.month(date)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.monthName(date)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.day(date)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.createNow}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-12" name="__codelineno-59-12" href="#__codelineno-59-12"></a>
-<a id="__codelineno-59-13" name="__codelineno-59-13" href="#__codelineno-59-13"></a>
-<a id="__codelineno-59-14" name="__codelineno-59-14" href="#__codelineno-59-14"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>内置工具类#numbers，操作数字的<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-15" name="__codelineno-59-15" href="#__codelineno-59-15"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#numbers.formatCurrency(num)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-16" name="__codelineno-59-16" href="#__codelineno-59-16"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#numbers.formatDecimal(num, 5, 2)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-17" name="__codelineno-59-17" href="#__codelineno-59-17"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-18" name="__codelineno-59-18" href="#__codelineno-59-18"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-19" name="__codelineno-59-19" href="#__codelineno-59-19"></a>
-<a id="__codelineno-59-20" name="__codelineno-59-20" href="#__codelineno-59-20"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>内置工具类#strings，操作字符串的<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-21" name="__codelineno-59-21" href="#__codelineno-59-21"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#strings.toUpperCase(str)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-22" name="__codelineno-59-22" href="#__codelineno-59-22"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#strings.indexOf(str, &#39;power&#39;)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-23" name="__codelineno-59-23" href="#__codelineno-59-23"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#strings.substring(str, 2, 5)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>  <span class="cm">&lt;!--[2,5)--&gt;</span>
-<a id="__codelineno-59-24" name="__codelineno-59-24" href="#__codelineno-59-24"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#strings.substring(str, 2)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-25" name="__codelineno-59-25" href="#__codelineno-59-25"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#strings.concat(str, &#39;---java&#39;)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-26" name="__codelineno-59-26" href="#__codelineno-59-26"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#strings.length(str)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-27" name="__codelineno-59-27" href="#__codelineno-59-27"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-28" name="__codelineno-59-28" href="#__codelineno-59-28"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-29" name="__codelineno-59-29" href="#__codelineno-59-29"></a>
-<a id="__codelineno-59-30" name="__codelineno-59-30" href="#__codelineno-59-30"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>内置工具类#list<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-59-31" name="__codelineno-59-31" href="#__codelineno-59-31"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#lists.size(list)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-32" name="__codelineno-59-32" href="#__codelineno-59-32"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:unless</span><span class="o">=</span><span class="s">&quot;${#lists.contains(list, &#39;d&#39;)}&quot;</span><span class="p">&gt;</span>无成员d<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-33" name="__codelineno-59-33" href="#__codelineno-59-33"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:unless</span><span class="o">=</span><span class="s">&quot;${#lists.isEmpty(list)}&quot;</span><span class="p">&gt;</span>list不是空<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-59-34" name="__codelineno-59-34" href="#__codelineno-59-34"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-35" name="__codelineno-59-35" href="#__codelineno-59-35"></a><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<a id="__codelineno-59-36" name="__codelineno-59-36" href="#__codelineno-59-36"></a>
-<a id="__codelineno-59-37" name="__codelineno-59-37" href="#__codelineno-59-37"></a><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>处理null<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<a id="__codelineno-59-38" name="__codelineno-59-38" href="#__codelineno-59-38"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${zoo?.dog?.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>  <span class="cm">&lt;!--在变量后加上?，可以判断是否为空，若为空则不显示，不为空则显示--&gt;</span> 
-<a id="__codelineno-59-39" name="__codelineno-59-39" href="#__codelineno-59-39"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${zoo?.cat?.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;p&gt;日期类对象 #dates&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.format(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.format(date, 'yyyy/MM/dd HH:mm:ss')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.format(date, 'yyyy-MM-dd HH:mm:ss')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.year(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.month(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.monthName(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.day(date)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#dates.createNow}&quot;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;p&gt;内置工具类#numbers，操作数字的&lt;/p&gt;
+&lt;p th:text=&quot;${#numbers.formatCurrency(num)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#numbers.formatDecimal(num, 5, 2)}&quot;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;p&gt;内置工具类#strings，操作字符串的&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.toUpperCase(str)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.indexOf(str, 'power')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.substring(str, 2, 5)}&quot;&gt;&lt;/p&gt;  &lt;!--[2,5)--&gt;
+&lt;p th:text=&quot;${#strings.substring(str, 2)}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.concat(str, '---java')}&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;${#strings.length(str)}&quot;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h3&gt;内置工具类#list&lt;/h3&gt;
+&lt;p th:text=&quot;${#lists.size(list)}&quot;&gt;&lt;/p&gt;
+&lt;p th:unless=&quot;${#lists.contains(list, 'd')}&quot;&gt;无成员d&lt;/p&gt;
+&lt;p th:unless=&quot;${#lists.isEmpty(list)}&quot;&gt;list不是空&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h3&gt;处理null&lt;/h3&gt;
+&lt;p th:text=&quot;${zoo?.dog?.name}&quot;&gt;&lt;/p&gt;  &lt;!--在变量后加上?，可以判断是否为空，若为空则不显示，不为空则显示--&gt; 
+&lt;p th:text=&quot;${zoo?.cat?.name}&quot;&gt;&lt;/p&gt;
+</code></pre>
 <h3 id="912">9.12 自定义模板</h3>
 <p>模板是内容复用，定义一次，在其他的模板文件中多次使用</p>
 <p>模板使用：</p>
@@ -3188,24 +3212,24 @@
 <li>使用模板</li>
 </ol>
 <p>模板定义语法：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>th:fragment=&quot;模板自定义名称&quot;
-<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>
-<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>例如：
-<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment</span><span class="o">=</span><span class="s">&quot;head&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>百度<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>www.baidu.com<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">th:fragment=&quot;模板自定义名称&quot;
+
+例如：
+&lt;div th:fragment=&quot;head&quot;&gt;
+    &lt;p&gt;百度&lt;/p&gt;
+    &lt;p&gt;www.baidu.com&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
 <p>引用模板语法：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>1.~{templatename :: selector}
-<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>    templatename：文件名称
-<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>    selector：自定义模板名称
-<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>2.templatename :: selector   空格不能省
-<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>    templatename：文件名称
-<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>    selector：自定义模板名称
-<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>
-<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a>对于使用模板：有包含模板(th:include)，插入模板(th:insert)
-</code></pre></div>
+<pre><code class="language-html">1.~{templatename :: selector}
+    templatename：文件名称
+    selector：自定义模板名称
+2.templatename :: selector   空格不能省
+    templatename：文件名称
+    selector：自定义模板名称
+
+对于使用模板：有包含模板(th:include)，插入模板(th:insert)
+</code></pre>
 <h2 id="springspringmvcspringboot">十、总结 Spring+SpringMVC+SpringBoot注解</h2>
 <h3 id="101">10.1 创建对象的</h3>
 <ol>

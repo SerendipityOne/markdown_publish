@@ -2233,46 +2233,47 @@
 <li>注册RestTemplate
    在order-service的OrderAcpplication中注册RestTemplate</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&quot;cn.itcast.order.mapper&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderApplication</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">OrderApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="cm">/**</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cm">     * 创建RestTemplate注入spring容器</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="cm">     */</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nd">@Bean</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">RestTemplate</span><span class="w"> </span><span class="nf">restTemplate</span><span class="p">(){</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestTemplate</span><span class="p">();</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+<p>```java
+   @MapperScan("cn.itcast.order.mapper")
+   @SpringBootApplication
+   public class OrderApplication {</p>
+<div class="highlight"><pre><span></span><code>   public static void main(String[] args) {
+       SpringApplication.run(OrderApplication.class, args);
+   }
+
+   /**
+    * 创建RestTemplate注入spring容器
+    */
+   @Bean
+   public RestTemplate restTemplate(){
+       return new RestTemplate();
+   }
 </code></pre></div>
+<p>}
+   ```</p>
 <ol>
-<li>服务远程调用RestTemplate
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Service</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">OrderMapper</span><span class="w"> </span><span class="n">orderMapper</span><span class="p">;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">RestTemplate</span><span class="w"> </span><span class="n">restTemplate</span><span class="p">;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Order</span><span class="w"> </span><span class="nf">queryOrderById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="c1">// 查询订单</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderMapper</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="c1">// 利用RestTemplate发送http请求，得到user数据</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://localhost:8081/user/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getUserId</span><span class="p">();</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restTemplate</span><span class="p">.</span><span class="na">getForObject</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="n">order</span><span class="p">.</span><span class="na">setUser</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="c1">// 返回</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">order</span><span class="p">;</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
-</code></pre></div></li>
+<li>
+<p>服务远程调用RestTemplate
+   ```java
+   @Service
+   public class OrderService {</p>
+<p>@Resource
+  private OrderMapper orderMapper;</p>
+<p>@Resource
+  private RestTemplate restTemplate;</p>
+<p>public Order queryOrderById(Long orderId) {
+     // 查询订单
+     Order order = orderMapper.findById(orderId);
+     // 利用RestTemplate发送http请求，得到user数据
+     String url = "http://localhost:8081/user/" + order.getUserId();
+     User user = restTemplate.getForObject(url, User.class);
+     order.setUser(user);
+     // 返回
+     return order;
+  }
+   }
+   ```</p>
+</li>
 </ol>
 <p>结果：</p>
 <p><img alt="image-20230318192007296" src="../assets/image-20230318192007296.jpg" /></p>
@@ -2296,82 +2297,80 @@
 </ol>
 <h3 id="eureka_1">搭建Eureka</h3>
 <ol>
-<li>
-<p>引入eureka-server依赖
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!--Eureka服务端--&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>添加@EnableEurekaServer注解</p>
-</li>
+<li>引入eureka-server依赖
+   ```xml
+   <!--Eureka服务端--></li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@EnableEurekaServer</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EurekaApplication</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">EurekaApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
-</code></pre></div>
+<p><dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>添加@EnableEurekaServer注解</li>
+</ol>
+<p><code>java
+   @EnableEurekaServer
+   @SpringBootApplication
+   public class EurekaApplication {
+      public static void main(String[] args) {
+         SpringApplication.run(EurekaApplication.class, args);
+      }
+   }</code></p>
 <ol>
 <li>在application.yml中配置eureka地址
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>server:
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  port: 10086
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>spring:
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  application:
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    name: eureka-server # Eureka的服务名称
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>eureka:
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  client:
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    service-url: # eureka的地址信息
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      defaultZone: http://localhost:10086/eureka
-</code></pre></div></li>
+   <code>yml
+   server:
+     port: 10086
+   spring:
+     application:
+       name: eureka-server # Eureka的服务名称
+   eureka:
+     client:
+       service-url: # eureka的地址信息
+         defaultZone: http://localhost:10086/eureka</code></li>
 </ol>
 <h3 id="_4">服务注册</h3>
 <ol>
-<li>
-<p>引入eureka-client依赖
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">&lt;!--eureka客户端--&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>在application.yml中配置eureka地址
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">server</span><span class="p">:</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">spring</span><span class="p">:</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">application</span><span class="p">:</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span><span class="w"> </span><span class="c1"># Eureka的服务名称</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">eureka</span><span class="p">:</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">client</span><span class="p">:</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w"> </span><span class="c1"># eureka的地址信息</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:10086/eureka</span>
-</code></pre></div></p>
-</li>
+<li>引入eureka-client依赖
+   ```xml
+   <!--eureka客户端--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>在application.yml中配置eureka地址
+   <code>yaml
+   server:
+     port: 8081
+   spring:
+     application:
+       name: user-service # Eureka的服务名称
+   eureka:
+     client:
+       service-url: # eureka的地址信息
+         defaultZone: http://localhost:10086/eureka</code></li>
 </ol>
 <h3 id="_5">服务拉取/发现</h3>
 <p>服务拉取是基于服务名称获取服务列表，然后再对服务列表做负载均衡</p>
 <ol>
 <li>
 <p>修改的代码，修改访问的url路径，用服务名代替ip、端口
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// String url = &quot;http://localhost:8081/user/&quot; + order.getUserId();</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://user-service/user/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getUserId</span><span class="p">();</span>
-</code></pre></div></p>
+   <code>java
+   // String url = "http://localhost:8081/user/" + order.getUserId();
+   String url = "http://user-service/user/" + order.getUserId();</code></p>
 </li>
 <li>
 <p>在order-service项目的启动类中的RestTemplate添加<strong>负载均衡</strong>注解<span style="color: red">@LoadBalanced</span>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@Bean</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nd">@LoadBalanced</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">RestTemplate</span><span class="w"> </span><span class="nf">restTemplate</span><span class="p">(){</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestTemplate</span><span class="p">();</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>java
+   @Bean
+   @LoadBalanced
+   public RestTemplate restTemplate(){
+       return new RestTemplate();
+   }</code></p>
 </li>
 </ol>
 <h2 id="ribbon">Ribbon负载均衡</h2>
@@ -2419,21 +2418,24 @@
 <ol>
 <li>
 <p>代码方式：在order-service中的OrderApplication类中，定义一个新的IRule<span style="color: red">（作用范围是全局）</span>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/**</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cm"> * 修改Ribbon负载均衡规则</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cm"> */</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nd">@Bean</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">public</span><span class="w"> </span><span class="n">IRule</span><span class="w"> </span><span class="nf">randomRule</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RandomRule</span><span class="p">();</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">}</span>
-</code></pre></div></p>
+   ```java
+   /**</p>
+<ul>
+<li>修改Ribbon负载均衡规则
+*/
+   @Bean
+   public IRule randomRule() {
+   return new RandomRule();
+   }
+   ```</li>
+</ul>
 </li>
 <li>
 <p>配置文件方式：在order-service中的application.yml文件中，添加新的配置也可以修改规则<span style="color: red">（针对某个服务）</span>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>user-service:
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  ribbon:
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  # 负载均衡规则
-</code></pre></div></p>
+   <code>yml
+   user-service:
+     ribbon:
+       NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  # 负载均衡规则</code></p>
 </li>
 </ol>
 <h3 id="_8">饥饿加载</h3>
@@ -2443,12 +2445,12 @@
 </li>
 <li>
 <p>指定饥饿加载的微服务名称
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ribbon:
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  eager-load:
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    enabled: true # 开启饥饿加载
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    clients:  # 指定饥饿加载的服务名称
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>      - user-service
-</code></pre></div></p>
+   <code>yml
+   ribbon:
+     eager-load:
+       enabled: true # 开启饥饿加载
+       clients:  # 指定饥饿加载的服务名称
+         - user-service</code></p>
 </li>
 </ol>
 <h2 id="nacos">Nacos注册中心</h2>
@@ -2465,28 +2467,29 @@
 <li>引入nacos.discovery依赖</li>
 </ol>
 <p>父工程：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>2.2.5.RELEASE<span class="nt">&lt;/version&gt;</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
+<p><code>xml
+   &lt;dependency&gt;
+       &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+       &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
+       &lt;version&gt;2.2.5.RELEASE&lt;/version&gt;
+       &lt;type&gt;pom&lt;/type&gt;
+       &lt;scope&gt;import&lt;/scope&gt;
+   &lt;/dependency&gt;</code></p>
 <p>客户端：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">&lt;!-- nacos客户端依赖包 --&gt;</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
+<p>```xml
+   <!-- nacos客户端依赖包 --></p>
+<p><dependency>
+       <groupId>com.alibaba.cloud</groupId>
+       <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+   </dependency>
+   ```</p>
 <ol>
 <li>配置nacos地址spring.cloud.nacos.server-addr
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>spring:
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  cloud:
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    nacos:
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>      server-addr: localhost:8848 # nacos服务地址
-</code></pre></div></li>
+   <code>yml
+   spring:
+     cloud:
+       nacos:
+         server-addr: localhost:8848 # nacos服务地址</code></li>
 </ol>
 <h3 id="nacos_3">Nacos服务分级模型</h3>
 <ol>
@@ -2497,12 +2500,12 @@
 <h3 id="_9">如何设置实例的集群属性</h3>
 <ul>
 <li>修改application.yml文件，添加spring.cloud.nacos.discovery.cluster-name属性
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>spring:  
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  cloud:
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    nacos:
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>      discovery:
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        cluster-name: SH
-</code></pre></div></li>
+  <code>yml
+  spring:  
+    cloud:
+      nacos:
+        discovery:
+          cluster-name: SH</code></li>
 </ul>
 <h3 id="nacosrule">NacosRule负载均衡策略</h3>
 <ol>
@@ -2511,8 +2514,8 @@
 </li>
 <li>
 <p>本地集群找不到提供者，才去其他集群寻找，并且会报警告
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="m">01</span>-20<span class="w"> </span><span class="m">12</span>:38:55:786<span class="w">  </span>WARN<span class="w"> </span><span class="m">27920</span><span class="w"> </span>---<span class="w"> </span><span class="o">[</span>nio-8080-exec-9<span class="o">]</span><span class="w"> </span>c.alibaba.cloud.nacos.ribbon.NacosRule<span class="w">   </span>:<span class="w"> </span>A<span class="w"> </span>cross-cluster<span class="w"> </span>call<span class="w"> </span>occurs，name<span class="w"> </span><span class="o">=</span><span class="w"> </span>user-service,<span class="w"> </span><span class="nv">clusterName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>HZ,<span class="w"> </span><span class="nv">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>Instance<span class="o">{</span><span class="nv">instanceId</span><span class="o">=</span><span class="s1">&#39;192.168.3.250#8083#SH#DEFAULT_GROUP@@user-service&#39;</span>,<span class="w"> </span><span class="nv">ip</span><span class="o">=</span><span class="s1">&#39;192.168.3.250&#39;</span>,<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">8083</span>,<span class="w"> </span><span class="nv">weight</span><span class="o">=</span><span class="m">1</span>.0,<span class="w"> </span><span class="nv">healthy</span><span class="o">=</span>true,<span class="w"> </span><span class="nv">enabled</span><span class="o">=</span>true,<span class="w"> </span><span class="nv">ephemeral</span><span class="o">=</span>true,<span class="w"> </span><span class="nv">clusterName</span><span class="o">=</span><span class="s1">&#39;SH&#39;</span>,<span class="w"> </span><span class="nv">serviceName</span><span class="o">=</span><span class="s1">&#39;DEFAULT_GROUP@@user-service&#39;</span>,<span class="w"> </span><span class="nv">metadata</span><span class="o">={</span>preserved.register.source<span class="o">=</span>SPRING_CLOUD<span class="o">}}</span>
-</code></pre></div></p>
+   <code>sh
+   01-20 12:38:55:786  WARN 27920 --- [nio-8080-exec-9] c.alibaba.cloud.nacos.ribbon.NacosRule   : A cross-cluster call occurs，name = user-service, clusterName = HZ, instance = [Instance{instanceId='192.168.3.250#8083#SH#DEFAULT_GROUP@@user-service', ip='192.168.3.250', port=8083, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='SH', serviceName='DEFAULT_GROUP@@user-service', metadata={preserved.register.source=SPRING_CLOUD}}</code></p>
 </li>
 <li>
 <p>确定了可用实例列表后，再采用<strong>随机负载均衡挑选实例</strong></p>
@@ -2532,12 +2535,12 @@
 <li>不同namespace下的服务不可见</li>
 </ol>
 <p>添加命名空间：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>spring:
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  cloud:
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    nacos:
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      discovery:
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>        namespace: ed3999ae-1370-4d9f-bfde-2884d75ff2f3 # dev环境
-</code></pre></div>
+<pre><code class="language-yml">spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: ed3999ae-1370-4d9f-bfde-2884d75ff2f3 # dev环境
+</code></pre>
 <h3 id="nacoseureka">Nacos与Eureka</h3>
 <p>共同点：</p>
 <ol>
@@ -2558,61 +2561,62 @@
 </li>
 <li>
 <p>在微服务中引入nacos的config依赖
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">&lt;!--nacos的配置管理依赖--&gt;</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
+   ```xml
+   <!--nacos的配置管理依赖--></p>
 </li>
-<li>
-<p>在微服务中添加bootstrap.yml,配置nacos地址、当前环境、服务名称、文件后缀名。这些决定了程序启动时去nacos读取哪个文件
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>spring:
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  application:
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    name: user-service  # 服务名称
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  profiles:
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    active: dev # 环境
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>  cloud:
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    nacos:
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>      server-addr: localhost:8848
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>      config:
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>        file-extension: yaml  # 文件后缀名
-</code></pre></div></p>
-</li>
+</ol>
+<p><dependency>
+       <groupId>com.alibaba.cloud</groupId>
+       <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>在微服务中添加bootstrap.yml,配置nacos地址、当前环境、服务名称、文件后缀名。这些决定了程序启动时去nacos读取哪个文件
+   <code>yml
+   spring:
+     application:
+       name: user-service  # 服务名称
+     profiles:
+       active: dev # 环境
+     cloud:
+       nacos:
+         server-addr: localhost:8848
+         config:
+           file-extension: yaml  # 文件后缀名</code></li>
 </ol>
 <p>Nacos配置更改后，微服务可以实现热更新，方式:</p>
 <ol>
 <li>
 <p>通过@Value注解注入,结合@RefreshScope来刷新
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nd">@Slf4j</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nd">@RestController</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nd">@RefreshScope</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${pattern.dataformat}&quot;</span><span class="p">)</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dataformat</span><span class="p">;</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>java
+   @Slf4j
+   @RestController
+   @RequestMapping("/user")
+   @RefreshScope
+   public class UserController {
+       @Value("${pattern.dataformat}")
+       private String dataformat;
+   }</code></p>
 </li>
 <li>
 <p>通过@ConfigurationProperties注入，自动刷新
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nd">@Data</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nd">@Component</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pattern&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PatternProperties</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dataformat</span><span class="p">;</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">}</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="nd">@Slf4j</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="nd">@RestController</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">    </span><span class="nd">@Resource</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PatternProperties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="p">}</span>
-</code></pre></div></p>
+   ```java
+   @Data
+   @Component
+   @ConfigurationProperties(prefix = "pattern")
+   public class PatternProperties {
+      private String dataformat;
+   }</p>
 </li>
 </ol>
+<p>@Slf4j
+   @RestController
+   @RequestMapping("/user")
+   public class UserController {
+       @Resource
+       private PatternProperties properties;
+   }
+   ```</p>
 <p><span style="color: red">注意：</span></p>
 <ol>
 <li>不是所有的配置都适合放到配置中心,维护起来比较麻烦</li>
@@ -2638,58 +2642,58 @@
 <h3 id="_10">快速入门</h3>
 <p>Feign的使用步骤</p>
 <ol>
-<li>
-<p>引入依赖
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cm">&lt;!--Feign依赖--&gt;</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>添加@EnableFeignClients注解
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&quot;cn.itcast.order.mapper&quot;</span><span class="p">)</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nd">@EnableFeignClients</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderApplication</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">      </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">OrderApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
+<li>引入依赖
+   ```xml
+   <!--Feign依赖--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-openfeign</artifactId>
+   </dependency>
+   ```</p>
+<ol>
+<li>添加@EnableFeignClients注解
+   ```java
+   @MapperScan("cn.itcast.order.mapper")
+   @SpringBootApplication
+   @EnableFeignClients
+   public class OrderApplication {
+      public static void main(String[] args) {
+         SpringApplication.run(OrderApplication.class, args);
+      }
+   }</li>
+</ol>
+<p>```</p>
+<ol>
 <li>
 <p>编写FeignClient接口
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nd">@FeignClient</span><span class="p">(</span><span class="s">&quot;userservice&quot;</span><span class="p">)</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserClient</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">   </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;user/{id}&quot;</span><span class="p">)</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">   </span><span class="n">User</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>java
+   @FeignClient("userservice")
+   public interface UserClient {
+      @GetMapping("user/{id}")
+      User findById(@PathVariable Long id);
+   }</code></p>
 </li>
 <li>
 <p>使用FeignClient中定义的方法代替RestTemplate
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nd">@Service</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">OrderMapper</span><span class="w"> </span><span class="n">orderMapper</span><span class="p">;</span>
-<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
-<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">UserClient</span><span class="w"> </span><span class="n">userClient</span><span class="p">;</span>
-<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
-<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Order</span><span class="w"> </span><span class="nf">queryOrderById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">      </span><span class="c1">// 查询订单</span>
-<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">      </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderMapper</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
-<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="w">      </span><span class="c1">// 利用Feign发送http请求，得到user数据</span>
-<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">      </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userClient</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">order</span><span class="p">.</span><span class="na">getUserId</span><span class="p">());</span>
-<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="w">      </span><span class="n">order</span><span class="p">.</span><span class="na">setUser</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">      </span><span class="c1">// 返回</span>
-<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">order</span><span class="p">;</span>
-<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="p">}</span>
-</code></pre></div></p>
+   ```java
+   @Service
+   public class OrderService {</p>
+<p>@Resource
+  private OrderMapper orderMapper;</p>
+<p>@Resource
+  private UserClient userClient;</p>
+<p>public Order queryOrderById(Long orderId) {
+     // 查询订单
+     Order order = orderMapper.findById(orderId);
+     // 利用Feign发送http请求，得到user数据
+     User user = userClient.findById(order.getUserId());
+     order.setUser(user);
+     // 返回
+     return order;
+  }
+   }
+   ```</p>
 </li>
 </ol>
 <h3 id="feign">自定义Feign配置</h3>
@@ -2703,54 +2707,54 @@
 </li>
 <li>
 <p>如果xxx是default则代表全局
-     <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>feign:
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>  client:
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    config:
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>      default:
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>        logger-level: full
-</code></pre></div></p>
+     <code>yml
+     feign:
+       client:
+         config:
+           default:
+             logger-level: full</code></p>
 </li>
 <li>
 <p>如果xxx是服务名称，例如userservice则代表某服务
-     <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>feign:
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>  client:
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    config:
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>      userserivce:
-<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>        logger-level: full
-</code></pre></div></p>
+     <code>yml
+     feign:
+       client:
+         config:
+           userserivce:
+             logger-level: full</code></p>
 </li>
 <li>
 <p>方式二是java代码配置Logger.Level这个Bean
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DefaultFeignConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">Level</span><span class="w"> </span><span class="nf">logLevel</span><span class="p">(){</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">Level</span><span class="p">.</span><span class="na">BASIC</span><span class="p">;</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>java
+   public class DefaultFeignConfig {
+      @Bean
+      public Logger.Level logLevel(){
+         return Logger.Level.BASIC;
+      }
+   }</code></p>
 </li>
 <li>
 <p>如果在@EnableFeignClients注解声明则代表全局
-     <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&quot;cn.itcast.order.mapper&quot;</span><span class="p">)</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nd">@SpringBootApplication</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="nd">@EnableFeignClients</span><span class="p">(</span><span class="n">defaultConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">DefaultFeignConfig</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderApplication</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">      </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">OrderApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="p">}</span>
-</code></pre></div></p>
+     <code>java
+     @MapperScan("cn.itcast.order.mapper")
+     @SpringBootApplication
+     @EnableFeignClients(defaultConfiguration =  DefaultFeignConfig.class)
+     public class OrderApplication {
+        public static void main(String[] args) {
+           SpringApplication.run(OrderApplication.class, args);
+        }
+     }</code></p>
 </li>
 <li>
 <p>如果在@FeignClient注解中声明则代表某服务
-     <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nd">@FeignClient</span><span class="p">(</span><span class="s">&quot;userservice&quot;</span><span class="p">)</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DefaultFeignConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">Level</span><span class="w"> </span><span class="nf">logLevel</span><span class="p">(){</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">Level</span><span class="p">.</span><span class="na">BASIC</span><span class="p">;</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">}</span>
-</code></pre></div></p>
+     <code>java
+     @FeignClient("userservice")
+     public class DefaultFeignConfig {
+        @Bean
+        public Logger.Level logLevel(){
+           return Logger.Level.BASIC;
+        }
+     }</code></p>
 </li>
 </ol>
 <h3 id="feign_1">Feign优化</h3>
@@ -2763,21 +2767,21 @@
 </li>
 <li>
 <p>引入feign-httpClient依赖
-     <div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="cm">&lt;!--HttpClient--&gt;</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.openfeign<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>feign-httpclient<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
+     <code>xml
+     &lt;!--HttpClient--&gt;
+     &lt;dependency&gt;
+         &lt;groupId&gt;io.github.openfeign&lt;/groupId&gt;
+         &lt;artifactId&gt;feign-httpclient&lt;/artifactId&gt;
+     &lt;/dependency&gt;</code></p>
 </li>
 <li>
 <p>配置文件开启httpClient功能，设置连接池参数
-     <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>feign:
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>  httpclient:
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    enabled: true # 支持HttpClient的开关
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>    max-connections: 200  # 最大连接数
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    max-connections-per-route: 50 # 单个路径最大的连接数
-</code></pre></div></p>
+     <code>yml
+     feign:
+       httpclient:
+         enabled: true # 支持HttpClient的开关
+         max-connections: 200  # 最大连接数
+         max-connections-per-route: 50 # 单个路径最大的连接数</code></p>
 </li>
 </ol>
 <h3 id="feign_2">Feign最佳实践</h3>
@@ -2789,12 +2793,12 @@
 <ol>
 <li>在@EnableFeignClients注解中添加basePackages，指定FeignClient所在的包</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nd">@EnableFeignClients</span><span class="p">(</span><span class="n">basePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cn.itcast.feign.clients&quot;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>java
+   @EnableFeignClients(basePackages = "cn.itcast.feign.clients")</code></p>
 <ol>
 <li>在@EnableFeignClients注解中添加clients，指定具体FeignClient的字节码
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nd">@EnableFeignClients</span><span class="p">(</span><span class="n">clients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserClient</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-</code></pre></div></li>
+   <code>java
+   @EnableFeignClients(clients = UserClient.class)</code></li>
 </ol>
 <h2 id="gateway">统一网关Gateway</h2>
 <p>网关的作用:</p>
@@ -2806,43 +2810,42 @@
 <h3 id="_11">搭建网关</h3>
 <p><img alt="image-20230128172302399" src="../assets/image-20230128172302399.jpg" /></p>
 <ol>
-<li>
-<p>创建项目，引入nacos服务发现和gateway依赖
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="cm">&lt;!--nacos服务发现依赖--&gt;</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nt">&lt;/dependency&gt;</span>
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="cm">&lt;!--Gateway网关依赖--&gt;</span>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-gateway<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>配置application.yml,包括服务基本信息、nacos地址、路由</p>
-</li>
+<li>创建项目，引入nacos服务发现和gateway依赖
+  ```xml
+  <!--nacos服务发现依赖--></li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>server:
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>  port: 10010
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>spring:
-<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>  application:
-<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>    name: gateway
-<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>  cloud:
-<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>    nacos:
-<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>      server-addr: localhost:8848
-<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>    gateway:
-<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>      routes:
-<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>        - id: user-service # 路由标识，必须唯一
-<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>          uri: lb://userserivce # 路由的目标地址
-<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>          predicates: # 路径断言，判断请求是否符合规则
-<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>            - Path=/user/** # 路径断言，判断请求是否是以/user开头
-<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>        - id: order-service
-<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>          uri: lb://orderservice
-<a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a>          predicates:
-<a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a>            - Path=/order/**
-</code></pre></div>
+<p><dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+  </dependency>
+  <!--Gateway网关依赖--></p>
+<p><dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
+  </dependency>
+  ```</p>
+<ol>
+<li>配置application.yml,包括服务基本信息、nacos地址、路由</li>
+</ol>
+<p><code>yml
+  server:
+    port: 10010
+  spring:
+    application:
+      name: gateway
+    cloud:
+      nacos:
+        server-addr: localhost:8848
+      gateway:
+        routes:
+          - id: user-service # 路由标识，必须唯一
+            uri: lb://userserivce # 路由的目标地址
+            predicates: # 路径断言，判断请求是否符合规则
+              - Path=/user/** # 路径断言，判断请求是否是以/user开头
+          - id: order-service
+            uri: lb://orderservice
+            predicates:
+              - Path=/order/**</code></p>
 <p>路由配置包括:</p>
 <ol>
 <li>路由id: 路由的唯一标示</li>
@@ -2890,29 +2893,29 @@
 <li>添加@Order注解或实现Ordered接口</li>
 <li>编写处理逻辑</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nd">@Component</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="nd">@Order</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w">    </span><span class="c1">// 设置执行顺序优先级，一定要有！！！！</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AuthorizeFilter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">GlobalFilter</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">   </span><span class="nd">@Override</span>
-<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="n">ServerWebExchange</span><span class="w"> </span><span class="n">exchange</span><span class="p">,</span><span class="w"> </span><span class="n">GatewayFilterChain</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">      </span><span class="c1">// 获取请求参数</span>
-<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">      </span><span class="n">ServerHttpRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exchange</span><span class="p">.</span><span class="na">getRequest</span><span class="p">();</span>
-<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">      </span><span class="n">MultiValueMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getQueryParams</span><span class="p">();</span>
-<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="w">      </span><span class="c1">// 获取参数中的authorize参数</span>
-<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">authorize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">params</span><span class="p">.</span><span class="na">getFirst</span><span class="p">(</span><span class="s">&quot;authorize&quot;</span><span class="p">);</span>
-<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a><span class="w">      </span><span class="c1">// 判断参数是否等于admin</span>
-<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">authorize</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="w">         </span><span class="c1">// 是，放行</span>
-<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a><span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">chain</span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">exchange</span><span class="p">);</span>
-<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a><span class="w">      </span><span class="c1">// 否</span>
-<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a><span class="w">      </span><span class="c1">// 设置状态码</span>
-<a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a><span class="w">      </span><span class="n">exchange</span><span class="p">.</span><span class="na">getResponse</span><span class="p">().</span><span class="na">setStatusCode</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">UNAUTHORIZED</span><span class="p">);</span>
-<a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a><span class="w">      </span><span class="c1">// 拦截</span>
-<a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">exchange</span><span class="p">.</span><span class="na">getResponse</span><span class="p">().</span><span class="na">setComplete</span><span class="p">();</span>
-<a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a><span class="p">}</span>
-</code></pre></div>
+<p><code>java
+  @Component
+  @Order(-1)    // 设置执行顺序优先级，一定要有！！！！
+  public class AuthorizeFilter implements GlobalFilter {
+     @Override
+     public Mono&lt;Void&gt; filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        // 获取请求参数
+        ServerHttpRequest request = exchange.getRequest();
+        MultiValueMap&lt;String, String&gt; params = request.getQueryParams();
+        // 获取参数中的authorize参数
+        String authorize = params.getFirst("authorize");
+        // 判断参数是否等于admin
+        if ("admin".equals(authorize)) {
+           // 是，放行
+           return chain.filter(exchange);
+        }
+        // 否
+        // 设置状态码
+        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+        // 拦截
+        return exchange.getResponse().setComplete();
+     }
+  }</code></p>
 <h3 id="_13">过滤器执行顺序</h3>
 <ul>
 <li>每一个过滤器都必须指定一个int类型的order值,<strong>order值越小,优先级越高,执行顺序越靠前</strong>。</li>
@@ -2932,25 +2935,25 @@
 <li>域名相同,端口不同: localhost:8080和localhost:8081</li>
 </ul>
 <p>跨域问题：浏览器禁止请求的发起者与服务端发生跨域ajax请求,请求被浏览器拦截的问题</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>spring:
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    gateway:
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>      globalcors: # 全局的跨域处理
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>        cors-configurations:
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>          &#39;[/**]&#39;:
-<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>            allowedOrigins: # 允许那些网站的跨域请求
-<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>              - &quot;http://localhost:8090&quot;
-<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>              - &quot;http://www.leyou.com&quot;
-<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>            allowedMethods: # 允许的跨域ajax的请求方式
-<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>              - &quot;GET&quot;
-<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>              - &quot;POST&quot;
-<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>              - &quot;PUT&quot;
-<a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>              - &quot;DELETE&quot;
-<a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>              - &quot;OPTIONS&quot;
-<a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>            allowedHeaders: &quot;*&quot; # 允许在请求中携带的头信息
-<a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>            allowCredentials: true # 是否允许携带cookie
-<a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>            maxAge: 360000 # 这次跨域检测的有效期
-</code></pre></div>
+<pre><code class="language-yml">spring:
+    gateway:
+      globalcors: # 全局的跨域处理
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: # 允许那些网站的跨域请求
+              - &quot;http://localhost:8090&quot;
+              - &quot;http://www.leyou.com&quot;
+            allowedMethods: # 允许的跨域ajax的请求方式
+              - &quot;GET&quot;
+              - &quot;POST&quot;
+              - &quot;PUT&quot;
+              - &quot;DELETE&quot;
+              - &quot;OPTIONS&quot;
+            allowedHeaders: &quot;*&quot; # 允许在请求中携带的头信息
+            allowCredentials: true # 是否允许携带cookie
+            maxAge: 360000 # 这次跨域检测的有效期
+</code></pre>
 <h2 id="docker">Docker</h2>
 <ul>
 <li>
@@ -3089,79 +3092,81 @@
 </ul>
 <h4 id="springamqp_1">SpringAMQP如何发送消息？</h4>
 <ul>
-<li>
-<p>引入amqp的starter依赖
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="cm">&lt;!--AMQP依赖，包含RabbitMQ--&gt;</span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-amqp<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
-</li>
+<li>引入amqp的starter依赖
+  ```xml
+  <!--AMQP依赖，包含RabbitMQ--></li>
+</ul>
+<p><dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+  </dependency>
+  ```</p>
+<ul>
 <li>
 <p>配置RabbitMQ地址
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>spring:
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>  rabbitmq:
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    host: 192.168.58.129 # rabbitMQ的ip地址
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    port: 5672
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>    username: itcast
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>    password: 123321
-<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>    virtual-host: /
-</code></pre></div></p>
+  <code>yml
+  spring:
+    rabbitmq:
+      host: 192.168.58.129 # rabbitMQ的ip地址
+      port: 5672
+      username: itcast
+      password: 123321
+      virtual-host: /</code></p>
 </li>
 <li>
 <p>利用RabbitTemplate的convertAndSend方法
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nd">@SpringBootTest</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringAMQPTest</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">RabbitTemplate</span><span class="w"> </span><span class="n">rabbitTemplate</span><span class="p">;</span>
-<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
-<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSendMsgSimpleQueue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">queueName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;simple.queue&quot;</span><span class="p">;</span>
-<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello, springAMQP&quot;</span><span class="p">;</span>
-<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="w">      </span><span class="n">rabbitTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">queueName</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
-<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a><span class="p">}</span>
-</code></pre></div></p>
+  ```java
+  @SpringBootTest
+  @RunWith(SpringRunner.class)
+  public class SpringAMQPTest {
+     @Resource
+     private RabbitTemplate rabbitTemplate;</p>
+<p>@Test
+ public void testSendMsgSimpleQueue() {
+    String queueName = "simple.queue";
+    String msg = "hello, springAMQP";
+    rabbitTemplate.convertAndSend(queueName, msg);
+ }
+  }
+  ```</p>
 </li>
 </ul>
 <h4 id="springamqp_2">SpringAMQP如何接收消息？</h4>
 <ol>
-<li>
-<p>引入amqp的starter依赖
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="cm">&lt;!--AMQP依赖，包含RabbitMQ--&gt;</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-amqp<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></p>
-</li>
+<li>引入amqp的starter依赖
+   ```xml
+   <!--AMQP依赖，包含RabbitMQ--></li>
+</ol>
+<p><dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-amqp</artifactId>
+   </dependency>
+   ```</p>
+<ol>
 <li>
 <p>配置RabbitMQ地址
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>spring:
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>  rabbitmq:
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>    host: 192.168.58.129 # rabbitMQ的ip地址
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>    port: 5672
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    username: itcast
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>    password: 123321
-<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>    virtual-host: /
-</code></pre></div></p>
+   <code>yml
+   spring:
+     rabbitmq:
+       host: 192.168.58.129 # rabbitMQ的ip地址
+       port: 5672
+       username: itcast
+       password: 123321
+       virtual-host: /</code></p>
 </li>
 <li>
 <p>定义类，添加@Component注解</p>
 </li>
 <li>
 <p>类中声明方法，添加@RabbitListener注解，方法参数就时消息
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nd">@Component</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringRabbitListener</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">   </span><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">queues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;simple.queue&quot;</span><span class="p">)</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenerSimpleQueue</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者监听到simple.queue的消息：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>java
+   @Component
+   public class SpringRabbitListener {
+      @RabbitListener(queues = "simple.queue")
+      public void listenerSimpleQueue(String msg) {
+         System.out.println("消费者监听到simple.queue的消息：" + msg);
+      }
+   }</code></p>
 </li>
 </ol>
 <p><span style='color:red'>注意：消息一旦消费就会从队列删除，RabbitMQ没有消息回溯功能</span></p>
@@ -3174,17 +3179,17 @@
 </li>
 <li>
 <p>通过设置prefetch来控制消费者预取的消息数量
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>spring:
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>  rabbitmq:
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>    host: 192.168.58.129 # rabbitMQ的ip地址
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>    port: 5672
-<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    username: itcast
-<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>    password: 123321
-<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>    virtual-host: /
-<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>    listener:
-<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>      simple:
-<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>        prefetch: 1 # 设置消息预取上限，每次只能获取1条消息，处理完才能获取下一个消息
-</code></pre></div></p>
+   <code>yml
+   spring:
+     rabbitmq:
+       host: 192.168.58.129 # rabbitMQ的ip地址
+       port: 5672
+       username: itcast
+       password: 123321
+       virtual-host: /
+       listener:
+         simple:
+           prefetch: 1 # 设置消息预取上限，每次只能获取1条消息，处理完才能获取下一个消息</code></p>
 </li>
 </ol>
 <h4 id="-fanout-exchange">发布订阅-Fanout Exchange</h4>
@@ -3206,74 +3211,74 @@
 <ol>
 <li>实现交换机与队列的绑定</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nd">@Configuration</span>
-<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FanoutConfig</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">   </span><span class="c1">//声明交换机</span>
-<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">FanoutExchange</span><span class="w"> </span><span class="nf">fanoutExchange</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FanoutExchange</span><span class="p">(</span><span class="s">&quot;itcast.fanout&quot;</span><span class="p">);</span>
-<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>
-<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="w">   </span><span class="c1">//声明队列fanout.queue1</span>
-<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Queue</span><span class="w"> </span><span class="nf">fanoutQueue1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Queue</span><span class="p">(</span><span class="s">&quot;fanout.queue1&quot;</span><span class="p">);</span>
-<a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a>
-<a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a><span class="w">   </span><span class="c1">//绑定</span>
-<a id="__codelineno-46-16" name="__codelineno-46-16" href="#__codelineno-46-16"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-46-17" name="__codelineno-46-17" href="#__codelineno-46-17"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Binding</span><span class="w"> </span><span class="nf">fanoutBinding1</span><span class="p">(</span><span class="n">Queue</span><span class="w"> </span><span class="n">fanoutQueue1</span><span class="p">,</span><span class="w"> </span><span class="n">FanoutExchange</span><span class="w"> </span><span class="n">fanoutExchange</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-46-18" name="__codelineno-46-18" href="#__codelineno-46-18"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">BindingBuilder</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">fanoutQueue1</span><span class="p">).</span><span class="na">to</span><span class="p">(</span><span class="n">fanoutExchange</span><span class="p">);</span>
-<a id="__codelineno-46-19" name="__codelineno-46-19" href="#__codelineno-46-19"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-46-20" name="__codelineno-46-20" href="#__codelineno-46-20"></a>
-<a id="__codelineno-46-21" name="__codelineno-46-21" href="#__codelineno-46-21"></a><span class="w">   </span><span class="c1">//声明队列fanout.queue2</span>
-<a id="__codelineno-46-22" name="__codelineno-46-22" href="#__codelineno-46-22"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-46-23" name="__codelineno-46-23" href="#__codelineno-46-23"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Queue</span><span class="w"> </span><span class="nf">fanoutQueue2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-46-24" name="__codelineno-46-24" href="#__codelineno-46-24"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Queue</span><span class="p">(</span><span class="s">&quot;fanout.queue2&quot;</span><span class="p">);</span>
-<a id="__codelineno-46-25" name="__codelineno-46-25" href="#__codelineno-46-25"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-46-26" name="__codelineno-46-26" href="#__codelineno-46-26"></a>
-<a id="__codelineno-46-27" name="__codelineno-46-27" href="#__codelineno-46-27"></a><span class="w">   </span><span class="nd">@Bean</span>
-<a id="__codelineno-46-28" name="__codelineno-46-28" href="#__codelineno-46-28"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="n">Binding</span><span class="w"> </span><span class="nf">fanoutBinding2</span><span class="p">(</span><span class="n">Queue</span><span class="w"> </span><span class="n">fanoutQueue2</span><span class="p">,</span><span class="w"> </span><span class="n">FanoutExchange</span><span class="w"> </span><span class="n">fanoutExchange</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-46-29" name="__codelineno-46-29" href="#__codelineno-46-29"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">BindingBuilder</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">fanoutQueue2</span><span class="p">).</span><span class="na">to</span><span class="p">(</span><span class="n">fanoutExchange</span><span class="p">);</span>
-<a id="__codelineno-46-30" name="__codelineno-46-30" href="#__codelineno-46-30"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-46-31" name="__codelineno-46-31" href="#__codelineno-46-31"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@Configuration
+public class FanoutConfig {
+   //声明交换机
+   @Bean
+   public FanoutExchange fanoutExchange() {
+      return new FanoutExchange(&quot;itcast.fanout&quot;);
+   }
+
+   //声明队列fanout.queue1
+   @Bean
+   public Queue fanoutQueue1() {
+      return new Queue(&quot;fanout.queue1&quot;);
+   }
+
+   //绑定
+   @Bean
+   public Binding fanoutBinding1(Queue fanoutQueue1, FanoutExchange fanoutExchange) {
+      return BindingBuilder.bind(fanoutQueue1).to(fanoutExchange);
+   }
+
+   //声明队列fanout.queue2
+   @Bean
+   public Queue fanoutQueue2() {
+      return new Queue(&quot;fanout.queue2&quot;);
+   }
+
+   @Bean
+   public Binding fanoutBinding2(Queue fanoutQueue2, FanoutExchange fanoutExchange) {
+      return BindingBuilder.bind(fanoutQueue2).to(fanoutExchange);
+   }
+}
+</code></pre>
 <ol>
 <li>接收</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nd">@Component</span>
-<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringRabbitListener</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">   </span><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">queues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fanout.queue1&quot;</span><span class="p">)</span>
-<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenerFanoutQueue1</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者[1]接受到fanout.queue的消息：[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
-<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">      </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
-<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">   </span><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">queues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fanout.queue2&quot;</span><span class="p">)</span>
-<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenerFanoutQueue2</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者[2]接受到fanout.queue的消息：[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
-<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">      </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@Component
+public class SpringRabbitListener {
+   @RabbitListener(queues = &quot;fanout.queue1&quot;)
+   public void listenerFanoutQueue1(String msg) throws InterruptedException {
+      System.out.println(&quot;消费者[1]接受到fanout.queue的消息：[&quot; + msg + &quot;]&quot;);
+      Thread.sleep(200);
+   }
+
+   @RabbitListener(queues = &quot;fanout.queue2&quot;)
+   public void listenerFanoutQueue2(String msg) throws InterruptedException {
+      System.err.println(&quot;消费者[2]接受到fanout.queue的消息：[&quot; + msg + &quot;]&quot;);
+      Thread.sleep(200);
+   }
+}
+</code></pre>
 <ol>
 <li>发送</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nd">@SpringBootTest</span>
-<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringAMQPTest</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">RabbitTemplate</span><span class="w"> </span><span class="n">rabbitTemplate</span><span class="p">;</span>
-<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>
-<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSendFanoutExchange</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">exchangeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;itcast.fanout&quot;</span><span class="p">;</span>
-<a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello everyone&quot;</span><span class="p">;</span>
-<a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a><span class="w">      </span><span class="c1">// 发送消息，参数分别是：交互机名称、RoutingKey（暂时为空）、消息</span>
-<a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="w">      </span><span class="n">rabbitTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">exchangeName</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
-<a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@SpringBootTest
+@RunWith(SpringRunner.class)
+public class SpringAMQPTest {
+   @Resource
+   private RabbitTemplate rabbitTemplate;
+
+   @Test
+   public void testSendFanoutExchange() {
+      String exchangeName = &quot;itcast.fanout&quot;;
+      String msg = &quot;hello everyone&quot;;
+      // 发送消息，参数分别是：交互机名称、RoutingKey（暂时为空）、消息
+      rabbitTemplate.convertAndSend(exchangeName, &quot;&quot;, msg);
+   }
+}
+</code></pre>
 <h4 id="-directexchange">发布订阅-DirectExchange</h4>
 <p>Direct Exchange会将接收到的消息根据规则路由到<strong>指定</strong>的Queue,因此称为路由模式(routes) 。</p>
 <p><img alt="image-20230203165114097" src="../assets/image-20230203165114097.jpg" /></p>
@@ -3282,24 +3287,24 @@
 <li>在consumer服务中,编写两个消费者方法,分别监听direct.queue1和direct.queue2,</li>
 <li>并利用@RabbitListener声明Exchange,Queue、 RoutingKey</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">bindings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@QueueBinding</span><span class="p">(</span>
-<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Queue</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;direct.queue1&quot;</span><span class="p">),</span>
-<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="n">exchange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Exchange</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;itcast.direct&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExchangeTypes</span><span class="p">.</span><span class="na">DIRECT</span><span class="p">),</span>
-<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">    </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">}</span>
-<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="p">))</span>
-<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenDirectQueue1</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者接受到direct.queue1的消息：[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
-<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="p">}</span>
-<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>
-<a id="__codelineno-49-10" name="__codelineno-49-10" href="#__codelineno-49-10"></a><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">bindings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@QueueBinding</span><span class="p">(</span>
-<a id="__codelineno-49-11" name="__codelineno-49-11" href="#__codelineno-49-11"></a><span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Queue</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;direct.queue2&quot;</span><span class="p">),</span>
-<a id="__codelineno-49-12" name="__codelineno-49-12" href="#__codelineno-49-12"></a><span class="w">    </span><span class="n">exchange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Exchange</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;itcast.direct&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExchangeTypes</span><span class="p">.</span><span class="na">DIRECT</span><span class="p">),</span>
-<a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a><span class="w">    </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;yellow&quot;</span><span class="p">}</span>
-<a id="__codelineno-49-14" name="__codelineno-49-14" href="#__codelineno-49-14"></a><span class="p">))</span>
-<a id="__codelineno-49-15" name="__codelineno-49-15" href="#__codelineno-49-15"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenDirectQueue2</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者接受到direct.queue2的消息：[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
-<a id="__codelineno-49-17" name="__codelineno-49-17" href="#__codelineno-49-17"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;direct.queue1&quot;),
+    exchange = @Exchange(name = &quot;itcast.direct&quot;, type = ExchangeTypes.DIRECT),
+    key = {&quot;red&quot;, &quot;blue&quot;}
+))
+public void listenDirectQueue1(String msg) {
+    System.out.println(&quot;消费者接受到direct.queue1的消息：[&quot; + msg + &quot;]&quot;);
+}
+
+@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;direct.queue2&quot;),
+    exchange = @Exchange(name = &quot;itcast.direct&quot;, type = ExchangeTypes.DIRECT),
+    key = {&quot;red&quot;, &quot;yellow&quot;}
+))
+public void listenDirectQueue2(String msg) {
+    System.out.println(&quot;消费者接受到direct.queue2的消息：[&quot; + msg + &quot;]&quot;);
+}
+</code></pre>
 <p>描述下Direct交换机与Fanout交换机的差异?</p>
 <ul>
 <li>Fanout交换机将消息路由给每一个与之绑定的队列</li>
@@ -3316,32 +3321,32 @@
 <p><img alt="image-20230203170406242" src="../assets/image-20230203170406242.jpg" /></p>
 <p>实现：</p>
 <p>接收</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">bindings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@QueueBinding</span><span class="p">(</span>
-<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Queue</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;topic.queue1&quot;</span><span class="p">),</span>
-<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">    </span><span class="n">exchange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Exchange</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;itcast.topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExchangeTypes</span><span class="p">.</span><span class="na">TOPIC</span><span class="p">),</span>
-<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">    </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;china.#&quot;</span>
-<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="p">))</span>
-<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenTopicQueue1</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者接受到topic.queue1的消息：[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
-<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="p">}</span>
-<a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a>
-<a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a><span class="nd">@RabbitListener</span><span class="p">(</span><span class="n">bindings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@QueueBinding</span><span class="p">(</span>
-<a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a><span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Queue</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;topic.queue2&quot;</span><span class="p">),</span>
-<a id="__codelineno-50-12" name="__codelineno-50-12" href="#__codelineno-50-12"></a><span class="w">    </span><span class="n">exchange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Exchange</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;itcast.topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExchangeTypes</span><span class="p">.</span><span class="na">TOPIC</span><span class="p">),</span>
-<a id="__codelineno-50-13" name="__codelineno-50-13" href="#__codelineno-50-13"></a><span class="w">    </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#.news&quot;</span>
-<a id="__codelineno-50-14" name="__codelineno-50-14" href="#__codelineno-50-14"></a><span class="p">))</span>
-<a id="__codelineno-50-15" name="__codelineno-50-15" href="#__codelineno-50-15"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listenTopicQueue2</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-50-16" name="__codelineno-50-16" href="#__codelineno-50-16"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;消费者接受到topic.queue2的消息：[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
-<a id="__codelineno-50-17" name="__codelineno-50-17" href="#__codelineno-50-17"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;topic.queue1&quot;),
+    exchange = @Exchange(name = &quot;itcast.topic&quot;, type = ExchangeTypes.TOPIC),
+    key = &quot;china.#&quot;
+))
+public void listenTopicQueue1(String msg) {
+    System.out.println(&quot;消费者接受到topic.queue1的消息：[&quot; + msg + &quot;]&quot;);
+}
+
+@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = &quot;topic.queue2&quot;),
+    exchange = @Exchange(name = &quot;itcast.topic&quot;, type = ExchangeTypes.TOPIC),
+    key = &quot;#.news&quot;
+))
+public void listenTopicQueue2(String msg) {
+    System.out.println(&quot;消费者接受到topic.queue2的消息：[&quot; + msg + &quot;]&quot;);
+}
+</code></pre>
 <p>发送</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="nd">@Test</span>
-<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSendTopicExchange</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">exchangeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;itcast.topic&quot;</span><span class="p">;</span>
-<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;信工之星yyds！！！&quot;</span><span class="p">;</span>
-<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="w">    </span><span class="n">rabbitTemplate</span><span class="p">.</span><span class="na">convertAndSend</span><span class="p">(</span><span class="n">exchangeName</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;china.news&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
-<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@Test
+public void testSendTopicExchange() {
+    String exchangeName = &quot;itcast.topic&quot;;
+    String msg = &quot;信工之星yyds！！！&quot;;
+    rabbitTemplate.convertAndSend(exchangeName, &quot;china.news&quot;, msg);
+}
+</code></pre>
 <h4 id="_20">消息转换器</h4>
 <p>SpringAMQP中消息的序列化和反序列化是怎么实现的?</p>
 <ul>
@@ -3352,17 +3357,18 @@
 <p>推荐使用自定义的MessageConverter去覆盖默认的MessageConverter</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="cm">&lt;!--jackson--&gt;</span>
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="nt">&lt;dependency&gt;</span>
-<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class="nt">&lt;/groupId&gt;</span>
-<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>jackson-databind<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="w"> </span><span class="nd">@Bean</span>
-<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">MessageConverter</span><span class="w"> </span><span class="nf">messageConverter</span><span class="p">(){</span>
-<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Jackson2JsonMessageConverter</span><span class="p">();</span>
-<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="p">}</span>
-</code></pre></div>
+<p>```xml
+  <!--jackson--></p>
+<p><dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+  </dependency>
+  ```</p>
+<p><code>java
+   @Bean
+  public MessageConverter messageConverter(){
+      return new Jackson2JsonMessageConverter();
+  }</code></p>
 <ul>
 <li>注意发送方与接收方必须使用相同的MessageConverter</li>
 </ul>
@@ -3425,20 +3431,20 @@
 <li>利用config目录的lkAnalyzer.cfg.xml文件添加拓展词典和停用词典</li>
 <li>在词典中添加拓展词条或者停用词条</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="cp">&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;</span>
-<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="nt">&lt;properties&gt;</span>
-<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">    </span><span class="nt">&lt;comment&gt;</span>IK<span class="w"> </span>Analyzer<span class="w"> </span>扩展配置<span class="nt">&lt;/comment&gt;</span>
-<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">    </span><span class="cm">&lt;!--用户可以在这里配置自己的扩展字典 --&gt;</span>
-<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="w">    </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ext_dict&quot;</span><span class="nt">&gt;</span>ext.dic<span class="nt">&lt;/entry&gt;</span>
-<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="w">     </span><span class="cm">&lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;</span>
-<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="w">    </span><span class="nt">&lt;entry</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ext_stopwords&quot;</span><span class="nt">&gt;</span>stopword.dic<span class="nt">&lt;/entry&gt;</span>
-<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a><span class="w">    </span><span class="cm">&lt;!--用户可以在这里配置远程扩展字典 --&gt;</span>
-<a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="w">    </span><span class="cm">&lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;</span>
-<a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="w">    </span><span class="cm">&lt;!--用户可以在这里配置远程扩展停止词字典--&gt;</span>
-<a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="w">    </span><span class="cm">&lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;</span>
-<a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="nt">&lt;/properties&gt;</span>
-</code></pre></div>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;comment&gt;IK Analyzer 扩展配置&lt;/comment&gt;
+    &lt;!--用户可以在这里配置自己的扩展字典 --&gt;
+    &lt;entry key=&quot;ext_dict&quot;&gt;ext.dic&lt;/entry&gt;
+     &lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;
+    &lt;entry key=&quot;ext_stopwords&quot;&gt;stopword.dic&lt;/entry&gt;
+    &lt;!--用户可以在这里配置远程扩展字典 --&gt;
+    &lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;
+    &lt;!--用户可以在这里配置远程扩展停止词字典--&gt;
+    &lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;
+&lt;/properties&gt;
+</code></pre>
 <h3 id="_23">索引库</h3>
 <h4 id="mapping">mapping属性</h4>
 <p>mapping常见属性有哪些？</p>
@@ -3497,60 +3503,61 @@
 <li>准备DSL (CREATE时需要）</li>
 <li>发送请求。调用RestHighLevelClient#indices().xxx()方法, xxx是create、exists、 delete</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HotelIndexTest</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">RestHighLevelClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
-<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>
-<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">testInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
-<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>
-<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a><span class="cm">    * 删除</span>
-<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a><span class="cm">    */</span>
-<a id="__codelineno-55-12" name="__codelineno-55-12" href="#__codelineno-55-12"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-55-13" name="__codelineno-55-13" href="#__codelineno-55-13"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteHotelIndex</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-14" name="__codelineno-55-14" href="#__codelineno-55-14"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">indices</span><span class="p">().</span><span class="na">delete</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DeleteIndexRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-55-15" name="__codelineno-55-15" href="#__codelineno-55-15"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-55-16" name="__codelineno-55-16" href="#__codelineno-55-16"></a>
-<a id="__codelineno-55-17" name="__codelineno-55-17" href="#__codelineno-55-17"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-55-18" name="__codelineno-55-18" href="#__codelineno-55-18"></a><span class="cm">    * 判断是否存在</span>
-<a id="__codelineno-55-19" name="__codelineno-55-19" href="#__codelineno-55-19"></a><span class="cm">    */</span>
-<a id="__codelineno-55-20" name="__codelineno-55-20" href="#__codelineno-55-20"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-55-21" name="__codelineno-55-21" href="#__codelineno-55-21"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">existsHotelIndex</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-22" name="__codelineno-55-22" href="#__codelineno-55-22"></a><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">indices</span><span class="p">().</span><span class="na">exists</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GetIndexRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-55-23" name="__codelineno-55-23" href="#__codelineno-55-23"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">exists</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;索引库存在&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;索引库不存在&quot;</span><span class="p">);</span>
-<a id="__codelineno-55-24" name="__codelineno-55-24" href="#__codelineno-55-24"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-55-25" name="__codelineno-55-25" href="#__codelineno-55-25"></a>
-<a id="__codelineno-55-26" name="__codelineno-55-26" href="#__codelineno-55-26"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-55-27" name="__codelineno-55-27" href="#__codelineno-55-27"></a><span class="cm">    * 创建</span>
-<a id="__codelineno-55-28" name="__codelineno-55-28" href="#__codelineno-55-28"></a><span class="cm">    */</span>
-<a id="__codelineno-55-29" name="__codelineno-55-29" href="#__codelineno-55-29"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-55-30" name="__codelineno-55-30" href="#__codelineno-55-30"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">creatHotelIndex</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-31" name="__codelineno-55-31" href="#__codelineno-55-31"></a><span class="w">      </span><span class="c1">// 1.创建Request对象</span>
-<a id="__codelineno-55-32" name="__codelineno-55-32" href="#__codelineno-55-32"></a><span class="w">      </span><span class="n">CreateIndexRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreateIndexRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">);</span>
-<a id="__codelineno-55-33" name="__codelineno-55-33" href="#__codelineno-55-33"></a><span class="w">      </span><span class="c1">// 2.准备请求参数,准备DSL</span>
-<a id="__codelineno-55-34" name="__codelineno-55-34" href="#__codelineno-55-34"></a><span class="w">      </span><span class="n">request</span><span class="p">.</span><span class="na">source</span><span class="p">(</span><span class="n">MAPPING_TEMPLATE</span><span class="p">,</span><span class="w"> </span><span class="n">XContentType</span><span class="p">.</span><span class="na">JSON</span><span class="p">);</span>
-<a id="__codelineno-55-35" name="__codelineno-55-35" href="#__codelineno-55-35"></a><span class="w">      </span><span class="c1">// 3.发送请求</span>
-<a id="__codelineno-55-36" name="__codelineno-55-36" href="#__codelineno-55-36"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">indices</span><span class="p">().</span><span class="na">create</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-55-37" name="__codelineno-55-37" href="#__codelineno-55-37"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-55-38" name="__codelineno-55-38" href="#__codelineno-55-38"></a>
-<a id="__codelineno-55-39" name="__codelineno-55-39" href="#__codelineno-55-39"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-55-40" name="__codelineno-55-40" href="#__codelineno-55-40"></a><span class="cm">    * 初始化</span>
-<a id="__codelineno-55-41" name="__codelineno-55-41" href="#__codelineno-55-41"></a><span class="cm">    */</span>
-<a id="__codelineno-55-42" name="__codelineno-55-42" href="#__codelineno-55-42"></a><span class="w">   </span><span class="nd">@BeforeEach</span>
-<a id="__codelineno-55-43" name="__codelineno-55-43" href="#__codelineno-55-43"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">setUp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-44" name="__codelineno-55-44" href="#__codelineno-55-44"></a><span class="w">      </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestHighLevelClient</span><span class="p">(</span><span class="n">RestClient</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span>
-<a id="__codelineno-55-45" name="__codelineno-55-45" href="#__codelineno-55-45"></a><span class="w">              </span><span class="n">HttpHost</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;http://192.168.58.130:9200&quot;</span><span class="p">)</span>
-<a id="__codelineno-55-46" name="__codelineno-55-46" href="#__codelineno-55-46"></a><span class="w">      </span><span class="p">));</span>
-<a id="__codelineno-55-47" name="__codelineno-55-47" href="#__codelineno-55-47"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-55-48" name="__codelineno-55-48" href="#__codelineno-55-48"></a>
-<a id="__codelineno-55-49" name="__codelineno-55-49" href="#__codelineno-55-49"></a><span class="w">   </span><span class="nd">@AfterEach</span>
-<a id="__codelineno-55-50" name="__codelineno-55-50" href="#__codelineno-55-50"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-55-51" name="__codelineno-55-51" href="#__codelineno-55-51"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-<a id="__codelineno-55-52" name="__codelineno-55-52" href="#__codelineno-55-52"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-55-53" name="__codelineno-55-53" href="#__codelineno-55-53"></a><span class="p">}</span>
+<p>```java
+ public class HotelIndexTest {
+    private RestHighLevelClient client;</p>
+<div class="highlight"><pre><span></span><code>@Test
+void testInit() {
+   System.out.println(client);
+}
+
+/**
+ * 删除
+ */
+@Test
+void deleteHotelIndex() throws IOException {
+   client.indices().delete(new DeleteIndexRequest(&quot;hotel&quot;), RequestOptions.DEFAULT);
+}
+
+/**
+ * 判断是否存在
+ */
+@Test
+void existsHotelIndex() throws IOException {
+   boolean exists = client.indices().exists(new GetIndexRequest(&quot;hotel&quot;), RequestOptions.DEFAULT);
+   System.out.println(exists ? &quot;索引库存在&quot; : &quot;索引库不存在&quot;);
+}
+
+/**
+ * 创建
+ */
+@Test
+void creatHotelIndex() throws IOException {
+   // 1.创建Request对象
+   CreateIndexRequest request = new CreateIndexRequest(&quot;hotel&quot;);
+   // 2.准备请求参数,准备DSL
+   request.source(MAPPING_TEMPLATE, XContentType.JSON);
+   // 3.发送请求
+   client.indices().create(request, RequestOptions.DEFAULT);
+}
+
+/**
+ * 初始化
+ */
+@BeforeEach
+void setUp() {
+   client = new RestHighLevelClient(RestClient.builder(
+           HttpHost.create(&quot;http://192.168.58.130:9200&quot;)
+   ));
+}
+
+@AfterEach
+void tearDown() throws IOException {
+   client.close();
+}
 </code></pre></div>
+<p>}
+ ```</p>
 <h4 id="_27">操作文档</h4>
 <ol>
 <li>初始化RestHighLevelClient</li>
@@ -3559,101 +3566,101 @@
 <li>发送请求。调用RestHighLevelClient#.xxx()方法，xxx是index, get, update, delete</li>
 <li>解析结果（Get时需要）</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="nd">@SpringBootTest</span>
-<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HotelDocumentTest</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">   </span><span class="nd">@Resource</span>
-<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">IHotelService</span><span class="w"> </span><span class="n">hotelService</span><span class="p">;</span>
-<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>
-<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">RestHighLevelClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
-<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>
-<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a><span class="cm">    * 添加文档</span>
-<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a><span class="cm">    */</span>
-<a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAddDocument</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-13" name="__codelineno-56-13" href="#__codelineno-56-13"></a><span class="w">      </span><span class="n">Hotel</span><span class="w"> </span><span class="n">hotel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hotelService</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="mi">36934L</span><span class="p">);</span>
-<a id="__codelineno-56-14" name="__codelineno-56-14" href="#__codelineno-56-14"></a><span class="w">      </span><span class="n">HotelDoc</span><span class="w"> </span><span class="n">hotelDoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HotelDoc</span><span class="p">(</span><span class="n">hotel</span><span class="p">);</span>
-<a id="__codelineno-56-15" name="__codelineno-56-15" href="#__codelineno-56-15"></a><span class="w">      </span><span class="c1">// 1.准备Request对象</span>
-<a id="__codelineno-56-16" name="__codelineno-56-16" href="#__codelineno-56-16"></a><span class="w">      </span><span class="n">IndexRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IndexRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">).</span><span class="na">id</span><span class="p">(</span><span class="n">hotelDoc</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
-<a id="__codelineno-56-17" name="__codelineno-56-17" href="#__codelineno-56-17"></a><span class="w">      </span><span class="c1">// 2.准备JSON文档</span>
-<a id="__codelineno-56-18" name="__codelineno-56-18" href="#__codelineno-56-18"></a><span class="w">      </span><span class="n">request</span><span class="p">.</span><span class="na">source</span><span class="p">(</span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">hotelDoc</span><span class="p">),</span><span class="w"> </span><span class="n">XContentType</span><span class="p">.</span><span class="na">JSON</span><span class="p">);</span>
-<a id="__codelineno-56-19" name="__codelineno-56-19" href="#__codelineno-56-19"></a><span class="w">      </span><span class="c1">// 3.发送请求</span>
-<a id="__codelineno-56-20" name="__codelineno-56-20" href="#__codelineno-56-20"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">index</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-56-21" name="__codelineno-56-21" href="#__codelineno-56-21"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-22" name="__codelineno-56-22" href="#__codelineno-56-22"></a>
-<a id="__codelineno-56-23" name="__codelineno-56-23" href="#__codelineno-56-23"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-56-24" name="__codelineno-56-24" href="#__codelineno-56-24"></a><span class="cm">    * 获取文档</span>
-<a id="__codelineno-56-25" name="__codelineno-56-25" href="#__codelineno-56-25"></a><span class="cm">    */</span>
-<a id="__codelineno-56-26" name="__codelineno-56-26" href="#__codelineno-56-26"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-56-27" name="__codelineno-56-27" href="#__codelineno-56-27"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">testGetDocument</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-28" name="__codelineno-56-28" href="#__codelineno-56-28"></a><span class="w">      </span><span class="c1">// 1.获取Request对象</span>
-<a id="__codelineno-56-29" name="__codelineno-56-29" href="#__codelineno-56-29"></a><span class="w">      </span><span class="n">GetRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GetRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;36934&quot;</span><span class="p">);</span>
-<a id="__codelineno-56-30" name="__codelineno-56-30" href="#__codelineno-56-30"></a><span class="w">      </span><span class="c1">// 2.发送请求，获取响应</span>
-<a id="__codelineno-56-31" name="__codelineno-56-31" href="#__codelineno-56-31"></a><span class="w">      </span><span class="n">GetResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-56-32" name="__codelineno-56-32" href="#__codelineno-56-32"></a><span class="w">      </span><span class="c1">// 3.解析响应结果</span>
-<a id="__codelineno-56-33" name="__codelineno-56-33" href="#__codelineno-56-33"></a><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getSourceAsString</span><span class="p">();</span>
-<a id="__codelineno-56-34" name="__codelineno-56-34" href="#__codelineno-56-34"></a><span class="w">      </span><span class="n">HotelDoc</span><span class="w"> </span><span class="n">hotelDoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="na">parseObject</span><span class="p">(</span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">HotelDoc</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-<a id="__codelineno-56-35" name="__codelineno-56-35" href="#__codelineno-56-35"></a><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hotelDoc</span><span class="p">);</span>
-<a id="__codelineno-56-36" name="__codelineno-56-36" href="#__codelineno-56-36"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-37" name="__codelineno-56-37" href="#__codelineno-56-37"></a>
-<a id="__codelineno-56-38" name="__codelineno-56-38" href="#__codelineno-56-38"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-56-39" name="__codelineno-56-39" href="#__codelineno-56-39"></a><span class="cm">    * 更新文档</span>
-<a id="__codelineno-56-40" name="__codelineno-56-40" href="#__codelineno-56-40"></a><span class="cm">    */</span>
-<a id="__codelineno-56-41" name="__codelineno-56-41" href="#__codelineno-56-41"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-56-42" name="__codelineno-56-42" href="#__codelineno-56-42"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">testUpdateDocument</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-43" name="__codelineno-56-43" href="#__codelineno-56-43"></a><span class="w">      </span><span class="c1">// 1.获取Request对象</span>
-<a id="__codelineno-56-44" name="__codelineno-56-44" href="#__codelineno-56-44"></a><span class="w">      </span><span class="n">UpdateRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;36934&quot;</span><span class="p">);</span>
-<a id="__codelineno-56-45" name="__codelineno-56-45" href="#__codelineno-56-45"></a><span class="w">      </span><span class="c1">// 2.准备请求参数</span>
-<a id="__codelineno-56-46" name="__codelineno-56-46" href="#__codelineno-56-46"></a><span class="w">      </span><span class="n">request</span><span class="p">.</span><span class="na">doc</span><span class="p">(</span>
-<a id="__codelineno-56-47" name="__codelineno-56-47" href="#__codelineno-56-47"></a><span class="w">              </span><span class="s">&quot;price&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;10000&quot;</span><span class="p">,</span>
-<a id="__codelineno-56-48" name="__codelineno-56-48" href="#__codelineno-56-48"></a><span class="w">              </span><span class="s">&quot;starName&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;五钻&quot;</span>
-<a id="__codelineno-56-49" name="__codelineno-56-49" href="#__codelineno-56-49"></a><span class="w">      </span><span class="p">);</span>
-<a id="__codelineno-56-50" name="__codelineno-56-50" href="#__codelineno-56-50"></a><span class="w">      </span><span class="c1">// 3.发送请求</span>
-<a id="__codelineno-56-51" name="__codelineno-56-51" href="#__codelineno-56-51"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-56-52" name="__codelineno-56-52" href="#__codelineno-56-52"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-53" name="__codelineno-56-53" href="#__codelineno-56-53"></a>
-<a id="__codelineno-56-54" name="__codelineno-56-54" href="#__codelineno-56-54"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-56-55" name="__codelineno-56-55" href="#__codelineno-56-55"></a><span class="cm">    * 删除文档</span>
-<a id="__codelineno-56-56" name="__codelineno-56-56" href="#__codelineno-56-56"></a><span class="cm">    */</span>
-<a id="__codelineno-56-57" name="__codelineno-56-57" href="#__codelineno-56-57"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-56-58" name="__codelineno-56-58" href="#__codelineno-56-58"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">testDeleteDocument</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-59" name="__codelineno-56-59" href="#__codelineno-56-59"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DeleteRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;36934&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-56-60" name="__codelineno-56-60" href="#__codelineno-56-60"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-61" name="__codelineno-56-61" href="#__codelineno-56-61"></a>
-<a id="__codelineno-56-62" name="__codelineno-56-62" href="#__codelineno-56-62"></a><span class="w">   </span><span class="cm">/**</span>
-<a id="__codelineno-56-63" name="__codelineno-56-63" href="#__codelineno-56-63"></a><span class="cm">    * 批量添加</span>
-<a id="__codelineno-56-64" name="__codelineno-56-64" href="#__codelineno-56-64"></a><span class="cm">    */</span>
-<a id="__codelineno-56-65" name="__codelineno-56-65" href="#__codelineno-56-65"></a><span class="w">   </span><span class="nd">@Test</span>
-<a id="__codelineno-56-66" name="__codelineno-56-66" href="#__codelineno-56-66"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">testBulkRequest</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-67" name="__codelineno-56-67" href="#__codelineno-56-67"></a><span class="w">      </span><span class="c1">// 获取全部的hotel</span>
-<a id="__codelineno-56-68" name="__codelineno-56-68" href="#__codelineno-56-68"></a><span class="w">      </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Hotel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hotels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hotelService</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
-<a id="__codelineno-56-69" name="__codelineno-56-69" href="#__codelineno-56-69"></a>
-<a id="__codelineno-56-70" name="__codelineno-56-70" href="#__codelineno-56-70"></a><span class="w">      </span><span class="c1">// 1.创建Request</span>
-<a id="__codelineno-56-71" name="__codelineno-56-71" href="#__codelineno-56-71"></a><span class="w">      </span><span class="n">BulkRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BulkRequest</span><span class="p">();</span>
-<a id="__codelineno-56-72" name="__codelineno-56-72" href="#__codelineno-56-72"></a><span class="w">      </span><span class="c1">// 2.准备参数，添加多个新增的Request</span>
-<a id="__codelineno-56-73" name="__codelineno-56-73" href="#__codelineno-56-73"></a><span class="w">      </span><span class="n">hotels</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">hotel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-74" name="__codelineno-56-74" href="#__codelineno-56-74"></a><span class="w">         </span><span class="n">HotelDoc</span><span class="w"> </span><span class="n">hotelDoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HotelDoc</span><span class="p">(</span><span class="n">hotel</span><span class="p">);</span>
-<a id="__codelineno-56-75" name="__codelineno-56-75" href="#__codelineno-56-75"></a><span class="w">         </span><span class="n">request</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">IndexRequest</span><span class="p">(</span><span class="s">&quot;hotel&quot;</span><span class="p">)</span>
-<a id="__codelineno-56-76" name="__codelineno-56-76" href="#__codelineno-56-76"></a><span class="w">                 </span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="n">hotelDoc</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
-<a id="__codelineno-56-77" name="__codelineno-56-77" href="#__codelineno-56-77"></a><span class="w">                 </span><span class="p">.</span><span class="na">source</span><span class="p">(</span><span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">hotelDoc</span><span class="p">),</span><span class="w"> </span><span class="n">XContentType</span><span class="p">.</span><span class="na">JSON</span><span class="p">));</span>
-<a id="__codelineno-56-78" name="__codelineno-56-78" href="#__codelineno-56-78"></a><span class="w">      </span><span class="p">});</span>
-<a id="__codelineno-56-79" name="__codelineno-56-79" href="#__codelineno-56-79"></a><span class="w">      </span><span class="c1">// 3.发送请求</span>
-<a id="__codelineno-56-80" name="__codelineno-56-80" href="#__codelineno-56-80"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">bulk</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">RequestOptions</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">);</span>
-<a id="__codelineno-56-81" name="__codelineno-56-81" href="#__codelineno-56-81"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-82" name="__codelineno-56-82" href="#__codelineno-56-82"></a>
-<a id="__codelineno-56-83" name="__codelineno-56-83" href="#__codelineno-56-83"></a><span class="w">   </span><span class="nd">@BeforeEach</span>
-<a id="__codelineno-56-84" name="__codelineno-56-84" href="#__codelineno-56-84"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">setUp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-85" name="__codelineno-56-85" href="#__codelineno-56-85"></a><span class="w">      </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestHighLevelClient</span><span class="p">(</span><span class="n">RestClient</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span>
-<a id="__codelineno-56-86" name="__codelineno-56-86" href="#__codelineno-56-86"></a><span class="w">              </span><span class="n">HttpHost</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;http://192.168.58.130:9200&quot;</span><span class="p">)</span>
-<a id="__codelineno-56-87" name="__codelineno-56-87" href="#__codelineno-56-87"></a><span class="w">      </span><span class="p">));</span>
-<a id="__codelineno-56-88" name="__codelineno-56-88" href="#__codelineno-56-88"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-89" name="__codelineno-56-89" href="#__codelineno-56-89"></a>
-<a id="__codelineno-56-90" name="__codelineno-56-90" href="#__codelineno-56-90"></a><span class="w">   </span><span class="nd">@AfterEach</span>
-<a id="__codelineno-56-91" name="__codelineno-56-91" href="#__codelineno-56-91"></a><span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-56-92" name="__codelineno-56-92" href="#__codelineno-56-92"></a><span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-<a id="__codelineno-56-93" name="__codelineno-56-93" href="#__codelineno-56-93"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-56-94" name="__codelineno-56-94" href="#__codelineno-56-94"></a><span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-java">@SpringBootTest
+public class HotelDocumentTest {
+   @Resource
+   private IHotelService hotelService;
+
+   private RestHighLevelClient client;
+
+   /**
+    * 添加文档
+    */
+   @Test
+   void testAddDocument() throws IOException {
+      Hotel hotel = hotelService.getById(36934L);
+      HotelDoc hotelDoc = new HotelDoc(hotel);
+      // 1.准备Request对象
+      IndexRequest request = new IndexRequest(&quot;hotel&quot;).id(hotelDoc.getId().toString());
+      // 2.准备JSON文档
+      request.source(JSON.toJSONString(hotelDoc), XContentType.JSON);
+      // 3.发送请求
+      client.index(request, RequestOptions.DEFAULT);
+   }
+
+   /**
+    * 获取文档
+    */
+   @Test
+   void testGetDocument() throws IOException {
+      // 1.获取Request对象
+      GetRequest request = new GetRequest(&quot;hotel&quot;, &quot;36934&quot;);
+      // 2.发送请求，获取响应
+      GetResponse response = client.get(request, RequestOptions.DEFAULT);
+      // 3.解析响应结果
+      String json = response.getSourceAsString();
+      HotelDoc hotelDoc = JSON.parseObject(json, HotelDoc.class);
+      System.out.println(hotelDoc);
+   }
+
+   /**
+    * 更新文档
+    */
+   @Test
+   void testUpdateDocument() throws IOException {
+      // 1.获取Request对象
+      UpdateRequest request = new UpdateRequest(&quot;hotel&quot;, &quot;36934&quot;);
+      // 2.准备请求参数
+      request.doc(
+              &quot;price&quot;, &quot;10000&quot;,
+              &quot;starName&quot;, &quot;五钻&quot;
+      );
+      // 3.发送请求
+      client.update(request, RequestOptions.DEFAULT);
+   }
+
+   /**
+    * 删除文档
+    */
+   @Test
+   void testDeleteDocument() throws IOException {
+      client.delete(new DeleteRequest(&quot;hotel&quot;, &quot;36934&quot;), RequestOptions.DEFAULT);
+   }
+
+   /**
+    * 批量添加
+    */
+   @Test
+   void testBulkRequest() throws IOException {
+      // 获取全部的hotel
+      List&lt;Hotel&gt; hotels = hotelService.list();
+
+      // 1.创建Request
+      BulkRequest request = new BulkRequest();
+      // 2.准备参数，添加多个新增的Request
+      hotels.forEach(hotel -&gt; {
+         HotelDoc hotelDoc = new HotelDoc(hotel);
+         request.add(new IndexRequest(&quot;hotel&quot;)
+                 .id(hotelDoc.getId().toString())
+                 .source(JSON.toJSONString(hotelDoc), XContentType.JSON));
+      });
+      // 3.发送请求
+      client.bulk(request, RequestOptions.DEFAULT);
+   }
+
+   @BeforeEach
+   void setUp() {
+      client = new RestHighLevelClient(RestClient.builder(
+              HttpHost.create(&quot;http://192.168.58.130:9200&quot;)
+      ));
+   }
+
+   @AfterEach
+   void tearDown() throws IOException {
+      client.close();
+   }
+}
+</code></pre>
 
 
 

@@ -1153,125 +1153,125 @@
 <p>Docker CE 支持 64 位版本 CentOS 7，并且要求内核版本不低于 3.10， CentOS 7 满足最低内核的要求，所以我们在CentOS 7安装Docker。</p>
 <h2 id="11">1.1.卸载（可选）</h2>
 <p>如果之前安装过旧版本的Docker，可以使用下面命令卸载：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>yum remove docker \
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                  docker-client \
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                  docker-client-latest \
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                  docker-common \
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                  docker-latest \
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                  docker-latest-logrotate \
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                  docker-logrotate \
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                  docker-selinux \
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                  docker-engine-selinux \
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                  docker-engine \
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                  docker-ce
-</code></pre></div>
+<pre><code>yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine \
+                  docker-ce
+</code></pre>
 <h2 id="12docker">1.2.安装docker</h2>
 <p>首先需要大家虚拟机联网，安装yum工具</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>yum-utils<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">           </span>device-mapper-persistent-data<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">           </span>lvm2<span class="w"> </span>--skip-broken
-</code></pre></div>
+<pre><code class="language-sh">yum install -y yum-utils \
+           device-mapper-persistent-data \
+           lvm2 --skip-broken
+</code></pre>
 <p>然后更新本地镜像源：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 设置docker镜像源</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>yum-config-manager<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>--add-repo<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span>https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/download.docker.com/mirrors.aliyun.com\/docker-ce/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/docker-ce.repo
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>yum<span class="w"> </span>makecache<span class="w"> </span>fast
-</code></pre></div>
+<pre><code class="language-shell"># 设置docker镜像源
+yum-config-manager \
+    --add-repo \
+    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
+
+yum makecache fast
+</code></pre>
 <p>然后输入命令：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker-ce
-</code></pre></div>
+<pre><code class="language-shell">yum install -y docker-ce
+</code></pre>
 <p>docker-ce为社区免费版本。稍等片刻，docker即可安装成功。</p>
 <h2 id="13docker">1.3.启动docker</h2>
 <p>Docker应用需要用到各种端口，逐一去修改防火墙设置。非常麻烦，因此建议大家直接关闭防火墙！</p>
 <p><span style='color: red'>启动docker前，一定要关闭防火墙后！！</span></p>
 <p><span style='color: red'>启动docker前，一定要关闭防火墙后！！</span></p>
 <p><span style='color: red'>启动docker前，一定要关闭防火墙后！！</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 关闭</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># 禁止开机启动防火墙</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>systemctl<span class="w"> </span>disable<span class="w"> </span>firewalld
-</code></pre></div>
+<pre><code class="language-sh"># 关闭
+systemctl stop firewalld
+# 禁止开机启动防火墙
+systemctl disable firewalld
+</code></pre>
 <p>通过命令启动docker：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>docker<span class="w">  </span><span class="c1"># 启动docker服务</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>docker<span class="w">  </span><span class="c1"># 停止docker服务</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>docker<span class="w">  </span><span class="c1"># 重启docker服务</span>
-</code></pre></div>
+<pre><code class="language-sh">systemctl start docker  # 启动docker服务
+
+systemctl stop docker  # 停止docker服务
+
+systemctl restart docker  # 重启docker服务
+</code></pre>
 <p>然后输入命令，可以查看docker版本：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker -v
-</code></pre></div>
+<pre><code>docker -v
+</code></pre>
 <h2 id="14">1.4.配置镜像加速</h2>
 <p>docker官方镜像仓库网速较差，我们需要设置国内镜像服务：</p>
 <p>参考阿里云的镜像加速文档：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</p>
 <h1 id="2centos7dockercompose">2.CentOS7安装DockerCompose</h1>
 <h2 id="21">2.1.下载</h2>
 <p>Linux下需要通过命令下载：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 安装</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://github.com/docker/compose/releases/download/1.23.1/docker-compose-<span class="sb">`</span>uname<span class="w"> </span>-s<span class="sb">`</span>-<span class="sb">`</span>uname<span class="w"> </span>-m<span class="sb">`</span><span class="w"> </span>&gt;<span class="w"> </span>/usr/local/bin/docker-compose
-</code></pre></div>
+<pre><code class="language-sh"># 安装
+curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+</code></pre>
 <p>如果下载速度较慢，或者下载失败，可以使用课前资料提供的docker-compose文件：</p>
 <p>上传到<code>/usr/local/bin/</code>目录也可以。</p>
 <h2 id="22">2.2.修改文件权限</h2>
 <p>修改文件权限：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 修改权限</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
-</code></pre></div>
+<pre><code class="language-sh"># 修改权限
+chmod +x /usr/local/bin/docker-compose
+</code></pre>
 <h2 id="23base">2.3.Base自动补全命令：</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 补全命令</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose<span class="w"> </span>&gt;<span class="w"> </span>/etc/bash_completion.d/docker-compose
-</code></pre></div>
+<pre><code class="language-sh"># 补全命令
+curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose
+</code></pre>
 <p>如果这里出现错误，需要修改自己的hosts文件：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;192.168.58.128 raw.githubusercontent.com&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/hosts
-</code></pre></div>
+<pre><code class="language-sh">echo &quot;192.168.58.128 raw.githubusercontent.com&quot; &gt;&gt; /etc/hosts
+</code></pre>
 <h1 id="3docker">3.Docker镜像仓库</h1>
 <p>搭建镜像仓库可以基于Docker官方提供的DockerRegistry来实现。</p>
 <p>官网地址：https://hub.docker.com/_/registry</p>
 <h2 id="31">3.1.简化版镜像仓库</h2>
 <p>Docker官方的Docker Registry是一个基础版本的Docker镜像仓库，具备仓库管理的完整功能，但是没有图形化界面。</p>
 <p>搭建方式比较简单，命令如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span>--restart<span class="o">=</span>always<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span>--name<span class="w"> </span>registry<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span>-v<span class="w"> </span>registry-data:/var/lib/registry<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span>registry
-</code></pre></div>
+<pre><code class="language-sh">docker run -d \
+    --restart=always \
+    --name registry \
+    -p 5000:5000 \
+    -v registry-data:/var/lib/registry \
+    registry
+</code></pre>
 <p>命令中挂载了一个数据卷registry-data到容器内的/var/lib/registry 目录，这是私有镜像库存放数据的目录。</p>
 <p>访问http://YourIp:5000/v2/_catalog 可以查看当前私有镜像服务中包含的镜像</p>
 <h2 id="32">3.2.带有图形化界面版本</h2>
 <p>使用DockerCompose部署带有图象界面的DockerRegistry，命令如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.0&#39;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">registry</span><span class="p">:</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./registry-data:/var/lib/registry</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nt">ui</span><span class="p">:</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">joxit/docker-registry-ui:static</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:80</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REGISTRY_TITLE=传智教育私有仓库</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REGISTRY_URL=http://registry:5000</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry</span>
-</code></pre></div>
+<pre><code class="language-yaml">version: '3.0'
+services:
+  registry:
+    image: registry
+    volumes:
+      - ./registry-data:/var/lib/registry
+  ui:
+    image: joxit/docker-registry-ui:static
+    ports:
+      - 8080:80
+    environment:
+      - REGISTRY_TITLE=传智教育私有仓库
+      - REGISTRY_URL=http://registry:5000
+    depends_on:
+      - registry
+</code></pre>
 <h2 id="33docker">3.3.配置Docker信任地址</h2>
 <p>我们的私服采用的是http协议，默认不被Docker信任，所以需要做一个配置：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 打开要修改的文件</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>vi<span class="w"> </span>/etc/docker/daemon.json
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># 添加内容：</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="s2">&quot;insecure-registries&quot;</span>:<span class="o">[</span><span class="s2">&quot;http://192.168.58.128:8080&quot;</span><span class="o">]</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># 重加载</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>systemctl<span class="w"> </span>daemon-reload
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 重启docker</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
-</code></pre></div>
+<pre><code class="language-sh"># 打开要修改的文件
+vi /etc/docker/daemon.json
+# 添加内容：
+&quot;insecure-registries&quot;:[&quot;http://192.168.58.128:8080&quot;]
+# 重加载
+systemctl daemon-reload
+# 重启docker
+systemctl restart docker
+</code></pre>
 
 
 
