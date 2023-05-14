@@ -1781,12 +1781,12 @@
 <h3 id="_2">变量</h3>
 <p>Python中的变量区分大小写，命名规范与java相同，数字不能开头</p>
 <p>在Python中，两个变量之间进行数据交换，可以下为一下形式</p>
-<pre><code class="language-python">x = 3
-y = 5
-print(x, y)  # 3 5
-x, y = y, x
-print(x, y)  # 5 3
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># 3 5</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># 5 3</span>
+</code></pre></div>
 <h3 id="_3">字符串</h3>
 <p>Python中有三种表示字符串的形式</p>
 <ol>
@@ -1798,43 +1798,43 @@ print(x, y)  # 5 3
 <p><img alt="image-20230413224517116" src="../Python%E5%B0%8F%E7%94%B2%E9%B1%BC.assets/image-20230413224517116.jpg" /></p>
 <h4 id="_4">原始字符串</h4>
 <p>在前面加r</p>
-<pre><code class="language-python">print(r&quot;D:\three&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;D:\three&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h4 id="_5">长字符串</h4>
 <p>成对出现</p>
-<pre><code class="language-python">&quot;&quot;&quot; &quot;&quot;&quot;
-''' '''
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="sd">&#39;&#39;&#39; &#39;&#39;&#39;</span>
+</code></pre></div>
 <h4 id="_6">字符串的乘法复制</h4>
-<pre><code class="language-python">print(&quot;123\n&quot; * 3)
-# 123
-# 123
-# 123
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;123</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># 123</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># 123</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 123</span>
+</code></pre></div>
 <h2 id="_7">数字类型</h2>
 <h3 id="integers">整数integers</h3>
 <h3 id="float-point-numbers">浮点数float point numbers</h3>
 <p>python中用科学计数法表示小数位超过5位的浮点数</p>
-<pre><code class="language-python"># 5e-05
-print(0.00005)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 5e-05</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.00005</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="complex-numbers">复数complex numbers</h3>
-<pre><code class="language-python">x = 1+2j
-print(x.real)   # 实部
-print(x.imag)   # 虚部
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>   <span class="c1"># 实部</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>   <span class="c1"># 虚部</span>
+</code></pre></div>
 <h3 id="_8">运算符</h3>
 <p><img alt="image-20230415164116312" src="../Python%E5%B0%8F%E7%94%B2%E9%B1%BC.assets/image-20230415164116312.jpg" /></p>
 <p>x // y：取比目标结果小的最大整数（向下取整/向小的那个值取整）</p>
-<pre><code class="language-python">print(3 // 2)   # 1
-print(-3 // 2)  # -2
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># 1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># -2</span>
+</code></pre></div>
 <h2 id="_9">短路逻辑和运算符优先级</h2>
 <p>短路逻辑的核心思想:从左往右,只有当第一个操作数的值无法确定逻辑运算的结果时，才对第二个操作数进行求值。</p>
 <h2 id="_10">“三目运算符”</h2>
 <p>Python中类似与C/C++、java中的三目运算符是</p>
-<pre><code class="language-python">print(&quot;true&quot; if 1 &lt; 2 else &quot;false&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;true&quot;</span> <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="_11">循环</h2>
 <h3 id="while">while</h3>
 <p>与C/C++、java不同的是，while循环可以写else语句，如果条件不满足，则执行else语句，退出循环时不用另加判断</p>
@@ -1844,177 +1844,177 @@ print(-3 // 2)  # -2
 <p><img alt="image-20230420201330848" src="../Python%E5%B0%8F%E7%94%B2%E9%B1%BC.assets/image-20230420201330848.jpg" /></p>
 <h2 id="_12">列表</h2>
 <h3 id="_13">切片</h3>
-<pre><code class="language-python">arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(arr[:])  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(arr[3:])  # [4, 5, 6, 7, 8, 9, 10]
-print(arr[:3])  # [1, 2, 3]
-print(arr[::1])  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(arr[::-1])  # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[:])</span>  <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>  <span class="c1"># [4, 5, 6, 7, 8, 9, 10]</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># [1, 2, 3]</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[::</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</span>
+</code></pre></div>
 <h3 id="extend">extend()</h3>
 <p>extend()方法的参数必须是一个<strong>可迭代对象</strong>,新的内容是追加到原列表最后一个元素的后面。</p>
 <h3 id="_14">嵌套列表</h3>
-<pre><code class="language-python">arr = [None] * 3
-for i in range(3):
-    arr[i] = [None] * 2
-print(arr)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="_15">列表推导式</h3>
 <p>基本语法：</p>
 <p>[expression for target in iterable]</p>
-<pre><code class="language-python">arr = [1, 2, 3, 4, 5]
-for i in range(len(arr)):
-    arr[i] *= 2
-print(arr)
-
-# 使用列表推导式
-arr = [1, 2, 3, 4, 5]
-arr = [i * 2 for i in arr]
-
-matrix = [[1, 2, 3],
-          [4, 5, 6],
-          [7, 8, 9]]
-col2 = [matrix[i][-i - 1] for i in range(len(matrix))]  # 取出斜对角线
-print(col2)
-</code></pre>
-<pre><code class="language-python"># 还可以在后面添加if筛选
-a = [i for i in range(10) if i &amp; 1 == 0]
-print(a)
-</code></pre>
-<pre><code class="language-python"># 列表推导式的嵌套
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-flatten = [col for row in matrix
-           for col in row]
-print(flatten)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># 使用列表推导式</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">]</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>          <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>          <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">))]</span>  <span class="c1"># 取出斜对角线</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">col2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 还可以在后面添加if筛选</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 列表推导式的嵌套</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">flatten</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>           <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">flatten</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="_16">元组</h2>
 <p>与列表相差不大，()为一个元组</p>
 <p>元组无法修改值</p>
 <h2 id="_17">字符串</h2>
-<pre><code class="language-python">str = &quot;I Like Python&quot;
-print(str.capitalize())  # 把字符串的第一个字符大写，其他转为小写
-print(str.casefold())  # 返回将所有字符都转为小写，除了英语，还能处理其他语言的
-print(str.title())  # 将所有单词首字母变大写，其他变小写
-print(str.swapcase())  # 将所有字符大小写反转
-print(str.upper())  # 所有字符变大写
-print(str.lower())  # 所有字符变小写，只能处理英语
-</code></pre>
-<pre><code class="language-python">x = &quot;有内鬼，停止交易！！！&quot;
-print(x.center(15))  # 默认第二个参数不填就是用空格填充
-print(x.ljust(15))
-print(x.rjust(15))
-print(x.zfill(15))  # 用0填充
-
-print(x.center(15, &quot;#&quot;))
-print(x.ljust(15, &quot;#&quot;))
-print(x.rjust(15, &quot;#&quot;))
-</code></pre>
-<pre><code class="language-python">x = &quot;上海自来水来自海上&quot;
-print(x.count(&quot;海&quot;))
-print(x.count(&quot;海&quot;, 0, 5))
-
-print(x.find(&quot;海&quot;))
-print(x.rfind(&quot;海&quot;))
-
-# print(x.index(&quot;鬼&quot;))  # 找不到会报错
-</code></pre>
-<pre><code class="language-python">code = &quot;&quot;&quot;
-        print(&quot;I like python&quot;)
-    print(&quot;I love machine&quot;)
-&quot;&quot;&quot;
-code.expandtabs(1)  # 将所有的tab换成空格，参数是一个tab代表多少个空格
-print(code)
-</code></pre>
-<pre><code class="language-python">print(&quot;在吗？&quot;.replace(&quot;在吗&quot;, &quot;不在&quot;))
-
-table = str.maketrans(&quot;ABCDEFG&quot;, &quot;1234567&quot;)  # 将第一个参数中的字符，用第二个参数来替代
-print(&quot;I love FishC&quot;.translate(table))  # I love 6ish3
-
-table = str.maketrans(&quot;ABCDEFG&quot;, &quot;1234567&quot;, &quot;love&quot;)  # 第三个参数是将指定字符串忽略
-print(&quot;I love FishC&quot;.translate(table))  # I  6ish3
-</code></pre>
-<pre><code class="language-python">import keyword
-
-x = &quot;我爱Python&quot;
-print(x.startswith(&quot;我&quot;))
-print(x.endswith(&quot;Python&quot;, 1))
-
-if x.startswith((&quot;你&quot;, &quot;我&quot;, &quot;她&quot;)):  # 支持传入元组
-    print(&quot;总有人喜欢Python&quot;)
-t = &quot;I like Python&quot;
-print(t.istitle())
-print(t.isupper())
-print(t.islower())
-print(t.isalpha())  # 是否都是字母
-print(&quot; &quot;.isspace())  # 是否是空白字符串，空字符串，空格，tab也算
-print(&quot;I like Python\n&quot;.isprintable())  # 是否是可打印字符，\n不是
-
-x = &quot;123&quot;
-print(x.isdecimal())  # 阿拉伯数字可以
-print(x.isdigit())  # 阿拉伯数字，罗马数字，①可以
-print(x.isnumeric())  # 都可以
-print(x.isalnum())  # isalpha，isdecimal，isdigit，isnumeric其中一个为true，则为true
-
-print(&quot;I am&quot;.isidentifier())  # 是否为Python合法标识符
-
-print(keyword.iskeyword(&quot;if&quot;))  # 是否为Python中的关键字
-</code></pre>
-<pre><code class="language-python">print(&quot;    左侧不要留白&quot;.lstrip())  # 可以传入参数，去除时，按照单个字符依次匹配去除
-print(&quot;右侧不要留白    &quot;.rsplit())
-print(&quot;    左右不要留白     &quot;.strip())
-print(&quot;www.ilovefishc.com&quot;.removeprefix(&quot;www.&quot;))
-print(&quot;www.ilovefishc.com&quot;.removesuffix(&quot;.com&quot;))
-</code></pre>
-<pre><code class="language-python">print(&quot;xgzx.net.cn&quot;.partition(&quot;.&quot;))  # ('xgzx', '.', 'net.cn')
-print(&quot;xgzx.net.cn&quot;.rpartition(&quot;.&quot;))  # ('xgzx.net', '.', 'cn')
-print(&quot;xgzx.net.cn&quot;.split(&quot;.&quot;))  # ['xgzx', 'net', 'cn']
-print(&quot;xgzx\nnet\ncn&quot;.splitlines())  # 将字符串按行进行分割
-</code></pre>
-<pre><code class="language-py">print(&quot;.&quot;.join([&quot;xgzx&quot;, &quot;net&quot;, &quot;cn&quot;]))  # 以.的形式进行拼接，用列表、元组传入
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;I Like Python&quot;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>  <span class="c1"># 把字符串的第一个字符大写，其他转为小写</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">casefold</span><span class="p">())</span>  <span class="c1"># 返回将所有字符都转为小写，除了英语，还能处理其他语言的</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>  <span class="c1"># 将所有单词首字母变大写，其他变小写</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">swapcase</span><span class="p">())</span>  <span class="c1"># 将所有字符大小写反转</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>  <span class="c1"># 所有字符变大写</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>  <span class="c1"># 所有字符变小写，只能处理英语</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;有内鬼，停止交易！！！&quot;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>  <span class="c1"># 默认第二个参数不填就是用空格填充</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>  <span class="c1"># 用0填充</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;上海自来水来自海上&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;海&quot;</span><span class="p">))</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;海&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;海&quot;</span><span class="p">))</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;海&quot;</span><span class="p">))</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># print(x.index(&quot;鬼&quot;))  # 找不到会报错</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="s2">        print(&quot;I like python&quot;)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="s2">    print(&quot;I love machine&quot;)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">code</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 将所有的tab换成空格，参数是一个tab代表多少个空格</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;在吗？&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;在吗&quot;</span><span class="p">,</span> <span class="s2">&quot;不在&quot;</span><span class="p">))</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">table</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;ABCDEFG&quot;</span><span class="p">,</span> <span class="s2">&quot;1234567&quot;</span><span class="p">)</span>  <span class="c1"># 将第一个参数中的字符，用第二个参数来替代</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I love FishC&quot;</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>  <span class="c1"># I love 6ish3</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">table</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;ABCDEFG&quot;</span><span class="p">,</span> <span class="s2">&quot;1234567&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">)</span>  <span class="c1"># 第三个参数是将指定字符串忽略</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I love FishC&quot;</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>  <span class="c1"># I  6ish3</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span> <span class="nn">keyword</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;我爱Python&quot;</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;我&quot;</span><span class="p">))</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;你&quot;</span><span class="p">,</span> <span class="s2">&quot;我&quot;</span><span class="p">,</span> <span class="s2">&quot;她&quot;</span><span class="p">)):</span>  <span class="c1"># 支持传入元组</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;总有人喜欢Python&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;I like Python&quot;</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">istitle</span><span class="p">())</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">islower</span><span class="p">())</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>  <span class="c1"># 是否都是字母</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span>  <span class="c1"># 是否是空白字符串，空字符串，空格，tab也算</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I like Python</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">isprintable</span><span class="p">())</span>  <span class="c1"># 是否是可打印字符，\n不是</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isdecimal</span><span class="p">())</span>  <span class="c1"># 阿拉伯数字可以</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>  <span class="c1"># 阿拉伯数字，罗马数字，①可以</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">())</span>  <span class="c1"># 都可以</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>  <span class="c1"># isalpha，isdecimal，isdigit，isnumeric其中一个为true，则为true</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am&quot;</span><span class="o">.</span><span class="n">isidentifier</span><span class="p">())</span>  <span class="c1"># 是否为Python合法标识符</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">))</span>  <span class="c1"># 是否为Python中的关键字</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    左侧不要留白&quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span>  <span class="c1"># 可以传入参数，去除时，按照单个字符依次匹配去除</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;右侧不要留白    &quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">())</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    左右不要留白     &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;www.ilovefishc.com&quot;</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s2">&quot;www.&quot;</span><span class="p">))</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;www.ilovefishc.com&quot;</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s2">&quot;.com&quot;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;xgzx.net.cn&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>  <span class="c1"># (&#39;xgzx&#39;, &#39;.&#39;, &#39;net.cn&#39;)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;xgzx.net.cn&quot;</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>  <span class="c1"># (&#39;xgzx.net&#39;, &#39;.&#39;, &#39;cn&#39;)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;xgzx.net.cn&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>  <span class="c1"># [&#39;xgzx&#39;, &#39;net&#39;, &#39;cn&#39;]</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;xgzx</span><span class="se">\n</span><span class="s2">net</span><span class="se">\n</span><span class="s2">cn&quot;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>  <span class="c1"># 将字符串按行进行分割</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;xgzx&quot;</span><span class="p">,</span> <span class="s2">&quot;net&quot;</span><span class="p">,</span> <span class="s2">&quot;cn&quot;</span><span class="p">]))</span>  <span class="c1"># 以.的形式进行拼接，用列表、元组传入</span>
+</code></pre></div>
 <h3 id="_18">格式化字符串</h3>
-<pre><code class="language-python"># :表示对齐方向，1、0表示位置索引，^为居中，&gt;为右对齐，&lt;为左对齐，=为宽度等于，后面的数字表示宽度
-print(&quot;{0:^10}{1:&lt;20}&quot;.format(10, 20))
-print(&quot;{0:$^10}{1:#&lt;20}&quot;.format(10, 20))  # $$$$10$$$$20##################
-print(&quot;{0:010}&quot;.format(10))  # 0000000010，用0填充，0感知字符串,只对数字有效
-</code></pre>
-<pre><code class="language-python">print(&quot;{:+}&quot;.format(10))  # +10显示符号
-print(&quot;{:,}&quot;.format(10000))  # 10,000，千位分隔符
-print(&quot;{:.2f}&quot;.format(3.1415))  # 3.14
-print(&quot;{:.2g}&quot;.format(3.1415))  # 3.1，g为限定小数点前后总共多少个数位
-print(&quot;{:.2}&quot;.format(&quot;ISNco&quot;))  # IS，限定字符串长度
-
-print(&quot;{:b}&quot;.format(100))  # 1010，二进制
-print(&quot;{:c}&quot;.format(100))  # d，返回Unicode
-print(&quot;{:d}&quot;.format(100))  # 十进制
-print(&quot;{:o}&quot;.format(100))  # 八进制
-print(&quot;{:#x}&quot;.format(100))  # 十六进制，二进制、八进制，都可以加#显示前缀
-
-print(&quot;{:E}&quot;.format(1902389104))  # 1.902389E+09
-print(&quot;{:e}&quot;.format(1902389104))  # 1.902389e+09
-print(&quot;{:f}&quot;.format(123.114))  # 123.114000，默认总共6位
-print(&quot;{:g}&quot;.format(0.11231214))  # 0.112312，小数以f输出
-print(&quot;{:g}&quot;.format(123111231234))  # 1.23111e+11，大数以e输出，大写G则对应F，E
-print(&quot;{:.3%}&quot;.format(0.98))    # 98.000%
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># :表示对齐方向，1、0表示位置索引，^为居中，&gt;为右对齐，&lt;为左对齐，=为宽度等于，后面的数字表示宽度</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:^10}{1:&lt;20}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:$^10}{1:#&lt;20}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>  <span class="c1"># $$$$10$$$$20##################</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:010}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># 0000000010，用0填充，0感知字符串,只对数字有效</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:+}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># +10显示符号</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>  <span class="c1"># 10,000，千位分隔符</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">))</span>  <span class="c1"># 3.14</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">))</span>  <span class="c1"># 3.1，g为限定小数点前后总共多少个数位</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;ISNco&quot;</span><span class="p">))</span>  <span class="c1"># IS，限定字符串长度</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:b}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 1010，二进制</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:c}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># d，返回Unicode</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 十进制</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:o}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 八进制</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:#x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 十六进制，二进制、八进制，都可以加#显示前缀</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1902389104</span><span class="p">))</span>  <span class="c1"># 1.902389E+09</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1902389104</span><span class="p">))</span>  <span class="c1"># 1.902389e+09</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">123.114</span><span class="p">))</span>  <span class="c1"># 123.114000，默认总共6位</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.11231214</span><span class="p">))</span>  <span class="c1"># 0.112312，小数以f输出</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">123111231234</span><span class="p">))</span>  <span class="c1"># 1.23111e+11，大数以e输出，大写G则对应F，E</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.98</span><span class="p">))</span>    <span class="c1"># 98.000%</span>
+</code></pre></div>
 <h3 id="f-">f-字符串</h3>
-<pre><code class="language-python">year = 2017
-print(f&quot;信工之星工作室成立于{year}年&quot;)
-print(f&quot;{502:010}&quot;)  # 0000000502
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">year</span> <span class="o">=</span> <span class="mi">2017</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;信工之星工作室成立于</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">年&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">502</span><span class="si">:</span><span class="s2">010</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># 0000000502</span>
+</code></pre></div>
 <h2 id="_19">内置函数</h2>
 <h3 id="divmod">divmod()</h3>
 <p>返回（x // y, x % y)</p>
-<pre><code class="language-python">print(divmod(-3, 2))    # (-2, 1)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>    <span class="c1"># (-2, 1)</span>
+</code></pre></div>
 <h3 id="abs">abs()</h3>
 <p>返回绝对值，如果参数是复数则返回复数的模</p>
-<pre><code class="language-python">print(abs(1 + 2j))  # 2.23606797749979
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">))</span>  <span class="c1"># 2.23606797749979</span>
+</code></pre></div>
 <h3 id="complex">complex()</h3>
 <p>将参数转换为复数，参数中不能带空格</p>
-<pre><code class="language-python">print(complex(1 + 2j))  # (1+2j)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">))</span>  <span class="c1"># (1+2j)</span>
+</code></pre></div>
 <h3 id="pow">pow()</h3>
 <p>用法与幂运算符**相似</p>
 <p>但pow可以传三个参数，第三个参数作用将幂后的值与第三个参数进行%运算</p>
@@ -2026,52 +2026,52 @@ print(f&quot;{502:010}&quot;)  # 0000000502
 <h2 id="_20">模块</h2>
 <h3 id="random">random模块</h3>
 <p><strong>random()</strong> 方法返回随机生成的一个实数，它在[0,1)范围内。</p>
-<pre><code class="language-python">import random
-
-print(random.randint(1, 10))  # 产生 1 到 10 的一个整数型随机数  
-print(random.random())  # 产生 0 到 1 之间的随机浮点数
-print(random.uniform(1.1, 5.4))  # 产生  1.1 到 5.4 之间的随机浮点数，区间可以不是整数
-print(random.choice('tomorrow'))  # 从序列中随机选取一个元素
-print(random.randrange(1, 100, 2))  # 生成从1到100的间隔为2的随机整数
-
-a = [1, 3, 5, 6, 7]  # 将序列a中的元素顺序打乱
-random.shuffle(a)
-print(a)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kn">import</span> <span class="nn">random</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># 产生 1 到 10 的一个整数型随机数  </span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>  <span class="c1"># 产生 0 到 1 之间的随机浮点数</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">))</span>  <span class="c1"># 产生  1.1 到 5.4 之间的随机浮点数，区间可以不是整数</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="s1">&#39;tomorrow&#39;</span><span class="p">))</span>  <span class="c1"># 从序列中随机选取一个元素</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># 生成从1到100的间隔为2的随机整数</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>  <span class="c1"># 将序列a中的元素顺序打乱</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="decimal">decimal模块</h3>
 <p>为什么使用？</p>
-<pre><code class="language-python">import decimal
-
-print(0.1 + 0.2)    # 0.30000000000000004
-
-a = decimal.Decimal('0.1')
-b = decimal.Decimal('0.2')
-print(a + b)    # 0.3
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kn">import</span> <span class="nn">decimal</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>    <span class="c1"># 0.30000000000000004</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">a</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.1&#39;</span><span class="p">)</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="n">b</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.2&#39;</span><span class="p">)</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># 0.3</span>
+</code></pre></div>
 <h3 id="copy">copy模块</h3>
 <p>浅拷贝(只拷贝浅层的，深层的只是引用)</p>
-<pre><code class="language-python">import copy
-
-x = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# y = x[:]
-y = copy.copy(x)  # 浅拷贝
-print(x)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-print(y)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-x[1][1] = 1
-print(x)  # [[1, 2, 3], [4, 1, 6], [7, 8, 9]]
-print(y)  # [[1, 2, 3], [4, 1, 6], [7, 8, 9]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kn">import</span> <span class="nn">copy</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="c1"># y = x[:]</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 浅拷贝</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 1, 6], [7, 8, 9]]</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 1, 6], [7, 8, 9]]</span>
+</code></pre></div>
 <p>深拷贝</p>
-<pre><code class="language-python">import copy
-
-x = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-y = copy.deepcopy(x)  # 浅拷贝
-print(x)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-print(y)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-x[1][1] = 1
-print(x)  # [[1, 2, 3], [4, 1, 6], [7, 8, 9]]
-print(y)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kn">import</span> <span class="nn">copy</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 浅拷贝</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 1, 6], [7, 8, 9]]</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span>
+</code></pre></div>
 
 
 
@@ -2113,6 +2113,8 @@ print(y)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     
     
       <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

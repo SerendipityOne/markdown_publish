@@ -1149,24 +1149,24 @@
 <p>我们在Centos7虚拟机中使用Docker来安装。</p>
 <h2 id="11">1.1.下载镜像</h2>
 <p>方式一：在线拉取</p>
-<pre><code class="language-sh">docker pull rabbitmq:3-management
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>rabbitmq:3-management
+</code></pre></div>
 <p>方式二：从本地加载</p>
 <p>上传到虚拟机中后，使用命令加载镜像即可：</p>
-<pre><code class="language-sh">docker load -i mq.tar
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>load<span class="w"> </span>-i<span class="w"> </span>mq.tar
+</code></pre></div>
 <h2 id="12mq">1.2.安装MQ</h2>
 <p>执行下面的命令来运行MQ容器：</p>
-<pre><code class="language-sh">docker run \
- -e RABBITMQ_DEFAULT_USER=itcast \
- -e RABBITMQ_DEFAULT_PASS=123321 \
- --name mq \
- --hostname mq1 \
- -p 15672:15672 \
- -p 5672:5672 \
- -d \
- rabbitmq:3-management
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span>-e<span class="w"> </span><span class="nv">RABBITMQ_DEFAULT_USER</span><span class="o">=</span>itcast<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w"> </span>-e<span class="w"> </span><span class="nv">RABBITMQ_DEFAULT_PASS</span><span class="o">=</span><span class="m">123321</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w"> </span>--name<span class="w"> </span>mq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w"> </span>--hostname<span class="w"> </span>mq1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w"> </span>-p<span class="w"> </span><span class="m">15672</span>:15672<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w"> </span>-p<span class="w"> </span><span class="m">5672</span>:5672<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w"> </span>rabbitmq:3-management
+</code></pre></div>
 <h1 id="2">2.集群部署</h1>
 <p>接下来，我们看看如何安装RabbitMQ的集群。</p>
 <h2 id="21">2.1.集群分类</h2>
@@ -1179,10 +1179,10 @@
 <h2 id="22">2.2.设置网络</h2>
 <p>首先，我们需要让3台MQ互相知道对方的存在。</p>
 <p>分别在3台机器中，设置 /etc/hosts文件，添加如下内容：</p>
-<pre><code>192.168.150.101 mq1
-192.168.150.102 mq2
-192.168.150.103 mq3
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>192.168.150.101 mq1
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>192.168.150.102 mq2
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>192.168.150.103 mq3
+</code></pre></div>
 <p>并在每台机器上测试，是否可以ping通对方：</p>
 
 
@@ -1225,6 +1225,8 @@
     
     
       <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

@@ -2929,21 +2929,21 @@ DNS ：保存资源记录(RR)的分布式数据库</p>
 </ul>
 <p><strong>客户端</strong>: 每个客户端必须下载一个文件拷贝</p>
 <ul>
-<li>d~min~ = 客户端最小的下载速率</li>
+<li>d<sub>min</sub> = 客户端最小的下载速率</li>
 <li>下载带宽最小的客户端下载的时间：F/dmin</li>
 </ul>
 <p><img alt="image-20220907213134619" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20220907213134619.jpg" /></p>
 <p>服务器传输：最少需要上载一份拷贝</p>
 <ul>
-<li>发送一个拷贝的时间：F/u~s~</li>
+<li>发送一个拷贝的时间：F/u<sub>s</sub></li>
 </ul>
 <p>客户端：每个客户端必须下载一个拷贝</p>
 <ul>
-<li>最小下载带宽客户单耗时：F/d~min~</li>
+<li>最小下载带宽客户单耗时：F/d<sub>min</sub></li>
 </ul>
 <p>客户端：所有客户端总体下载量NF</p>
 <ul>
-<li>最大上载带宽是：u~s~ + ∑u~i~</li>
+<li>最大上载带宽是：u<sub>s</sub> + ∑u<sub>i</sub></li>
 <li>除了服务器可以上载，其他所有的peer节点都可以上载</li>
 </ul>
 <p><img alt="image-20220907213633068" src="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20220907213633068.jpg" /></p>
@@ -3089,8 +3089,8 @@ DNS ：保存资源记录(RR)的分布式数据库</p>
 <ul>
 <li>视频流量：占据着互联网大部分的带宽</li>
 <li>Netflix, YouTube: 占据37%, 16% 的ISP下行流量</li>
-<li>^~^1B YouTube 用户, ^~^75M Netflix用户</li>
-<li>挑战：规模性-如何服务者 ^~^1B 用户?</li>
+<li><sup>~</sup>1B YouTube 用户, <sup>~</sup>75M Netflix用户</li>
+<li>挑战：规模性-如何服务者 <sup>~</sup>1B 用户?</li>
 <li>单个超级服务器无法提供服务（为什么）</li>
 <li>挑战：异构性</li>
 <li>
@@ -3233,6 +3233,8 @@ DNS ：保存资源记录(RR)的分布式数据库</p>
     
     
       <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

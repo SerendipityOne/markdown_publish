@@ -1383,56 +1383,55 @@ QDialog -&gt; 对话框窗口</p>
 <h3 id="1qt">1.Qt框架及文件介绍</h3>
 <p><img alt="image-20230329211724902" src="../Qt.assets/image-20230329211724902.jpg" /></p>
 <p>.pro文件：工程文件，是qmake自动生成的用于生产makfile的配置文件</p>
-<pre><code class="language-c++">QT       += core gui    //包含模块
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets //大于Qt4版本才包含次模块
-
-SOURCES += \
-    main.cpp \
-    widget.cpp  //源文件
-
-HEADERS += \
-    widget.h    //头文件
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">QT</span><span class="w">       </span><span class="o">+=</span><span class="w"> </span><span class="n">core</span><span class="w"> </span><span class="n">gui</span><span class="w">    </span><span class="c1">//包含模块</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">greaterThan</span><span class="p">(</span><span class="n">QT_MAJOR_VERSION</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">QT</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">widgets</span><span class="w"> </span><span class="c1">//大于Qt4版本才包含次模块</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">SOURCES</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>\
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">main</span><span class="p">.</span><span class="n">cpp</span><span class="w"> </span>\
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">widget</span><span class="p">.</span><span class="n">cpp</span><span class="w">  </span><span class="c1">//源文件</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">HEADERS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>\
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">widget</span><span class="p">.</span><span class="n">h</span><span class="w">    </span><span class="c1">//头文件</span>
+</code></pre></div>
 <p>main.cpp</p>
-<pre><code class="language-c++">#include &quot;widget.h&quot; //Qt中一个类对应一个头文件,类名就是头文件名
-
-#include &lt;QApplication&gt; //Qt系统提供的标准类名声明头文件
-
-int main(int argc, char *argv[])
-{
-    //应用程序类(整个后台管理的命脉，处理应用程序的初始化和结束，事件处理调度，注意不管有多少窗口，一个QApplication类即可)
-    QApplication a(argc, argv); 
-    Widget w;   //实例化对象，调用构造函数
-    w.show();   //显示图形界面
-    return a.exec();    //主事件循环，在exec函数中，Qt接受并处理用户和系统的事件并且将他们传递给适当的窗口控件
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;widget.h&quot;</span><span class="c1"> //Qt中一个类对应一个头文件,类名就是头文件名</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QApplication&gt;</span><span class="c1"> //Qt系统提供的标准类名声明头文件</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c1">//应用程序类(整个后台管理的命脉，处理应用程序的初始化和结束，事件处理调度，注意不管有多少窗口，一个QApplication类即可)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">QApplication</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">Widget</span><span class="w"> </span><span class="n">w</span><span class="p">;</span><span class="w">   </span><span class="c1">//实例化对象，调用构造函数</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">w</span><span class="p">.</span><span class="n">show</span><span class="p">();</span><span class="w">   </span><span class="c1">//显示图形界面</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span><span class="w">    </span><span class="c1">//主事件循环，在exec函数中，Qt接受并处理用户和系统的事件并且将他们传递给适当的窗口控件</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+</code></pre></div>
 <p>widget.cpp</p>
-<pre><code class="language-c++">
-#include &quot;widget.h&quot;
-
-Widget::Widget(QWidget *parent)
-    : QWidget(parent){}
-
-Widget::~Widget(){}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;widget.h&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Widget</span><span class="o">::</span><span class="n">Widget</span><span class="p">(</span><span class="n">QWidget</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">){}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Widget</span><span class="o">::~</span><span class="n">Widget</span><span class="p">(){}</span>
+</code></pre></div>
 <p>widget.h</p>
-<pre><code class="language-c++">#ifndef WIDGET_H
-#define WIDGET_H
-
-#include &lt;QWidget&gt;
-
-class Widget : public QWidget
-{
-    Q_OBJECT
-
-public:
-    Widget(QWidget *parent = nullptr);
-    ~Widget();
-};
-#endif // WIDGET_H
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#ifndef WIDGET_H</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#define WIDGET_H</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QWidget&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">QWidget</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">Q_OBJECT</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">Widget</span><span class="p">(</span><span class="n">QWidget</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="o">~</span><span class="n">Widget</span><span class="p">();</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">};</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="cp">#endif </span><span class="c1">// WIDGET_H</span>
+</code></pre></div>
 <h3 id="2_1">2.设置窗口属性</h3>
 <ol>
 <li>
@@ -1450,75 +1449,75 @@ public:
 <ol>
 <li>widget.h:类和头文件</li>
 </ol>
-<pre><code class="language-c++">#include &quot;widget.h&quot;
-
-Widget::Widget(QWidget *parent)
-    : QWidget(parent){
-    //修改窗口的标题
-    this-&gt;setWindowTitle(&quot;第一个窗口&quot;);
-    //设置窗口大小，设置完成可以拉伸
-    //this-&gt;resize(800,600);
-    //设置固定大小，设置完成不可拉伸
-    this-&gt;setFixedSize(600,300);
-}
-
-Widget::~Widget(){
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;widget.h&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Widget</span><span class="o">::</span><span class="n">Widget</span><span class="p">(</span><span class="n">QWidget</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">){</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c1">//修改窗口的标题</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;第一个窗口&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="c1">//设置窗口大小，设置完成可以拉伸</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="c1">//this-&gt;resize(800,600);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">//设置固定大小，设置完成不可拉伸</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">setFixedSize</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">300</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">Widget</span><span class="o">::~</span><span class="n">Widget</span><span class="p">(){</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="3_1">3.按钮的创建和属性设置</h3>
 <ol>
 <li>步骤1:包含头文件(.cpp)及模块(.pro)</li>
 </ol>
-<pre><code class="language-c++">#include &lt;QPushButton&gt;
-QT += widgets
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QPushButton&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">QT</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">widgets</span>
+</code></pre></div>
 <ol>
 <li>调用类的构造函数创建按钮</li>
 </ol>
-<pre><code class="language-c++">//创建按钮
-QPushButton *button = new QPushButton;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">//创建按钮</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">QPushButton</span><span class="w"> </span><span class="o">*</span><span class="n">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QPushButton</span><span class="p">;</span>
+</code></pre></div>
 <ol>
 <li>显示按钮</li>
 </ol>
-<pre><code class="language-c++">//显示方式是另开一个窗口显示按钮
-button-&gt;show();
-
-//设置按钮的父对象为窗口。这样按钮就在窗口上显示
-button-&gt;setParent(this);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">//显示方式是另开一个窗口显示按钮</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">button</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">//设置按钮的父对象为窗口。这样按钮就在窗口上显示</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">button</span><span class="o">-&gt;</span><span class="n">setParent</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
 <p>创建按钮方式1：</p>
-<pre><code class="language-c++">#include &quot;widget.h&quot;
-#include &lt;QPushButton&gt;
-
-Widget::Widget(QWidget *parent)
-    : QWidget(parent){
-    this-&gt;resize(800, 600);
-    //创建按钮
-    QPushButton *button = new QPushButton;
-    //button-&gt;show();
-
-    //设置按钮的父对象为窗口
-    button-&gt;setParent(this);
-
-    //设置按钮的属性
-    //设置按钮的文字
-    button-&gt;setText(&quot;第一个按钮&quot;);
-
-    //设置按钮的位置
-    button-&gt;move(100, 100);
-
-    //设置按钮的大小
-    button-&gt;resize(400, 400);
-}
-
-Widget::~Widget(){
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;widget.h&quot;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QPushButton&gt;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">Widget</span><span class="o">::</span><span class="n">Widget</span><span class="p">(</span><span class="n">QWidget</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">){</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">resize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">);</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="c1">//创建按钮</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="n">QPushButton</span><span class="w"> </span><span class="o">*</span><span class="n">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QPushButton</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="c1">//button-&gt;show();</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="c1">//设置按钮的父对象为窗口</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="n">button</span><span class="o">-&gt;</span><span class="n">setParent</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="c1">//设置按钮的属性</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1">//设置按钮的文字</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="n">button</span><span class="o">-&gt;</span><span class="n">setText</span><span class="p">(</span><span class="s">&quot;第一个按钮&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="c1">//设置按钮的位置</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="n">button</span><span class="o">-&gt;</span><span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="c1">//设置按钮的大小</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="n">button</span><span class="o">-&gt;</span><span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="p">}</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="n">Widget</span><span class="o">::~</span><span class="n">Widget</span><span class="p">(){</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="p">}</span>
+</code></pre></div>
 <p>创建按钮方式2：</p>
-<pre><code class="language-c++">//方式2
-QPushButton *button2 = new QPushButton(&quot;第二个按钮&quot;,this);
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">//方式2</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">QPushButton</span><span class="w"> </span><span class="o">*</span><span class="n">button2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QPushButton</span><span class="p">(</span><span class="s">&quot;第二个按钮&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
 <p>两种方式的区别：
 方式1: 窗口默认大小,按钮显示在左上角
 方式2: 窗口是根据按钮的大小来创建的</p>
@@ -1563,6 +1562,8 @@ QPushButton *button2 = new QPushButton(&quot;第二个按钮&quot;,this);
     
     
       <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>

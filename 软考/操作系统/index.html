@@ -1616,18 +1616,18 @@
 <p>假设只有一个缓冲区</p>
 <p>两种情况：</p>
 <ol>
-<li>生产者生产一个产品后，执行P(S~1~)-&gt;S~1~-=1-&gt;S~1~=0不符合S&lt;0，往下执行，送到缓冲区，执行V(S~2~)-&gt;S~2~+=1-&gt;S~2~=1&gt;0往下执行。
-   假如继续执行生产者，生产一个产品，执行P(S~1~)-&gt;S~1~-=1-&gt;S~1~=-1&lt;0进程堵塞。此时如果执行消费者P(S~2~)-&gt;S~2~-=1-&gt;S~2~=0不符合S&lt;0，于是往下执行，从缓冲区取出产品，执行V(S~1~)-&gt;S~1~+=1-&gt;S~1~=0&lt;=0，则去等待队列里面激活一个进程，而刚刚生产者进程堵塞了，所以此时激活生产者进程，此时生产者进程往后执行，将产品送到缓冲区...</li>
-<li>消费者执行P(S~2~)-&gt;S~2~-=1-&gt;S~2~=-1&lt;0，进程堵塞</li>
+<li>生产者生产一个产品后，执行P(S<sub>1</sub>)-&gt;S<sub>1</sub>-=1-&gt;S<sub>1</sub>=0不符合S&lt;0，往下执行，送到缓冲区，执行V(S<sub>2</sub>)-&gt;S<sub>2</sub>+=1-&gt;S<sub>2</sub>=1&gt;0往下执行。
+   假如继续执行生产者，生产一个产品，执行P(S<sub>1</sub>)-&gt;S<sub>1</sub>-=1-&gt;S<sub>1</sub>=-1&lt;0进程堵塞。此时如果执行消费者P(S<sub>2</sub>)-&gt;S<sub>2</sub>-=1-&gt;S<sub>2</sub>=0不符合S&lt;0，于是往下执行，从缓冲区取出产品，执行V(S<sub>1</sub>)-&gt;S<sub>1</sub>+=1-&gt;S<sub>1</sub>=0&lt;=0，则去等待队列里面激活一个进程，而刚刚生产者进程堵塞了，所以此时激活生产者进程，此时生产者进程往后执行，将产品送到缓冲区...</li>
+<li>消费者执行P(S<sub>2</sub>)-&gt;S<sub>2</sub>-=1-&gt;S<sub>2</sub>=-1&lt;0，进程堵塞</li>
 </ol>
 <hr />
 <p><img alt="image-20230420162156297" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230420162156297.jpg" /></p>
 <p><img alt="image-20230420164424524" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230420164424524.jpg" /></p>
 <ol>
-<li>收银员等待用户付款，进程阻塞P(S~1~)</li>
-<li>用户付款，唤醒收银员进程，V(S~1~)</li>
-<li>用户等待收银员搞定，进程阻塞P(S~2~)</li>
-<li>收银员搞定，唤醒用户V(S~2~)</li>
+<li>收银员等待用户付款，进程阻塞P(S<sub>1</sub>)</li>
+<li>用户付款，唤醒收银员进程，V(S<sub>1</sub>)</li>
+<li>用户等待收银员搞定，进程阻塞P(S<sub>2</sub>)</li>
+<li>收银员搞定，唤醒用户V(S<sub>2</sub>)</li>
 </ol>
 <h3 id="15-pv">1.5 PV操作与前趋图</h3>
 <p><img alt="image-20230420165143791" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230420165143791.jpg" /></p>
@@ -1670,7 +1670,7 @@
 <p>例题：</p>
 <p><img alt="image-20230504213837426" src="../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20230504213837426.jpg" /></p>
 <ol>
-<li>页面大小为4K，4K=2^12^，对应5A29H的后三位A29H</li>
+<li>页面大小为4K，4K=2<sup>12</sup>，对应5A29H的后三位A29H</li>
 <li>5A29H，找到页号为5的页帧号(物理块号)为6</li>
 <li>将6与A29H拼接，即D、6A29H</li>
 <li>页面4不在内存，找到页号4，状态位为0，需找到状态位为1的作为替换，0,1,2,5。若状态位为1，则找修改位为0的</li>
@@ -1860,6 +1860,8 @@
     
     
       <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>
