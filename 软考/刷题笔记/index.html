@@ -1228,7 +1228,7 @@
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
-    数组和链表
+    线性结构
   </a>
   
 </li>
@@ -1427,7 +1427,7 @@
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
-    数组和链表
+    线性结构
   </a>
   
 </li>
@@ -1728,11 +1728,15 @@
 </ul>
 <p>单个文件的逻辑块号范围0~66052，单个文件最大长度为：磁盘数据块大小*66053</p>
 <h2 id="_14">数据结构与算法</h2>
-<h3 id="_15">数组和链表</h3>
+<h3 id="_15">线性结构</h3>
 <ul>
 <li>数组查找元素时间复杂度为O(1)，链表为O(n)</li>
 </ul>
 <p>数组可以用下标访问，而链表只能从头指针开始顺序访问</p>
+<ul>
+<li>入队序列与出队序列关系为<span class="arithmatex">\(1:1\)</span>，而入栈序列与出栈序列关系为<span class="arithmatex">\(1:n(n\geq1)\)</span></li>
+</ul>
+<p>意思是，一种入队顺序，对应一种出队顺序。一种入栈顺序，则可能有多重出栈顺序</p>
 <h3 id="_16">栈</h3>
 <ul>
 <li>逆波兰表达式用<strong>栈</strong>求值</li>
@@ -1754,14 +1758,28 @@
 <p>二叉树的性质：</p>
 </li>
 <li>度为2的结点（双分支结点）数比度为0（叶子结点）数正好少1</li>
-<li>最优二叉树（哈夫曼树）的结点总数为：2n-1</li>
+<li>最优二叉树（哈夫曼树）的结点总数为：<span class="arithmatex">\(2n-1\)</span></li>
 <li>
 <p>一棵二叉树的高度为<span class="arithmatex">\(h\)</span>，则该二叉树最多有<span class="arithmatex">\(2^h-1\)</span>个结点</p>
 </li>
 <li>
 <p>一棵满二叉树，其每一层结点个数都达到最大值，对其中的结点从1开始顺序编号，即根结点编号为1，其左、右孩子结点编号分别为2和3，再下一层从左到右的编号为4、5、6、7，依此类推，每一层都从左到右依次编号，直到最后的叶子结点层为止，则用 ( <span class="arithmatex">\([log_2^m] = [log_2^n]\)</span> ) 可判定编号为m和n的两个结点是否在同一层。</p>
 </li>
-<li>如果是满二叉树，那么其第<span class="arithmatex">\(n\)</span>层的结点数应该是第<span class="arithmatex">\(n-1\)</span>层结点数的两倍，从根 (第一层)开始，各层的结点数应分别是<span class="arithmatex">\(2n-1\)</span>个，其中<span class="arithmatex">\(n\)</span>为当前的层次，因此一颗<span class="arithmatex">\(X\)</span>层的满二又树，其总的结点数位<span class="arithmatex">\(2^X-1\)</span>个。而如果知道结点编号<span class="arithmatex">\(m\)</span>，我们可以用<span class="arithmatex">\(log_2^m+1\)</span>来求取该结点属于那一层，同样，对于编号为<span class="arithmatex">\(n\)</span>的结点，所属层次为<span class="arithmatex">\(log_2^n+1\)</span>，两者属于同一层次则应该满足<span class="arithmatex">\(log_2^m+1=log_2^n+1\)</span>。</li>
+<li>
+<p>如果是满二叉树，那么其第<span class="arithmatex">\(n\)</span>层的结点数应该是第<span class="arithmatex">\(n-1\)</span>层结点数的两倍，从根 (第一层)开始，各层的结点数应分别是<span class="arithmatex">\(2n-1\)</span>个，其中<span class="arithmatex">\(n\)</span>为当前的层次，因此一颗<span class="arithmatex">\(X\)</span>层的满二又树，其总的结点数位<span class="arithmatex">\(2^X-1\)</span>个。而如果知道结点编号<span class="arithmatex">\(m\)</span>，我们可以用<span class="arithmatex">\(log_2^m+1\)</span>来求取该结点属于那一层，同样，对于编号为<span class="arithmatex">\(n\)</span>的结点，所属层次为<span class="arithmatex">\(log_2^n+1\)</span>，两者属于同一层次则应该满足<span class="arithmatex">\(log_2^m+1=log_2^n+1\)</span>。</p>
+</li>
+<li>
+<p>已知一棵度为3的树 (一个节点的度是指其子树的数目，树的度是指该树中所有节点的度的最大值) 中有5个度为1的节点，4个度为2的节点，2个度为3的节点，那么，该树中的叶子节点数目为 <span style='color:red'>9</span></p>
+</li>
+<li>
+<p>设树中的节点总数为n、分支数目为m，那么n=5+4+2+叶子节点数，<span class="arithmatex">\(m=5\times1+4\times2+2\times3\)</span>。在树中，节点总数等于分支数目加上1，即n=m+1。因此，叶子节点数=<span class="arithmatex">\(5\times1+4\times2+2\times3+1-5-4-2=9\)</span></p>
+</li>
+<li>
+<p>在<span class="arithmatex">\(M\)</span>阶<span class="arithmatex">\(B^-\)</span>数的定义中，要求：</p>
+</li>
+<li>树中的每个节点至多有<span class="arithmatex">\(M\)</span>棵子树</li>
+<li>若根节点不是叶子结点，则至少有量棵子树</li>
+<li>除根之外的所有非终端节点至少有[M/2]棵子树</li>
 </ul>
 <h3 id="_19">图</h3>
 <ul>
