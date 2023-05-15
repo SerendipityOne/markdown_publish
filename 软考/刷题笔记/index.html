@@ -1737,12 +1737,17 @@
 <li>入队序列与出队序列关系为<span class="arithmatex">\(1:1\)</span>，而入栈序列与出栈序列关系为<span class="arithmatex">\(1:n(n\geq1)\)</span></li>
 </ul>
 <p>意思是，一种入队顺序，对应一种出队顺序。一种入栈顺序，则可能有多重出栈顺序</p>
+<ul>
+<li>两个递增序列A和B的长度分别为选择题m和n (m&lt;n且m与n接近)，将二者归并为一个长度为m+n的递增序列。当元素关系为 （<span class="arithmatex">\(a_1&lt;a_2&lt;...&lt;a_{m-1}&lt;a_m&lt;b_1&lt;b_2&lt;...b_{n-1}&lt;b_n\)</span>） ，归并过程中元素的比较次数最少。</li>
+<li>只需要比较m次就能得出结果，如果是<span class="arithmatex">\(b_1&lt;b_2&lt;...&lt;b_{n-1}&lt;b_n&lt;a_1&lt;a_2&lt;...&lt;a_{m-1}&lt;a_m\)</span>则需要比较n次，而<span class="arithmatex">\(n&gt;m\)</span></li>
+</ul>
 <h3 id="_16">栈</h3>
 <ul>
 <li>逆波兰表达式用<strong>栈</strong>求值</li>
 </ul>
 <h3 id="_17">查找算法</h3>
 <p>对n个元素的有序表A[1..n]进行二分 (折半) 查找 (除2取商时向下取整)，查找元素<span class="arithmatex">\(A_i\)</span>  时，最多与A中的 ( <strong>[log<sub>2</sub><sup>n</sup>] -1</strong> ) 个元素进行比较</p>
+<p>某哈希表 (散列表) 的长度为n，设散列函数为H (Key) =Key mod p，采用线性探测法解决冲突。<span style='color:red'>p的值一般为不大于n且最接近n的质数</span></p>
 <h3 id="_18">树</h3>
 <ul>
 <li>
