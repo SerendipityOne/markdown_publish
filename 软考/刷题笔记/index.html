@@ -1188,20 +1188,41 @@
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
-    查找算法
+    数组和链表
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
-    树
+    栈
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_17" class="md-nav__link">
+    查找算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     算法分析及常用算法
   </a>
   
@@ -1408,20 +1429,41 @@
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
-    查找算法
+    数组和链表
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
-    树
+    栈
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_17" class="md-nav__link">
+    查找算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     算法分析及常用算法
   </a>
   
@@ -1688,29 +1730,47 @@
 </ul>
 <p>单个文件的逻辑块号范围0~66052，单个文件最大长度为：磁盘数据块大小*66053</p>
 <h2 id="_14">数据结构与算法</h2>
+<h3 id="_15">数组和链表</h3>
 <ul>
-<li>对有n个结点、e条边且采用数组表示法 (即邻接矩阵存储) 的无向图进行深度优先遍历，时间复杂度为 (<strong>O(n<sup>2</sup></strong>))。</li>
-<li>在<strong>邻接表</strong>中，就是要依次访问每个顶点，然后在每个顶点中依次访问每条边，把这些边的终点的入度+1。也就是每个顶点和每条边依次要各访问一遍，所以时间复杂度是O (n+e)。</li>
-<li>
-<p>在<strong>邻接矩阵</strong>中，算法需要遍历邻接矩阵的每一个点，而邻接矩阵有n * n个点，所以时间复杂度是O (n * n)。</p>
-</li>
+<li>数组查找元素时间复杂度为O(1)，链表为O(n)</li>
+</ul>
+<p>数组可以用下标访问，而链表只能从头指针开始顺序访问</p>
+<h3 id="_16">栈</h3>
+<ul>
+<li>逆波兰表达式用<strong>栈</strong>求值</li>
+</ul>
+<h3 id="_17">查找算法</h3>
+<p>对n个元素的有序表A[1..n]进行二分 (折半) 查找 (除2取商时向下取整)，查找元素Ali  时，最多与A中的 ( <strong>[log<sub>2</sub><sup>n</sup>] -1</strong> ) 个元素进行比较</p>
+<h3 id="_18">树</h3>
+<ul>
 <li>
 <p><strong>哈夫曼编码</strong>属于熵编码</p>
 </li>
 <li>
-<p>逆波兰表达式用<strong>栈</strong>求值</p>
+<p>具有N个结点的二叉树有<span class="arithmatex">\(f(n)=\frac{(2n)!}{n!(n+1)!}\)</span>种</p>
 </li>
 <li>
-<p>数组查找元素时间复杂度为O(1)，链表为O(n)</p>
+<p>n个结点，所有分支节点的度为k，则该树中叶子结点个数为: <span class="arithmatex">\(\frac{n(k-1)+1}{k}\)</span></p>
+</li>
+<li>
+<p>二叉树的性质：</p>
+</li>
+<li>度为2的结点（双分支结点）数比度为0（叶子结点）数正好少1</li>
+<li>最优二叉树（哈夫曼树）的结点总数为：2n-1</li>
+</ul>
+<h3 id="_19">图</h3>
+<ul>
+<li>
+<p>对有n个结点、e条边且采用数组表示法 (即邻接矩阵存储) 的无向图进行深度优先遍历，时间复杂度为 (<strong>O(n<sup>2</sup></strong>))。</p>
+</li>
+<li>
+<p>在<strong>邻接表</strong>中，就是要依次访问每个顶点，然后在每个顶点中依次访问每条边，把这些边的终点的入度+1。也就是每个顶点和每条边依次要各访问一遍，所以时间复杂度是O (n+e)。</p>
+</li>
+<li>
+<p>在<strong>邻接矩阵</strong>中，算法需要遍历邻接矩阵的每一个点，而邻接矩阵有n * n个点，所以时间复杂度是O (n<sup>2</sup>)。</p>
 </li>
 </ul>
-<p>数组可以用下标访问，而链表只能从头指针开始顺序访问</p>
-<h3 id="_15">查找算法</h3>
-<p>对n个元素的有序表A[1..n]进行二分 (折半) 查找 (除2取商时向下取整)，查找元素Ali  时，最多与A中的 ( <strong>[log<sub>2</sub><sup>n</sup>] -1</strong> ) 个元素进行比较</p>
-<h3 id="_16">树</h3>
-<p>具有N个结点的二叉树有<span class="arithmatex">\(f(n)=\frac{(2n)!}{n!(n+1)!}\)</span>种</p>
-<p>n个结点，所有分支节点的度为k，则该树中叶子结点个数为: <span class="arithmatex">\(\frac{n(k-1)+1}{k}\)</span></p>
-<h3 id="_17">算法分析及常用算法</h3>
+<h3 id="_20">算法分析及常用算法</h3>
 <ul>
 <li>数据挖掘是一类深层次的数据分析,常见和应用最广泛的数据挖掘方法如下:</li>
 <li>决策树：决策树方法是利用信息论中的互信息(信息增益)寻找数据库中具有最大信息量的属性字段,建立决策树的一个结点,再根据该属性字段的不同取值建设树的分支;在每个分支子集中重复建立树的下层结点和分支的过程。</li>
