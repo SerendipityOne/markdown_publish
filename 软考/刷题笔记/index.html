@@ -1275,6 +1275,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    数据库
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    数据库基础知识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    关系数据库规范化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1320,6 +1347,34 @@
     <li class="md-nav__item">
       <a href="../%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
         软件工程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/" class="md-nav__link">
+        面向对象技术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UML%E5%BB%BA%E6%A8%A1/" class="md-nav__link">
+        UML建模
       </a>
     </li>
   
@@ -1507,6 +1562,33 @@
           <li class="md-nav__item">
   <a href="#_20" class="md-nav__link">
     算法分析及常用算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    数据库
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    数据库基础知识
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    关系数据库规范化
   </a>
   
 </li>
@@ -1859,6 +1941,24 @@
 <li>
 <p>优先队列通常使用堆结构实现，堆是一种完全二叉树，分为<strong>大根堆</strong>和<strong>小根堆</strong>。大根堆指的是从小到大排序，每次出队都是当前队列中最大的元素，小根堆则相反。</p>
 </li>
+</ul>
+<h2 id="_21">数据库</h2>
+<h3 id="_22">数据库基础知识</h3>
+<p>在分布式数据库中有分片透明、复制透明、位置透明和逻辑透明等基本概念。</p>
+<ul>
+<li>分片透明是指用户或应用程序不需要知道逻辑上访问的表具体是怎么分块存储的。</li>
+<li>复制透明是指采用复制技术的分布方法，用户不需要知道数据是复制到哪些节点，如何复制的</li>
+<li>位置透明是指用户无须知道数据存放的物理位置。</li>
+<li>逻辑透明，即局部数据模型透明，是指用户或应用程序无须知道局部场地使用的是哪种数据模型</li>
+</ul>
+<h3 id="_23">关系数据库规范化</h3>
+<ul>
+<li>部分函数依赖：</li>
+</ul>
+<p>学生基本信息表R中（学号，身份证号，姓名）当然学号属性取值是唯一的，在R关系中，<span style='color:blue'>（学号，身份证号）-&gt;（姓名），（学号）-&gt;（姓名），（身份证号）-&gt;（姓名）；所以姓名部分函数依赖与（学号，身份证号）</span></p>
+<ul>
+<li>完全函数依赖：
+  在R关系中，<span style='color:blue'>（学号，班级）-&gt;（姓名），但是（学号）-&gt;(姓名)不成立，（班级）-&gt;(姓名)不成立，所以姓名完全函数依赖与（学号，班级）；</span></li>
 </ul>
 
 
