@@ -646,6 +646,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dockerjar" class="md-nav__link">
+    docker部署jar
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1127,12 +1134,61 @@
       
       
         <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-          软考
+          软件杯
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          软件杯
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BD%AF%E4%BB%B6%E6%9D%AF/Build%20Thunderbird-114.0b6.html" class="md-nav__link">
+        Build Thunderbird-114.0b6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          软考
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           软考
         </label>
@@ -1149,17 +1205,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_1" >
       
       
       
-        <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
           中级-软件设计师
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_10_1">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11_1">
           <span class="md-nav__icon md-icon"></span>
           中级-软件设计师
         </label>
@@ -1359,17 +1415,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
       
       
       
-        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
           5G大唐杯
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_11">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           5G大唐杯
         </label>
@@ -1513,6 +1569,13 @@
         <li class="md-nav__item">
   <a href="#dockernacos" class="md-nav__link">
     docker配置nacos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerjar" class="md-nav__link">
+    docker部署jar
   </a>
   
 </li>
@@ -1703,6 +1766,20 @@
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>-v<span class="w"> </span>/mydata/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>nacos/nacos-server
 </code></pre></div>
+<h2 id="dockerjar">docker部署jar</h2>
+<ol>
+<li>创建Dockerfile</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>FROM<span class="w"> </span>java:8
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>MAINTAINER<span class="w"> </span>yuzhihang
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>ADD<span class="w"> </span>xxx.jar<span class="w"> </span>xxx.jar
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>EXPOSE<span class="w"> </span>port
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;java&quot;</span>,<span class="s2">&quot;-jar&quot;</span>,<span class="s2">&quot;hezekai-mqtt-test-1.0.jar&quot;</span><span class="o">]</span>
+</code></pre></div>
+<ol>
+<li>在Dockerfile文件的目录下运行<code>docker build -t xxx .</code></li>
+<li>运行<code>docker run --name xxx -d -p port:port xxx</code></li>
+</ol>
 
 
 
