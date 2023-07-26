@@ -1316,6 +1316,101 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    串口
+  </a>
+  
+    <nav class="md-nav" aria-label="串口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    串口通信协议
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32usart" class="md-nav__link">
+    STM32的USART
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32的USART">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    主要特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usart" class="md-nav__link">
+    USART 框图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usartuartf1" class="md-nav__link">
+    设置USART/UART波特率(F1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#halmsp" class="md-nav__link">
+    HAL库外设初始化MSP回调机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hal_2" class="md-nav__link">
+    HAL库中断回调机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usartuart" class="md-nav__link">
+    USART/UART异步通信配置步骤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO引脚复用功能
+  </a>
+  
+    <nav class="md-nav" aria-label="IO引脚复用功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32f4f7h7io" class="md-nav__link">
+    STM32F4/F7/H7的IO引脚复用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2122,6 +2217,101 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    串口
+  </a>
+  
+    <nav class="md-nav" aria-label="串口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    串口通信协议
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32usart" class="md-nav__link">
+    STM32的USART
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32的USART">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    主要特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usart" class="md-nav__link">
+    USART 框图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usartuartf1" class="md-nav__link">
+    设置USART/UART波特率(F1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#halmsp" class="md-nav__link">
+    HAL库外设初始化MSP回调机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hal_2" class="md-nav__link">
+    HAL库中断回调机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usartuart" class="md-nav__link">
+    USART/UART异步通信配置步骤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO引脚复用功能
+  </a>
+  
+    <nav class="md-nav" aria-label="IO引脚复用功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32f4f7h7io" class="md-nav__link">
+    STM32F4/F7/H7的IO引脚复用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2683,6 +2873,138 @@ BSRR修改：写</p>
 <p>STM32仅有: EXTI0 ~ 4、 EXTI9 ~ 5、 EXTI15 ~ 10, 7个外部中断服务函数（EXTI0 ~ 4用5个，EXTI9 ~ 5与EXTI15 ~ 10各用一个）</p>
 <h3 id="hal_1">HAL库中断回调处理机制介绍</h3>
 <p><img alt="image-20230724160632573" src="STM32.assets/image-20230724160632573.png" /></p>
+<h2 id="_10">串口</h2>
+<h3 id="_11">串口通信协议</h3>
+<p><img alt="image-20230724200632568" src="STM32.assets/image-20230724200632568.png" /></p>
+<ul>
+<li>启动位：必须占1个位长,保持逻辑0电平</li>
+<li>
+<p>有效数据位：可选5、6、7、8、9个位长， LSB在前，MSB在后</p>
+</li>
+<li>
+<p>校验位：可选占1个位长,也可以没有该位</p>
+</li>
+<li>停止位：必须有,可选占0.5、1、1.5、2个位长,保持逻辑1电平</li>
+</ul>
+<h3 id="stm32usart">STM32的USART</h3>
+<p>Universal synchronous asynchronous receiver transmitter，通用同步异步收发器</p>
+<p>Universal asynchronous receiver transmitter，通用异步收发器</p>
+<p>USART/UART都可以与外部设备进行全双工异步通信</p>
+<p>USART,我们常用的也是异步通信</p>
+<h4 id="_12">主要特性</h4>
+<ol>
+<li>全双工异步通信</li>
+<li>单线半双工通信</li>
+<li>单独的发送器和接收器使能位</li>
+<li>可配置使用DMA的多缓冲器通信</li>
+<li>多个带标志的中断源</li>
+</ol>
+<h4 id="usart">USART 框图</h4>
+<p><img alt="image-20230724201848328" src="STM32.assets/image-20230724201848328.png" /></p>
+<p>①USART 信号引脚  </p>
+<p>② 数据寄存器  </p>
+<p>③ 控制器  </p>
+<p>④ 时钟与波特率  </p>
+<h4 id="usartuartf1">设置USART/UART波特率(F1)</h4>
+<p>波特率计算公式：<span class="arithmatex">\(baud = \frac{𝑓_{𝑐k}}{16 ∗ USARTDIV}\)</span></p>
+<p>其中f<sub>ck</sub>是串口的时钟,如: USART1的时钟是PCLK2,其他串口都是PCLK1</p>
+<ul>
+<li>串口波特率设置</li>
+</ul>
+<p><img alt="image-20230724203456779" src="STM32.assets/image-20230724203456779.png" /></p>
+<p>把USARTDIV的整数部分写入位[15:4], USARTDIV的小数部分写入[3:0]</p>
+<h4 id="halmsp">HAL库外设初始化MSP回调机制</h4>
+<p><img alt="image-20230724205924514" src="STM32.assets/image-20230724205924514.png" /></p>
+<p><img alt="image-20230724210116261" src="STM32.assets/image-20230724210116261.png" /></p>
+<h4 id="hal_2">HAL库中断回调机制</h4>
+<p><img alt="image-20230724210410394" src="STM32.assets/image-20230724210410394.png" /></p>
+<p><img alt="image-20230724210522416" src="STM32.assets/image-20230724210522416.png" /></p>
+<h4 id="usartuart">USART/UART异步通信配置步骤</h4>
+<p><img alt="image-20230724211504677" src="STM32.assets/image-20230724211504677.png" /></p>
+<ul>
+<li><code>HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart);</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">USART_TypeDef</span><span class="w"> </span><span class="o">*</span><span class="n">Instance</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 寄存器基地址 */</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">UART_InitTypeDef</span><span class="w"> </span><span class="n">Init</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 通信参数 */</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">pTxBuffPtr</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 指向 UART 发送缓冲区 */</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">TxXferSize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 发送数据的大小 */</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">__IO</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">TxXferCount</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 发送数据的个数 */</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">pRxBuffPtr</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 指向 UART 接收缓冲区 */</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">RxXferSize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 接收数据大小 */</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="n">__IO</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">RxXferCount</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 接收数据的个数 */</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="n">DMA_HandleTypeDef</span><span class="w"> </span><span class="o">*</span><span class="n">hdmatx</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 发送参数设置（DMA） */</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">DMA_HandleTypeDef</span><span class="w"> </span><span class="o">*</span><span class="n">hdmarx</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 接收参数设置（DMA） */</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="n">HAL_LockTypeDef</span><span class="w"> </span><span class="n">Lock</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 锁定对象 */</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="n">__IO</span><span class="w"> </span><span class="n">HAL_UART_StateTypeDef</span><span class="w"> </span><span class="n">gState</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 发送状态结构体 */</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="n">__IO</span><span class="w"> </span><span class="n">HAL_UART_StateTypeDef</span><span class="w"> </span><span class="n">RxState</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 接收状态结构体 */</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="n">__IO</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 操作错误信息 */</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span><span class="n">UART_HandleTypeDef</span><span class="p">;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="p">{</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">BaudRate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 波特率 */</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">WordLength</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 字长 */</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">StopBits</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 停止位 */</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">Parity</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 校验位 */</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">Mode</span><span class="p">;</span><span class="w"> </span><span class="cm">/* UART 模式 */</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">HwFlowCtl</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 硬件流设置 */</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">OverSampling</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 过采样设置 */</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="p">}</span><span class="n">UART_InitTypeDef</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);</code></p>
+<ul>
+<li>
+<p>作用：以中断的方式接收指定字节的数据</p>
+</li>
+<li>
+<p>形参1是 UART_HandleTypeDef 结构体类型指针变量</p>
+</li>
+<li>
+<p>形参2是指向接收数据缓冲区</p>
+</li>
+<li>
+<p>形参3是要接收的数据大小,以字节为单位</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)</code></p>
+<ul>
+<li>
+<p>作用: 以阻塞的方式发送指定字节的数据</p>
+</li>
+<li>
+<p>形参1: UART_HandleTypeDef结构体类型指针变量</p>
+</li>
+<li>
+<p>形参2:指向要发送的数据地址</p>
+</li>
+<li>
+<p>形参3:要发送的数据大小,以字节为单位</p>
+</li>
+<li>
+<p>形参4:设置的超时时间,以ms单位</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="io">IO引脚复用功能</h4>
+<ul>
+<li>通用：IO端口的输入或输出是由GPIO外设控制,我们称之为通用</li>
+<li>复用：IO端口的输入或输出是由其它非GPIO外设控制,我们称之为复用</li>
+</ul>
+<h5 id="stm32f4f7h7io">STM32F4/F7/H7的IO引脚复用</h5>
+<p>为了解决F1系列存在的1O复用功能冲突问题, F4往后的系列都加入了复用器</p>
+<p>复用器特点:</p>
+<ol>
+<li>每个IO 引脚都有一个复用器</li>
+<li>复用器采用16路复用功能输入(AF0到AF15)</li>
+<li>复用器一次仅允许一个外设的复用功能(AF)连接到IO引脚</li>
+<li>通过GPIOx_AFRL和GPIOx_AFRH寄存器进行配置</li>
+</ol>
+<p><strong>温馨提示：</strong>复位完成后，所有IO 都会连接到系统的复用功能0 (AFO)</p>
 
 
 

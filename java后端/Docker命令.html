@@ -1771,7 +1771,7 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">2</span><span class="p">)</span> <span class="s2">&quot;&quot;</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">#为空显示说明没有密码</span>
 </code></pre></div>
-<p>设置密码： <code>config set requirepass 你的密码</code></p>
+<p>设置密码（暂时）： <code>config set requirepass 你的密码</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">6379</span><span class="p">&gt;</span> <span class="n">config</span> <span class="nb">set </span><span class="n">requirepass</span> <span class="n">你的密码</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">OK</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">6379</span><span class="p">&gt;</span>
@@ -1781,6 +1781,7 @@
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">NOAUTH</span> <span class="n">Authentication</span> <span class="n">required</span><span class="p">.</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">6379</span><span class="p">&gt;</span>
 </code></pre></div>
+<p>设置密码（永久）：修改redis.conf配置文件，添加字段<code>requirepass xxx</code></p>
 <h2 id="dockernacos">docker配置nacos</h2>
 <ol>
 <li>创建nacos挂载目录</li>
