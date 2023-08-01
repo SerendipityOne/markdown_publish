@@ -1411,6 +1411,73 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    定时器
+  </a>
+  
+    <nav class="md-nav" aria-label="定时器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    基本、通用、高级定时器功能整体的区别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    基本定时器简介
+  </a>
+  
+    <nav class="md-nav" aria-label="基本定时器简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32_4" class="md-nav__link">
+    STM32定时器计数模式及溢出条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    定时器溢出时间计算方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f1_1" class="md-nav__link">
+    通用定时器（F1为例）
+  </a>
+  
+    <nav class="md-nav" aria-label="通用定时器（F1为例）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f1_2" class="md-nav__link">
+    使用一个定时器作为另一个定时器的预分频器（F1为例）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2312,6 +2379,73 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    定时器
+  </a>
+  
+    <nav class="md-nav" aria-label="定时器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    基本、通用、高级定时器功能整体的区别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    基本定时器简介
+  </a>
+  
+    <nav class="md-nav" aria-label="基本定时器简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32_4" class="md-nav__link">
+    STM32定时器计数模式及溢出条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    定时器溢出时间计算方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f1_1" class="md-nav__link">
+    通用定时器（F1为例）
+  </a>
+  
+    <nav class="md-nav" aria-label="通用定时器（F1为例）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f1_2" class="md-nav__link">
+    使用一个定时器作为另一个定时器的预分频器（F1为例）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2996,7 +3130,7 @@ BSRR修改：写</p>
 <li>复用：IO端口的输入或输出是由其它非GPIO外设控制,我们称之为复用</li>
 </ul>
 <h5 id="stm32f4f7h7io">STM32F4/F7/H7的IO引脚复用</h5>
-<p>为了解决F1系列存在的1O复用功能冲突问题, F4往后的系列都加入了复用器</p>
+<p>为了解决F1系列存在的IO复用功能冲突问题, F4往后的系列都加入了复用器</p>
 <p>复用器特点:</p>
 <ol>
 <li>每个IO 引脚都有一个复用器</li>
@@ -3005,6 +3139,100 @@ BSRR修改：写</p>
 <li>通过GPIOx_AFRL和GPIOx_AFRH寄存器进行配置</li>
 </ol>
 <p><strong>温馨提示：</strong>复位完成后，所有IO 都会连接到系统的复用功能0 (AFO)</p>
+<h2 id="_13">定时器</h2>
+<h3 id="_14">基本、通用、高级定时器功能整体的区别</h3>
+<table>
+<thead>
+<tr>
+<th>定时器类型</th>
+<th>主要功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本定时器</td>
+<td>没有输入输出通道，常用作时基，即定时功能</td>
+</tr>
+<tr>
+<td>通用定时器</td>
+<td>具有多路独立通道,可用于输入捕获/输出比较,也可用作时基</td>
+</tr>
+<tr>
+<td>高级定时器</td>
+<td>除具备通用定时器所有功能外，还具备带死区控制的互补信号输出、刹车输入等功能(可用于电机控制、数字电源设计等)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">基本定时器简介</h3>
+<ol>
+<li>基本定时器
+        TIM6/TIM7</li>
+<li>主要特性
+        16位递增计数器(计数值: 0-65535)
+        16位预分频器(分频系数: 1~65536)
+        可用于触发DAC（数模转换）
+        在更新事件(计数器溢出)时,可产生中断/DMA请求</li>
+</ol>
+<p><img alt="image-20230731112007097" src="STM32.assets/image-20230731112007097.png" /></p>
+<p>影子寄存器是实际起作用的寄存器，不可直接访问</p>
+<p>① 时钟源</p>
+<p>② 控制器
+        当计数器溢出时，产生TRGO信号</p>
+<p>③ 时基单元
+        当CNT==ARR(自动重装载寄存器)时，产生溢出，默认触发U事件（即更新事件），更新事件会将预装载寄存器的值加载到对应影子寄存器。
+        ARPE位决定ARR是否具有缓冲</p>
+<h4 id="stm32_4">STM32定时器计数模式及溢出条件</h4>
+<table>
+<thead>
+<tr>
+<th>计数器模式</th>
+<th>溢出条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>递增计数模式</td>
+<td>CNT==ARR</td>
+</tr>
+<tr>
+<td>递减计数模式</td>
+<td>CNT==0</td>
+</tr>
+<tr>
+<td>中心对齐模式</td>
+<td>CNT <mark> ARR-1、 CNT </mark> 1</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="image-20230731151132478" src="STM32.assets/image-20230731151132478.png" /></p>
+<h3 id="_16">定时器溢出时间计算方法</h3>
+<p>计算公式：<span class="arithmatex">\(T_{out}=\frac{(ARR+1)*(PSC+1)}{F_t}\)</span></p>
+<p>T<sub>out</sub>是定时器溢出时间
+F<sub>t</sub>是定时器的时钟源频率
+ARR是自动重装载寄存器的值
+PSC是预分频器寄存器的值</p>
+<h3 id="f1_1">通用定时器（F1为例）</h3>
+<ol>
+<li>通用定时器
+        TIM2/TIM3/TIM4/TIM5</li>
+<li>主要特性
+        16位递增、<strong>递减、中心对齐</strong>计数器(计数值: 0~65535)
+        16位预分频器(分频系数: 1~65536)
+        可用于触发DAC、<strong>ADC</strong>
+        在更新事件、<strong>触发事件、输入捕获、输出比较</strong>时，会产生中断、DMA请求
+        <strong>4个独立通道,可用于:输入捕获、输出比较、输出PWM、单脉冲模式</strong>
+        <strong>使用外部信号控制定时器且可实现多个定时器互连的同步电路</strong>（定时器级联，即一个定时器的溢出事件为下  一个定时器的时钟源，计数器开始计数）
+        <strong>支持编码器和霍尔传感器电路等</strong></li>
+</ol>
+<p><img alt="image-20230731200416414" src="STM32.assets/image-20230731200416414.png" /></p>
+<p>①时钟源
+②控制器
+③时基单元
+④输入捕获
+⑤捕获/比较(公共
+⑥输出比较</p>
+<h4 id="f1_2">使用一个定时器作为另一个定时器的预分频器（F1为例）</h4>
+<p><img alt="image-20230731204744044" src="STM32.assets/image-20230731204744044.png" /></p>
 
 
 
