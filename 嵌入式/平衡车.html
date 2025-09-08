@@ -1179,6 +1179,18 @@
 <a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">  </span><span class="cm">/* USER CODE END USART3_IRQn 1 */</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="p">}</span>
 </code></pre></div>
+<h1 id="pid">PID算法</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/39573490">PID控制算法原理</a></p>
+<p>PID算法应用非常广泛，小到控制一个元件的温度，大到控制无人机的飞行姿态和飞行速度等等，都可以使用PID控制。</p>
+<p>PID(proportion integration differentiation)其实就是指<strong>比例，积分，微分控制</strong>。</p>
+<p><img alt="image-20250908150320595" src="%E5%B9%B3%E8%A1%A1%E8%BD%A6.assets/image-20250908150320595.png" /></p>
+<p>公式：<span class="arithmatex">\(U(t) = kp\left(err(t) + \frac{1}{T_I}\int err(t)dt + \frac{T_D derr(t)}{dt}\right)\)</span></p>
+<p>总的来说，当得到系统的输出后，将输出经过比例，积分，微分3种运算方式，叠加到输入中，从而控制系统的行为.。</p>
+<p>括号内第一项是比例项，第二项是积分项，第三项是微分项，前面仅仅是一个系数。很多情况下，仅仅需要在离散的时候使用，则控制可以化为<span class="arithmatex">\(u(k) = K_p e(k) + \frac{K_p T}{T_i} \sum_{n=0}^{k} e(n) + \frac{K_p T_d}{T} \big(e(k) - e(k - 1)\big)\)</span></p>
+<p>每一项前面都有系数，这些系数都是需要实验中去尝试然后确定的，为了方便起见，将这些系数进行统一一下：<span class="arithmatex">\(u(k) = K_p e(k) + K_i \sum_{n=0}^{k} e(n) + K_d \big(e(k) - e(k - 1)\big)\)</span></p>
+<p>这样看就清晰很多了，且比例，微分，积分每个项前面都有一个系数，且离散化的公式，很适合编程实现。
+讲到这里，PID的原理和方法就说完了，剩下的就是实践了。在真正的工程实践中，最难的是如果确定三个项的系数，这就需要大量的实验以及经验来决定了。通过不断的尝试和正确的思考，就能选取合适的系数，实现优良的控制器。</p>
+<p><font color="red"><strong>可以这样理解PID：P是纠正曾经，根据误差逐步靠近目标；I是反省现在，自己是否还在原地踏步；D是代表未来，根据未来的趋势做出控制</strong></font></p>
 
 
 
