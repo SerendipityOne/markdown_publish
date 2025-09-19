@@ -1211,7 +1211,7 @@
 <p><code>&gt;</code> 是一个重定向运算符，它允许我们改变标准输出的去向。它允许我们将 <code>echo Hello World</code> 的输出发送到文件而不是屏幕。如果文件不存在，它会为我们创建它。但是，如果它确实存在，它会覆盖它</p>
 <p>嗯，假设我不想覆盖我的 <code>peanuts.txt</code>。幸运的是，也有一个重定向运算符可以做到这一点：<code>&gt;&gt;</code>。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>World<span class="w"> </span>&gt;&gt;<span class="w"> </span>peanuts.txt
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>cat<span class="w"> </span>peanuts.txt<span class="w"> </span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>$<span class="w"> </span>cat<span class="w"> </span>peanuts.txt<span class="w"> </span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Hello<span class="w"> </span>World
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Hello<span class="w"> </span>World
 </code></pre></div>
