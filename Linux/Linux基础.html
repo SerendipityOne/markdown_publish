@@ -708,6 +708,66 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#22-stdin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 stdin（标准输入）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-stderr" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 stderr（标准错误）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 stderr（标准错误）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 区分输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 丢弃错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 同时重定向输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-tee" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 使用 tee命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -936,6 +996,66 @@
       2.1 stdout (标准输出)
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-stdin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 stdin（标准输入）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-stderr" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 stderr（标准错误）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 stderr（标准错误）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 区分输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 丢弃错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 同时重定向输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-tee" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 使用 tee命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1206,6 +1326,18 @@
 <p>alias 的效果仅在该次登入的操作有效，若想要每次登入都生效，可在 <code>.profile</code> 或 <code>.cshrc</code>中设定指令的别名。</p>
 <h2 id="2">2.文本操作</h2>
 <h3 id="21-stdout">2.1 stdout (标准输出)</h3>
+<ul>
+<li><code>&gt;</code>：将 <code>stdout</code><strong>覆盖</strong>写入到文件（文件不存在则创建）。</li>
+<li><code>&gt;&gt;</code>：将 <code>stdout</code><strong>追加</strong>写入到文件（文件不存在则创建）。</li>
+<li><code>2&gt;</code>：将 <code>stderr</code><strong>覆盖</strong>写入到文件。</li>
+<li><code>2&gt;&gt;</code>：将 <code>stderr</code><strong>追加</strong>写入到文件。</li>
+<li><code>&amp;&gt;</code>或 <code>&gt;&amp;</code>：将 <strong><code>stdout</code>和 <code>stderr</code>同时覆盖</strong>写入到文件。</li>
+<li><code>&amp;&gt;&gt;</code>：将 <strong><code>stdout</code>和 <code>stderr</code>同时追加</strong>写入到文件。</li>
+<li><code>tee</code>：从 <code>stdin</code>读取数据，<strong>同时</strong>写入到 <code>stdout</code><strong>和</strong>一个或多个文件。常用选项 <code>-a</code>表示追加（类似 <code>&gt;&gt;</code>）。</li>
+<li><code>/dev/null</code>：特殊的“黑洞”设备文件，写入它的任何数据都会被丢弃。</li>
+<li><code>/dev/stdout</code>：标准输出设备文件。</li>
+<li><code>/dev/stderr</code>：标准错误设备文件。</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>World<span class="w"> </span>&gt;<span class="w"> </span>peanuts.txt
 </code></pre></div>
 <p><code>&gt;</code> 是一个重定向运算符，它允许我们改变标准输出的去向。它允许我们将 <code>echo Hello World</code> 的输出发送到文件而不是屏幕。如果文件不存在，它会为我们创建它。但是，如果它确实存在，它会覆盖它</p>
@@ -1215,6 +1347,77 @@
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Hello<span class="w"> </span>World
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Hello<span class="w"> </span>World
 </code></pre></div>
+<h3 id="22-stdin">2.2 stdin（标准输入）</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>peanuts.txt
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Hello<span class="w"> </span>World
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>&lt;<span class="w"> </span>peanuts.txt<span class="w"> </span>&gt;<span class="w"> </span>banana.txt
+</code></pre></div>
+<h3 id="23-stderr">2.3 stderr（<strong>标准错误</strong>）</h3>
+<h4 id="231">2.3.1 区分输出和错误</h4>
+<p><code>2&gt;</code>：将 <code>stderr</code><strong>覆盖</strong>写入到文件。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>test1<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>error.log
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>error.log<span class="w">  </span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;test1&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+</code></pre></div>
+<h4 id="232">2.3.2 丢弃错误</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span>&gt;<span class="w"> </span>output.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>errors.txt
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>errors.txt<span class="w"> </span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>output.txt<span class="w"> </span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>/etc/passwd
+</code></pre></div>
+<h4 id="233">2.3.3 同时重定向输出和错误</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>all_output.txt
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>all_output.txt<span class="w"> </span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>/etc/passwd
+</code></pre></div>
+<p><code>ls /non_existent_directory /etc/passwd &gt; mixed.txt 2&gt;&amp;1</code>（这是 <code>&amp;&gt;</code>的另一种写法）</p>
+<p><code>2&gt;&amp;1</code>将错误信息和正常的输出信息就会混合在同一个输出流里</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span>&gt;<span class="w"> </span>mixed.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>$<span class="w"> </span>cat<span class="w"> </span>mixed.txt<span class="w">     </span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>/etc/passwd
+</code></pre></div>
+<h4 id="234-tee">2.3.4 使用 tee命令</h4>
+<p><code>tee</code>：从 <code>stdin</code>读取数据，<strong>同时</strong>写入到 <code>stdout</code><strong>和</strong>一个或多个文件。常用选项 <code>-a</code>表示追加（类似 <code>&gt;&gt;</code>）。</p>
+<p><code>&amp;&gt;</code>和 <code>&gt;&gt;</code>是<strong>改变输出目的地</strong>的工具。<code>tee</code>是<strong>复制输出流</strong>的工具，它允许输出<strong>同时</strong>流向屏幕<strong>和</strong>文件（或多个文件），或者在管道中<strong>分流</strong>，这是单纯的重定向操作符无法做到的。当你需要“一鱼两吃”（既看到输出又保存它）或者在管道中“截流”时，<code>tee</code>就是最佳选择。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This will be seen and saved&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>tee_output.txt
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>tee_output.txt<span class="w"> </span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;First line&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>tee_output.txt
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>First<span class="w"> </span>line
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>tee_output.txt<span class="w"> </span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>First<span class="w"> </span>line
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Second line&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>tee_output.txt
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>Second<span class="w"> </span>line
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>tee_output.txt
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>First<span class="w"> </span>line
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>Second<span class="w"> </span>line
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>❯<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;passwd&#39;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1823</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">10</span>:44<span class="w"> </span>passwd
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1827</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">09</span>:39<span class="w"> </span>passwd-
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>❯<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;passwd&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>passwd_files.txt
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1823</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">10</span>:44<span class="w"> </span>passwd
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1827</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">09</span>:39<span class="w"> </span>passwd-
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>❯<span class="w"> </span>cat<span class="w"> </span>passwd_files.txt
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1823</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">10</span>:44<span class="w"> </span>passwd
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1827</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">09</span>:39<span class="w"> </span>passwd-
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>❯<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>all_tee.txt
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+</code></pre></div>
+<p>不能使用<code>&amp;&gt;</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>❯<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>all_tee.txt
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>zsh:<span class="w"> </span>parse<span class="w"> </span>error<span class="w"> </span>near<span class="w"> </span><span class="sb">`</span><span class="p">|</span><span class="err">&#39;</span>
+</code></pre></div>
+<p><strong><code>&amp;&gt;</code>必须直接指向文件</strong><code>&amp;&gt;</code>是一个组合重定向操作符（等同于 <code>&gt; file 2&gt;&amp;1</code>），它要求后面<strong>必须直接跟文件名</strong>（或路径），不能直接连接管道符 <code>|</code>。</p>
+<p>例如：<code>ls &amp;&gt; output.txt</code>✅ 是合法的，但 <code>ls &amp;&gt; | tee ...</code>❌ 是语法错误。</p>
 
 
 
