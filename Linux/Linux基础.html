@@ -768,6 +768,81 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#24-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 命令序列控制（;, &amp;&amp;, ||）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 管道 (|)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2431-cutgrep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.1 cut和grep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2432-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.2 sort和 uniq
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4 综合练习
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1049,6 +1124,81 @@
   <a href="#234-tee" class="md-nav__link">
     <span class="md-ellipsis">
       2.3.4 使用 tee命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 命令序列控制（;, &amp;&amp;, ||）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 管道 (|)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2431-cutgrep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.1 cut和grep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2432-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.2 sort和 uniq
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4 综合练习
     </span>
   </a>
   
@@ -1418,6 +1568,210 @@
 </code></pre></div>
 <p><strong><code>&amp;&gt;</code>必须直接指向文件</strong><code>&amp;&gt;</code>是一个组合重定向操作符（等同于 <code>&gt; file 2&gt;&amp;1</code>），它要求后面<strong>必须直接跟文件名</strong>（或路径），不能直接连接管道符 <code>|</code>。</p>
 <p>例如：<code>ls &amp;&gt; output.txt</code>✅ 是合法的，但 <code>ls &amp;&gt; | tee ...</code>❌ 是语法错误。</p>
+<h3 id="24-cut-grep-wc-sort-uniq">2.4 命令序列控制（<code>;</code>, <code>&amp;&amp;</code>, <code>||</code>）、管道 (<code>|</code>) 以及 <code>cut</code>, <code>grep</code>, <code>wc</code>, <code>sort</code>, <code>uniq</code>等核心文本处理工具</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</code></pre></div>
+<p>管道操作符 <code>|</code>，由一个竖线表示，允许我们获取一个命令的 <code>stdout</code> 并将其作为另一个进程的 <code>stdin</code>。在这个例子中，我们获取了 <code>ls -la /etc</code> 的 <code>stdout</code>，然后将其 <em>管道</em> 到 <code>less</code> 命令。</p>
+<h4 id="241">2.4.1 命令序列控制（<code>;</code>, <code>&amp;&amp;</code>, <code>||</code>）</h4>
+<ul>
+<li><code>;</code>：顺序执行命令，无论前一个命令成功与否。<code>cmd1 ; cmd2</code></li>
+<li><code>&amp;&amp;</code>：仅当前一个命令<strong>成功</strong>（退出状态码为 0）时才执行下一个命令。<code>cmd1 &amp;&amp; cmd2</code></li>
+<li><code>||</code>：仅当前一个命令<strong>失败</strong>（退出状态码非 0）时才执行下一个命令。<code>cmd1 || cmd2</code></li>
+</ul>
+<p>编译一个 C 程序（假设文件叫 <code>hello.c</code>），如果编译成功 (<code>&amp;&amp;</code>)，则运行它；如果编译失败 (<code>||</code>)，则输出错误信息：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>&gt;<span class="w"> </span>gcc<span class="w"> </span>hello.c<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./hello<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compilation failed&quot;</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>hello!!
+</code></pre></div>
+<h4 id="242">2.4.2 管道 (<code>|</code>)</h4>
+<ol>
+<li>
+<p><strong>查看进程：</strong></p>
+<ul>
+<li>
+<p>运行 <code>ps aux</code>。输出可能很长。</p>
+</li>
+<li>
+<p>使用管道将 <code>ps aux</code>的输出传给 <code>grep</code>，只显示包含你用户名（比如 <code>user1</code>）的行：<code>ps aux | grep user1</code></p>
+</li>
+<li>
+<p>统计你运行的进程数量：<code>ps aux | grep user1 | wc -l</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>文件内容处理：</strong></p>
+<ul>
+<li>使用 <code>cat</code>查看 <code>/etc/passwd</code>文件内容：<code>cat /etc/passwd</code></li>
+<li>使用管道只显示包含 <code>/bin/bash</code>的行（通常是普通用户）：<code>cat /etc/passwd | grep '/bin/bash'</code>或<code>grep '/bin/bash' /etc/passwd</code></li>
+<li>统计系统上有多少个普通用户（使用 <code>/bin/bash</code>）：<code>cat /etc/passwd | grep -c '/bin/bash'</code>或 <code>grep -c '/bin/bash' /etc/passwd</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="243-cut-grep-wc-sort-uniq">2.4.3 <code>cut</code>, <code>grep</code>, <code>wc</code>, <code>sort</code>, <code>uniq</code>等核心文本处理工具</h4>
+<h5 id="2431-cutgrep">2.4.3.1 <code>cut</code>和<code>grep</code></h5>
+<p><a href="https://www.runoob.com/linux/linux-comm-cut.html">Linux cut命令</a></p>
+<ol>
+<li>
+<p><strong>提取特定字段 (<code>/etc/passwd</code>)：</strong></p>
+<ul>
+<li>
+<p><code>/etc/passwd</code>文件使用冒号 <code>:</code>分隔字段。格式通常是：<code>用户名:密码占位符(x):UID:GID:描述信息:家目录:登录Shell</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>/etc/passwd
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>root:x:0:0:root:/root:/bin/bash
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>bin:x:2:2:bin:/bin:/usr/sbin/nologin
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>sys:x:3:3:sys:/dev:/usr/sbin/nologin
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>sync:x:4:65534:sync:/bin:/bin/sync
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>...
+</code></pre></div>
+</li>
+<li>
+<p>提取所有用户名（第1个字段）：<code>cut -d':' -f1 /etc/passwd</code>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span>-f1<span class="w"> </span>/etc/passwd
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>root
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>daemon
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>bin
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>...
+</code></pre></div></p>
+</li>
+<li>
+<p>提取所有用户的 UID（第3个字段）：<code>cut -d':' -f3 /etc/passwd</code>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span>-f3<span class="w"> </span>/etc/passwd
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="m">0</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="m">1</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="m">2</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="m">3</span>
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>...
+</code></pre></div></p>
+</li>
+<li>
+<p>提取用户名和家目录（第1和第6个字段）：<code>cut -d':' -f1,6 /etc/passwd</code>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span>-f1,6<span class="w"> </span>/etc/passwd
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>root:/root
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>daemon:/usr/sbin
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>bin:/bin
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>...
+</code></pre></div></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>结合 <code>grep</code>和 <code>cut</code>：</strong></p>
+<ul>
+<li>提取使用 <code>/bin/bash</code>的用户的用户名：<code>grep '/bin/bash' /etc/passwd | cut -d':' -f1</code></li>
+<li>提取 UID 大于等于 1000 的用户的用户名和 UID (提示：需要结合 <code>sort</code>或 <code>awk</code>，这里先用 <code>cut</code>准备数据)：<code>cut -d':' -f1,3 /etc/passwd</code></li>
+</ul>
+</li>
+</ol>
+<h5 id="2432-sort-uniq">2.4.3.2 <code>sort</code>和 <code>uniq</code></h5>
+<p><a href="https://www.runoob.com/linux/linux-comm-sort.html">Linux sort 命令</a></p>
+<p><a href="https://www.runoob.com/linux/linux-comm-uniq.html">Linux uniq 命令</a></p>
+<ol>
+<li>
+<p><strong>排序：</strong></p>
+<ul>
+<li>
+<p>创建一个文件 <code>fruits.txt</code>包含：<code>apple</code>, <code>orange</code>, <code>banana</code>, <code>Apple</code>, <code>grape</code>, <code>banana</code>(注意大小写和重复)。</p>
+</li>
+<li>
+<p>按字母顺序排序：<code>sort fruits.txt</code></p>
+</li>
+<li>
+<p>按字母逆序排序：<code>sort -r fruits.txt</code></p>
+</li>
+<li>
+<p>按字母顺序排序（忽略大小写）：<code>sort -f fruits.txt</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>apple
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>Apple
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>banana
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>banana
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>grape
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>orange
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-r<span class="w"> </span>fruits.txt
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>orange
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>grape
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>banana
+<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>banana
+<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>Apple
+<a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>apple
+<a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-f<span class="w"> </span>fruits.txt
+<a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>apple
+<a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>Apple
+<a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>banana
+<a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a>banana
+<a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a>grape
+<a id="__codelineno-38-21" name="__codelineno-38-21" href="#__codelineno-38-21"></a>orange
+</code></pre></div>
+</li>
+<li>
+<p><strong>去重与计数：</strong></p>
+<ul>
+<li>找出唯一的水果种类（需要先排序）：<code>sort fruits.txt | uniq</code></li>
+<li>找出重复的水果：<code>sort fruits.txt | uniq -d</code></li>
+<li>统计每种水果出现的次数：<code>sort fruits.txt | uniq -c</code></li>
+<li>统计唯一水果的总数：<code>sort fruits.txt | uniq | wc -l</code>或 <code>sort -u fruits.txt | wc -l</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>apple
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>Apple
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>banana
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>grape
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>orange
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span>-d
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>banana
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span>-c
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>apple
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>Apple
+<a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="w">      </span><span class="m">2</span><span class="w"> </span>banana
+<a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>grape
+<a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>orange
+<a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<a id="__codelineno-39-16" name="__codelineno-39-16" href="#__codelineno-39-16"></a><span class="m">5</span>
+<a id="__codelineno-39-17" name="__codelineno-39-17" href="#__codelineno-39-17"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">                                              </span>
+<a id="__codelineno-39-18" name="__codelineno-39-18" href="#__codelineno-39-18"></a><span class="m">5</span>
+</code></pre></div>
+</li>
+</ol>
+<h4 id="244">2.4.4 综合练习</h4>
+<p>创建一个模拟日志文件 <code>access.log</code>，包含类似以下内容（用 <code>echo</code>或编辑器创建）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>192.168.1.1 - - [10/Sep/2024:14:32:10] &quot;GET /index.html HTTP/1.1&quot; 200 1234
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>10.0.0.5 - - [10/Sep/2024:14:32:15] &quot;POST /login HTTP/1.1&quot; 404 567
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>192.168.1.1 - - [10/Sep/2024:14:33:01] &quot;GET /image.jpg HTTP/1.1&quot; 200 98765
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>172.16.0.8 - - [10/Sep/2024:14:33:45] &quot;GET /index.html HTTP/1.1&quot; 200 1234
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>192.168.1.1 - - [10/Sep/2024:14:34:22] &quot;GET /favicon.ico HTTP/1.1&quot; 200 321
+</code></pre></div>
+<ul>
+<li>
+<p><strong>任务 1：</strong> 找出所有状态码为 <code>404</code>的请求行。<code>grep ' 404 ' access.log</code></p>
+</li>
+<li>
+<p><strong>任务 2：</strong> 统计 <code>index.html</code>被访问的次数。<code>grep -c 'GET /index.html' access.log</code></p>
+</li>
+<li>
+<p><strong>任务 3：</strong> 提取所有访问的客户端 IP 地址（每行第一个字段）。<code>cut -d' ' -f1 access.log</code></p>
+</li>
+<li>
+<p><strong>任务 4：</strong> 找出访问量最大的前 3 个 IP 地址及其访问次数。</p>
+<ul>
+<li>提取 IP：<code>cut -d' ' -f1 access.log</code></li>
+<li>排序：<code>sort</code></li>
+<li>计数：<code>uniq -c</code></li>
+<li>按访问次数（计数）逆序排序：<code>sort -nr</code></li>
+<li>取前三：<code>head -n 3</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span>-f1<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">      </span><span class="m">3</span><span class="w"> </span><span class="m">192</span>.168.1.1
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="m">172</span>.16.0.8
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="m">10</span>.0.0.5
+</code></pre></div>
+</li>
+<li>
+<p><strong>任务 5：</strong> 统计不同 HTTP 方法 (<code>GET</code>, <code>POST</code>等) 的使用次数。(提示：提取方法字段，可能在引号内第一个单词，如 <code>"GET</code>或 <code>"POST</code>)。<code>cut -d'"' -f2 access.log | cut -d' ' -f1 | sort | uniq -c</code></p>
+</li>
+</ul>
 
 
 
