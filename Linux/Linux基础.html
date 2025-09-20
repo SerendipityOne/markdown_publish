@@ -1770,6 +1770,18 @@
 </li>
 <li>
 <p><strong>任务 5：</strong> 统计不同 HTTP 方法 (<code>GET</code>, <code>POST</code>等) 的使用次数。(提示：提取方法字段，可能在引号内第一个单词，如 <code>"GET</code>或 <code>"POST</code>)。<code>cut -d'"' -f2 access.log | cut -d' ' -f1 | sort | uniq -c</code></p>
+<ul>
+<li>
+<p><code>cut -d'"' -f2 access.log</code>先按<code>"</code>分割</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39;&quot;&#39;</span><span class="w"> </span>-f2<span class="w"> </span>access.log
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>GET<span class="w"> </span>/index.html<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>POST<span class="w"> </span>/login<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>GET<span class="w"> </span>/image.jpg<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>GET<span class="w"> </span>/index.html<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>GET<span class="w"> </span>/favicon.ico<span class="w"> </span>HTTP/1.1
+</code></pre></div>
+</li>
+</ul>
 </li>
 </ul>
 
