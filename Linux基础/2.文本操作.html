@@ -758,6 +758,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2.8 head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.1 使用head探索日志和配置文件结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282-head-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.2 结合 head和 grep快速定位关键信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 tail
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 tail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9.1 使用tail查看日志结尾和实时跟踪
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1012,6 +1060,54 @@
       2.8 head
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.8 head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.1 使用head探索日志和配置文件结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282-head-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.2 结合 head和 grep快速定位关键信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 tail
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 tail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9.1 使用tail查看日志结尾和实时跟踪
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1510,6 +1606,88 @@
 <p><code>paste</code>指令会把每个文件以列对列的方式，一列列地加以合并。</p>
 <p><strong>注意</strong>：<code>paste</code>并不会改变文件内容，只会将改变后的文本展示在终端上</p>
 <h2 id="28-head">2.8 head</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-head.html">Linux head 命令</a></p>
+<h3 id="281-head">2.8.1 使用head探索日志和配置文件结构</h3>
+<ol>
+<li><strong>查看系统主日志 (<code>syslog</code>或 <code>messages</code>) 的开头：</strong><ul>
+<li><code>head /var/log/syslog</code>或 <code>head /var/log/messages</code></li>
+<li><strong>目标：</strong> 了解日志的基本格式（时间戳、主机名、进程名、消息）。日志开头通常包含系统启动信息。</li>
+</ul>
+</li>
+<li><strong>查看认证日志 (<code>auth.log</code>) 的开头：</strong><ul>
+<li><code>head /var/log/auth.log</code></li>
+<li><strong>目标：</strong> 了解登录、sudo 等认证事件的记录格式。</li>
+</ul>
+</li>
+<li><strong>查看软件包管理日志 (<code>dpkg.log</code>) 的开头：</strong><ul>
+<li><code>head /var/log/dpkg.log</code></li>
+<li><strong>目标：</strong> 了解软件安装、升级、删除的记录格式。</li>
+</ul>
+</li>
+<li><strong>查看关键配置文件 (<code>/etc/fstab</code>) 的开头：</strong><ul>
+<li><code>head /etc/fstab</code></li>
+<li><strong>目标：</strong> 快速确认文件系统挂载配置的开头部分（通常是注释或前几个挂载点）。</li>
+</ul>
+</li>
+<li><strong>查看软件源列表 (<code>/etc/apt/sources.list</code>) 的开头：</strong><ul>
+<li><code>head /etc/apt/sources.list</code></li>
+<li><strong>目标：</strong> 快速查看配置了哪些主要的软件仓库。</li>
+</ul>
+</li>
+<li><strong>查看 SSH 服务器配置 (<code>/etc/ssh/sshd_config</code>) 的开头：</strong><ul>
+<li><code>head /etc/ssh/sshd_config</code></li>
+<li><strong>目标：</strong> 查看配置文件开头的全局设置或注释说明。</li>
+</ul>
+</li>
+</ol>
+<h3 id="282-head-grep">2.8.2 结合 <code>head</code>和 <code>grep</code>快速定位关键信息</h3>
+<ol>
+<li><strong>查找 <code>syslog</code>中最近的 <code>error</code>信息 (前10条)：</strong><ul>
+<li><code>grep -i 'error' /var/log/syslog | head</code></li>
+<li><strong>目标：</strong> 快速瞥见最近的错误级别日志条目。<code>-i</code>忽略大小写。</li>
+</ul>
+</li>
+<li><strong>查找 <code>auth.log</code>中最近的 <code>sudo</code>使用记录 (前5条)：</strong><ul>
+<li><code>grep 'sudo' /var/log/auth.log | head -5</code></li>
+<li><strong>目标：</strong> 快速查看最近的提权操作。</li>
+</ul>
+</li>
+<li><strong>查找 <code>dpkg.log</code>中最近的 <code>install</code>操作 (前3条)：</strong><ul>
+<li><code>grep 'install' /var/log/dpkg.log | head -3</code></li>
+<li><strong>目标：</strong> 快速确认最近安装了哪些软件包。</li>
+</ul>
+</li>
+<li><strong>在 <code>/etc/passwd</code>中查找以 <code>root</code>开头的行：</strong><ul>
+<li><code>grep '^root' /etc/passwd</code>(这里 <code>head</code>可能不必要，因为通常只有一行)</li>
+<li><strong>目标：</strong> 查看 root 用户的配置信息。<code>^</code>表示行首。</li>
+</ul>
+</li>
+<li><strong>在 <code>/etc/ssh/sshd_config</code>中查找 <code>Port</code>配置：</strong><ul>
+<li><code>grep -i '^Port' /etc/ssh/sshd_config</code>(同样，通常只有一行或几行)</li>
+<li><strong>目标：</strong> 快速确认 SSH 服务监听的端口号。<code>^</code>确保匹配的是配置项开头，避免匹配注释。</li>
+</ul>
+</li>
+</ol>
+<h2 id="29-tail">2.9 tail</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-tail.html">Linux tail 命令</a></p>
+<h3 id="291-tail">2.9.1 使用tail查看日志结尾和实时跟踪</h3>
+<ol>
+<li><strong>查看 <code>syslog</code>的最后 20 行：</strong><ul>
+<li><code>tail -20 /var/log/syslog</code></li>
+<li><strong>目标：</strong> 查看最新的日志条目。</li>
+</ul>
+</li>
+<li><strong>实时跟踪 <code>auth.log</code>(观察登录尝试)：</strong><ul>
+<li><code>sudo tail -f /var/log/auth.log</code>(<code>sudo</code>可能需要，取决于权限)</li>
+<li><strong>目标：</strong> 打开另一个终端尝试 SSH 登录或使用 <code>sudo</code>，观察此终端的实时输出。按 <code>Ctrl+C</code>停止跟踪。</li>
+</ul>
+</li>
+<li><strong>查看最近发生的 <code>error</code>(最后 10 条)：</strong><ul>
+<li><code>tail /var/log/syslog | grep -i 'error'</code>(注意：这里 <code>tail</code>先取结尾，再 <code>grep</code>过滤)</li>
+<li><strong>目标：</strong> 查看最新的错误信息。对比练习 2.1，体会 <code>head</code>和 <code>tail</code>的区别。</li>
+</ul>
+</li>
+</ol>
 
 
 
