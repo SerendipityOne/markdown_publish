@@ -896,6 +896,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2.13 tr (转换)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      tr 命令实验：字符转换与处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tr 命令实验：字符转换与处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：基础字符转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：字符删除操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三部分：字符压缩和处理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1363,6 +1411,54 @@
       2.13 tr (转换)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.13 tr (转换)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      tr 命令实验：字符转换与处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tr 命令实验：字符转换与处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：基础字符转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：字符删除操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三部分：字符压缩和处理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2315,28 +2411,181 @@
 </li>
 </ol>
 <h2 id="213-tr">2.13 tr (转换)</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-tr.html">tr命令</a></p>
+<h3 id="tr">tr 命令实验：字符转换与处理</h3>
+<p>文件准备</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>sample.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="s">Hello World!</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="s">This is a SAMPLE text file.</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="s">It contains 123 numbers and SOME Special Characters: !@#$%^&amp;*()</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="s">We&#39;ll use it for tr command practice.</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="s">Multiple   spaces   and   tabs      here.</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="s">EOF</span>
+</code></pre></div>
+<h4 id="_2">第一部分：基础字符转换</h4>
+<ol>
+<li>大小写转换<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的所有字母转换为大写。
+    <code>cat sample.txt | tr 'a-z' 'A-Z'</code>或<code>cat sample.txt | tr '[:lower:]' '[:upper:]'</code><ul>
+<li><strong>解析</strong>：<ul>
+<li><code>'a-z' 'A-Z'</code> 定义字符映射：小写字母映射到大写字母</li>
+<li><code>'[:lower:]' '[:upper:]'</code> 使用预定义的字符类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特定字符转换<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的所有元音字母（aeiou）转换为大写。<code>cat sample.txt | tr 'aeiou' 'AEIOU'</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="_3">第二部分：字符删除操作</h4>
+<ol>
+<li>删除数字<ul>
+<li><strong>要求</strong>：删除 <code>sample.txt</code> 中的所有数字。<code>cat sample.txt | tr -d '0-9'</code>或<code>cat sample.txt | tr -d '[:digit:]'</code><ul>
+<li><strong>解析</strong>：<code>-d</code> 选项表示删除指定的字符。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除标点符号<ul>
+<li><strong>要求</strong>：删除 <code>sample.txt</code> 中的所有标点符号。<code>cat sample.txt | tr -d '!@#$%^&amp;*()'</code>或<code>cat sample.txt | tr -d '[:punct:]'</code></li>
+</ul>
+</li>
+<li>删除非字母字符<ul>
+<li><strong>要求</strong>：只保留字母和空格，删除其他所有字符。<code>cat sample.txt | tr -dc 'a-zA-Z '</code>或<code>cat sample.txt | tr -dc '[:alpha:] '</code><ul>
+<li><strong>解析</strong>：<code>-c</code> 选项表示补集（complement），<code>-dc</code> 表示删除不在指定集合中的字符。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="_4">第三部分：字符压缩和处理</h4>
+<ol>
+<li>
+<p>压缩重复空格</p>
+<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的多个连续空格压缩为单个空格。<code>cat sample.txt | tr -s ' '</code><ul>
+<li><strong>解析</strong>：<code>-s</code> 选项（squeeze）将重复的字符压缩为单个。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>转换空格为换行</p>
+<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的每个单词放在单独一行。<code>cat sample.txt | tr ' ' '\n'</code></li>
+</ul>
+</li>
+</ol>
 <h2 id="214-uniq">2.14 uniq (唯一)</h2>
+<p><code>uniq</code>（unique）命令是另一个用于解析文本的有用工具。</p>
+<p>假设你有一个包含许多重复内容的文本文件：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>reading.txt
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>book
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>book
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>paper
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>paper
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>article
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>article
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>magazine
+</code></pre></div>
+<p>如果你想删除重复项，可以使用 <code>uniq</code> 命令：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>reading.txt
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>book
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>paper
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>article
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>magazine
+</code></pre></div>
+<p>让我们获取每行出现的次数：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span>reading.txt
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="m">2</span><span class="w"> </span>book
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="m">2</span><span class="w"> </span>paper
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="m">2</span><span class="w"> </span>article
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="m">1</span><span class="w"> </span>magazine
+</code></pre></div>
+<p>让我们只获取唯一值：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>-u<span class="w"> </span>reading.txt
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>magazine
+</code></pre></div>
+<p>让我们只获取重复值：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>-d<span class="w"> </span>reading.txt
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>book
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>paper
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>article
+</code></pre></div>
+<p><strong>注意</strong>：<code>uniq</code> 只有在重复行相邻时才能检测到它们。例如：</p>
+<p>假设你有一个文件，其中包含不相邻的重复项：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>reading.txt
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>book
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>paper
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>book
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>paper
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>article
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>magazine
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>article
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>reading.txt
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>reading.txt
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>book
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>paper
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>book
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>paper
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>article
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a>magazine
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>article
+</code></pre></div>
+<p><code>uniq</code> 返回的结果将包含所有条目，与第一个示例不同。</p>
+<p>为了克服 <code>uniq</code> 的这个限制，我们可以将 <code>sort</code> 与 <code>uniq</code> 结合使用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>$<span class="w"> </span>sort<span class="w"> </span>reading.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>article
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>book
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>magazine
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>paper
+</code></pre></div>
 <h2 id="215-wc-nl">2.15 wc 和 nl</h2>
+<p><code>wc</code>（word count）命令显示文件中单词的总数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>$<span class="w"> </span>wc<span class="w"> </span>/etc/passwd
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w"> </span><span class="m">96</span><span class="w">     </span><span class="m">265</span><span class="w">    </span><span class="m">5925</span><span class="w"> </span>/etc/passwd
+</code></pre></div>
+<p>它分别显示行数、单词数和字节数。</p>
+<p>要只查看某个字段的计数，请分别使用 <code>-l</code>、<code>-w</code> 或 <code>-c</code> 选项。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>/etc/passwd
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="m">96</span>
+</code></pre></div>
+<p>另一个可以用来检查文件中行数的命令是 <code>nl</code>（number lines）命令。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>file1.txt
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>i
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>like
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>turtles
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>$<span class="w"> </span>nl<span class="w"> </span>file1.txt
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="m">1</span>.<span class="w"> </span>i
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="m">2</span>.<span class="w"> </span>like
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="m">3</span>.<span class="w"> </span>turtles
+</code></pre></div>
 <h2 id="216-grep">2.16 grep</h2>
 <h3 id="grepsedawk">练习 grep、sed、awk</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1"># 将以下内容复制到终端中创建文件</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>practice.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="s">Alice Johnson,25,Engineer,55000</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="s">Bob Smith,30,Designer,48000</span>
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="s">Charlie Brown,28,Manager,62000</span>
-<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="s">Diana Prince,35,CEO,85000</span>
-<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="s">Evan Davis,22,Intern,35000</span>
-<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="s">Frank Miller,40,Engineer,75000</span>
-<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="s">Grace Lee,27,Designer,52000</span>
-<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="s">Henry Jones,32,Manager,68000</span>
-<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="s">EOF</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># 将以下内容复制到终端中创建文件</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>practice.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="s">Alice Johnson,25,Engineer,55000</span>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="s">Bob Smith,30,Designer,48000</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="s">Charlie Brown,28,Manager,62000</span>
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="s">Diana Prince,35,CEO,85000</span>
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="s">Evan Davis,22,Intern,35000</span>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="s">Frank Miller,40,Engineer,75000</span>
+<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="s">Grace Lee,27,Designer,52000</span>
+<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a><span class="s">Henry Jones,32,Manager,68000</span>
+<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a><span class="s">EOF</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>web_log.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="s">192.168.1.105 - - [15/Oct/2023:14:32:01 +0800] &quot;GET /index.html HTTP/1.1&quot; 200 1325 &quot;https://www.example.com/referrer&quot; &quot;Mozilla/5.0 (X11; Linux x86_64)&quot;</span>
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="s">10.0.0.12 - - [15/Oct/2023:14:32:02 +0800] &quot;POST /api/login HTTP/1.1&quot; 404 211 &quot;-&quot; &quot;curl/7.68.0&quot;</span>
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="s">192.168.1.105 - - [15/Oct/2023:14:32:03 +0800] &quot;GET /images/logo.png HTTP/1.1&quot; 200 5432 &quot;https://www.example.com/index.html&quot; &quot;Mozilla/5.0 (X11; Linux x86_64)&quot;</span>
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="s">10.0.0.77 - - [15/Oct/2023:14:32:04 +0800] &quot;GET /index.html HTTP/1.1&quot; 500 0 &quot;https://www.google.com&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)&quot;</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="s">EOF</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>web_log.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="s">192.168.1.105 - - [15/Oct/2023:14:32:01 +0800] &quot;GET /index.html HTTP/1.1&quot; 200 1325 &quot;https://www.example.com/referrer&quot; &quot;Mozilla/5.0 (X11; Linux x86_64)&quot;</span>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="s">10.0.0.12 - - [15/Oct/2023:14:32:02 +0800] &quot;POST /api/login HTTP/1.1&quot; 404 211 &quot;-&quot; &quot;curl/7.68.0&quot;</span>
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="s">192.168.1.105 - - [15/Oct/2023:14:32:03 +0800] &quot;GET /images/logo.png HTTP/1.1&quot; 200 5432 &quot;https://www.example.com/index.html&quot; &quot;Mozilla/5.0 (X11; Linux x86_64)&quot;</span>
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a><span class="s">10.0.0.77 - - [15/Oct/2023:14:32:04 +0800] &quot;GET /index.html HTTP/1.1&quot; 500 0 &quot;https://www.google.com&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)&quot;</span>
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="s">EOF</span>
 </code></pre></div>
 <h4 id="grep">grep 与正则表达式</h4>
 <p><strong>目标</strong>：使用 <code>grep</code> 和正则表达式进行模式匹配。</p>
@@ -2375,39 +2624,39 @@
 <ul>
 <li>
 <p><strong>注意</strong>：观察不加 <code>g</code> 标志和加 <code>g</code> 标志的区别。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/,/|/&#39;</span><span class="w"> </span>practice.txt
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>Alice<span class="w"> </span>Johnson<span class="p">|</span><span class="m">25</span>,Engineer,55000
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>Bob<span class="w"> </span>Smith<span class="p">|</span><span class="m">30</span>,Designer,48000
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span>,Manager,62000
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span>,CEO,85000
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span>,Intern,35000
-<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span>,Engineer,75000
-<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>Grace<span class="w"> </span>Lee<span class="p">|</span><span class="m">27</span>,Designer,52000
-<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>Henry<span class="w"> </span>Jones<span class="p">|</span><span class="m">32</span>,Manager,68000
-<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/,/|/g&#39;</span><span class="w"> </span>practice.txt
-<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a>Alice<span class="w"> </span>Johnson<span class="p">|</span><span class="m">25</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">55000</span>
-<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a>Bob<span class="w"> </span>Smith<span class="p">|</span><span class="m">30</span><span class="p">|</span>Designer<span class="p">|</span><span class="m">48000</span>
-<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">62000</span>
-<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span><span class="p">|</span>CEO<span class="p">|</span><span class="m">85000</span>
-<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span><span class="p">|</span>Intern<span class="p">|</span><span class="m">35000</span>
-<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">75000</span>
-<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>Grace<span class="w"> </span>Lee<span class="p">|</span><span class="m">27</span><span class="p">|</span>Designer<span class="p">|</span><span class="m">52000</span>
-<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a>Henry<span class="w"> </span>Jones<span class="p">|</span><span class="m">32</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">68000</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/,/|/&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>Alice<span class="w"> </span>Johnson<span class="p">|</span><span class="m">25</span>,Engineer,55000
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>Bob<span class="w"> </span>Smith<span class="p">|</span><span class="m">30</span>,Designer,48000
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span>,Manager,62000
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span>,CEO,85000
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span>,Intern,35000
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span>,Engineer,75000
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>Grace<span class="w"> </span>Lee<span class="p">|</span><span class="m">27</span>,Designer,52000
+<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>Henry<span class="w"> </span>Jones<span class="p">|</span><span class="m">32</span>,Manager,68000
+<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/,/|/g&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a>Alice<span class="w"> </span>Johnson<span class="p">|</span><span class="m">25</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">55000</span>
+<a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a>Bob<span class="w"> </span>Smith<span class="p">|</span><span class="m">30</span><span class="p">|</span>Designer<span class="p">|</span><span class="m">48000</span>
+<a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">62000</span>
+<a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span><span class="p">|</span>CEO<span class="p">|</span><span class="m">85000</span>
+<a id="__codelineno-57-15" name="__codelineno-57-15" href="#__codelineno-57-15"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span><span class="p">|</span>Intern<span class="p">|</span><span class="m">35000</span>
+<a id="__codelineno-57-16" name="__codelineno-57-16" href="#__codelineno-57-16"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">75000</span>
+<a id="__codelineno-57-17" name="__codelineno-57-17" href="#__codelineno-57-17"></a>Grace<span class="w"> </span>Lee<span class="p">|</span><span class="m">27</span><span class="p">|</span>Designer<span class="p">|</span><span class="m">52000</span>
+<a id="__codelineno-57-18" name="__codelineno-57-18" href="#__codelineno-57-18"></a>Henry<span class="w"> </span>Jones<span class="p">|</span><span class="m">32</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">68000</span>
 </code></pre></div>
 </li>
 </ul>
 </li>
 <li>
 <p><strong>定址替换</strong>：只对第 3 到第 6 行进行逗号到竖线的替换。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;3,6s/,/|/g&#39;</span><span class="w"> </span>practice.txt
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>Alice<span class="w"> </span>Johnson,25,Engineer,55000
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>Bob<span class="w"> </span>Smith,30,Designer,48000
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">62000</span>
-<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span><span class="p">|</span>CEO<span class="p">|</span><span class="m">85000</span>
-<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span><span class="p">|</span>Intern<span class="p">|</span><span class="m">35000</span>
-<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">75000</span>
-<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>Grace<span class="w"> </span>Lee,27,Designer,52000
-<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>Henry<span class="w"> </span>Jones,32,Manager,68000
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;3,6s/,/|/g&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>Alice<span class="w"> </span>Johnson,25,Engineer,55000
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>Bob<span class="w"> </span>Smith,30,Designer,48000
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">62000</span>
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span><span class="p">|</span>CEO<span class="p">|</span><span class="m">85000</span>
+<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span><span class="p">|</span>Intern<span class="p">|</span><span class="m">35000</span>
+<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">75000</span>
+<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a>Grace<span class="w"> </span>Lee,27,Designer,52000
+<a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a>Henry<span class="w"> </span>Jones,32,Manager,68000
 </code></pre></div>
 </li>
 <li>
@@ -2429,24 +2678,24 @@
 <ul>
 <li><code>-F</code> &lt;分隔符&gt; </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1, $4}&#39;</span><span class="w"> </span>practice.txt
-<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>Alice<span class="w"> </span>Johnson<span class="w"> </span><span class="m">55000</span>
-<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>Bob<span class="w"> </span>Smith<span class="w"> </span><span class="m">48000</span>
-<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>Charlie<span class="w"> </span>Brown<span class="w"> </span><span class="m">62000</span>
-<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>Diana<span class="w"> </span>Prince<span class="w"> </span><span class="m">85000</span>
-<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>Evan<span class="w"> </span>Davis<span class="w"> </span><span class="m">35000</span>
-<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>Frank<span class="w"> </span>Miller<span class="w"> </span><span class="m">75000</span>
-<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>Grace<span class="w"> </span>Lee<span class="w"> </span><span class="m">52000</span>
-<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>Henry<span class="w"> </span>Jones<span class="w"> </span><span class="m">68000</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1, $4}&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>Alice<span class="w"> </span>Johnson<span class="w"> </span><span class="m">55000</span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>Bob<span class="w"> </span>Smith<span class="w"> </span><span class="m">48000</span>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>Charlie<span class="w"> </span>Brown<span class="w"> </span><span class="m">62000</span>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>Diana<span class="w"> </span>Prince<span class="w"> </span><span class="m">85000</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>Evan<span class="w"> </span>Davis<span class="w"> </span><span class="m">35000</span>
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>Frank<span class="w"> </span>Miller<span class="w"> </span><span class="m">75000</span>
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>Grace<span class="w"> </span>Lee<span class="w"> </span><span class="m">52000</span>
+<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>Henry<span class="w"> </span>Jones<span class="w"> </span><span class="m">68000</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>条件过滤</strong>：打印出薪水高于 60000 的员工的全名。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;$4&gt;60000 {print $1}&#39;</span><span class="w"> </span>practice.txt
-<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>Charlie<span class="w"> </span>Brown
-<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>Diana<span class="w"> </span>Prince
-<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>Frank<span class="w"> </span>Miller
-<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>Henry<span class="w"> </span>Jones
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;$4&gt;60000 {print $1}&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>Charlie<span class="w"> </span>Brown
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>Diana<span class="w"> </span>Prince
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>Frank<span class="w"> </span>Miller
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>Henry<span class="w"> </span>Jones
 </code></pre></div>
 </li>
 <li>
@@ -2454,8 +2703,8 @@
 <ul>
 <li>
 <p><strong>提示</strong>：使用 <code>BEGIN{sum=0; count=0}</code> 和 <code>END{print sum/count}</code> 模式。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;BEGIN{sum=0; count=0} {sum+=$4; count++} END{print &quot;avg_sal:&quot;, sum/count}&#39;</span><span class="w"> </span>practice.txt<span class="w"> </span>
-<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>avg_sal:<span class="w"> </span><span class="m">60000</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;BEGIN{sum=0; count=0} {sum+=$4; count++} END{print &quot;avg_sal:&quot;, sum/count}&#39;</span><span class="w"> </span>practice.txt<span class="w"> </span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>avg_sal:<span class="w"> </span><span class="m">60000</span>
 </code></pre></div>
 </li>
 </ul>
