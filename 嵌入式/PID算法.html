@@ -393,11 +393,11 @@
         <li class="md-nav__item">
   <a href="#pid_1" class="md-nav__link">
     <span class="md-ellipsis">
-      PID程序实现
+      一、PID程序实现
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="PID程序实现">
+    <nav class="md-nav" aria-label="一、PID程序实现">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -413,6 +413,57 @@
   <a href="#pid_3" class="md-nav__link">
     <span class="md-ellipsis">
       增量式PID程序实现(控制器内积分,输出全量)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、基础驱动代码编写
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、基础驱动代码编写">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-oled" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 OLED模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 LED模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 KEY模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-rp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 电位器RP
     </span>
   </a>
   
@@ -627,11 +678,11 @@
         <li class="md-nav__item">
   <a href="#pid_1" class="md-nav__link">
     <span class="md-ellipsis">
-      PID程序实现
+      一、PID程序实现
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="PID程序实现">
+    <nav class="md-nav" aria-label="一、PID程序实现">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -647,6 +698,57 @@
   <a href="#pid_3" class="md-nav__link">
     <span class="md-ellipsis">
       增量式PID程序实现(控制器内积分,输出全量)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、基础驱动代码编写
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、基础驱动代码编写">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-oled" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 OLED模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 LED模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 KEY模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-rp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 电位器RP
     </span>
   </a>
   
@@ -678,7 +780,7 @@
 
 <h1 id="pid">PID</h1>
 <p>PID理论部分这里不做介绍，详细请看教程<a href="https://www.bilibili.com/video/BV1G9zdYQEr3?p=2">江科大PID入门教程</a></p>
-<h2 id="pid_1">PID程序实现</h2>
+<h2 id="pid_1">一、PID程序实现</h2>
 <p>以下示例代码皆使用标准库实现</p>
 <p>确定一个调控周期T，每隔时间T，程序执行一次PID调控<img alt="image-20250910151437445" src="PID%E7%AE%97%E6%B3%95.assets/image-20250910151437445.png" />   </p>
 <ul>
@@ -694,6 +796,112 @@
 <p>公式如下：</p>
 <p><img alt="image-20250910153454762" src="PID%E7%AE%97%E6%B3%95.assets/image-20250910153454762.png" /></p>
 <p><img alt="image-20250910153506472" src="PID%E7%AE%97%E6%B3%95.assets/image-20250910153506472.png" /></p>
+<h2 id="_1">二、基础驱动代码编写</h2>
+<h3 id="21-oled">2.1 OLED模块</h3>
+<p><img src="./PID%E7%AE%97%E6%B3%95.assets/image-20250925161150261.png" alt="image-20250925161150261" style="zoom:50%;" /><img src="./PID%E7%AE%97%E6%B3%95.assets/image-20250925161156549.png" alt="image-20250925161156549" style="zoom:50%;" /></p>
+<p>通过原理图看得出OLED的<code>SCL</code>与<code>SDA</code>分别接到<code>PB8</code>与<code>PB9</code>，驱动代码直接移植即可，在CubeMX中设置<code>PB8/9</code>为<code>`GPIO_Output</code>。并设置为开漏输出<code>Output Open Drain</code>。</p>
+<h3 id="22-led">2.2 LED模块</h3>
+<p>该项目没有外接LED，使用<code>STM32F103C8T6</code>内置的LED模块，接在<code>PC13</code>上。设置<code>PC13</code>为<code>GPIO_Output</code>，并设置<code>GPIO output level=High</code>、<code>GPIO mode=Output Push Pull</code>
+驱动代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gpio.h&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stm32f1xx_hal.h&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LED_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">MX_GPIO_Init</span><span class="p">();</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LED_ON</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">GPIOC</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_13</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_RESET</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LED_OFF</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">GPIOC</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_13</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_SET</span><span class="p">);</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LED_Turn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">GPIOC</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_13</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">GPIOC</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_13</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_SET</span><span class="p">);</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">GPIOC</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_13</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_RESET</span><span class="p">);</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="23-key">2.3 KEY模块</h3>
+<p><img alt="image-20250925184911046" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925184911046.png" /></p>
+<p><img alt="image-20250925184954792" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925184954792.png" /></p>
+<p>根据图示设置<code>PB10、PB11、PA11、PA12</code>引脚为<code>GPIO_Input</code>且为上拉输入</p>
+<p><img alt="image-20250925192300248" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925192300248.png" /></p>
+<p>该项目使用定时器实现非阻塞式按键消抖，使用TIM1定时器，并开启<code>TIM1 update interrupt</code>TIM1更新中断</p>
+<p><img alt="image-20250925184030919" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925184030919.png" /></p>
+<p><code>Key.c</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Key.h&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Delay.h&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gpio.h&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">Key_Num</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Key_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">MX_GPIO_Init</span><span class="p">();</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">Key_GetNum</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">Temp</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Key_Num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">Temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Key_Num</span><span class="p">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">Key_Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Temp</span><span class="p">;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">Key_GetState</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">GPIOB</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_10</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// KEY1</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">GPIOB</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_11</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// KEY2</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">GPIOA</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_11</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// KEY3</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">GPIOA</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PIN_12</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// KEY4</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="p">}</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Key_Tick</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">Count</span><span class="p">;</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">CurrState</span><span class="p">,</span><span class="w"> </span><span class="n">PrevState</span><span class="p">;</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="n">Count</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">        </span><span class="n">Count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">        </span><span class="n">PrevState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CurrState</span><span class="p">;</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">        </span><span class="n">CurrState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Key_GetState</span><span class="p">();</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CurrState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PrevState</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">            </span><span class="n">Key_Num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrevState</span><span class="p">;</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="24-rp">2.4 电位器RP</h3>
+<p><img alt="image-20250925192812160" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925192812160.png" /><img alt="image-20250925192839394" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925192839394.png" /></p>
+<p><img alt="image-20250925193324735" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925193324735.png" /></p>
+<p>电位器接PA2,3,4,5，根据STM32F103C8T6引脚复位功能图看到这四个电位器旋钮对应的ADC通道为ADC1/2的通道2~5</p>
+<p>配置PA2,3,4,5为ADC2_IN2,3,4,5。并设置时钟分频6分频</p>
+<p><img alt="image-20250925195713117" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925195713117.png" /><img alt="image-20250925195722225" src="PID%E7%AE%97%E6%B3%95.assets/image-20250925195722225.png" /></p>
+<p><strong>为何选择6分频</strong>：</p>
+<p><strong>ADC最大时钟频率限制</strong></p>
+<ul>
+<li>STM32F1系列的ADC最大时钟频率通常为14MHz</li>
+<li>超过此频率会导致转换结果不准确</li>
+<li>如果PCLK2为72MHz，6分频后ADC时钟为12MHz（72MHz/6 = 12MHz）</li>
+<li>12MHz低于14MHz的最大限制，保证了ADC的正常工作</li>
+</ul>
 
 
 
