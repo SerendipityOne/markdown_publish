@@ -691,6 +691,54 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 输出偏移
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 输出偏移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      程序实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7 输入死区
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.7 输入死区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      程序实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1198,6 +1246,54 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 输出偏移
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 输出偏移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      程序实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7 输入死区
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.7 输入死区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      程序实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1268,6 +1364,14 @@
 </li>
 <li><a href="#45">4.5 不完全微分</a><ul>
 <li><a href="#_6">程序实现</a></li>
+</ul>
+</li>
+<li><a href="#46">4.6 输出偏移</a><ul>
+<li><a href="#_7">程序实现</a></li>
+</ul>
+</li>
+<li><a href="#47">4.7 输入死区</a><ul>
+<li><a href="#_8">程序实现</a></li>
 </ul>
 </li>
 </ul>
@@ -2159,6 +2263,69 @@
 </code></pre></div>
 <p><img alt="image-20250929194423054" src="PID%E7%AE%97%E6%B3%95.assets/image-20250929194423054.png" /></p>
 <p>可以看到diffOut的输出变的平缓了。但实际位置由于存在噪声，无法做到紧贴target</p>
+<h3 id="46">4.6 输出偏移</h3>
+<p>要解决的问题：对于一些启动需要一定力度的执行器，若输出值较小，执行器可能完全无动作，这可能会引起调控误差，同时会降低系统响应速度</p>
+<p>输出偏移实现思路：若输出值为0，则正常输出0，不进行调控；若输出值非0，则给输出值加一个固定偏移，跳过执行器无动作的阶段</p>
+<p><img alt="image-20250929202003844" src="PID%E7%AE%97%E6%B3%95.assets/image-20250929202003844.png" /></p>
+<h4 id="_7">程序实现</h4>
+<p><img alt="image-20250929202642565" src="PID%E7%AE%97%E6%B3%95.assets/image-20250929202642565.png" /></p>
+<p>通过实测得到当out&gt;=7时，电机才开始转动。实测方法：通过按键逐步增大out，直到电机转动。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cm">/* PID计算 */</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">error0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ki</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">errorInt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">error0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">error1</span><span class="p">);</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="kt">float</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="p">}</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="cm">/* 输出限幅 */</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-100</span><span class="p">)</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-100</span><span class="p">;</span>
+</code></pre></div>
+<p>加入输出偏移后，out不会出现-offset~offset之间的值，但是电机会出现频繁的抖动，这是因为PID一直处于调控状态。解决办法：输入死区</p>
+<h3 id="47">4.7 输入死区</h3>
+<p>要解决的问题：在某些系统中，输入的目标值或实际值有微小的噪声波动，或者系统有一定的滞后，这些情况可能会导致执行器在误差很小时频繁调控，不能最终稳定下来</p>
+<p>输入死区实现思路：若误差绝对值小于一个限度，则固定输出0，不进行调控</p>
+<p><img alt="image-20250929203736969" src="PID%E7%AE%97%E6%B3%95.assets/image-20250929203736969.png" /></p>
+<h4 id="_8">程序实现</h4>
+<p><img alt="image-20250929203906793" src="PID%E7%AE%97%E6%B3%95.assets/image-20250929203906793.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="cm">/* 获取本次误差和上次误差 */</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">error1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">error0</span><span class="p">;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">error0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">actual</span><span class="p">;</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">error0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="n">errorInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="cm">/* 误差积分（累加） */</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="c1">// errorInt += error0;</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ki</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">        </span><span class="n">errorInt</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">error0</span><span class="p">;</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">        </span><span class="n">errorInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">    </span><span class="cm">/* PID计算 */</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">error0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ki</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">errorInt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">error0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">error1</span><span class="p">);</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span>
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span>
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="p">}</span>
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a>
+<a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="cm">/* 输出限幅 */</span>
+<a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-100</span><span class="p">)</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-100</span><span class="p">;</span>
+</code></pre></div>
 
 
 
