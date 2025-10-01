@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1" class="md-skip">
+        <a href="#1入门" class="md-skip">
           跳转至
         </a>
       
@@ -606,7 +606,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#基本使用示例" class="md-nav__link">
     <span class="md-ellipsis">
       基本使用示例
     </span>
@@ -615,7 +615,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-p" class="md-nav__link">
+  <a href="#使用--p-选项" class="md-nav__link">
     <span class="md-ellipsis">
       使用 -P 选项
     </span>
@@ -624,7 +624,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#在脚本中使用" class="md-nav__link">
     <span class="md-ellipsis">
       在脚本中使用
     </span>
@@ -746,7 +746,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
     </span>
@@ -830,7 +830,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#基本使用示例" class="md-nav__link">
     <span class="md-ellipsis">
       基本使用示例
     </span>
@@ -839,7 +839,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-p" class="md-nav__link">
+  <a href="#使用--p-选项" class="md-nav__link">
     <span class="md-ellipsis">
       使用 -P 选项
     </span>
@@ -848,7 +848,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#在脚本中使用" class="md-nav__link">
     <span class="md-ellipsis">
       在脚本中使用
     </span>
@@ -970,7 +970,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
     </span>
@@ -997,8 +997,8 @@
   
 
 
-<h1 id="1">1.入门</h1>
-<h2 id="11-pwd">1.1 pwd</h2>
+<h1 id="1入门">1.入门<a class="headerlink" href="#1入门" title="Permanent link">&para;</a></h1>
+<h2 id="11-pwd">1.1 pwd<a class="headerlink" href="#11-pwd" title="Permanent link">&para;</a></h2>
 <p><code>pwd</code>命令有两个参数<code>-P</code>和<code>-L</code>。在寻常目录下没有任何符号链接会影响我们的当前路径，因此所有版本的命令都显示相同的结果。要看到 <code>-L</code> 和 <code>-P</code> 选项的区别，我们需要进入一个符号链接的目录。</p>
 <table>
 <thead>
@@ -1026,12 +1026,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_1">基本使用示例</h3>
+<h3 id="基本使用示例">基本使用示例<a class="headerlink" href="#基本使用示例" title="Permanent link">&para;</a></h3>
 <p>最简单的用法是直接输入命令：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">pwd</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/home/username/projects
 </code></pre></div>
-<h3 id="-p">使用 -P 选项</h3>
+<h3 id="使用--p-选项">使用 -P 选项<a class="headerlink" href="#使用--p-选项" title="Permanent link">&para;</a></h3>
 <p>当你在一个符号链接目录中时：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/var/www/html<span class="w"> </span>myweb
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>myweb
@@ -1040,18 +1040,18 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>$<span class="w"> </span><span class="nb">pwd</span><span class="w"> </span>-P
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>/var/www/html<span class="w">          </span><span class="c1"># 物理路径</span>
 </code></pre></div>
-<h3 id="_2">在脚本中使用</h3>
+<h3 id="在脚本中使用">在脚本中使用<a class="headerlink" href="#在脚本中使用" title="Permanent link">&para;</a></h3>
 <p><code>pwd</code> 经常用于脚本中获取当前目录：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">CURRENT_DIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;当前目录是: </span><span class="nv">$CURRENT_DIR</span><span class="s2">&quot;</span>
 </code></pre></div>
-<h2 id="12-touch">1.2 touch</h2>
+<h2 id="12-touch">1.2 touch<a class="headerlink" href="#12-touch" title="Permanent link">&para;</a></h2>
 <p><code>touch</code> 命令用于修改文件或者目录的时间属性，包括存取时间和更改时间。若文件不存在，系统会建立一个新的文件。</p>
 <p><code>touch</code>命令有许多参数，具体参考<a href="https://www.runoob.com/linux/linux-comm-touch.html">Linux touch命令</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>touch<span class="w"> </span>myfile<span class="w">    </span>
 </code></pre></div>
-<h2 id="13-file">1.3 file</h2>
+<h2 id="13-file">1.3 file<a class="headerlink" href="#13-file" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.runoob.com/linux/linux-comm-file.html">Linux file命令</a></p>
 <p><code>file</code>命令用于辨识文件类型。</p>
 <p>通过<code>file</code>指令，我们得以辨识该文件的类型。</p>
@@ -1077,7 +1077,7 @@
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="o">[</span>root@localhost<span class="w"> </span>~<span class="o">]</span><span class="c1"># file -L /var/spool/mail</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>/var/spool/mail:<span class="w"> </span>directory
 </code></pre></div>
-<h2 id="14-cat">1.4 cat</h2>
+<h2 id="14-cat">1.4 cat<a class="headerlink" href="#14-cat" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.runoob.com/linux/linux-comm-cat.html">Linux cat 命令</a></p>
 <p><code>cat</code>用于连接文件并打印到标准输出设备上，它的主要作用是用于查看和连接文件。</p>
 <ul>
@@ -1118,13 +1118,13 @@
 </ol>
 </li>
 </ul>
-<h2 id="15-less">1.5 less</h2>
+<h2 id="15-less">1.5 less<a class="headerlink" href="#15-less" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.runoob.com/linux/linux-comm-less.html">Linux less 命令</a></p>
 <p><code>less</code> 与 <code>more</code> 类似，<code>less</code> 可以随意浏览文件，支持翻页和搜索，支持向上翻页和向下翻页。</p>
 <p>可以按大写 <strong>F</strong>，就会有类似 <code>tail -f</code> 的效果，读取写入文件的最新内容， 按 <strong>ctrl+C</strong> 停止</p>
-<h2 id="16-history">1.6 history</h2>
+<h2 id="16-history">1.6 history<a class="headerlink" href="#16-history" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.runoob.com/linux/linux-comm-history.html">history 命令完全指南</a></p>
-<h2 id="17-cp">1.7 cp</h2>
+<h2 id="17-cp">1.7 cp<a class="headerlink" href="#17-cp" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.runoob.com/linux/linux-comm-cp.html">Linux cp命令</a></p>
 <ol>
 <li>
@@ -1187,7 +1187,7 @@
 <li>复制目录时，必须使用 <code>-r</code> 或 <code>-R</code> 选项，否则会报错。</li>
 <li>如果目标文件已存在，默认情况下 <code>cp</code> 会覆盖它（除非使用 <code>-i</code> 选项）。</li>
 </ol>
-<h2 id="18-mv">1.8 mv</h2>
+<h2 id="18-mv">1.8 mv<a class="headerlink" href="#18-mv" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1210,7 +1210,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="19-mkdir">1.9 mkdir</h2>
+<h2 id="19-mkdir">1.9 mkdir<a class="headerlink" href="#19-mkdir" title="Permanent link">&para;</a></h2>
 <p><strong>参数说明</strong>：</p>
 <ul>
 <li>-p 确保目录名称存在，不存在的就建一个。</li>
@@ -1219,25 +1219,25 @@
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>mkdir:<span class="w"> </span>cannot<span class="w"> </span>create<span class="w"> </span>directory<span class="w"> </span>‘test/test1’:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>test/test1
 </code></pre></div>
-<h2 id="110-rm">1.10 rm</h2>
+<h2 id="110-rm">1.10 rm<a class="headerlink" href="#110-rm" title="Permanent link">&para;</a></h2>
 <p><strong>参数</strong>：</p>
 <ul>
 <li>-i 删除前逐一询问确认。</li>
 <li>-f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。</li>
 <li>-r 将目录及以下之档案亦逐一删除。</li>
 </ul>
-<h2 id="111-find">1.11 find</h2>
+<h2 id="111-find">1.11 find<a class="headerlink" href="#111-find" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.runoob.com/linux/linux-comm-find.html">Linux find 命令</a></p>
-<h2 id="112-whatis">1.12 whatis</h2>
+<h2 id="112-whatis">1.12 whatis<a class="headerlink" href="#112-whatis" title="Permanent link">&para;</a></h2>
 <p><code>whatis</code> 命令提供命令行程序的简要描述。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>whatis<span class="w"> </span>cat
 </code></pre></div>
-<h2 id="113-alias">1.13 alias</h2>
+<h2 id="113-alias">1.13 alias<a class="headerlink" href="#113-alias" title="Permanent link">&para;</a></h2>
 <p><code>alias</code> 命令用于设置指令的别名，用户可利用 alias，自定指令的别名。。</p>
 <p>它可以使您以一种更简单和易于记忆的方式执行命令，而不必每次都键入完整的命令。</p>
 <p>若仅输入 alias，则可列出目前所有的别名设置。</p>
 <p>alias 的效果仅在该次登入的操作有效，若想要每次登入都生效，可在 <code>.profile</code> 或 <code>.cshrc</code>中设定指令的别名。</p>
-<h2 id="_3"></h2>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 
 
 

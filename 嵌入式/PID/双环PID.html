@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pid" class="md-skip">
+        <a href="#双环pid" class="md-skip">
           跳转至
         </a>
       
@@ -431,7 +431,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pid_1" class="md-nav__link">
+  <a href="#一多环串级pid" class="md-nav__link">
     <span class="md-ellipsis">
       一、多环串级PID
     </span>
@@ -441,7 +441,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#程序实现" class="md-nav__link">
     <span class="md-ellipsis">
       程序实现
     </span>
@@ -687,7 +687,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pid_1" class="md-nav__link">
+  <a href="#一多环串级pid" class="md-nav__link">
     <span class="md-ellipsis">
       一、多环串级PID
     </span>
@@ -697,7 +697,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#程序实现" class="md-nav__link">
     <span class="md-ellipsis">
       程序实现
     </span>
@@ -729,14 +729,14 @@
   
 
 
-<h1 id="pid">双环PID</h1>
-<h2 id="pid_1">一、多环串级PID</h2>
+<h1 id="双环pid">双环PID<a class="headerlink" href="#双环pid" title="Permanent link">&para;</a></h1>
+<h2 id="一多环串级pid">一、多环串级PID<a class="headerlink" href="#一多环串级pid" title="Permanent link">&para;</a></h2>
 <p>单环PD只能对被控对象的一个物理量进行闭环控制，而当用户需要对被控对象的多个维度物理量（例如：速度、位置、角度等）进行控制时，则需要多个PID控制环路，即多环PID,多个PID串级连接，因此也称作串级PID</p>
 <p>多环PID相较于单环PID,功能上，可以实现对更多物理量的控制，性能上，可以使系统拥有更高的准确性、稳定性和响应速度</p>
 <p><img alt="image-20251001102733771" src="%E5%8F%8C%E7%8E%AFPID.assets/image-20251001102733771.png" /></p>
 <p>定位置控制单环与双环比较</p>
 <p><img alt="image-20251001103638980" src="%E5%8F%8C%E7%8E%AFPID.assets/image-20251001103638980.png" /></p>
-<h3 id="_1">程序实现</h3>
+<h3 id="程序实现">程序实现<a class="headerlink" href="#程序实现" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20251001104038666" src="%E5%8F%8C%E7%8E%AFPID.assets/image-20251001104038666.png" /></p>
 <p><img alt="image-20251001104342329" src="%E5%8F%8C%E7%8E%AFPID.assets/image-20251001104342329.png" /></p>
 <p>在进行PID调参时，要先对内环PID进行调参，则需要将外环PID控制的代码注释</p>
