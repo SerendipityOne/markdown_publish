@@ -893,6 +893,7 @@
 </code></pre></div>
 <h2 id="_2">二、倒立摆</h2>
 <p><img alt="image-20251002101119196" src="%E5%8F%8C%E7%8E%AFPID.assets/image-20251002101119196.png" /></p>
+<p>在只有内环时，能维持倒立摆不倒的情况下，转盘没有固定的位置，会一直旋转来维持稳定。当加入外环位置环后，固定转盘的位置，输出角度值，让内环在这个角度值稳定，并输出PWM给电机，电机再旋转使转盘固定在目标位置</p>
 <p>内环角度环PID调参：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Private define ------------------------------------------------------------*/</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cm">/* USER CODE BEGIN PD */</span>
