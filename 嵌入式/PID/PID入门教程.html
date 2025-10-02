@@ -2510,7 +2510,7 @@
 <p>可以看到当设置kp=0，ki=0时，此时为纯D项控制，当快速修改target，act依旧能贴合tar，这就违背了kd对act产生阻尼的初衷</p>
 <h4 id="_5">程序实现</h4>
 <p><img alt="image-20250929190526340" src="PID%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.assets/image-20250929190526340.png" /></p>
-<p>程序基于<a href="#3.3 位置式PID定位置控制">3.3 位置式PID定位置控制</a></p>
+<p>程序基于<a href="#33-pid">3.3 位置式PID定位置控制</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>/* USER CODE BEGIN PV */
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="gd">-float target, actual, out;</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gi">+float target, actual, out, actual1;</span>
