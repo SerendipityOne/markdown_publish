@@ -1,0 +1,2948 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="余智杭">
+      
+      
+      
+        <link rel="prev" href="1.%E5%85%A5%E9%97%A8%E5%91%BD%E4%BB%A4.html">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>2.文本操作 - Serendipity_Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="Serendipity_Docs" class="md-header__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Serendipity_Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.文本操作
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SerendipityOne/markdown_publish" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Serendipity_Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Serendipity_Docs" class="md-nav__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Serendipity_Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SerendipityOne/markdown_publish" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Serendipity_Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    嵌入式
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            嵌入式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PID学习
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            PID学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/PID%E5%AD%A6%E4%B9%A0/PID%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PID入门教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/PID%E5%AD%A6%E4%B9%A0/%E5%8F%8C%E7%8E%AFPID.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    双环PID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B9%B3%E8%A1%A1%E8%BD%A6/%E5%B9%B3%E8%A1%A1%E8%BD%A6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    平衡车
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    四轴无人机
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            四轴无人机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9B%9B%E8%BD%B4%E6%97%A0%E4%BA%BA%E6%9C%BA/%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主控程序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9B%9B%E8%BD%B4%E6%97%A0%E4%BA%BA%E6%9C%BA/%E9%81%A5%E6%8E%A7%E7%A8%8B%E5%BA%8F.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    遥控程序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            OI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OI/%E6%B4%9B%E8%B0%B7%E5%88%B7%E9%A2%98.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    洛谷刷题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux基础
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.%E5%85%A5%E9%97%A8%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.入门命令
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2.文本操作
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="2.%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.文本操作
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-stdout" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 stdout (标准输出)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-stdin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 stdin（标准输入）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-stderr" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 stderr（标准错误）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 stderr（标准错误）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 区分输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 丢弃错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 同时重定向输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-tee" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 使用 tee命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 命令序列控制（;, &amp;&amp;, ||）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 管道 (|)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2431-cutgrep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.1 cut和grep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2432-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.2 sort和 uniq
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4 综合练习
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 env（环境）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 env（环境）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 基础变量操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 作用域与继承
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-bashrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3 持久化配置 (~/.bashrc)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-cut" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 cut
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-paste" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 paste
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 head
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.1 使用head探索日志和配置文件结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282-head-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.2 结合 head和 grep快速定位关键信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 tail
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 tail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9.1 使用tail查看日志结尾和实时跟踪
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-expand-unexpand" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10 expand 和 unexpand
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-join-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11 join 和 split
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11 join 和 split">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      join实验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12 sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.12 sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      sort 命令实验：文本排序与单词计数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sort 命令实验：文本排序与单词计数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sort_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：sort 命令基础练习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：单词计数和排序挑战
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.13 tr (转换)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.13 tr (转换)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      tr 命令实验：字符转换与处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tr 命令实验：字符转换与处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：基础字符转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：字符删除操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三部分：字符压缩和处理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#214-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.14 uniq (唯一)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#215-wc-nl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.15 wc 和 nl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#216-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.16 grep
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.16 grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grepsedawk" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习 grep、sed、awk
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="练习 grep、sed、awk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      grep 与正则表达式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      sed 流编辑器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awk" class="md-nav__link">
+    <span class="md-ellipsis">
+      awk 编程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-stdout" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 stdout (标准输出)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-stdin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 stdin（标准输入）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-stderr" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 stderr（标准错误）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 stderr（标准错误）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 区分输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 丢弃错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 同时重定向输出和错误
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-tee" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 使用 tee命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 命令序列控制（;, &amp;&amp;, ||）、管道 (|) 以及 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 命令序列控制（;, &amp;&amp;, ||）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 管道 (|)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-cut-grep-wc-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.3 cut, grep, wc, sort, uniq等核心文本处理工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2431-cutgrep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.1 cut和grep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2432-sort-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3.2 sort和 uniq
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4 综合练习
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 env（环境）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 env（环境）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 基础变量操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 作用域与继承
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-bashrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3 持久化配置 (~/.bashrc)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-cut" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 cut
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-paste" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 paste
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 head
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 head">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.1 使用head探索日志和配置文件结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282-head-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.2 结合 head和 grep快速定位关键信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 tail
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 tail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9.1 使用tail查看日志结尾和实时跟踪
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-expand-unexpand" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10 expand 和 unexpand
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-join-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11 join 和 split
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11 join 和 split">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      join实验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12 sort
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.12 sort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      sort 命令实验：文本排序与单词计数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sort 命令实验：文本排序与单词计数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sort_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：sort 命令基础练习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：单词计数和排序挑战
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.13 tr (转换)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.13 tr (转换)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      tr 命令实验：字符转换与处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tr 命令实验：字符转换与处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：基础字符转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：字符删除操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三部分：字符压缩和处理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#214-uniq" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.14 uniq (唯一)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#215-wc-nl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.15 wc 和 nl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#216-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.16 grep
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.16 grep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grepsedawk" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习 grep、sed、awk
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="练习 grep、sed、awk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      grep 与正则表达式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      sed 流编辑器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awk" class="md-nav__link">
+    <span class="md-ellipsis">
+      awk 编程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="2">2.文本操作</h1>
+<h2 id="21-stdout">2.1 stdout (标准输出)</h2>
+<ul>
+<li><code>&gt;</code>：将 <code>stdout</code><strong>覆盖</strong>写入到文件（文件不存在则创建）。</li>
+<li><code>&gt;&gt;</code>：将 <code>stdout</code><strong>追加</strong>写入到文件（文件不存在则创建）。</li>
+<li><code>2&gt;</code>：将 <code>stderr</code><strong>覆盖</strong>写入到文件。</li>
+<li><code>2&gt;&gt;</code>：将 <code>stderr</code><strong>追加</strong>写入到文件。</li>
+<li><code>&amp;&gt;</code>或 <code>&gt;&amp;</code>：将 <strong><code>stdout</code>和 <code>stderr</code>同时覆盖</strong>写入到文件。</li>
+<li><code>&amp;&gt;&gt;</code>：将 <strong><code>stdout</code>和 <code>stderr</code>同时追加</strong>写入到文件。</li>
+<li><code>tee</code>：从 <code>stdin</code>读取数据，<strong>同时</strong>写入到 <code>stdout</code><strong>和</strong>一个或多个文件。常用选项 <code>-a</code>表示追加（类似 <code>&gt;&gt;</code>）。</li>
+<li><code>/dev/null</code>：特殊的“黑洞”设备文件，写入它的任何数据都会被丢弃。</li>
+<li><code>/dev/stdout</code>：标准输出设备文件。</li>
+<li><code>/dev/stderr</code>：标准错误设备文件。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>World<span class="w"> </span>&gt;<span class="w"> </span>peanuts.txt
+</code></pre></div>
+<p><code>&gt;</code> 是一个重定向运算符，它允许我们改变标准输出的去向。它允许我们将 <code>echo Hello World</code> 的输出发送到文件而不是屏幕。如果文件不存在，它会为我们创建它。但是，如果它确实存在，它会覆盖它</p>
+<p>嗯，假设我不想覆盖我的 <code>peanuts.txt</code>。幸运的是，也有一个重定向运算符可以做到这一点：<code>&gt;&gt;</code>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>Hello<span class="w"> </span>World<span class="w"> </span>&gt;&gt;<span class="w"> </span>peanuts.txt
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>cat<span class="w"> </span>peanuts.txt<span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Hello<span class="w"> </span>World
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Hello<span class="w"> </span>World
+</code></pre></div>
+<h2 id="22-stdin">2.2 stdin（标准输入）</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>peanuts.txt
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hello<span class="w"> </span>World
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>&lt;<span class="w"> </span>peanuts.txt<span class="w"> </span>&gt;<span class="w"> </span>banana.txt
+</code></pre></div>
+<h2 id="23-stderr">2.3 stderr（标准错误）</h2>
+<h3 id="231">2.3.1 区分输出和错误</h3>
+<p><code>2&gt;</code>：将 <code>stderr</code><strong>覆盖</strong>写入到文件。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>test1<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>error.log
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>error.log<span class="w">  </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;test1&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+</code></pre></div>
+<h3 id="232">2.3.2 丢弃错误</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span>&gt;<span class="w"> </span>output.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>errors.txt
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>errors.txt<span class="w"> </span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>output.txt<span class="w"> </span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>/etc/passwd
+</code></pre></div>
+<h3 id="233">2.3.3 同时重定向输出和错误</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>all_output.txt
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>all_output.txt<span class="w"> </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>/etc/passwd
+</code></pre></div>
+<p><code>ls /non_existent_directory /etc/passwd &gt; mixed.txt 2&gt;&amp;1</code>（这是 <code>&amp;&gt;</code>的另一种写法）</p>
+<p><code>2&gt;&amp;1</code>将错误信息和正常的输出信息就会混合在同一个输出流里</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span>&gt;<span class="w"> </span>mixed.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>$<span class="w"> </span>cat<span class="w"> </span>mixed.txt<span class="w">     </span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>/etc/passwd
+</code></pre></div>
+<h3 id="234-tee">2.3.4 使用 tee命令</h3>
+<p><code>tee</code>：从 <code>stdin</code>读取数据，<strong>同时</strong>写入到 <code>stdout</code><strong>和</strong>一个或多个文件。常用选项 <code>-a</code>表示追加（类似 <code>&gt;&gt;</code>）。</p>
+<p><code>&amp;&gt;</code>和 <code>&gt;&gt;</code>是<strong>改变输出目的地</strong>的工具。<code>tee</code>是<strong>复制输出流</strong>的工具，它允许输出<strong>同时</strong>流向屏幕<strong>和</strong>文件（或多个文件），或者在管道中<strong>分流</strong>，这是单纯的重定向操作符无法做到的。当你需要“一鱼两吃”（既看到输出又保存它）或者在管道中“截流”时，<code>tee</code>就是最佳选择。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This will be seen and saved&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>tee_output.txt
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>tee_output.txt<span class="w"> </span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;First line&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>tee_output.txt
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>First<span class="w"> </span>line
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>tee_output.txt<span class="w"> </span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>First<span class="w"> </span>line
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Second line&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>tee_output.txt
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Second<span class="w"> </span>line
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>tee_output.txt
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>This<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>seen<span class="w"> </span>and<span class="w"> </span>saved
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>First<span class="w"> </span>line
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Second<span class="w"> </span>line
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>❯<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;passwd&#39;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1823</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">10</span>:44<span class="w"> </span>passwd
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1827</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">09</span>:39<span class="w"> </span>passwd-
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>❯<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;passwd&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>passwd_files.txt
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1823</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">10</span>:44<span class="w"> </span>passwd
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1827</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">09</span>:39<span class="w"> </span>passwd-
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>❯<span class="w"> </span>cat<span class="w"> </span>passwd_files.txt
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1823</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">10</span>:44<span class="w"> </span>passwd
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">       </span><span class="m">1827</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">09</span>:39<span class="w"> </span>passwd-
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>❯<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>all_tee.txt
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;/non_existent_directory&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+</code></pre></div>
+<p>不能使用<code>&amp;&gt;</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>❯<span class="w"> </span>ls<span class="w"> </span>/non_existent_directory<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>all_tee.txt
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>zsh:<span class="w"> </span>parse<span class="w"> </span>error<span class="w"> </span>near<span class="w"> </span><span class="sb">`</span><span class="p">|</span><span class="err">&#39;</span>
+</code></pre></div>
+<p><strong><code>&amp;&gt;</code>必须直接指向文件</strong><code>&amp;&gt;</code>是一个组合重定向操作符（等同于 <code>&gt; file 2&gt;&amp;1</code>），它要求后面<strong>必须直接跟文件名</strong>（或路径），不能直接连接管道符 <code>|</code>。</p>
+<p>例如：<code>ls &amp;&gt; output.txt</code>✅ 是合法的，但 <code>ls &amp;&gt; | tee ...</code>❌ 是语法错误。</p>
+<h2 id="24-cut-grep-wc-sort-uniq">2.4 命令序列控制（<code>;</code>, <code>&amp;&amp;</code>, <code>||</code>）、管道 (<code>|</code>) 以及 <code>cut</code>, <code>grep</code>, <code>wc</code>, <code>sort</code>, <code>uniq</code>等核心文本处理工具</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</code></pre></div>
+<p>管道操作符 <code>|</code>，由一个竖线表示，允许我们获取一个命令的 <code>stdout</code> 并将其作为另一个进程的 <code>stdin</code>。在这个例子中，我们获取了 <code>ls -la /etc</code> 的 <code>stdout</code>，然后将其 <em>管道</em> 到 <code>less</code> 命令。</p>
+<h3 id="241">2.4.1 命令序列控制（<code>;</code>, <code>&amp;&amp;</code>, <code>||</code>）</h3>
+<ul>
+<li><code>;</code>：顺序执行命令，无论前一个命令成功与否。<code>cmd1 ; cmd2</code></li>
+<li><code>&amp;&amp;</code>：仅当前一个命令<strong>成功</strong>（退出状态码为 0）时才执行下一个命令。<code>cmd1 &amp;&amp; cmd2</code></li>
+<li><code>||</code>：仅当前一个命令<strong>失败</strong>（退出状态码非 0）时才执行下一个命令。<code>cmd1 || cmd2</code></li>
+</ul>
+<p>编译一个 C 程序（假设文件叫 <code>hello.c</code>），如果编译成功 (<code>&amp;&amp;</code>)，则运行它；如果编译失败 (<code>||</code>)，则输出错误信息：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>&gt;<span class="w"> </span>gcc<span class="w"> </span>hello.c<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./hello<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compilation failed&quot;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>hello!!
+</code></pre></div>
+<h3 id="242">2.4.2 管道 (<code>|</code>)</h3>
+<ol>
+<li>
+<p><strong>查看进程：</strong></p>
+<ul>
+<li>
+<p>运行 <code>ps aux</code>。输出可能很长。</p>
+</li>
+<li>
+<p>使用管道将 <code>ps aux</code>的输出传给 <code>grep</code>，只显示包含你用户名（比如 <code>user1</code>）的行：<code>ps aux | grep user1</code></p>
+</li>
+<li>
+<p>统计你运行的进程数量：<code>ps aux | grep user1 | wc -l</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>文件内容处理：</strong></p>
+<ul>
+<li>使用 <code>cat</code>查看 <code>/etc/passwd</code>文件内容：<code>cat /etc/passwd</code></li>
+<li>使用管道只显示包含 <code>/bin/bash</code>的行（通常是普通用户）：<code>cat /etc/passwd | grep '/bin/bash'</code>或<code>grep '/bin/bash' /etc/passwd</code></li>
+<li>统计系统上有多少个普通用户（使用 <code>/bin/bash</code>）：<code>cat /etc/passwd | grep -c '/bin/bash'</code>或 <code>grep -c '/bin/bash' /etc/passwd</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="243-cut-grep-wc-sort-uniq">2.4.3 <code>cut</code>, <code>grep</code>, <code>wc</code>, <code>sort</code>, <code>uniq</code>等核心文本处理工具</h3>
+<h4 id="2431-cutgrep">2.4.3.1 <code>cut</code>和<code>grep</code></h4>
+<p>后续会介绍<code>cut</code>更加详细的用法</p>
+<ol>
+<li>
+<p><strong>提取特定字段 (<code>/etc/passwd</code>)：</strong></p>
+<ul>
+<li>
+<p><code>/etc/passwd</code>文件使用冒号 <code>:</code>分隔字段。格式通常是：<code>用户名:密码占位符(x):UID:GID:描述信息:家目录:登录Shell</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>/etc/passwd
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>root:x:0:0:root:/root:/bin/bash
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>bin:x:2:2:bin:/bin:/usr/sbin/nologin
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>sys:x:3:3:sys:/dev:/usr/sbin/nologin
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>sync:x:4:65534:sync:/bin:/bin/sync
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>...
+</code></pre></div>
+</li>
+<li>
+<p>提取所有用户名（第1个字段）：<code>cut -d':' -f1 /etc/passwd</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span>-f1<span class="w"> </span>/etc/passwd
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>root
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>daemon
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>bin
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>...
+</code></pre></div>
+</li>
+<li>
+<p>提取所有用户的 UID（第3个字段）：<code>cut -d':' -f3 /etc/passwd</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span>-f3<span class="w"> </span>/etc/passwd
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="m">0</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="m">1</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="m">2</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="m">3</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>...
+</code></pre></div>
+</li>
+<li>
+<p>提取用户名和家目录（第1和第6个字段）：<code>cut -d':' -f1,6 /etc/passwd</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span>-f1,6<span class="w"> </span>/etc/passwd
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>root:/root
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>daemon:/usr/sbin
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>bin:/bin
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>...
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>结合 <code>grep</code>和 <code>cut</code>：</strong></p>
+<ul>
+<li>提取使用 <code>/bin/bash</code>的用户的用户名：<code>grep '/bin/bash' /etc/passwd | cut -d':' -f1</code></li>
+<li>提取 UID 大于等于 1000 的用户的用户名和 UID (提示：需要结合 <code>sort</code>或 <code>awk</code>，这里先用 <code>cut</code>准备数据)：<code>cut -d':' -f1,3 /etc/passwd</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="2432-sort-uniq">2.4.3.2 <code>sort</code>和 <code>uniq</code></h4>
+<p><a href="https://www.runoob.com/linux/linux-comm-sort.html">Linux sort 命令</a></p>
+<p><a href="https://www.runoob.com/linux/linux-comm-uniq.html">Linux uniq 命令</a></p>
+<ol>
+<li>
+<p><strong>排序：</strong></p>
+<ul>
+<li>
+<p>创建一个文件 <code>fruits.txt</code>包含：<code>apple</code>, <code>orange</code>, <code>banana</code>, <code>Apple</code>, <code>grape</code>, <code>banana</code>(注意大小写和重复)。</p>
+</li>
+<li>
+<p>按字母顺序排序：<code>sort fruits.txt</code></p>
+</li>
+<li>
+<p>按字母逆序排序：<code>sort -r fruits.txt</code></p>
+</li>
+<li>
+<p>按字母顺序排序（忽略大小写）：<code>sort -f fruits.txt</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>apple
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Apple
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>banana
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>banana
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>grape
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>orange
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-r<span class="w"> </span>fruits.txt
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>orange
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>grape
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>banana
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>banana
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>Apple
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>apple
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-f<span class="w"> </span>fruits.txt
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>apple
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>Apple
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>banana
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>banana
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>grape
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>orange
+</code></pre></div>
+</li>
+<li>
+<p><strong>去重与计数：</strong></p>
+<ul>
+<li>找出唯一的水果种类（需要先排序）：<code>sort fruits.txt | uniq</code></li>
+<li>找出重复的水果：<code>sort fruits.txt | uniq -d</code></li>
+<li>统计每种水果出现的次数：<code>sort fruits.txt | uniq -c</code></li>
+<li>统计唯一水果的总数：<code>sort fruits.txt | uniq | wc -l</code>或 <code>sort -u fruits.txt | wc -l</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>apple
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Apple
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>banana
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>grape
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>orange
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span>-d
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>banana
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span>-c
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>apple
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>Apple
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">      </span><span class="m">2</span><span class="w"> </span>banana
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>grape
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span>orange
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="m">5</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>fruits.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">                                              </span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="m">5</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="244">2.4.4 综合练习</h3>
+<p>创建一个模拟日志文件 <code>access.log</code>，包含类似以下内容（用 <code>echo</code>或编辑器创建）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>192.168.1.1 - - [10/Sep/2024:14:32:10] &quot;GET /index.html HTTP/1.1&quot; 200 1234
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>10.0.0.5 - - [10/Sep/2024:14:32:15] &quot;POST /login HTTP/1.1&quot; 404 567
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>192.168.1.1 - - [10/Sep/2024:14:33:01] &quot;GET /image.jpg HTTP/1.1&quot; 200 98765
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>172.16.0.8 - - [10/Sep/2024:14:33:45] &quot;GET /index.html HTTP/1.1&quot; 200 1234
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>192.168.1.1 - - [10/Sep/2024:14:34:22] &quot;GET /favicon.ico HTTP/1.1&quot; 200 321
+</code></pre></div>
+<ul>
+<li>
+<p><strong>任务 1：</strong> 找出所有状态码为 <code>404</code>的请求行。<code>grep ' 404 ' access.log</code></p>
+</li>
+<li>
+<p><strong>任务 2：</strong> 统计 <code>index.html</code>被访问的次数。<code>grep -c 'GET /index.html' access.log</code></p>
+</li>
+<li>
+<p><strong>任务 3：</strong> 提取所有访问的客户端 IP 地址（每行第一个字段）。<code>cut -d' ' -f1 access.log</code></p>
+</li>
+<li>
+<p><strong>任务 4：</strong> 找出访问量最大的前 3 个 IP 地址及其访问次数。</p>
+<ul>
+<li>提取 IP：<code>cut -d' ' -f1 access.log</code></li>
+<li>排序：<code>sort</code></li>
+<li>计数：<code>uniq -c</code></li>
+<li>按访问次数（计数）逆序排序：<code>sort -nr</code></li>
+<li>取前三：<code>head -n 3</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span>-f1<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">      </span><span class="m">3</span><span class="w"> </span><span class="m">192</span>.168.1.1
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="m">172</span>.16.0.8
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">      </span><span class="m">1</span><span class="w"> </span><span class="m">10</span>.0.0.5
+</code></pre></div>
+</li>
+<li>
+<p><strong>任务 5：</strong> 统计不同 HTTP 方法 (<code>GET</code>, <code>POST</code>等) 的使用次数。(提示：提取方法字段，可能在引号内第一个单词，如 <code>"GET</code>或 <code>"POST</code>)。<code>cut -d'"' -f2 access.log | cut -d' ' -f1 | sort | uniq -c</code></p>
+<ul>
+<li>
+<p><code>cut -d'"' -f2 access.log</code>先按<code>"</code>分割</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>&gt;<span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39;&quot;&#39;</span><span class="w"> </span>-f2<span class="w"> </span>access.log
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>GET<span class="w"> </span>/index.html<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>POST<span class="w"> </span>/login<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>GET<span class="w"> </span>/image.jpg<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>GET<span class="w"> </span>/index.html<span class="w"> </span>HTTP/1.1
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>GET<span class="w"> </span>/favicon.ico<span class="w"> </span>HTTP/1.1
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="25-env">2.5 env（环境）</h2>
+<ol>
+<li>
+<p>操作命令</p>
+<ul>
+<li>
+<p><strong>定义环境变量：</strong></p>
+<ul>
+<li>方法 1：先定义本地变量，然后导出：<code>VAR_NAME=value</code>；<code>export VAR_NAME</code></li>
+<li>方法 2：一步定义并导出：<code>export VAR_NAME=value</code></li>
+</ul>
+</li>
+<li>
+<p><strong>查看变量值：</strong> <code>echo $VAR_NAME</code></p>
+<ul>
+<li><strong>查看所有变量：</strong><ul>
+<li>所有变量（本地+环境）：<code>set</code></li>
+<li>仅环境变量：<code>env</code>或 <code>printenv</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>取消设置变量：</strong> <code>unset VAR_NAME</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>配置文件 (持久化)：</strong></p>
+<ul>
+<li><strong><code>~/.bashrc</code>:</strong> 针对<strong>交互式、非登录</strong> Bash Shell。当你打开一个新的终端窗口或标签页时，或者在一个已存在的 Shell 中启动一个新的 Bash 子 Shell (<code>bash</code>) 时，会读取此文件。<strong>这是配置个人环境变量、别名、函数最常用的文件。</strong></li>
+<li><strong><code>~/.bash_profile</code>或 <code>~/.profile</code>:</strong> 针对<strong>登录</strong> Bash Shell。当你通过控制台、SSH 登录系统时，或者使用 <code>bash --login</code>/ <code>bash -l</code>启动 Shell 时，会读取此文件。通常用于设置登录时需要运行一次的环境（如 <code>PATH</code>添加）。</li>
+<li><strong><code>/etc/profile</code>和 <code>/etc/bash.bashrc</code>(或 <code>/etc/bashrc</code>):</strong> 系统级别的配置文件，为所有用户设置环境。修改需要管理员权限 (<code>sudo</code>)。</li>
+<li><strong><code>~/.bash_logout</code>:</strong> 在注销登录 Shell 时执行。</li>
+</ul>
+</li>
+<li>
+<p><strong>重要环境变量：</strong></p>
+<ul>
+<li><code>PATH</code>: 定义了 Shell 查找命令的目录列表。<code>echo $PATH</code>查看，通常用 <code>PATH=$PATH:/new/directory</code>添加新路径。</li>
+<li><code>HOME</code>: 当前用户的家目录路径。</li>
+<li><code>USER</code>/ <code>LOGNAME</code>: 当前用户名。</li>
+<li><code>SHELL</code>: 当前使用的 Shell 路径。</li>
+<li><code>PWD</code>: 当前工作目录。</li>
+<li><code>OLDPWD</code>: 上一个工作目录。</li>
+</ul>
+</li>
+</ol>
+<h3 id="251">2.5.1 基础变量操作</h3>
+<ol>
+<li>
+<p><strong>创建本地变量：</strong></p>
+<ul>
+<li>打开终端。</li>
+<li>输入 <code>MY_LOCAL_VAR="Hello Local World"</code>。</li>
+<li>验证：<code>echo $MY_LOCAL_VAR</code>(应该输出 <code>Hello Local World</code>)。</li>
+<li>查看所有变量：<code>set | grep MY_LOCAL_VAR</code>(应该能看到它)。</li>
+<li>查看环境变量：<code>env | grep MY_LOCAL_VAR</code>(应该<strong>看不到</strong>它)。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建环境变量：</strong></p>
+<ul>
+<li>输入 <code>export MY_ENV_VAR="Hello Global World"</code>。</li>
+<li>验证：<code>echo $MY_ENV_VAR</code>(输出 <code>Hello Global World</code>)。</li>
+<li>查看环境变量：<code>env | grep MY_ENV_VAR</code>(现在应该能看到它)。</li>
+</ul>
+</li>
+<li>
+<p><strong>修改变量值：</strong></p>
+<ul>
+<li>输入 <code>MY_LOCAL_VAR="New Local Value"</code>。</li>
+<li>输入 <code>export MY_ENV_VAR="New Global Value"</code>(或者 <code>MY_ENV_VAR="New Global Value"</code>因为已经是环境变量)。</li>
+<li>验证 <code>echo $MY_LOCAL_VAR</code>和 <code>echo $MY_ENV_VAR</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>取消设置变量：</strong></p>
+<ul>
+<li>输入 <code>unset MY_LOCAL_VAR</code>。</li>
+<li>输入 <code>unset MY_ENV_VAR</code>。</li>
+<li>验证 <code>echo $MY_LOCAL_VAR</code>和 <code>echo $MY_ENV_VAR</code>(应该输出空行或报错 <code>未找到变量</code>)。</li>
+</ul>
+</li>
+</ol>
+<h3 id="252">2.5.2 作用域与继承</h3>
+<ol>
+<li><strong>本地变量不继承：</strong><ul>
+<li>在父 Shell：<code>MY_LOCAL_ONLY="Parent Local"</code></li>
+<li>启动一个子 Shell：输入 <code>bash</code>(注意提示符可能会变化)。</li>
+<li>在子 Shell 中：<code>echo $MY_LOCAL_ONLY</code>(应该输出空行，说明子 Shell <strong>未继承</strong>父 Shell 的本地变量)。</li>
+<li>退出子 Shell：输入 <code>exit</code>。</li>
+</ul>
+</li>
+<li><strong>环境变量可继承：</strong><ul>
+<li>在父 Shell：<code>export MY_INHERITED="Parent Env"</code></li>
+<li>启动子 Shell：<code>bash</code></li>
+<li>在子 Shell 中：<code>echo $MY_INHERITED</code>(应该输出 <code>Parent Env</code>，说明子 Shell <strong>继承了</strong>父 Shell 的环境变量)。</li>
+<li>在子 Shell 中修改：<code>export MY_INHERITED="Child Modified"</code></li>
+<li>在子 Shell 中验证：<code>echo $MY_INHERITED</code>(输出 <code>Child Modified</code>)。</li>
+<li>退出子 Shell：<code>exit</code></li>
+<li>回到父 Shell：<code>echo $MY_INHERITED</code>(应该输出 <code>Parent Env</code>，说明子 Shell 的修改<strong>不影响</strong>父 Shell)。</li>
+</ul>
+</li>
+</ol>
+<h3 id="253-bashrc">2.5.3 持久化配置 (<code>~/.bashrc</code>)</h3>
+<ol>
+<li>
+<p><strong>编辑 <code>~/.bashrc</code>：</strong></p>
+<ul>
+<li>
+<p>使用你喜欢的文本编辑器打开 <code>~/.bashrc</code>文件 (例如：<code>nano ~/.bashrc</code>, <code>vim ~/.bashrc</code>, <code>gedit ~/.bashrc &amp;</code>)。</p>
+</li>
+<li>
+<p>在文件末尾添加以下内容：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># My Custom Configuration</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MY_PERSISTENT_VAR</span><span class="o">=</span><span class="s2">&quot;This will last!&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -alF&#39;</span><span class="w"> </span><span class="c1"># 创建一个常用别名</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>使配置生效：</strong></p>
+<ul>
+<li><strong>方法 1 (推荐)：</strong> 在<strong>当前终端</strong>执行 <code>source ~/.bashrc</code>或 <code>. ~/.bashrc</code>。这会立即加载修改后的配置到当前 Shell。</li>
+<li><strong>方法 2：</strong> 关闭当前终端窗口并打开一个新的终端窗口。新的 Shell 启动时会自动读取 <code>~/.bashrc</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>验证持久化：</strong></p>
+<ul>
+<li>在新配置生效的 Shell 中：<code>echo $MY_PERSISTENT_VAR</code>(应该输出 <code>This will last!</code>)。</li>
+<li>输入 <code>ll</code>(应该执行 <code>ls -alF</code>，列出详细信息)。</li>
+</ul>
+</li>
+<li>
+<p><strong>修改 <code>PATH</code>：</strong></p>
+<ul>
+<li>假设你有一个自定义脚本目录 <code>~/bin</code>，你想把它加入 <code>PATH</code>。</li>
+<li>在 <code>~/.bashrc</code>中添加：<code>export PATH="$PATH:$HOME/bin"</code></li>
+<li><code>source ~/.bashrc</code>或开新终端。</li>
+<li>验证：<code>echo $PATH</code>(应该包含 <code>:你的家目录/bin</code>)。现在你可以直接运行 <code>~/bin</code>目录下的脚本，无需指定完整路径。</li>
+</ul>
+</li>
+</ol>
+<h2 id="26-cut">2.6 cut</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-cut.html">Linux cut命令</a></p>
+<p>让我们创建一个将要使用的文件。复制并粘贴以下命令；完成后，在“lazy”和“dog”之间添加一个 TAB 键（按住 Ctrl-v + TAB）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;The quick brown; fox jumps over the lazy  dog&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>sample.txt
+</code></pre></div>
+<p>我们将学习的第一个命令是 <code>cut</code> 命令。它从文件中提取部分文本。</p>
+<p>按字符列表提取内容：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">5</span><span class="w"> </span>sample.txt
+</code></pre></div>
+<p>这将输出文件中每一行的第 5 个字符。在本例中，它是“q”；请注意，空格也算作一个字符。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="w"> </span>sample.txt
+</code></pre></div>
+<p><code>-f</code> 或字段标志根据字段剪切文本。默认情况下，它使用 TAB 作为分隔符，因此由 TAB 分隔的所有内容都被视为一个字段。您应该会看到“dog”作为输出。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;;&quot;</span><span class="w"> </span>sample.txt
+</code></pre></div>
+<p>这将把 TAB 分隔符更改为“;”分隔符，由于我们剪切的是第一个字段，结果应该是“The quick brown”。</p>
+<h2 id="27-paste">2.7 paste</h2>
+<p><code>paste</code>指令会把每个文件以列对列的方式，一列列地加以合并。</p>
+<p><strong>注意</strong>：<code>paste</code>并不会改变文件内容，只会将改变后的文本展示在终端上</p>
+<h2 id="28-head">2.8 head</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-head.html">Linux head 命令</a></p>
+<h3 id="281-head">2.8.1 使用head探索日志和配置文件结构</h3>
+<ol>
+<li><strong>查看系统主日志 (<code>syslog</code>或 <code>messages</code>) 的开头：</strong><ul>
+<li><code>head /var/log/syslog</code>或 <code>head /var/log/messages</code></li>
+<li><strong>目标：</strong> 了解日志的基本格式（时间戳、主机名、进程名、消息）。日志开头通常包含系统启动信息。</li>
+</ul>
+</li>
+<li><strong>查看认证日志 (<code>auth.log</code>) 的开头：</strong><ul>
+<li><code>head /var/log/auth.log</code></li>
+<li><strong>目标：</strong> 了解登录、sudo 等认证事件的记录格式。</li>
+</ul>
+</li>
+<li><strong>查看软件包管理日志 (<code>dpkg.log</code>) 的开头：</strong><ul>
+<li><code>head /var/log/dpkg.log</code></li>
+<li><strong>目标：</strong> 了解软件安装、升级、删除的记录格式。</li>
+</ul>
+</li>
+<li><strong>查看关键配置文件 (<code>/etc/fstab</code>) 的开头：</strong><ul>
+<li><code>head /etc/fstab</code></li>
+<li><strong>目标：</strong> 快速确认文件系统挂载配置的开头部分（通常是注释或前几个挂载点）。</li>
+</ul>
+</li>
+<li><strong>查看软件源列表 (<code>/etc/apt/sources.list</code>) 的开头：</strong><ul>
+<li><code>head /etc/apt/sources.list</code></li>
+<li><strong>目标：</strong> 快速查看配置了哪些主要的软件仓库。</li>
+</ul>
+</li>
+<li><strong>查看 SSH 服务器配置 (<code>/etc/ssh/sshd_config</code>) 的开头：</strong><ul>
+<li><code>head /etc/ssh/sshd_config</code></li>
+<li><strong>目标：</strong> 查看配置文件开头的全局设置或注释说明。</li>
+</ul>
+</li>
+</ol>
+<h3 id="282-head-grep">2.8.2 结合 <code>head</code>和 <code>grep</code>快速定位关键信息</h3>
+<ol>
+<li><strong>查找 <code>syslog</code>中最近的 <code>error</code>信息 (前10条)：</strong><ul>
+<li><code>grep -i 'error' /var/log/syslog | head</code></li>
+<li><strong>目标：</strong> 快速瞥见最近的错误级别日志条目。<code>-i</code>忽略大小写。</li>
+</ul>
+</li>
+<li><strong>查找 <code>auth.log</code>中最近的 <code>sudo</code>使用记录 (前5条)：</strong><ul>
+<li><code>grep 'sudo' /var/log/auth.log | head -5</code></li>
+<li><strong>目标：</strong> 快速查看最近的提权操作。</li>
+</ul>
+</li>
+<li><strong>查找 <code>dpkg.log</code>中最近的 <code>install</code>操作 (前3条)：</strong><ul>
+<li><code>grep 'install' /var/log/dpkg.log | head -3</code></li>
+<li><strong>目标：</strong> 快速确认最近安装了哪些软件包。</li>
+</ul>
+</li>
+<li><strong>在 <code>/etc/passwd</code>中查找以 <code>root</code>开头的行：</strong><ul>
+<li><code>grep '^root' /etc/passwd</code>(这里 <code>head</code>可能不必要，因为通常只有一行)</li>
+<li><strong>目标：</strong> 查看 root 用户的配置信息。<code>^</code>表示行首。</li>
+</ul>
+</li>
+<li><strong>在 <code>/etc/ssh/sshd_config</code>中查找 <code>Port</code>配置：</strong><ul>
+<li><code>grep -i '^Port' /etc/ssh/sshd_config</code>(同样，通常只有一行或几行)</li>
+<li><strong>目标：</strong> 快速确认 SSH 服务监听的端口号。<code>^</code>确保匹配的是配置项开头，避免匹配注释。</li>
+</ul>
+</li>
+</ol>
+<h2 id="29-tail">2.9 tail</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-tail.html">Linux tail 命令</a></p>
+<h3 id="291-tail">2.9.1 使用tail查看日志结尾和实时跟踪</h3>
+<ol>
+<li><strong>查看 <code>syslog</code>的最后 20 行：</strong><ul>
+<li><code>tail -20 /var/log/syslog</code></li>
+<li><strong>目标：</strong> 查看最新的日志条目。</li>
+</ul>
+</li>
+<li><strong>实时跟踪 <code>auth.log</code>(观察登录尝试)：</strong><ul>
+<li><code>sudo tail -f /var/log/auth.log</code>(<code>sudo</code>可能需要，取决于权限)</li>
+<li><strong>目标：</strong> 打开另一个终端尝试 SSH 登录或使用 <code>sudo</code>，观察此终端的实时输出。按 <code>Ctrl+C</code>停止跟踪。</li>
+</ul>
+</li>
+<li><strong>查看最近发生的 <code>error</code>(最后 10 条)：</strong><ul>
+<li><code>tail /var/log/syslog | grep -i 'error'</code>(注意：这里 <code>tail</code>先取结尾，再 <code>grep</code>过滤)</li>
+<li><strong>目标：</strong> 查看最新的错误信息。对比练习 2.1，体会 <code>head</code>和 <code>tail</code>的区别。</li>
+</ul>
+</li>
+</ol>
+<h2 id="210-expand-unexpand">2.10 expand 和 unexpand</h2>
+<p>在关于 <code>cut</code> 命令的课程中，我们的 <code>sample.txt</code> 文件包含一个制表符。通常，制表符会显示出明显的差异，但有些文本文件显示得不够好。文本文件中的制表符可能无法提供所需的间距。要将制表符更改为空格，请使用 <code>expand</code> 命令。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>expand<span class="w"> </span>sample.txt
+</code></pre></div>
+<p>上述命令将打印输出，其中每个制表符都转换为一组空格。要将此输出保存到文件中，请使用如下所示的输出重定向。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>expand<span class="w"> </span>sample.txt<span class="w"> </span>&gt;<span class="w"> </span>result.txt
+</code></pre></div>
+<p>与 <code>expand</code> 相反，我们可以使用 <code>unexpand</code> 命令将每组空格转换回制表符：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>unexpand<span class="w"> </span>-a<span class="w"> </span>result.txt
+</code></pre></div>
+<h2 id="211-join-split">2.11 join 和 split</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-join.html">Linux join命令</a></p>
+<p><a href="https://www.runoob.com/linux/linux-comm-split.html">Linux split命令</a></p>
+<h3 id="join">join实验</h3>
+<ol>
+<li><strong>排序重要性</strong>：<code>join</code> 命令要求输入文件必须按照连接字段排序</li>
+<li><strong>常用选项</strong>：<ul>
+<li><code>-1 FIELD</code>：指定第一个文件的连接字段</li>
+<li><code>-2 FIELD</code>：指定第二个文件的连接字段</li>
+<li><code>-a FILENUM</code>：输出指定文件中不匹配的行</li>
+<li><code>-o FORMAT</code>：自定义输出格式</li>
+<li><code>-i</code>：忽略大小写</li>
+<li><code>-t CHAR</code>：指定字段分隔符（默认为空格）</li>
+</ul>
+</li>
+</ol>
+<p>文件准备：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>employees.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="s">101 Alice Johnson Engineering</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="s">102 Bob Smith Design</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="s">103 Charlie Brown Management</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="s">104 Diana Prince Executive</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="s">105 Evan Davis Engineering</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="s">106 Frank Miller Engineering</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="s">107 Grace Lee Design</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="s">108 Henry Jones Management</span>
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="s">EOF</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>salaries.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="s">101 55000</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="s">102 48000</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="s">103 62000</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="s">104 85000</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="s">105 35000</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="s">106 75000</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="s">107 52000</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="s">108 68000</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="s">109 60000</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="s">EOF</span>
+</code></pre></div>
+<p><strong>注意</strong>：这两个文件已经按照共同字段（员工ID）排序，这是 <code>join</code> 命令正常工作的重要前提。</p>
+<ol>
+<li>
+<p>基本连接操作</p>
+<ul>
+<li>
+<p><strong>要求</strong>：使用 <code>join</code> 命令基于员工ID合并两个文件，显示员工的完整信息（ID、姓名、部门、薪水）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>$<span class="w"> </span>join<span class="w"> </span>employees.txt<span class="w"> </span>salaries.txt
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="m">101</span><span class="w"> </span>Alice<span class="w"> </span>Johnson<span class="w"> </span>Engineering<span class="w"> </span><span class="m">55000</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="m">102</span><span class="w"> </span>Bob<span class="w"> </span>Smith<span class="w"> </span>Design<span class="w"> </span><span class="m">48000</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="m">103</span><span class="w"> </span>Charlie<span class="w"> </span>Brown<span class="w"> </span>Management<span class="w"> </span><span class="m">62000</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="m">104</span><span class="w"> </span>Diana<span class="w"> </span>Prince<span class="w"> </span>Executive<span class="w"> </span><span class="m">85000</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="m">105</span><span class="w"> </span>Evan<span class="w"> </span>Davis<span class="w"> </span>Engineering<span class="w"> </span><span class="m">35000</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="m">106</span><span class="w"> </span>Frank<span class="w"> </span>Miller<span class="w"> </span>Engineering<span class="w"> </span><span class="m">75000</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="m">107</span><span class="w"> </span>Grace<span class="w"> </span>Lee<span class="w"> </span>Design<span class="w"> </span><span class="m">52000</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="m">108</span><span class="w"> </span>Henry<span class="w"> </span>Jones<span class="w"> </span>Management<span class="w"> </span><span class="m">68000</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>指定连接字段</p>
+<ul>
+<li>
+<p><strong>要求</strong>：创建一个新文件 <code>employees2.txt</code>，其中部门是第一个字段，然后基于员工ID连接文件。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>employees2.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="s">Engineering 101 Alice Johnson</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="s">Design 102 Bob Smith</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="s">Management 103 Charlie Brown</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="s">Executive 104 Diana Prince</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="s">Engineering 105 Evan Davis</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="s">Engineering 106 Frank Miller</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="s">Design 107 Grace Lee</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="s">Management 108 Henry Jones</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="s">EOF</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>$<span class="w"> </span>join<span class="w"> </span>-1<span class="w"> </span><span class="m">2</span><span class="w"> </span>-2<span class="w"> </span><span class="m">1</span><span class="w"> </span>employees2.txt<span class="w"> </span>salaries.txt
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="m">101</span><span class="w"> </span>Engineering<span class="w"> </span>Alice<span class="w"> </span>Johnson<span class="w"> </span><span class="m">55000</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="m">102</span><span class="w"> </span>Design<span class="w"> </span>Bob<span class="w"> </span>Smith<span class="w"> </span><span class="m">48000</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="m">103</span><span class="w"> </span>Management<span class="w"> </span>Charlie<span class="w"> </span>Brown<span class="w"> </span><span class="m">62000</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="m">104</span><span class="w"> </span>Executive<span class="w"> </span>Diana<span class="w"> </span>Prince<span class="w"> </span><span class="m">85000</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="m">105</span><span class="w"> </span>Engineering<span class="w"> </span>Evan<span class="w"> </span>Davis<span class="w"> </span><span class="m">35000</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="m">106</span><span class="w"> </span>Engineering<span class="w"> </span>Frank<span class="w"> </span>Miller<span class="w"> </span><span class="m">75000</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="m">107</span><span class="w"> </span>Design<span class="w"> </span>Grace<span class="w"> </span>Lee<span class="w"> </span><span class="m">52000</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="m">108</span><span class="w"> </span>Management<span class="w"> </span>Henry<span class="w"> </span>Jones<span class="w"> </span><span class="m">68000</span>
+</code></pre></div>
+<ul>
+<li><code>-1 2</code> 指定第一个文件使用第二个字段作为连接键</li>
+<li><code>-2 1</code> 指定第二个文件使用第一个字段作为连接键</li>
+<li>这样就能正确基于员工ID进行连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>处理不匹配的记录</p>
+<ul>
+<li>
+<p><strong>要求</strong>：显示两个文件中所有的记录，包括不匹配的。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$<span class="w"> </span>join<span class="w"> </span>-a<span class="w"> </span><span class="m">1</span><span class="w"> </span>-a<span class="w"> </span><span class="m">2</span><span class="w"> </span>employees.txt<span class="w"> </span>salaries.txt
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="m">101</span><span class="w"> </span>Alice<span class="w"> </span>Johnson<span class="w"> </span>Engineering<span class="w"> </span><span class="m">55000</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="m">102</span><span class="w"> </span>Bob<span class="w"> </span>Smith<span class="w"> </span>Design<span class="w"> </span><span class="m">48000</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="m">103</span><span class="w"> </span>Charlie<span class="w"> </span>Brown<span class="w"> </span>Management<span class="w"> </span><span class="m">62000</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="m">104</span><span class="w"> </span>Diana<span class="w"> </span>Prince<span class="w"> </span>Executive<span class="w"> </span><span class="m">85000</span>
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="m">105</span><span class="w"> </span>Evan<span class="w"> </span>Davis<span class="w"> </span>Engineering<span class="w"> </span><span class="m">35000</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="m">106</span><span class="w"> </span>Frank<span class="w"> </span>Miller<span class="w"> </span>Engineering<span class="w"> </span><span class="m">75000</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="m">107</span><span class="w"> </span>Grace<span class="w"> </span>Lee<span class="w"> </span>Design<span class="w"> </span><span class="m">52000</span>
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="m">108</span><span class="w"> </span>Henry<span class="w"> </span>Jones<span class="w"> </span>Management<span class="w"> </span><span class="m">68000</span>
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="m">109</span><span class="w"> </span><span class="m">60000</span>
+</code></pre></div>
+<ul>
+<li><code>-a 1</code> 显示第一个文件中所有不匹配的行</li>
+<li><code>-a 2</code> 显示第二个文件中所有不匹配的行</li>
+<li>员工109只在salaries.txt中存在，所以显示时只有ID和薪水</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>格式化输出</p>
+<ul>
+<li>
+<p><strong>要求</strong>：使用自定义格式输出，只显示姓名、部门和薪水，不显示ID。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$<span class="w"> </span>join<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span>.2,1.3,1.4,2.2<span class="w"> </span>employees.txt<span class="w"> </span>salaries.txt
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Alice<span class="w"> </span>Johnson<span class="w"> </span>Engineering<span class="w"> </span><span class="m">55000</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>Bob<span class="w"> </span>Smith<span class="w"> </span>Design<span class="w"> </span><span class="m">48000</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>Charlie<span class="w"> </span>Brown<span class="w"> </span>Management<span class="w"> </span><span class="m">62000</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Diana<span class="w"> </span>Prince<span class="w"> </span>Executive<span class="w"> </span><span class="m">85000</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>Evan<span class="w"> </span>Davis<span class="w"> </span>Engineering<span class="w"> </span><span class="m">35000</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>Frank<span class="w"> </span>Miller<span class="w"> </span>Engineering<span class="w"> </span><span class="m">75000</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>Grace<span class="w"> </span>Lee<span class="w"> </span>Design<span class="w"> </span><span class="m">52000</span>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>Henry<span class="w"> </span>Jones<span class="w"> </span>Management<span class="w"> </span><span class="m">68000</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>处理大小写不敏感的连接</p>
+<ul>
+<li><strong>要求</strong>：创建大小写不一致的文件并进行连接。<code>-i</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="212-sort">2.12 sort</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-sort.html">sort 命令</a></p>
+<h3 id="sort">sort 命令实验：文本排序与单词计数</h3>
+<p>文件准备</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>students.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="s">Alice Johnson 85 Engineering</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="s">Bob Smith 92 Design</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="s">Charlie Brown 78 Management</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="s">Diana Prince 95 Executive</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="s">Evan Davis 88 Engineering</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="s">Frank Miller 76 Engineering</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="s">Grace Lee 91 Design</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="s">Henry Jones 84 Management</span>
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="s">Ivan Zhang 79 Engineering</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="s">Julia Wang 96 Design</span>
+<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a><span class="s">EOF</span>
+<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>
+<a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>words.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a><span class="s">apple banana apple cherry date</span>
+<a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a><span class="s">banana apple date elderberry fig</span>
+<a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a><span class="s">cherry apple banana date grape</span>
+<a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a><span class="s">apple fig banana cherry apple</span>
+<a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a><span class="s">date elderberry fig grape apple</span>
+<a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a><span class="s">EOF</span>
+</code></pre></div>
+<h4 id="sort_1">第一部分：sort 命令基础练习</h4>
+<ol>
+<li>基本排序<ul>
+<li><strong>要求</strong>：对 <code>students.txt</code> 按字母顺序对学生姓名进行升序排序。<code>sort students.txt</code><ul>
+<li><strong>解析</strong>：默认按每行的第一个字段（姓名）进行字典序排序。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>按数字字段排序</p>
+<ul>
+<li><strong>要求</strong>：按学生成绩（第三列）进行升序排序。<code>sort -k3n students.txt</code><ul>
+<li><strong>解析</strong>：<ul>
+<li><code>-k3</code> 指定只按第三个字段排序</li>
+<li><code>n</code> 表示数值排序（而不是字典序）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>降序排序</p>
+<ul>
+<li><strong>要求</strong>：按学生成绩进行降序排序。<code>sort -k3nr students.txt</code></li>
+</ul>
+</li>
+<li>
+<p>多字段排序</p>
+<ul>
+<li>
+<p><strong>要求</strong>：先按专业排序，同一专业内按成绩降序排序。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>&gt;<span class="w"> </span>sort<span class="w"> </span>-k4<span class="w"> </span>-k3nr<span class="w"> </span>students.txt
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Julia<span class="w"> </span>Wang<span class="w"> </span><span class="m">96</span><span class="w"> </span>Design
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>Bob<span class="w"> </span>Smith<span class="w"> </span><span class="m">92</span><span class="w"> </span>Design
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>Grace<span class="w"> </span>Lee<span class="w"> </span><span class="m">91</span><span class="w"> </span>Design
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>Evan<span class="w"> </span>Davis<span class="w"> </span><span class="m">88</span><span class="w"> </span>Engineering
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>Alice<span class="w"> </span>Johnson<span class="w"> </span><span class="m">85</span><span class="w"> </span>Engineering
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>Ivan<span class="w"> </span>Zhang<span class="w"> </span><span class="m">79</span><span class="w"> </span>Engineering
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>Frank<span class="w"> </span>Miller<span class="w"> </span><span class="m">76</span><span class="w"> </span>Engineering
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>Diana<span class="w"> </span>Prince<span class="w"> </span><span class="m">95</span><span class="w"> </span>Executive
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>Henry<span class="w"> </span>Jones<span class="w"> </span><span class="m">84</span><span class="w"> </span>Management
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>Charlie<span class="w"> </span>Brown<span class="w"> </span><span class="m">78</span><span class="w"> </span>Management
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>去重排序</p>
+<ul>
+<li><strong>要求</strong>：提取所有专业名称并按字母顺序排序，去除重复项。<code>cut -d ' ' -f4 students.txt| sort -u</code>或<code>cut -d ' ' -f4 students.txt| sort | uniq</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="_1">第二部分：单词计数和排序挑战</h4>
+<ol>
+<li>
+<p>基本单词计数</p>
+</li>
+<li>
+<p><strong>要求</strong>：统计 <code>words.txt</code> 中每个单词出现的次数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>words.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">      </span><span class="m">7</span><span class="w"> </span>apple
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">      </span><span class="m">4</span><span class="w"> </span>date
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">      </span><span class="m">4</span><span class="w"> </span>banana
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">      </span><span class="m">3</span><span class="w"> </span>fig
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">      </span><span class="m">3</span><span class="w"> </span>cherry
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">      </span><span class="m">2</span><span class="w"> </span>grape
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">      </span><span class="m">2</span><span class="w"> </span>elderberry
+</code></pre></div>
+<ul>
+<li>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>
+<p><code>cat words.txt</code> 读取文件</p>
+</li>
+<li>
+<p><code>tr ' ' '\n'</code> 将空格替换为换行，使每个单词单独成行</p>
+</li>
+<li>
+<p><code>sort</code> 排序（uniq 要求输入已排序）</p>
+</li>
+<li>
+<p><code>uniq -c</code> 统计重复次数</p>
+</li>
+<li>
+<p><code>sort -nr</code> 按计数降序排序</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>格式化单词统计</p>
+<ul>
+<li>
+<p><strong>要求</strong>：统计单词出现次数，并按字母顺序显示。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$<span class="w"> </span>cat<span class="w"> </span>words.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-k2
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">      </span><span class="m">7</span><span class="w"> </span>apple
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">      </span><span class="m">4</span><span class="w"> </span>banana
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">      </span><span class="m">3</span><span class="w"> </span>cherry
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">      </span><span class="m">4</span><span class="w"> </span>date
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">      </span><span class="m">2</span><span class="w"> </span>elderberry
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">      </span><span class="m">3</span><span class="w"> </span>fig
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">      </span><span class="m">2</span><span class="w"> </span>grape
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>复杂排序挑战</p>
+<ul>
+<li><strong>要求</strong>：找出成绩最好的3个工程专业学生。<code>grep 'Engineering' students.txt | sort -k3nr | head -3</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="213-tr">2.13 tr (转换)</h2>
+<p><a href="https://www.runoob.com/linux/linux-comm-tr.html">tr命令</a></p>
+<h3 id="tr">tr 命令实验：字符转换与处理</h3>
+<p>文件准备</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>sample.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="s">Hello World!</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="s">This is a SAMPLE text file.</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="s">It contains 123 numbers and SOME Special Characters: !@#$%^&amp;*()</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="s">We&#39;ll use it for tr command practice.</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="s">Multiple   spaces   and   tabs      here.</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="s">EOF</span>
+</code></pre></div>
+<h4 id="_2">第一部分：基础字符转换</h4>
+<ol>
+<li>大小写转换<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的所有字母转换为大写。
+    <code>cat sample.txt | tr 'a-z' 'A-Z'</code>或<code>cat sample.txt | tr '[:lower:]' '[:upper:]'</code><ul>
+<li><strong>解析</strong>：<ul>
+<li><code>'a-z' 'A-Z'</code> 定义字符映射：小写字母映射到大写字母</li>
+<li><code>'[:lower:]' '[:upper:]'</code> 使用预定义的字符类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特定字符转换<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的所有元音字母（aeiou）转换为大写。<code>cat sample.txt | tr 'aeiou' 'AEIOU'</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="_3">第二部分：字符删除操作</h4>
+<ol>
+<li>删除数字<ul>
+<li><strong>要求</strong>：删除 <code>sample.txt</code> 中的所有数字。<code>cat sample.txt | tr -d '0-9'</code>或<code>cat sample.txt | tr -d '[:digit:]'</code><ul>
+<li><strong>解析</strong>：<code>-d</code> 选项表示删除指定的字符。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除标点符号<ul>
+<li><strong>要求</strong>：删除 <code>sample.txt</code> 中的所有标点符号。<code>cat sample.txt | tr -d '!@#$%^&amp;*()'</code>或<code>cat sample.txt | tr -d '[:punct:]'</code></li>
+</ul>
+</li>
+<li>删除非字母字符<ul>
+<li><strong>要求</strong>：只保留字母和空格，删除其他所有字符。<code>cat sample.txt | tr -dc 'a-zA-Z '</code>或<code>cat sample.txt | tr -dc '[:alpha:] '</code><ul>
+<li><strong>解析</strong>：<code>-c</code> 选项表示补集（complement），<code>-dc</code> 表示删除不在指定集合中的字符。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="_4">第三部分：字符压缩和处理</h4>
+<ol>
+<li>
+<p>压缩重复空格</p>
+<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的多个连续空格压缩为单个空格。<code>cat sample.txt | tr -s ' '</code><ul>
+<li><strong>解析</strong>：<code>-s</code> 选项（squeeze）将重复的字符压缩为单个。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>转换空格为换行</p>
+<ul>
+<li><strong>要求</strong>：将 <code>sample.txt</code> 中的每个单词放在单独一行。<code>cat sample.txt | tr ' ' '\n'</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="214-uniq">2.14 uniq (唯一)</h2>
+<p><code>uniq</code>（unique）命令是另一个用于解析文本的有用工具。</p>
+<p>假设你有一个包含许多重复内容的文本文件：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>reading.txt
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>book
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>book
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>paper
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>paper
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>article
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>article
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>magazine
+</code></pre></div>
+<p>如果你想删除重复项，可以使用 <code>uniq</code> 命令：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>reading.txt
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>book
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>paper
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>article
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>magazine
+</code></pre></div>
+<p>让我们获取每行出现的次数：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span>reading.txt
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="m">2</span><span class="w"> </span>book
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="m">2</span><span class="w"> </span>paper
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="m">2</span><span class="w"> </span>article
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="m">1</span><span class="w"> </span>magazine
+</code></pre></div>
+<p>让我们只获取唯一值：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>-u<span class="w"> </span>reading.txt
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>magazine
+</code></pre></div>
+<p>让我们只获取重复值：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>-d<span class="w"> </span>reading.txt
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>book
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>paper
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>article
+</code></pre></div>
+<p><strong>注意</strong>：<code>uniq</code> 只有在重复行相邻时才能检测到它们。例如：</p>
+<p>假设你有一个文件，其中包含不相邻的重复项：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>reading.txt
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>book
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>paper
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>book
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>paper
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>article
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>magazine
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>article
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>$<span class="w"> </span>uniq<span class="w"> </span>reading.txt
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>reading.txt
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>book
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>paper
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>book
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>paper
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>article
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a>magazine
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>article
+</code></pre></div>
+<p><code>uniq</code> 返回的结果将包含所有条目，与第一个示例不同。</p>
+<p>为了克服 <code>uniq</code> 的这个限制，我们可以将 <code>sort</code> 与 <code>uniq</code> 结合使用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>$<span class="w"> </span>sort<span class="w"> </span>reading.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>article
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>book
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>magazine
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>paper
+</code></pre></div>
+<h2 id="215-wc-nl">2.15 wc 和 nl</h2>
+<p><code>wc</code>（word count）命令显示文件中单词的总数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>$<span class="w"> </span>wc<span class="w"> </span>/etc/passwd
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w"> </span><span class="m">96</span><span class="w">     </span><span class="m">265</span><span class="w">    </span><span class="m">5925</span><span class="w"> </span>/etc/passwd
+</code></pre></div>
+<p>它分别显示行数、单词数和字节数。</p>
+<p>要只查看某个字段的计数，请分别使用 <code>-l</code>、<code>-w</code> 或 <code>-c</code> 选项。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>/etc/passwd
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="m">96</span>
+</code></pre></div>
+<p>另一个可以用来检查文件中行数的命令是 <code>nl</code>（number lines）命令。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>file1.txt
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>i
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>like
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>turtles
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>$<span class="w"> </span>nl<span class="w"> </span>file1.txt
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="m">1</span>.<span class="w"> </span>i
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="m">2</span>.<span class="w"> </span>like
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="m">3</span>.<span class="w"> </span>turtles
+</code></pre></div>
+<h2 id="216-grep">2.16 grep</h2>
+<h3 id="grepsedawk">练习 grep、sed、awk</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># 将以下内容复制到终端中创建文件</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>practice.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="s">Alice Johnson,25,Engineer,55000</span>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="s">Bob Smith,30,Designer,48000</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="s">Charlie Brown,28,Manager,62000</span>
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="s">Diana Prince,35,CEO,85000</span>
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="s">Evan Davis,22,Intern,35000</span>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="s">Frank Miller,40,Engineer,75000</span>
+<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="s">Grace Lee,27,Designer,52000</span>
+<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a><span class="s">Henry Jones,32,Manager,68000</span>
+<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a><span class="s">EOF</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>web_log.txt<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="s">192.168.1.105 - - [15/Oct/2023:14:32:01 +0800] &quot;GET /index.html HTTP/1.1&quot; 200 1325 &quot;https://www.example.com/referrer&quot; &quot;Mozilla/5.0 (X11; Linux x86_64)&quot;</span>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="s">10.0.0.12 - - [15/Oct/2023:14:32:02 +0800] &quot;POST /api/login HTTP/1.1&quot; 404 211 &quot;-&quot; &quot;curl/7.68.0&quot;</span>
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="s">192.168.1.105 - - [15/Oct/2023:14:32:03 +0800] &quot;GET /images/logo.png HTTP/1.1&quot; 200 5432 &quot;https://www.example.com/index.html&quot; &quot;Mozilla/5.0 (X11; Linux x86_64)&quot;</span>
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a><span class="s">10.0.0.77 - - [15/Oct/2023:14:32:04 +0800] &quot;GET /index.html HTTP/1.1&quot; 500 0 &quot;https://www.google.com&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)&quot;</span>
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="s">EOF</span>
+</code></pre></div>
+<h4 id="grep">grep 与正则表达式</h4>
+<p><strong>目标</strong>：使用 <code>grep</code> 和正则表达式进行模式匹配。</p>
+<ol>
+<li><strong>基础搜索</strong>：从 <code>practice.txt</code> 中找出所有包含 “Engineer” 职位的行。<code>grep 'Engineer' practice.txt</code></li>
+<li><strong>行首锚定</strong>：找出所有以字母 “A” 开头的行。<code>grep '^A' practice.txt</code></li>
+<li><strong>字符集合</strong>：找出名字中包含 “a” 或 “e” 的行（不区分大小写）。<code>cut -d ',' -f1 practice.txt | grep -i '[ae]'</code><ul>
+<li><strong>提示</strong>：使用 <code>-i</code> 忽略大小写，使用 <code>[ae]</code> 字符集。</li>
+</ul>
+</li>
+<li><strong>范围与重复</strong>：找出年龄在 30 岁（含）到 39 岁（含）之间的员工记录。<code>cut -d ',' -f2 practice.txt | grep '3[0-9]'</code><ul>
+<li><strong>提示</strong>：年龄字段是第二个，使用 <code>3[0-9]</code> 匹配30-39。</li>
+</ul>
+</li>
+<li><strong>扩展正则表达式</strong>：使用 <code>-E</code> 选项找出职位是 “Manager” 或 “CEO” 的行。<code>grep -E '(Manager|CEO)' practice.txt</code><ul>
+<li><strong>提示</strong>：使用 <code>(Manager|CEO)</code>。</li>
+</ul>
+</li>
+<li><strong>上下文查看</strong>：找出包含 “Frank” 的行，并同时显示其前后各一行。<code>grep -A1 -B1 'Frank' practice.txt</code><ul>
+<li><strong>提示</strong>：使用 <code>-A1 -B1</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="sed">sed 流编辑器</h4>
+<p><a href="https://www.runoob.com/linux/linux-comm-sed.html">Linux sed 命令</a></p>
+<p><strong>目标</strong>：使用 <code>sed</code> 进行文本替换、删除和编辑。</p>
+<ol>
+<li>
+<p><strong>简单替换</strong>：将 <code>practice.txt</code> 中所有的 “Engineer” 替换为 “Software Engineer”，并打印到屏幕（不修改原文件）。</p>
+<ul>
+<li><strong>提示</strong>：<code>sed 's/Engineer/Software Engineer/' practice.txt</code></li>
+</ul>
+</li>
+<li>
+<p><strong>全局替换</strong>：将所有的逗号 <code>,</code> 替换为竖线 <code>|</code>。</p>
+<ul>
+<li>
+<p><strong>注意</strong>：观察不加 <code>g</code> 标志和加 <code>g</code> 标志的区别。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/,/|/&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>Alice<span class="w"> </span>Johnson<span class="p">|</span><span class="m">25</span>,Engineer,55000
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>Bob<span class="w"> </span>Smith<span class="p">|</span><span class="m">30</span>,Designer,48000
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span>,Manager,62000
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span>,CEO,85000
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span>,Intern,35000
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span>,Engineer,75000
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>Grace<span class="w"> </span>Lee<span class="p">|</span><span class="m">27</span>,Designer,52000
+<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>Henry<span class="w"> </span>Jones<span class="p">|</span><span class="m">32</span>,Manager,68000
+<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/,/|/g&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a>Alice<span class="w"> </span>Johnson<span class="p">|</span><span class="m">25</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">55000</span>
+<a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a>Bob<span class="w"> </span>Smith<span class="p">|</span><span class="m">30</span><span class="p">|</span>Designer<span class="p">|</span><span class="m">48000</span>
+<a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">62000</span>
+<a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span><span class="p">|</span>CEO<span class="p">|</span><span class="m">85000</span>
+<a id="__codelineno-57-15" name="__codelineno-57-15" href="#__codelineno-57-15"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span><span class="p">|</span>Intern<span class="p">|</span><span class="m">35000</span>
+<a id="__codelineno-57-16" name="__codelineno-57-16" href="#__codelineno-57-16"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">75000</span>
+<a id="__codelineno-57-17" name="__codelineno-57-17" href="#__codelineno-57-17"></a>Grace<span class="w"> </span>Lee<span class="p">|</span><span class="m">27</span><span class="p">|</span>Designer<span class="p">|</span><span class="m">52000</span>
+<a id="__codelineno-57-18" name="__codelineno-57-18" href="#__codelineno-57-18"></a>Henry<span class="w"> </span>Jones<span class="p">|</span><span class="m">32</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">68000</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>定址替换</strong>：只对第 3 到第 6 行进行逗号到竖线的替换。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>&gt;<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;3,6s/,/|/g&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>Alice<span class="w"> </span>Johnson,25,Engineer,55000
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>Bob<span class="w"> </span>Smith,30,Designer,48000
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>Charlie<span class="w"> </span>Brown<span class="p">|</span><span class="m">28</span><span class="p">|</span>Manager<span class="p">|</span><span class="m">62000</span>
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a>Diana<span class="w"> </span>Prince<span class="p">|</span><span class="m">35</span><span class="p">|</span>CEO<span class="p">|</span><span class="m">85000</span>
+<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>Evan<span class="w"> </span>Davis<span class="p">|</span><span class="m">22</span><span class="p">|</span>Intern<span class="p">|</span><span class="m">35000</span>
+<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>Frank<span class="w"> </span>Miller<span class="p">|</span><span class="m">40</span><span class="p">|</span>Engineer<span class="p">|</span><span class="m">75000</span>
+<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a>Grace<span class="w"> </span>Lee,27,Designer,52000
+<a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a>Henry<span class="w"> </span>Jones,32,Manager,68000
+</code></pre></div>
+</li>
+<li>
+<p><strong>删除行</strong>：删除所有 “Intern” 的记录。<code>sed '/Intern/d' practice.txt</code></p>
+</li>
+<li>
+<p><strong>原地修改</strong>：在经过以上练习后，使用 <code>-i</code> 选项将 <code>practice.txt</code> 中的 “Manager” 替换为 “Team Lead”，并实际修改原文件。<code>sed -i 's/Manager/Team Lead/g' practice.txt</code></p>
+<ul>
+<li><strong>警告</strong>：<code>-i</code> 会直接修改文件，操作前最好备份。可以先不加 <code>-i</code> 测试命令是否正确。</li>
+</ul>
+</li>
+</ol>
+<h4 id="awk">awk 编程</h4>
+<p><a href="https://www.runoob.com/linux/linux-comm-awk.html">Linux awk 命令</a></p>
+<p><strong>目标</strong>：使用 <code>awk</code> 处理结构化文本字段。</p>
+<ol>
+<li>
+<p><strong>打印特定字段</strong>：只打印所有员工的姓名和薪水（第1和第4列）。</p>
+<ul>
+<li><code>-F</code> &lt;分隔符&gt; </li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1, $4}&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>Alice<span class="w"> </span>Johnson<span class="w"> </span><span class="m">55000</span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>Bob<span class="w"> </span>Smith<span class="w"> </span><span class="m">48000</span>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>Charlie<span class="w"> </span>Brown<span class="w"> </span><span class="m">62000</span>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>Diana<span class="w"> </span>Prince<span class="w"> </span><span class="m">85000</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>Evan<span class="w"> </span>Davis<span class="w"> </span><span class="m">35000</span>
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>Frank<span class="w"> </span>Miller<span class="w"> </span><span class="m">75000</span>
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>Grace<span class="w"> </span>Lee<span class="w"> </span><span class="m">52000</span>
+<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>Henry<span class="w"> </span>Jones<span class="w"> </span><span class="m">68000</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>条件过滤</strong>：打印出薪水高于 60000 的员工的全名。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;$4&gt;60000 {print $1}&#39;</span><span class="w"> </span>practice.txt
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>Charlie<span class="w"> </span>Brown
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>Diana<span class="w"> </span>Prince
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>Frank<span class="w"> </span>Miller
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>Henry<span class="w"> </span>Jones
+</code></pre></div>
+</li>
+<li>
+<p><strong>计算</strong>：计算并显示所有员工的平均薪水。</p>
+<ul>
+<li>
+<p><strong>提示</strong>：使用 <code>BEGIN{sum=0; count=0}</code> 和 <code>END{print sum/count}</code> 模式。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>&gt;<span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;BEGIN{sum=0; count=0} {sum+=$4; count++} END{print &quot;avg_sal:&quot;, sum/count}&#39;</span><span class="w"> </span>practice.txt<span class="w"> </span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>avg_sal:<span class="w"> </span><span class="m">60000</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>内置变量</strong>：使用 <code>awk</code> 打印 <code>practice.txt</code> 文件的总行数。<code>awk 'END{print NR}' practice.txt</code></p>
+<ul>
+<li><strong>提示</strong>：使用 <code>END{print NR}</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>模式匹配</strong>：打印出姓名以 “G” 开头的员工信息。</p>
+<ul>
+<li><strong>提示</strong>：<code>awk -F, '$1 ~ /^G/ {print $0}' practice.txt</code><ul>
+<li><code>$1 ~ /^G/</code>：这是一个使用正则表达式的条件模式。<code>~</code> 是匹配运算符。<code>/^G/</code> 是一个正则表达式，表示"以字母 G 开头"。</li>
+<li><code>{print $0}</code>：打印整行内容。<code>$0</code> 是一个特殊变量，代表当前行的全部内容。</li>
+<li><strong>另一种更简洁的写法</strong>：<code>awk -F',' '/^G/’ practice.txt</code>。因为默认情况下，awk 会对整行 <code>$0</code> 进行正则匹配，而 "G" 正好在行首。但第一种写法更精确，因为它明确指定只匹配第一个字段（姓名）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

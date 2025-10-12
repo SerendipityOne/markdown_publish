@@ -2,7 +2,7 @@
 
 ## 欢迎来到Serendipity_Docs!
 
-![wallhaven-2ymdrg_3840x2160](./index.assets/wallhaven-2ymdrg_3840x2160.png)
+![wallhaven-yxeovd_3840x2160](./index.assets/wallhaven-yxeovd_3840x2160.jpg)
 
 ## mkdocs使用教程
 
