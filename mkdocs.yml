@@ -34,6 +34,12 @@ theme:
     example: octicons/beaker-16
     quote: octicons/quote-16
 
+plugins:
+  - search
+  - mermaid2: # mermaid插件,查看状态流程图
+      arguments:
+        theme: 'default'  # 可选主题：default, dark, forest, neutral
+
 
 # 数据库转存
 repo_url: https://github.com/SerendipityOne/markdown_publish
