@@ -482,6 +482,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    主控程序
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.html" class="md-nav__link md-nav__link--active">
         
   
@@ -493,6 +506,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、主控程序工程结构分析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-mainc" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、程序流程图-main.c
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-schedualerc" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、核心控制程序-schedualer.c
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -716,6 +775,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、主控程序工程结构分析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-mainc" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、程序流程图-main.c
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-schedualerc" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、核心控制程序-schedualer.c
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -733,9 +827,10 @@
   
 
 
-<h1 id="_1">一、主控程序工程结构分析</h1>
+<h1 id="_1">主控程序</h1>
+<h2 id="_2">一、主控程序工程结构分析</h2>
 <p><img alt="image-20251012100048412" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251012100048412.png" /></p>
-<h1 id="-mainc">二、程序流程图-main.c</h1>
+<h2 id="-mainc">二、程序流程图-main.c</h2>
 <p><img src="./%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251012100240250.png" alt="image-20251012100240250"  /></p>
 <p><code>ALL_DEFINE.h</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>#ifndef __ALL_DEFINE_H__
@@ -926,7 +1021,7 @@
 <p><code>TIM2_PWM_Config()</code>PA0~3，为电机PWM，<code>PSC=9-1，ARR=1000-1</code>，PWM频率8KHz</p>
 <p><code>TIM3_PWM_Config()</code>PA6/7, PB0/1，LED PWM，<code>PSC=36-1，ARR=1000-1</code>，PWM频率2KHz</p>
 <p><code>TIM1_Config()</code>TIM1定时器设置3ms一次中断，在回调函数中执行核心控制程序<code>PSC=720-1，ARR=300-1</code></p>
-<h1 id="-schedualerc">三、核心控制程序-schedualer.c</h1>
+<h2 id="-schedualerc">三、核心控制程序-schedualer.c</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">TIM1_UP_IRQHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w">  </span><span class="c1">//TIM1中断 3ms</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TIM_GetITStatus</span><span class="p">(</span><span class="n">TIM1</span><span class="p">,</span><span class="w"> </span><span class="n">TIM_IT_Update</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RESET</span><span class="p">)</span><span class="w">  </span><span class="c1">//检查指定的TIM中断发生与否:TIM 中断源</span>
