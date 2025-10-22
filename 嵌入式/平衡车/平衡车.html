@@ -1006,6 +1006,7 @@
 <p>中断引脚（PB5/INT），PB5设置为<code>GPIO_EXTI5</code>。在<code>NVIC Settings</code>选项卡中，勾选<code>EXTI line[5:9] interrupts</code>，使能中断。</p>
 <p><a href="https://blog.csdn.net/lihaotian111/article/details/117307644">超详细陀螺仪MPU6050模块输出姿态角</a></p>
 <p><img src="./%E5%B9%B3%E8%A1%A1%E8%BD%A6.assets/5309bf72e6cab815e5925f3a7c15ad72.png" alt="在这里插入图片描述" style="zoom:50%;" /></p>
+<p>关于加速度与角速度的变化方向：假设Y轴正方向为机头，当机头上下时，改变的是Y轴的加速度以及X轴的角速度，而Y轴的角速度则是机头左右时改变。角速度是绕哪个轴旋转，哪个轴的角速度读数就会变化。</p>
 <p>使用DMP对姿态角进行滤波等算法优化得到，运算过程较为复杂，此处不做说明。由于获取姿态角需要经过计算得到，所以不适合在中断内读取数据。</p>
 <p>使用正点原子提供的DMP驱动，并自己添加MPU6050驱动，源代码在Github仓库中<a href="https://github.com/SerendipityOne/balance-car/tree/master/User/Hardware/MPU6050">MPU6050</a></p>
 <p><img alt="image-20251004093954222" src="%E5%B9%B3%E8%A1%A1%E8%BD%A6.assets/image-20251004093954222.png" /></p>

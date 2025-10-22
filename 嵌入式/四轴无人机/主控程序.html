@@ -252,6 +252,45 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      四、加入光流定点与激光定高
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hal">
+<span class="md-ellipsis">
+      五、使用HAL库复刻基础飞控程序
+    </span>
+</a>
+<nav aria-label="五、使用HAL库复刻基础飞控程序" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#led">
+<span class="md-ellipsis">
+      配置LED
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      配置电机
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mpu6050">
+<span class="md-ellipsis">
+      配置MPU6050
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -363,6 +402,45 @@
       三、核心控制程序-schedualer.c
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      四、加入光流定点与激光定高
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hal">
+<span class="md-ellipsis">
+      五、使用HAL库复刻基础飞控程序
+    </span>
+</a>
+<nav aria-label="五、使用HAL库复刻基础飞控程序" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#led">
+<span class="md-ellipsis">
+      配置LED
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      配置电机
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mpu6050">
+<span class="md-ellipsis">
+      配置MPU6050
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1083,7 +1161,191 @@
 <a href="#__codelineno-14-82" id="__codelineno-14-82" name="__codelineno-14-82"></a><span class="p">}</span>
 </code></pre></div>
 <p><img alt="image-20251016154254385" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251016154254385.png"/></p>
-<p>符号都是代表方向，依矫正方向而定。比如需要控制机头俯仰角抬起，则机头两个电机PWM3/1增大就为正，机尾两个电机PWM4/2就减小。其它飞行姿态控制也是同样的道理。控制变量法</p>
+<p>符号都是代表方向，依矫正方向而定。比如需要控制机头俯仰角抬起，则机头两个电机PWM3/1增大就为正，机尾两个电机PWM4/2就减小。其它飞行姿态控制也是同样的道理。控制变量法。激光</p>
+<h2 id="_3">四、加入光流定点与激光定高</h2>
+<p><code>remote.c</code>变化</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="gd">--- "/e/stm32-study/Quadcopter drone/HAL/remote.c"  2025-10-14 20:57:08.240660000 +0800</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="gi">+++ HAL/remote.c    2025-10-20 10:29:23.118362800 +0800</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="gu">@@ -26,6 +26,13 @@</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w"> </span> ******************************************************************************************/
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w"> </span>uint8_t RC_rxData[32];
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w"> </span>void remote_unlock(void);
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="gi">+uint16_t last_Remote_AUX1 = 1000;</span>
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="gi">+uint16_t last_Remote_AUX3 = 1000;</span>
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="gi">+uint16_t last_Remote_AUX4 = 1000;</span>
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="gi">+uint16_t last_Remote_AUX2 = 1000;</span>
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="gi">+</span>
+<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="gi">+int16_t roll_offset;  //微调值</span>
+<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="gi">+int16_t pitch_offset;</span>
+<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a>
+<a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w"> </span>void RC_Analy(void) {
+<a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w"> </span>  static uint16_t cnt;
+<a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="gu">@@ -33,9 +40,7 @@</span>
+<a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w"> </span>  if (NRF24L01_RxPacket(RC_rxData) == SUCCESS) {
+<a href="#__codelineno-15-19" id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w"> </span>    uint8_t i;
+<a href="#__codelineno-15-20" id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="w"> </span>    uint8_t CheckSum = 0;
+<a href="#__codelineno-15-21" id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="gd">-</span>
+<a href="#__codelineno-15-22" id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="w"> </span>    cnt = 0;
+<a href="#__codelineno-15-23" id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="gd">-</span>
+<a href="#__codelineno-15-24" id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w"> </span>    for (i = 0; i &lt; 31; i++) {
+<a href="#__codelineno-15-25" id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w"> </span>      CheckSum += RC_rxData[i];
+<a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w"> </span>    }
+<a href="#__codelineno-15-27" id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="gu">@@ -56,22 +61,31 @@</span>
+<a href="#__codelineno-15-28" id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="w"> </span>      Remote.AUX3 = ((uint16_t)RC_rxData[16] &lt;&lt; 8) | RC_rxData[17];  //通道7  左下边按键都属于通道7
+<a href="#__codelineno-15-29" id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="w"> </span>      Remote.AUX3 = LIMIT(Remote.AUX3, 1000, 2000);
+<a href="#__codelineno-15-30" id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="w"> </span>      Remote.AUX4 = ((uint16_t)RC_rxData[18] &lt;&lt; 8) | RC_rxData[19];  //通道8  右下边按键都属于通道6
+<a href="#__codelineno-15-31" id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="gd">-      Remote.AUX4 = LIMIT(Remote.AUX4, 1000, 4000);</span>
+<a href="#__codelineno-15-32" id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="gi">+      Remote.AUX4 = LIMIT(Remote.AUX4, 1000, 2000);</span>
+<a href="#__codelineno-15-33" id="__codelineno-15-33" name="__codelineno-15-33"></a>
+<a href="#__codelineno-15-34" id="__codelineno-15-34" name="__codelineno-15-34"></a><span class="gi">+      //通道5作为定高控制 每按一下就会在1000和2000之间切换</span>
+<a href="#__codelineno-15-35" id="__codelineno-15-35" name="__codelineno-15-35"></a><span class="gi">+      if (Remote.AUX1 != last_Remote_AUX1)  //如果大于1700 则进入定高模式</span>
+<a href="#__codelineno-15-36" id="__codelineno-15-36" name="__codelineno-15-36"></a><span class="w"> </span>      {
+<a href="#__codelineno-15-37" id="__codelineno-15-37" name="__codelineno-15-37"></a><span class="gd">-               /* 控控制姿态的量+-500*0.04=+-20° */</span>
+<a href="#__codelineno-15-38" id="__codelineno-15-38" name="__codelineno-15-38"></a><span class="gd">-        const float roll_pitch_ratio = 0.04f;</span>
+<a href="#__codelineno-15-39" id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="gd">-        const float yaw_ratio = 0.3f;</span>
+<a href="#__codelineno-15-40" id="__codelineno-15-40" name="__codelineno-15-40"></a><span class="gd">-</span>
+<a href="#__codelineno-15-41" id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="gd">-               /* 将遥杆值作为飞行角度的期望值，航模数据是 1000~2000，所以以 1500 为中心 */</span>
+<a href="#__codelineno-15-42" id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="gd">-        pidPitch.desired = -(Remote.pitch - 1500) * roll_pitch_ratio;  //将遥杆值作为飞行角度的期望值</span>
+<a href="#__codelineno-15-43" id="__codelineno-15-43" name="__codelineno-15-43"></a><span class="gd">-        pidRoll.desired = -(Remote.roll - 1500) * roll_pitch_ratio;</span>
+<a href="#__codelineno-15-44" id="__codelineno-15-44" name="__codelineno-15-44"></a><span class="gd">-</span>
+<a href="#__codelineno-15-45" id="__codelineno-15-45" name="__codelineno-15-45"></a><span class="gd">-        /* 左右转，增量式，慢慢改变目标值 */</span>
+<a href="#__codelineno-15-46" id="__codelineno-15-46" name="__codelineno-15-46"></a><span class="gd">-        if (Remote.yaw &gt; 1820) {</span>
+<a href="#__codelineno-15-47" id="__codelineno-15-47" name="__codelineno-15-47"></a><span class="gd">-          pidYaw.desired -= yaw_ratio;</span>
+<a href="#__codelineno-15-48" id="__codelineno-15-48" name="__codelineno-15-48"></a><span class="gd">-        } else if (Remote.yaw &lt; 1180) {</span>
+<a href="#__codelineno-15-49" id="__codelineno-15-49" name="__codelineno-15-49"></a><span class="gd">-          pidYaw.desired += yaw_ratio;</span>
+<a href="#__codelineno-15-50" id="__codelineno-15-50" name="__codelineno-15-50"></a><span class="gi">+        last_Remote_AUX1 = Remote.AUX1;</span>
+<a href="#__codelineno-15-51" id="__codelineno-15-51" name="__codelineno-15-51"></a><span class="gi">+        ALL_flag.height_lock = ALL_flag.flow_control ^= 1;  //取反</span>
+<a href="#__codelineno-15-52" id="__codelineno-15-52" name="__codelineno-15-52"></a><span class="gi">+      }</span>
+<a href="#__codelineno-15-53" id="__codelineno-15-53" name="__codelineno-15-53"></a><span class="gi">+      {</span>
+<a href="#__codelineno-15-54" id="__codelineno-15-54" name="__codelineno-15-54"></a><span class="gi">+        if (!ALL_flag.flow_control)  //如果不处于定点模式则飞行角度由遥控的遥杆控制</span>
+<a href="#__codelineno-15-55" id="__codelineno-15-55" name="__codelineno-15-55"></a><span class="gi">+        {</span>
+<a href="#__codelineno-15-56" id="__codelineno-15-56" name="__codelineno-15-56"></a><span class="gi">+          float roll_pitch_ratio = 0.04f;</span>
+<a href="#__codelineno-15-57" id="__codelineno-15-57" name="__codelineno-15-57"></a><span class="gi">+</span>
+<a href="#__codelineno-15-58" id="__codelineno-15-58" name="__codelineno-15-58"></a><span class="gi">+          pidPitch.desired = (-(Remote.pitch - 1500) + pitch_offset) * roll_pitch_ratio;  //将遥杆值作为飞行角度的期望值</span>
+<a href="#__codelineno-15-59" id="__codelineno-15-59" name="__codelineno-15-59"></a><span class="gi">+          pidRoll.desired = (-(Remote.roll - 1500) + roll_offset) * roll_pitch_ratio;</span>
+<a href="#__codelineno-15-60" id="__codelineno-15-60" name="__codelineno-15-60"></a><span class="gi">+        }</span>
+<a href="#__codelineno-15-61" id="__codelineno-15-61" name="__codelineno-15-61"></a><span class="gi">+</span>
+<a href="#__codelineno-15-62" id="__codelineno-15-62" name="__codelineno-15-62"></a><span class="gi">+        {</span>
+<a href="#__codelineno-15-63" id="__codelineno-15-63" name="__codelineno-15-63"></a><span class="gi">+          const float yaw_ratio = 0.5f;  //偏航角灵敏度度</span>
+<a href="#__codelineno-15-64" id="__codelineno-15-64" name="__codelineno-15-64"></a><span class="gi">+</span>
+<a href="#__codelineno-15-65" id="__codelineno-15-65" name="__codelineno-15-65"></a><span class="gi">+          if (Remote.yaw &gt; 1820) {</span>
+<a href="#__codelineno-15-66" id="__codelineno-15-66" name="__codelineno-15-66"></a><span class="gi">+            pidYaw.desired -= yaw_ratio;  //符号控制偏航角方向</span>
+<a href="#__codelineno-15-67" id="__codelineno-15-67" name="__codelineno-15-67"></a><span class="gi">+          } else if (Remote.yaw &lt; 1180) {</span>
+<a href="#__codelineno-15-68" id="__codelineno-15-68" name="__codelineno-15-68"></a><span class="gi">+            pidYaw.desired += yaw_ratio;  //符号控制偏航角方向</span>
+<a href="#__codelineno-15-69" id="__codelineno-15-69" name="__codelineno-15-69"></a><span class="gi">+          }</span>
+<a href="#__codelineno-15-70" id="__codelineno-15-70" name="__codelineno-15-70"></a><span class="w"> </span>        }
+<a href="#__codelineno-15-71" id="__codelineno-15-71" name="__codelineno-15-71"></a><span class="w"> </span>      }
+<a href="#__codelineno-15-72" id="__codelineno-15-72" name="__codelineno-15-72"></a><span class="w"> </span>      remote_unlock();
+<a href="#__codelineno-15-73" id="__codelineno-15-73" name="__codelineno-15-73"></a><span class="gu">@@ -101,7 +115,7 @@</span>
+<a href="#__codelineno-15-74" id="__codelineno-15-74" name="__codelineno-15-74"></a><span class="w"> </span>  volatile static uint8_t status = WAITING_1;
+<a href="#__codelineno-15-75" id="__codelineno-15-75" name="__codelineno-15-75"></a><span class="w"> </span>  static uint16_t cnt = 0;
+<a href="#__codelineno-15-76" id="__codelineno-15-76" name="__codelineno-15-76"></a>
+<a href="#__codelineno-15-77" id="__codelineno-15-77" name="__codelineno-15-77"></a><span class="gd">-  if (Remote.thr &lt; 1050 &amp;&amp; Remote.yaw &lt; 1200)  //油门遥杆左下角锁定</span>
+<a href="#__codelineno-15-78" id="__codelineno-15-78" name="__codelineno-15-78"></a><span class="gi">+  if (Remote.thr &lt; 1050 &amp;&amp; Remote.yaw &lt; 1150)  //油门遥杆左下角锁定</span>
+<a href="#__codelineno-15-79" id="__codelineno-15-79" name="__codelineno-15-79"></a><span class="w"> </span>  {
+<a href="#__codelineno-15-80" id="__codelineno-15-80" name="__codelineno-15-80"></a><span class="w"> </span>    status = EXIT_255;
+<a href="#__codelineno-15-81" id="__codelineno-15-81" name="__codelineno-15-81"></a><span class="w"> </span>  }
+<a href="#__codelineno-15-82" id="__codelineno-15-82" name="__codelineno-15-82"></a><span class="gu">@@ -114,7 +128,7 @@</span>
+<a href="#__codelineno-15-83" id="__codelineno-15-83" name="__codelineno-15-83"></a><span class="w"> </span>      }
+<a href="#__codelineno-15-84" id="__codelineno-15-84" name="__codelineno-15-84"></a><span class="w"> </span>      break;
+<a href="#__codelineno-15-85" id="__codelineno-15-85" name="__codelineno-15-85"></a><span class="w"> </span>    case WAITING_2:
+<a href="#__codelineno-15-86" id="__codelineno-15-86" name="__codelineno-15-86"></a><span class="gd">-      if (Remote.thr &gt; 1600) {</span>
+<a href="#__codelineno-15-87" id="__codelineno-15-87" name="__codelineno-15-87"></a><span class="gi">+      if (Remote.thr &gt; 1800) {</span>
+<a href="#__codelineno-15-88" id="__codelineno-15-88" name="__codelineno-15-88"></a><span class="w"> </span>        static uint8_t cnt = 0;
+<a href="#__codelineno-15-89" id="__codelineno-15-89" name="__codelineno-15-89"></a><span class="w"> </span>        cnt++;
+<a href="#__codelineno-15-90" id="__codelineno-15-90" name="__codelineno-15-90"></a><span class="w"> </span>        if (cnt &gt; 5)  //最高油门需保持200ms以上，防止遥控开机初始化未完成的错误数据
+<a href="#__codelineno-15-91" id="__codelineno-15-91" name="__codelineno-15-91"></a><span class="gu">@@ -130,16 +144,26 @@</span>
+<a href="#__codelineno-15-92" id="__codelineno-15-92" name="__codelineno-15-92"></a><span class="w"> </span>      }
+<a href="#__codelineno-15-93" id="__codelineno-15-93" name="__codelineno-15-93"></a><span class="w"> </span>      break;
+<a href="#__codelineno-15-94" id="__codelineno-15-94" name="__codelineno-15-94"></a><span class="w"> </span>    case WAITING_4:  //解锁前准备
+<a href="#__codelineno-15-95" id="__codelineno-15-95" name="__codelineno-15-95"></a><span class="gi">+</span>
+<a href="#__codelineno-15-96" id="__codelineno-15-96" name="__codelineno-15-96"></a><span class="w"> </span>      ALL_flag.unlock = 1;
+<a href="#__codelineno-15-97" id="__codelineno-15-97" name="__codelineno-15-97"></a><span class="w"> </span>      status = PROCESS_31;
+<a href="#__codelineno-15-98" id="__codelineno-15-98" name="__codelineno-15-98"></a><span class="w"> </span>      LED.status = AlwaysOn;
+<a href="#__codelineno-15-99" id="__codelineno-15-99" name="__codelineno-15-99"></a><span class="gi">+      last_Remote_AUX1 = Remote.AUX1;</span>
+<a href="#__codelineno-15-100" id="__codelineno-15-100" name="__codelineno-15-100"></a><span class="gi">+      ALL_flag.height_lock = 0;                       //必须在姿态模式下起飞</span>
+<a href="#__codelineno-15-101" id="__codelineno-15-101" name="__codelineno-15-101"></a><span class="gi">+      ALL_flag.flow_control = 0;                      //必须在姿态模式下起飞</span>
+<a href="#__codelineno-15-102" id="__codelineno-15-102" name="__codelineno-15-102"></a><span class="gi">+      pidRoll.offset = -(Remote.roll - 1500) * 0.04;  //微调值做前馈</span>
+<a href="#__codelineno-15-103" id="__codelineno-15-103" name="__codelineno-15-103"></a><span class="gi">+      pidPitch.offset = -(Remote.pitch - 1500) * 0.04;</span>
+<a href="#__codelineno-15-104" id="__codelineno-15-104" name="__codelineno-15-104"></a><span class="gi">+      roll_offset = (Remote.roll - 1500);  //记录微调值</span>
+<a href="#__codelineno-15-105" id="__codelineno-15-105" name="__codelineno-15-105"></a><span class="gi">+      pitch_offset = (Remote.pitch - 1500);</span>
+<a href="#__codelineno-15-106" id="__codelineno-15-106" name="__codelineno-15-106"></a><span class="w"> </span>      imu_rest();
+<a href="#__codelineno-15-107" id="__codelineno-15-107" name="__codelineno-15-107"></a><span class="w"> </span>      break;
+</code></pre></div>
+<p>初始状态时，手柄右摇杆处于中间状态，在不进行微调时是1500，通过使用按键进行微调。具体值可以通过匿名上位机查看</p>
+<p><img alt="image-20251020184324373" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251020184324373.png"/></p>
+<p>核心中断程序<code>scheduler.c</code></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="gd">--- "E:\\stm32-study\\Quadcopter drone\\USER\\scheduler.c"  2025-10-15 10:49:39.338254700 +0800</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="gi">+++ USER/scheduler.c    2025-10-20 18:49:18.206814000 +0800</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="gu">@@ -1,15 +1,40 @@</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w"> </span>#include "scheduler.h"
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w"> </span>#include "ALL_DEFINE.h"
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="gi">+#include "flow.h"</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w"> </span>void TIM1_UP_IRQHandler(void)  //TIM1中断 3ms
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w"> </span>{
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w"> </span>  if (TIM_GetITStatus(TIM1, TIM_IT_Update) != RESET)  //检查指定的TIM中断发生与否:TIM 中断源
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w"> </span>  {
+<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="gd">-    MpuGetData();</span>
+<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="gd">-    GetAngle(&amp;MPU6050, &amp;Angle, 0.003f);</span>
+<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="gd">-    RC_Analy();</span>
+<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="gd">-    FlightPidControl(0.003f);</span>
+<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="gd">-    MotorControl();</span>
+<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="gi">+    static uint8_t cnt_3ms = 0;</span>
+<a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="gi">+    static uint8_t cnt_6ms = 0;</span>
+<a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="gi">+    static uint8_t cnt_24ms = 0;</span>
+<a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="gi">+    SysTick_count++;</span>
+<a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="gi">+    cnt_3ms++;</span>
+<a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="gi">+    cnt_6ms++;</span>
+<a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="gi">+    cnt_24ms++;</span>
+<a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="gi">+</span>
+<a href="#__codelineno-16-25" id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="gi">+    if (cnt_24ms &gt;= 8) {</span>
+<a href="#__codelineno-16-26" id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="gi">+      cnt_24ms = 0;</span>
+<a href="#__codelineno-16-27" id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="gi">+      flow_data_sins();</span>
+<a href="#__codelineno-16-28" id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="gi">+      FlowPidControl(0.024);</span>
+<a href="#__codelineno-16-29" id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="gi">+    }</span>
+<a href="#__codelineno-16-30" id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="gi">+</span>
+<a href="#__codelineno-16-31" id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="gi">+    if (cnt_3ms == 1)  //3ms更新一次</span>
+<a href="#__codelineno-16-32" id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="gi">+    {</span>
+<a href="#__codelineno-16-33" id="__codelineno-16-33" name="__codelineno-16-33"></a><span class="gi">+      cnt_3ms = 0;</span>
+<a href="#__codelineno-16-34" id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="gi">+      MpuGetData();</span>
+<a href="#__codelineno-16-35" id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="gi">+</span>
+<a href="#__codelineno-16-36" id="__codelineno-16-36" name="__codelineno-16-36"></a><span class="gi">+      FlightPidControl(0.003f);</span>
+<a href="#__codelineno-16-37" id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="gi">+      MotorControl();</span>
+<a href="#__codelineno-16-38" id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="gi">+    }</span>
+<a href="#__codelineno-16-39" id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="gi">+    if (cnt_6ms == 2)  //6ms更新一次</span>
+<a href="#__codelineno-16-40" id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="gi">+    {</span>
+<a href="#__codelineno-16-41" id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="gi">+      cnt_6ms = 0;</span>
+<a href="#__codelineno-16-42" id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="gi">+      GetAngle(&amp;MPU6050, &amp;Angle, 0.00626f);</span>
+<a href="#__codelineno-16-43" id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="gi">+      HeightPidControl(0.006f);  //高度控制 //仅供加装ZIN-34高度计的买家使用，基本版进入此函数会立刻返回</span>
+<a href="#__codelineno-16-44" id="__codelineno-16-44" name="__codelineno-16-44"></a><span class="gi">+      flow_get_data();</span>
+<a href="#__codelineno-16-45" id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="gi">+    }</span>
+<a href="#__codelineno-16-46" id="__codelineno-16-46" name="__codelineno-16-46"></a>
+<a href="#__codelineno-16-47" id="__codelineno-16-47" name="__codelineno-16-47"></a><span class="w"> </span>    TIM_ClearITPendingBit(TIM1, TIM_IT_Update);  //清除TIMx的中断待处理位:TIM 中断源
+<a href="#__codelineno-16-48" id="__codelineno-16-48" name="__codelineno-16-48"></a><span class="w"> </span>  }
+</code></pre></div>
+<h2 id="hal">五、使用HAL库复刻基础飞控程序</h2>
+<p>电路原理图：</p>
+<p><img alt="image-20251021195624352" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251021195624352.png"/></p>
+<ol>
+<li>
+<p>时钟频率选择72MHz，Debug选择<code>JTAG (4 pins)</code>。</p>
+</li>
+<li>
+<p>根据源程序中的<code>NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);  //2个bit的抢占优先级，2个bit的子优先级</code>设置NVIC中的Priority Group：<code>2 bits for pre-emption priority 2 bits for subpriority</code>；<strong>Time base: System tick timer</strong>的Preemption Priority设置为3</p>
+</li>
+</ol>
+<h3 id="led">配置LED</h3>
+<p>源程序使用TIM3 PWM实现LED闪烁等功能，实际上只需要使用普通的GPIO输出即可实现。还能空出一个定时器</p>
+<p>将PA6/7，PB0/1设置为GPIO_Output</p>
+<p><img alt="image-20251022113125999" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251022113125999.png"/></p>
+<p><img alt="image-20251022113118652" src="./%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251022113118652.png" style="zoom:67%;"/></p>
+<p>模块驱动：<a href="https://github.com/SerendipityOne/quadcopter-drone/blob/main/USER/Hardware/LED.c">LED</a></p>
+<h3 id="_4">配置电机</h3>
+<p><img alt="image-20251022192147344" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251022192147344.png"/></p>
+<p><img alt="image-20251022192157075" src="%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.assets/image-20251022192157075.png"/></p>
+<p>模块驱动：<a href="https://github.com/SerendipityOne/quadcopter-drone/blob/main/USER/Hardware/Motor.c">Motor</a></p>
+<h3 id="mpu6050">配置MPU6050</h3>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
