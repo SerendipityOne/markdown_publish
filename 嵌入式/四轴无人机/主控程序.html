@@ -317,6 +317,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#pid">
+<span class="md-ellipsis">
+      控制器与PID控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       移植时踩坑
@@ -525,6 +532,13 @@
 <a class="md-nav__link" href="#nrf24l0124g">
 <span class="md-ellipsis">
       配置NRF24L01无线2.4G通信模块
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid">
+<span class="md-ellipsis">
+      控制器与PID控制
     </span>
 </a>
 </li>
@@ -1646,6 +1660,9 @@
 <p>选择PB8，PB12为GPIO_Output，并设置推挽输出，初始高电平输出，高速输出</p>
 <p>选择PA8为GPIO_Input，并设置为上拉输入</p>
 <p>驱动代码：<a href="https://github.com/SerendipityOne/quadcopter-drone/blob/main/USER/Hardware/NRF24L01.c">NRF24L01.c</a></p>
+<h3 id="pid">控制器与PID控制</h3>
+<p>关于控制器与PID控制，基本上与标准库的一致，具体代码请看</p>
+<p><a href="https://github.com/SerendipityOne/quadcopter-drone/blob/main/USER/Application/control.c">control.c</a>与<a href="https://github.com/SerendipityOne/quadcopter-drone/blob/main/USER/Application/remote.c">remote.c</a></p>
 <h3 id="_5">移植时踩坑</h3>
 <ol>
 <li>切记：中断中最好不要执行复杂的函数以及运算程序，容易出问题，中断中最好只是控制标志位，然后再main的while中使用标志位判断进行操作。</li>
