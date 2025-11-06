@@ -316,6 +316,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      移植时踩坑
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -518,6 +525,13 @@
 <a class="md-nav__link" href="#nrf24l0124g">
 <span class="md-ellipsis">
       配置NRF24L01无线2.4G通信模块
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      移植时踩坑
     </span>
 </a>
 </li>
@@ -1632,6 +1646,11 @@
 <p>选择PB8，PB12为GPIO_Output，并设置推挽输出，初始高电平输出，高速输出</p>
 <p>选择PA8为GPIO_Input，并设置为上拉输入</p>
 <p>驱动代码：<a href="https://github.com/SerendipityOne/quadcopter-drone/blob/main/USER/Hardware/NRF24L01.c">NRF24L01.c</a></p>
+<h3 id="_5">移植时踩坑</h3>
+<ol>
+<li>切记：中断中最好不要执行复杂的函数以及运算程序，容易出问题，中断中最好只是控制标志位，然后再main的while中使用标志位判断进行操作。</li>
+<li>实时任务在裸机中可以放在PendSV中，在<code>stm32f1xx_it.c</code>的<code>PendSV_Handler</code>中对运行任务做控制。在定时器中断中使用<code>SCB-&gt;ICSR |= SCB_ICSR_PENDSVSET_Msk;  // 触发 PendSV 中断</code></li>
+</ol>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
