@@ -863,6 +863,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rqtrviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用可视化工具rqt与RViz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用可视化工具rqt与RViz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据可视化工具RViz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2bag" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据记录工具ros2bag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1347,6 +1380,39 @@
   <a href="#ctf_2" class="md-nav__link">
     <span class="md-ellipsis">
       通过C++查询TF关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rqtrviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用可视化工具rqt与RViz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用可视化工具rqt与RViz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据可视化工具RViz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2bag" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据记录工具ros2bag
     </span>
   </a>
   
@@ -2053,6 +2119,72 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_tf<span class="w"> </span>target_base_listener<span class="w"> </span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767010198</span>.885531080<span class="o">]</span><span class="w"> </span><span class="o">[</span>map_to_base_tf_listener<span class="o">]</span>:<span class="w"> </span>平移：<span class="o">[</span>x:<span class="w"> </span>-1.500000,<span class="w"> </span>y:<span class="w"> </span><span class="m">2</span>.598076,<span class="w"> </span>z:<span class="w"> </span><span class="m">0</span>.000000<span class="o">]</span>,<span class="w"> </span>旋转四元组：<span class="o">[</span>x:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>y:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>z:<span class="w"> </span>-0.258819,<span class="w"> </span>w:<span class="w"> </span><span class="m">0</span>.965926<span class="o">]</span>,<span class="w"> </span>旋转欧拉角：<span class="o">[</span>roll:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>pitch:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>yaw:<span class="w"> </span>-0.523599<span class="o">]</span>
 </code></pre></div>
+<h2 id="rqtrviz">常用可视化工具rqt与RViz</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-rqt-tf-tree<span class="w"> </span>-y
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>~/.config/ros.org/rqt_gui.ini
+</code></pre></div>
+<p><img alt="image-20251229204857530" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229204857530.png" /></p>
+<p><img alt="image-20251229204801541" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229204801541.png" /></p>
+<h3 id="rviz">数据可视化工具RViz</h3>
+<p>​   在学习TF时，虽然可以通过tf2_tools或rqt-tf-tree查看TF数据帧之间的关系，但并不能直观地看到它们在空间中的关系，而Vz不仅可以帮助我们实现坐标变换可视化，还可以实现机器人的传感器数据、3D模型、点云、激光雷达数据等数据的可视化与交互。</p>
+<p><img alt="image-20251229205534134" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229205534134.png" /></p>
+<p><img alt="image-20251229205602263" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229205602263.png" /></p>
+<p><img alt="image-20251229205516706" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229205516706.png" /></p>
+<p><img alt="image-20251229205630777" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229205630777.png" /></p>
+<p>加载配置文件打开RViz</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$<span class="w"> </span>rviz2<span class="w"> </span>-d<span class="w"> </span>map_base_target_rviz2.rviz
+</code></pre></div>
+<h3 id="ros2bag">数据记录工具ros2bag</h3>
+<p><img alt="image-20251229210321336" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229210321336.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtle_teleop_key
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>$<span class="w"> </span>ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>/turtle1/cmd_vel
+</code></pre></div>
+<p>先运行小海龟模拟器，然后新开一个终端运行<code>turtle_teleop_key</code>使用剪头控制小海龟移动，再开一个终端记录小海龟监考控制订阅的话题，然后切回<code>turtle_teleop_key</code>终端，进行控制小海龟，然后返回记录终端<code>Ctrl+C</code>退出录制，会发现当前目录下多出文件夹<code>rosbag*</code>其内有个<code>metadata.yaml</code>是记录的描述文件</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$<span class="w"> </span>cat<span class="w"> </span>rosbag2_2025_12_29-21_05_34/metadata.yaml<span class="w"> </span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>rosbag2_bagfile_information:
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span>version:<span class="w"> </span><span class="m">5</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span>storage_identifier:<span class="w"> </span>sqlite3
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">  </span>duration:
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">    </span>nanoseconds:<span class="w"> </span><span class="m">15647076619</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">  </span>starting_time:
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span>nanoseconds_since_epoch:<span class="w"> </span><span class="m">1767013541538459388</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">  </span>message_count:<span class="w"> </span><span class="m">38</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">  </span>topics_with_message_count:
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">    </span>-<span class="w"> </span>topic_metadata:
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">        </span>name:<span class="w"> </span>/turtle1/cmd_vel
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">        </span>type:<span class="w"> </span>geometry_msgs/msg/Twist
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">        </span>serialization_format:<span class="w"> </span>cdr
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">        </span>offered_qos_profiles:<span class="w"> </span><span class="s2">&quot;- history: 1\n  depth: 1\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false&quot;</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">      </span>message_count:<span class="w"> </span><span class="m">38</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">  </span>compression_format:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">  </span>compression_mode:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">  </span>relative_file_paths:
+<a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">    </span>-<span class="w"> </span>rosbag2_2025_12_29-21_05_34_0.db3
+<a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="w">  </span>files:
+<a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a><span class="w">    </span>-<span class="w"> </span>path:<span class="w"> </span>rosbag2_2025_12_29-21_05_34_0.db3
+<a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a><span class="w">      </span>starting_time:
+<a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a><span class="w">        </span>nanoseconds_since_epoch:<span class="w"> </span><span class="m">1767013541538459388</span>
+<a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a><span class="w">      </span>duration:
+<a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a><span class="w">        </span>nanoseconds:<span class="w"> </span><span class="m">15647076619</span>
+<a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a><span class="w">      </span>message_count:<span class="w"> </span><span class="m">38</span>
+</code></pre></div>
+<p>可以看到，该文件中描述了被记录的话题名称和类型等信息，还保存了开始记录时间、持续时间、消息的数量等信息。关闭键盘控制节点，然后重启海龟模拟器，现在来重新播放海龟的控制命令，对话题数据进行重播。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>rosbag2_2025_12_29-21_05_34/
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.126300607<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_storage<span class="o">]</span>:<span class="w"> </span>Opened<span class="w"> </span>database<span class="w"> </span><span class="s1">&#39;rosbag2_2025_12_29-21_05_34/rosbag2_2025_12_29-21_05_34_0.db3&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>READ_ONLY.
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.126387734<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Set<span class="w"> </span>rate<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.130804043<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Adding<span class="w"> </span>keyboard<span class="w"> </span>callbacks.
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.130842525<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Press<span class="w"> </span>SPACE<span class="w"> </span><span class="k">for</span><span class="w"> </span>Pause/Resume
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.130852958<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Press<span class="w"> </span>CURSOR_RIGHT<span class="w"> </span><span class="k">for</span><span class="w"> </span>Play<span class="w"> </span>Next<span class="w"> </span>Message
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.130865565<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Press<span class="w"> </span>CURSOR_UP<span class="w"> </span><span class="k">for</span><span class="w"> </span>Increase<span class="w"> </span>Rate<span class="w"> </span><span class="m">10</span>%
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.130874812<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Press<span class="w"> </span>CURSOR_DOWN<span class="w"> </span><span class="k">for</span><span class="w"> </span>Decrease<span class="w"> </span>Rate<span class="w"> </span><span class="m">10</span>%
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013798</span>.131355430<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_storage<span class="o">]</span>:<span class="w"> </span>Opened<span class="w"> </span>database<span class="w"> </span><span class="s1">&#39;rosbag2_2025_12_29-21_05_34/rosbag2_2025_12_29-21_05_34_0.db3&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>READ_ONLY.
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013804</span>.593790864<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Set<span class="w"> </span>rate<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>.1
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013807</span>.136688058<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Set<span class="w"> </span>rate<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>.2
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013807</span>.283841794<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Set<span class="w"> </span>rate<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>.3
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767013807</span>.422360820<span class="o">]</span><span class="w"> </span><span class="o">[</span>rosbag2_player<span class="o">]</span>:<span class="w"> </span>Set<span class="w"> </span>rate<span class="w"> </span>to<span class="w"> </span><span class="m">1</span>.4
+</code></pre></div>
+<p>使用空格可以控制暂停播放，上/下箭头可以加速/减速</p>
 
 
 
