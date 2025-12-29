@@ -798,6 +798,66 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pythontf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过Python发布动态TF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pythontf_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过Python查询TF关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++中的地图坐标系变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++中的地图坐标系变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctf" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过C++发布静态TF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过C++发布动态TF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctf_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过C++查询TF关系
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1232,6 +1292,66 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pythontf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过Python发布动态TF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pythontf_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过Python查询TF关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++中的地图坐标系变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++中的地图坐标系变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctf" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过C++发布静态TF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过C++发布动态TF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctf_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过C++查询TF关系
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1550,6 +1670,388 @@
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span><span class="m">0</span>.000<span class="w"> </span>-1.000<span class="w"> </span>-0.000<span class="w">  </span><span class="m">0</span>.300
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w"> </span>-1.000<span class="w">  </span><span class="m">0</span>.600
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000
+</code></pre></div>
+<h3 id="pythontf_1">通过Python发布动态TF</h3>
+<p><code>src/demo_python_tf/demo_python_tf/dynamic_tf_broadcaster.py</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tf2_ros</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformBroadcaster</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">geometry_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformStamped</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tf_transformations</span><span class="w"> </span><span class="kn">import</span> <span class="n">quaternion_from_euler</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">DynamicTfBroadcaster</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="sd">    动态坐标变换广播器类</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="sd">    该类继承自ROS2的Node类，用于定期发布坐标变换信息。</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="sd">    它创建一个定时器，以固定频率发布从camera_link到bottle_link的坐标变换。</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="sd">        初始化动态坐标变换广播器节点</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="sd">        创建TransformBroadcaster实例用于发布坐标变换，</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="sd">        并设置定时器以100Hz频率调用publish_tf方法。</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;dynamic_tf_broadcaster&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span> <span class="o">=</span> <span class="n">TransformBroadcaster</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>        <span class="c1"># 动态TF持续发送，发送频率100Hz</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish_tf</span><span class="p">)</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">publish_tf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="sd">        发布坐标变换消息</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="sd">        创建并填充一个TransformStamped消息，设置从camera_link到bottle_link的变换，</span>
+<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="sd">        包括平移和旋转信息，并通过TransformBroadcaster进行广播。</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>        <span class="n">transform</span> <span class="o">=</span> <span class="n">TransformStamped</span><span class="p">()</span>
+<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
+<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;camera_link&quot;</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">child_frame_id</span> <span class="o">=</span> <span class="s2">&quot;bottle_link&quot;</span>
+<a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.2</span>
+<a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>        <span class="c1"># 欧拉角转四元组</span>
+<a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>        <span class="n">q</span> <span class="o">=</span> <span class="n">quaternion_from_euler</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>        <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a>
+<a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>        <span class="c1"># 发布静态坐标变换</span>
+<a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">broadcaster</span><span class="o">.</span><span class="n">sendTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+<a id="__codelineno-13-52" name="__codelineno-13-52" href="#__codelineno-13-52"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;发布动态tf：</span><span class="si">{</span><span class="n">transform</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-53" name="__codelineno-13-53" href="#__codelineno-13-53"></a>
+<a id="__codelineno-13-54" name="__codelineno-13-54" href="#__codelineno-13-54"></a>
+<a id="__codelineno-13-55" name="__codelineno-13-55" href="#__codelineno-13-55"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-13-56" name="__codelineno-13-56" href="#__codelineno-13-56"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-57" name="__codelineno-13-57" href="#__codelineno-13-57"></a><span class="sd">    主函数</span>
+<a id="__codelineno-13-58" name="__codelineno-13-58" href="#__codelineno-13-58"></a>
+<a id="__codelineno-13-59" name="__codelineno-13-59" href="#__codelineno-13-59"></a><span class="sd">    初始化ROS2客户端库，创建静态坐标变换广播器节点，</span>
+<a id="__codelineno-13-60" name="__codelineno-13-60" href="#__codelineno-13-60"></a><span class="sd">    运行节点并处理程序退出时的清理工作。</span>
+<a id="__codelineno-13-61" name="__codelineno-13-61" href="#__codelineno-13-61"></a>
+<a id="__codelineno-13-62" name="__codelineno-13-62" href="#__codelineno-13-62"></a><span class="sd">    Args:</span>
+<a id="__codelineno-13-63" name="__codelineno-13-63" href="#__codelineno-13-63"></a><span class="sd">        args: 命令行参数，默认为None</span>
+<a id="__codelineno-13-64" name="__codelineno-13-64" href="#__codelineno-13-64"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-13-65" name="__codelineno-13-65" href="#__codelineno-13-65"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-13-66" name="__codelineno-13-66" href="#__codelineno-13-66"></a>    <span class="n">dynamic_tf_broadcaster</span> <span class="o">=</span> <span class="n">DynamicTfBroadcaster</span><span class="p">()</span>
+<a id="__codelineno-13-67" name="__codelineno-13-67" href="#__codelineno-13-67"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">dynamic_tf_broadcaster</span><span class="p">)</span>
+<a id="__codelineno-13-68" name="__codelineno-13-68" href="#__codelineno-13-68"></a>    <span class="n">dynamic_tf_broadcaster</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+<a id="__codelineno-13-69" name="__codelineno-13-69" href="#__codelineno-13-69"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="image-20251219150114116" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251219150114116.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_tf<span class="w"> </span>dynamic_tf_broadcaster
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1766127494</span>.941989351<span class="o">]</span><span class="w"> </span><span class="o">[</span>dynamic_tf_broadcaster<span class="o">]</span>:<span class="w"> </span>发布动态tf：geometry_msgs.msg.TransformStamped<span class="o">(</span><span class="nv">header</span><span class="o">=</span>std_msgs.msg.Header<span class="o">(</span><span class="nv">stamp</span><span class="o">=</span>builtin_interfaces.msg.Time<span class="o">(</span><span class="nv">sec</span><span class="o">=</span><span class="m">1766127494</span>,<span class="w"> </span><span class="nv">nanosec</span><span class="o">=</span><span class="m">941328088</span><span class="o">)</span>,<span class="w"> </span><span class="nv">frame_id</span><span class="o">=</span><span class="s1">&#39;camera_link&#39;</span><span class="o">)</span>,<span class="w"> </span><span class="nv">child_frame_id</span><span class="o">=</span><span class="s1">&#39;bottle_link&#39;</span>,<span class="w"> </span><span class="nv">transform</span><span class="o">=</span>geometry_msgs.msg.Transform<span class="o">(</span><span class="nv">translation</span><span class="o">=</span>geometry_msgs.msg.Vector3<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">0</span>.2,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">0</span>.0,<span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="m">0</span>.5<span class="o">)</span>,<span class="w"> </span><span class="nv">rotation</span><span class="o">=</span>geometry_msgs.msg.Quaternion<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">0</span>.0,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">0</span>.0,<span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="m">0</span>.0,<span class="w"> </span><span class="nv">w</span><span class="o">=</span><span class="m">1</span>.0<span class="o">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>camera_link<span class="w"> </span>bottle_link
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>At<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">1766127506</span>.521613460
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>-<span class="w"> </span>Translation:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.200,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.500<span class="o">]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>Quaternion<span class="w"> </span><span class="o">(</span>xyzw<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span><span class="m">1</span>.000<span class="o">]</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>RPY<span class="w"> </span><span class="o">(</span>radian<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span>-0.000,<span class="w"> </span><span class="m">0</span>.000<span class="o">]</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>RPY<span class="w"> </span><span class="o">(</span>degree<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span>-0.000,<span class="w"> </span><span class="m">0</span>.000<span class="o">]</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>-<span class="w"> </span>Matrix:
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">  </span><span class="m">1</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.200
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000<span class="w">  </span><span class="m">0</span>.500
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000
+</code></pre></div>
+<h3 id="pythontf_2">通过Python查询TF关系</h3>
+<p><code>src/demo_python_tf/demo_python_tf/tf_listener.py</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tf2_ros</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformListener</span><span class="p">,</span> <span class="n">Buffer</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">geometry_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformStamped</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tf_transformations</span><span class="w"> </span><span class="kn">import</span> <span class="n">euler_from_quaternion</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">TFListener</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="sd">    TF监听器类，用于监听和获取坐标变换信息</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="sd">    该类继承自ROS2的Node类，创建一个TF监听器节点，</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="sd">    定期查询两个坐标系之间的变换关系。</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="sd">        初始化TF监听器节点</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="sd">        创建Buffer缓冲区和TransformListener监听器，</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="sd">        并设置定时器定期执行坐标变换查询。</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;tf_listener&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="p">()</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">listener</span> <span class="o">=</span> <span class="n">TransformListener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tf</span><span class="p">)</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_tf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="sd">        获取坐标变换函数</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="sd">        查询从&quot;base_link&quot;到&quot;bottle_link&quot;的坐标变换，</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="sd">        将四元数形式的旋转转换为欧拉角并输出结果。</span>
+<a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a><span class="sd">        如果查询失败则输出警告信息。</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>            <span class="c1"># 查询坐标变换</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>            <span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">lookup_transform</span><span class="p">(</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>                <span class="s2">&quot;base_link&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a>                <span class="s2">&quot;bottle_link&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a>                <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">0.0</span><span class="p">),</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a>                <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+<a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a>            <span class="p">)</span><span class="o">.</span><span class="n">transform</span>
+<a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a>            <span class="c1"># 将四元数转换为欧拉角</span>
+<a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a>            <span class="n">rotation_euler</span> <span class="o">=</span> <span class="n">euler_from_quaternion</span><span class="p">(</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47" href="#__codelineno-16-47"></a>                <span class="p">[</span>
+<a id="__codelineno-16-48" name="__codelineno-16-48" href="#__codelineno-16-48"></a>                    <span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+<a id="__codelineno-16-49" name="__codelineno-16-49" href="#__codelineno-16-49"></a>                    <span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+<a id="__codelineno-16-50" name="__codelineno-16-50" href="#__codelineno-16-50"></a>                    <span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">z</span><span class="p">,</span>
+<a id="__codelineno-16-51" name="__codelineno-16-51" href="#__codelineno-16-51"></a>                    <span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">w</span><span class="p">,</span>
+<a id="__codelineno-16-52" name="__codelineno-16-52" href="#__codelineno-16-52"></a>                <span class="p">]</span>
+<a id="__codelineno-16-53" name="__codelineno-16-53" href="#__codelineno-16-53"></a>            <span class="p">)</span>
+<a id="__codelineno-16-54" name="__codelineno-16-54" href="#__codelineno-16-54"></a>            <span class="c1"># 输出变换信息</span>
+<a id="__codelineno-16-55" name="__codelineno-16-55" href="#__codelineno-16-55"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-16-56" name="__codelineno-16-56" href="#__codelineno-16-56"></a>                <span class="sa">f</span><span class="s2">&quot;平移：</span><span class="si">{</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span><span class="si">}</span><span class="s2">，旋转四元组：</span><span class="si">{</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="si">}</span><span class="s2">，旋转欧拉角：</span><span class="si">{</span><span class="n">rotation_euler</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-16-57" name="__codelineno-16-57" href="#__codelineno-16-57"></a>            <span class="p">)</span>
+<a id="__codelineno-16-58" name="__codelineno-16-58" href="#__codelineno-16-58"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-16-59" name="__codelineno-16-59" href="#__codelineno-16-59"></a>            <span class="c1"># 处理异常情况</span>
+<a id="__codelineno-16-60" name="__codelineno-16-60" href="#__codelineno-16-60"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;无法获取坐标变换，原因：</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-61" name="__codelineno-16-61" href="#__codelineno-16-61"></a>
+<a id="__codelineno-16-62" name="__codelineno-16-62" href="#__codelineno-16-62"></a>
+<a id="__codelineno-16-63" name="__codelineno-16-63" href="#__codelineno-16-63"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-16-64" name="__codelineno-16-64" href="#__codelineno-16-64"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-16-65" name="__codelineno-16-65" href="#__codelineno-16-65"></a>    <span class="n">tf_listener</span> <span class="o">=</span> <span class="n">TFListener</span><span class="p">()</span>
+<a id="__codelineno-16-66" name="__codelineno-16-66" href="#__codelineno-16-66"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">tf_listener</span><span class="p">)</span>
+<a id="__codelineno-16-67" name="__codelineno-16-67" href="#__codelineno-16-67"></a>    <span class="n">tf_listener</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+<a id="__codelineno-16-68" name="__codelineno-16-68" href="#__codelineno-16-68"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="image-20251219152910979" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251219152910979.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_tf<span class="w"> </span>tf_listener
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1766129408</span>.508248603<span class="o">]</span><span class="w"> </span><span class="o">[</span>tf_listener<span class="o">]</span>:<span class="w"> </span>平移：geometry_msgs.msg.Vector3<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">0</span>.7,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">0</span>.29999999999999993,<span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="m">0</span>.09999999999999998<span class="o">)</span>，旋转四元组：geometry_msgs.msg.Quaternion<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>.0,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">0</span>.0,<span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="m">0</span>.0,<span class="w"> </span><span class="nv">w</span><span class="o">=</span><span class="m">6</span>.123233995736766e-17<span class="o">)</span>，旋转欧拉角：<span class="o">(</span><span class="m">3</span>.141592653589793,<span class="w"> </span>-0.0,<span class="w"> </span><span class="m">0</span>.0<span class="o">)</span>
+</code></pre></div>
+<h2 id="c">C++中的地图坐标系变换</h2>
+<h3 id="ctf">通过C++发布静态TF</h3>
+<p><img alt="image-20251229190824291" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229190824291.png" /></p>
+<p><code>src/demo_cpp_tf/src/map_to_target_tf.cpp</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;geometry_msgs/msg/transform_stamped.hpp&quot;</span><span class="c1">  // 提供消息接口类</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2/LinearMath/Quaternion.h&quot;</span><span class="c1">               // 提供 tf2::Quaternion 类</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_geometry_msgs/tf2_geometry_msgs.hpp&quot;</span><span class="c1">   // 提供消息类型转换函数</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_ros/static_transform_broadcaster.hpp&quot;</span><span class="c1">  // 提供静态坐标广播器</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="k">using</span><span class="w"> </span><span class="n">StaticTransformBroadcaster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf2_ros</span><span class="o">::</span><span class="n">StaticTransformBroadcaster</span><span class="p">;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">MapToTargetStaticTF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">StaticTransformBroadcaster</span><span class="o">&gt;</span><span class="w"> </span><span class="n">broadcaster_</span><span class="p">;</span><span class="w">  </span><span class="c1">// 创建静态坐标变换发布者</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">publishStaticTF</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="n">transform</span><span class="p">;</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">now</span><span class="p">();</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;map&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">child_frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;target_point&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">    </span><span class="n">tf2</span><span class="o">::</span><span class="n">Quaternion</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">    </span><span class="n">q</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180.0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 旋转角度为60度，欧拉角转四元组</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">    </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">toMsg</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">    </span><span class="n">broadcaster_</span><span class="o">-&gt;</span><span class="n">sendTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">);</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">    </span><span class="c1">// 打印坐标变换信息</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="w">                </span><span class="s">&quot;Static TF: map -&gt; target_point (x: %f, y: %f, z: %f)&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="w">                </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a><span class="w">  </span><span class="n">MapToTargetStaticTF</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;map_to_target_tf&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="w">    </span><span class="n">broadcaster_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">StaticTransformBroadcaster</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">publishStaticTF</span><span class="p">();</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="p">};</span>
+<a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>
+<a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="w">  </span><span class="c1">// 初始化ROS2</span>
+<a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a>
+<a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="w">  </span><span class="c1">// 创建静态坐标变换广播器节点并运行</span>
+<a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MapToTargetStaticTF</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a>
+<a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a><span class="w">  </span><span class="c1">// 清理资源</span>
+<a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a><span class="p">}</span>
+</code></pre></div>
+<p><img alt="image-20251229194642551" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229194642551.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">map_to_target_tf</span><span class="w"> </span><span class="s">src/map_to_target_tf.cpp</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">ament_target_dependencies</span><span class="p">(</span><span class="s">map_to_target_tf</span><span class="w">  </span><span class="s">rclcpp</span><span class="w"> </span><span class="s">geometry_msgs</span><span class="w"> </span><span class="s">tf2</span><span class="w"> </span><span class="s">tf2_ros</span><span class="w"> </span><span class="s">tf2_geometry_msgs</span><span class="p">)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="s">...</span><span class="w"> </span><span class="s">map_to_target_tf</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="p">)</span>
+</code></pre></div>
+<p><img alt="image-20251229194554175" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229194554175.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>map<span class="w"> </span>target_point
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767008860</span>.000274393<span class="o">]</span><span class="w"> </span><span class="o">[</span>tf2_echo<span class="o">]</span>:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>transform<span class="w"> </span>map<span class="w"> </span>-&gt;<span class="w">  </span>target_point:<span class="w"> </span>Invalid<span class="w"> </span>frame<span class="w"> </span>ID<span class="w"> </span><span class="s2">&quot;map&quot;</span><span class="w"> </span>passed<span class="w"> </span>to<span class="w"> </span>canTransform<span class="w"> </span>argument<span class="w"> </span>target_frame<span class="w"> </span>-<span class="w"> </span>frame<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>At<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">0</span>.0
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>-<span class="w"> </span>Translation:<span class="w"> </span><span class="o">[</span><span class="m">5</span>.000,<span class="w"> </span><span class="m">3</span>.000,<span class="w"> </span><span class="m">0</span>.000<span class="o">]</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>Quaternion<span class="w"> </span><span class="o">(</span>xyzw<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.500,<span class="w"> </span><span class="m">0</span>.866<span class="o">]</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>RPY<span class="w"> </span><span class="o">(</span>radian<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span>-0.000,<span class="w"> </span><span class="m">1</span>.047<span class="o">]</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>RPY<span class="w"> </span><span class="o">(</span>degree<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span>-0.000,<span class="w"> </span><span class="m">60</span>.000<span class="o">]</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>-<span class="w"> </span>Matrix:
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">  </span><span class="m">0</span>.500<span class="w"> </span>-0.866<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">5</span>.000
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">  </span><span class="m">0</span>.866<span class="w">  </span><span class="m">0</span>.500<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">3</span>.000
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000<span class="w">  </span><span class="m">0</span>.000
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000
+</code></pre></div>
+<h3 id="ctf_1">通过C++发布动态TF</h3>
+<p>发布动态TF和发布静态TF相比，最大的不同在于动态T℉需要不断向外发布。</p>
+<p><code>src/demo_cpp_tf/src/map_to_base_tf.cpp</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;geometry_msgs/msg/transform_stamped.hpp&quot;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2/LinearMath/Quaternion.h&quot;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_geometry_msgs/tf2_geometry_msgs.hpp&quot;</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_ros/transform_broadcaster.hpp&quot;</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="k">using</span><span class="w"> </span><span class="n">TransformBroadcaster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf2_ros</span><span class="o">::</span><span class="n">TransformBroadcaster</span><span class="p">;</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span><span class="w">  </span><span class="c1">// 使用时间单位的字面量，可以在代码中使用s和ms表示时间</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">MapToBaseDynamicTF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TransformBroadcaster</span><span class="o">&gt;</span><span class="w"> </span><span class="n">broadcaster_</span><span class="p">;</span><span class="w">  </span><span class="c1">// 创建坐标变换发布者</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">TimerBase</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">timer_</span><span class="p">;</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">  </span><span class="n">MapToBaseDynamicTF</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;map_to_base_tf&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">    </span><span class="n">broadcaster_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TransformBroadcaster</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">    </span><span class="n">timer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_wall_timer</span><span class="p">(</span><span class="mi">10</span><span class="n">ms</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="w">      </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="n">transform</span><span class="p">;</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">now</span><span class="p">();</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;map&quot;</span><span class="p">;</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">child_frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;base_link&quot;</span><span class="p">;</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>
+<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="w">      </span><span class="n">tf2</span><span class="o">::</span><span class="n">Quaternion</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="w">      </span><span class="n">q</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180.0</span><span class="p">);</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="w">      </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf2</span><span class="o">::</span><span class="n">toMsg</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="w">      </span><span class="n">broadcaster_</span><span class="o">-&gt;</span><span class="n">sendTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">);</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>
+<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a><span class="w">      </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;发布动态tf：%f %f %f&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="w">                  </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="w">                  </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>
+<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a><span class="w">                  </span><span class="n">transform</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="p">};</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a>
+<a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MapToBaseDynamicTF</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a><span class="p">}</span>
+</code></pre></div>
+<p><img alt="image-20251229195838207" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229195838207.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_tf<span class="w"> </span>map_to_target_tf<span class="w"> </span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767008565</span>.065706969<span class="o">]</span><span class="w"> </span><span class="o">[</span>map_to_target_tf<span class="o">]</span>:<span class="w"> </span>Static<span class="w"> </span>TF:<span class="w"> </span>map<span class="w"> </span>-&gt;<span class="w"> </span>target_point<span class="w"> </span><span class="o">(</span>x:<span class="w"> </span><span class="m">5</span>.000000,<span class="w"> </span>y:<span class="w"> </span><span class="m">3</span>.000000,<span class="w"> </span>z:<span class="w"> </span><span class="m">0</span>.000000<span class="o">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_tf<span class="w"> </span>map_to_base_tf<span class="w"> </span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767009549</span>.274825937<span class="o">]</span><span class="w"> </span><span class="o">[</span>map_to_base_tf<span class="o">]</span>:<span class="w"> </span>发布动态tf：2.000000<span class="w"> </span><span class="m">3</span>.000000<span class="w"> </span><span class="m">0</span>.000000
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>target_point<span class="w"> </span>base_link
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767009379</span>.788644187<span class="o">]</span><span class="w"> </span><span class="o">[</span>tf2_echo<span class="o">]</span>:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>transform<span class="w"> </span>target_point<span class="w"> </span>-&gt;<span class="w">  </span>base_link:<span class="w"> </span>Invalid<span class="w"> </span>frame<span class="w"> </span>ID<span class="w"> </span><span class="s2">&quot;target_point&quot;</span><span class="w"> </span>passed<span class="w"> </span>to<span class="w"> </span>canTransform<span class="w"> </span>argument<span class="w"> </span>target_frame<span class="w"> </span>-<span class="w"> </span>frame<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>At<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">1767009380</span>.769958671
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>-<span class="w"> </span>Translation:<span class="w"> </span><span class="o">[</span>-1.500,<span class="w"> </span><span class="m">2</span>.598,<span class="w"> </span><span class="m">0</span>.000<span class="o">]</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>Quaternion<span class="w"> </span><span class="o">(</span>xyzw<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span>-0.259,<span class="w"> </span><span class="m">0</span>.966<span class="o">]</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>RPY<span class="w"> </span><span class="o">(</span>radian<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span>-0.524<span class="o">]</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>-<span class="w"> </span>Rotation:<span class="w"> </span><span class="k">in</span><span class="w"> </span>RPY<span class="w"> </span><span class="o">(</span>degree<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>.000,<span class="w"> </span><span class="m">0</span>.000,<span class="w"> </span>-30.000<span class="o">]</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>-<span class="w"> </span>Matrix:
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">  </span><span class="m">0</span>.866<span class="w">  </span><span class="m">0</span>.500<span class="w">  </span><span class="m">0</span>.000<span class="w"> </span>-1.500
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w"> </span>-0.500<span class="w">  </span><span class="m">0</span>.866<span class="w"> </span>-0.000<span class="w">  </span><span class="m">2</span>.598
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w"> </span>-0.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000<span class="w">  </span><span class="m">0</span>.000
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">0</span>.000<span class="w">  </span><span class="m">1</span>.000
+</code></pre></div>
+<h3 id="ctf_2">通过C++查询TF关系</h3>
+<p><code>src/demo_cpp_tf/src/target_base_listener.cpp</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;geometry_msgs/msg/transform_stamped.hpp&quot;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2/LinearMath/Quaternion.h&quot;</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2/utils.hpp&quot;</span><span class="c1">  // 提供tf2::getEulerYPR()</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_geometry_msgs/tf2_geometry_msgs.hpp&quot;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_ros/buffer.hpp&quot;</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tf2_ros/transform_listener.hpp&quot;</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">using</span><span class="w"> </span><span class="n">TransformListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf2_ros</span><span class="o">::</span><span class="n">TransformListener</span><span class="p">;</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">MapToBaseTFListener</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TransformListener</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listener_</span><span class="p">;</span><span class="w">  </span><span class="c1">// 创建坐标变换发布者</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">tf2_ros</span><span class="o">::</span><span class="n">Buffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer_</span><span class="p">;</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">TimerBase</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">timer_</span><span class="p">;</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">  </span><span class="n">MapToBaseTFListener</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;map_to_base_tf_listener&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="w">    </span><span class="n">buffer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">tf2_ros</span><span class="o">::</span><span class="n">Buffer</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">());</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="w">    </span><span class="n">listener_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TransformListener</span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">buffer_</span><span class="p">);</span>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="w">    </span><span class="n">timer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_wall_timer</span><span class="p">(</span><span class="mi">5</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">transform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">buffer_</span><span class="o">-&gt;</span><span class="n">lookupTransform</span><span class="p">(</span>
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">          </span><span class="s">&quot;target_point&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;base_link&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="w">          </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">now</span><span class="p">(),</span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="w">          </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">))</span>
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="w">          </span><span class="p">.</span><span class="n">transform</span><span class="p">;</span>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="w">        </span><span class="c1">// 转换结果</span>
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a><span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">translation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform</span><span class="p">.</span><span class="n">translation</span><span class="p">;</span>
+<a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+<a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">yaw</span><span class="p">;</span>
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a><span class="w">        </span><span class="n">tf2</span><span class="o">::</span><span class="n">getEulerYPR</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span><span class="w"> </span><span class="n">yaw</span><span class="p">,</span><span class="w"> </span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">roll</span><span class="p">);</span><span class="w">  </span><span class="c1">// 四元数转欧拉角</span>
+<a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a>
+<a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a><span class="w">        </span><span class="c1">// 输出变换信息</span>
+<a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a><span class="w">        </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span>
+<a id="__codelineno-23-36" name="__codelineno-23-36" href="#__codelineno-23-36"></a><span class="w">                    </span><span class="s">&quot;平移：[x: %f, y: %f, z: %f], &quot;</span>
+<a id="__codelineno-23-37" name="__codelineno-23-37" href="#__codelineno-23-37"></a><span class="w">                    </span><span class="s">&quot;旋转四元组：[x: %f, y: %f, z: %f, w: %f], &quot;</span>
+<a id="__codelineno-23-38" name="__codelineno-23-38" href="#__codelineno-23-38"></a><span class="w">                    </span><span class="s">&quot;旋转欧拉角：[roll: %f, pitch: %f, yaw: %f]&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-39" name="__codelineno-23-39" href="#__codelineno-23-39"></a><span class="w">                    </span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+<a id="__codelineno-23-40" name="__codelineno-23-40" href="#__codelineno-23-40"></a><span class="w">                    </span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>
+<a id="__codelineno-23-41" name="__codelineno-23-41" href="#__codelineno-23-41"></a><span class="w">                    </span><span class="n">translation</span><span class="p">.</span><span class="n">z</span><span class="p">,</span>
+<a id="__codelineno-23-42" name="__codelineno-23-42" href="#__codelineno-23-42"></a><span class="w">                    </span><span class="n">rotation</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+<a id="__codelineno-23-43" name="__codelineno-23-43" href="#__codelineno-23-43"></a><span class="w">                    </span><span class="n">rotation</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>
+<a id="__codelineno-23-44" name="__codelineno-23-44" href="#__codelineno-23-44"></a><span class="w">                    </span><span class="n">rotation</span><span class="p">.</span><span class="n">z</span><span class="p">,</span>
+<a id="__codelineno-23-45" name="__codelineno-23-45" href="#__codelineno-23-45"></a><span class="w">                    </span><span class="n">rotation</span><span class="p">.</span><span class="n">w</span><span class="p">,</span>
+<a id="__codelineno-23-46" name="__codelineno-23-46" href="#__codelineno-23-46"></a><span class="w">                    </span><span class="n">roll</span><span class="p">,</span>
+<a id="__codelineno-23-47" name="__codelineno-23-47" href="#__codelineno-23-47"></a><span class="w">                    </span><span class="n">pitch</span><span class="p">,</span>
+<a id="__codelineno-23-48" name="__codelineno-23-48" href="#__codelineno-23-48"></a><span class="w">                    </span><span class="n">yaw</span><span class="p">);</span>
+<a id="__codelineno-23-49" name="__codelineno-23-49" href="#__codelineno-23-49"></a>
+<a id="__codelineno-23-50" name="__codelineno-23-50" href="#__codelineno-23-50"></a><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-51" name="__codelineno-23-51" href="#__codelineno-23-51"></a><span class="w">        </span><span class="n">RCLCPP_WARN</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;无法获取坐标变换，原因：%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+<a id="__codelineno-23-52" name="__codelineno-23-52" href="#__codelineno-23-52"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-23-53" name="__codelineno-23-53" href="#__codelineno-23-53"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-23-54" name="__codelineno-23-54" href="#__codelineno-23-54"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-23-55" name="__codelineno-23-55" href="#__codelineno-23-55"></a><span class="p">};</span>
+<a id="__codelineno-23-56" name="__codelineno-23-56" href="#__codelineno-23-56"></a>
+<a id="__codelineno-23-57" name="__codelineno-23-57" href="#__codelineno-23-57"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-58" name="__codelineno-23-58" href="#__codelineno-23-58"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<a id="__codelineno-23-59" name="__codelineno-23-59" href="#__codelineno-23-59"></a><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MapToBaseTFListener</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-23-60" name="__codelineno-23-60" href="#__codelineno-23-60"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<a id="__codelineno-23-61" name="__codelineno-23-61" href="#__codelineno-23-61"></a><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<a id="__codelineno-23-62" name="__codelineno-23-62" href="#__codelineno-23-62"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-23-63" name="__codelineno-23-63" href="#__codelineno-23-63"></a><span class="p">}</span>
+</code></pre></div>
+<p><img alt="image-20251229201207845" src="%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.assets/image-20251229201207845.png" /></p>
+<p>运行<code>map_to_target_tf</code>与<code>map_to_base_tf</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_tf<span class="w"> </span>target_base_listener<span class="w"> </span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767010198</span>.885531080<span class="o">]</span><span class="w"> </span><span class="o">[</span>map_to_base_tf_listener<span class="o">]</span>:<span class="w"> </span>平移：<span class="o">[</span>x:<span class="w"> </span>-1.500000,<span class="w"> </span>y:<span class="w"> </span><span class="m">2</span>.598076,<span class="w"> </span>z:<span class="w"> </span><span class="m">0</span>.000000<span class="o">]</span>,<span class="w"> </span>旋转四元组：<span class="o">[</span>x:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>y:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>z:<span class="w"> </span>-0.258819,<span class="w"> </span>w:<span class="w"> </span><span class="m">0</span>.965926<span class="o">]</span>,<span class="w"> </span>旋转欧拉角：<span class="o">[</span>roll:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>pitch:<span class="w"> </span><span class="m">0</span>.000000,<span class="w"> </span>yaw:<span class="w"> </span>-0.523599<span class="o">]</span>
 </code></pre></div>
 
 
