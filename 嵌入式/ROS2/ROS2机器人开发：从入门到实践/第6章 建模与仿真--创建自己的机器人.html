@@ -916,6 +916,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ros2-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用ros2 control驱动机器人
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用ros2 control驱动机器人">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      ros2_control介绍与安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gazeboros2_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Gazebo接入ros2_control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用关节状态发布控制器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用力控制器控制轮子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用两轮差速控制器控制机器人
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1430,6 +1490,66 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       深度相机传感器仿真
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用ros2 control驱动机器人
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用ros2 control驱动机器人">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      ros2_control介绍与安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gazeboros2_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Gazebo接入ros2_control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用关节状态发布控制器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用力控制器控制轮子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用两轮差速控制器控制机器人
     </span>
   </a>
   
@@ -2254,7 +2374,417 @@
 <p><img alt="image-20260103162942113" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260103162942113.png" /></p>
 <p>而深度图像信息可以通过执行rqt工具的Plugins→Visualization→Image View命令</p>
 <p><img alt="image-20260103163056226" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260103163056226.png" /></p>
-<p>u</p>
+<h2 id="ros2-control">使用ros2 control驱动机器人</h2>
+<p>ros2 control是一个使用ROS2进行（实时）机器人控制的框架，它的目标是简化硬件的集成。通过它就可以避免上述例子中的重复造轮子，让机器人对硬件移植更加友好。</p>
+<h3 id="ros2_control">ros2_control介绍与安装</h3>
+<p><img src="./第6章 建模与仿真--创建自己的机器人.assets/image-20260104092348671.png" alt="image-20260104092348671" style="zoom:67%;" /></p>
+<p><img alt="image-20260104092414038" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104092414038.png" /></p>
+<p>安装ros2_control</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-ros2-control<span class="w"> </span>-y
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>--help
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>usage:<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span>Call<span class="w"> </span><span class="sb">`</span>ros2<span class="w"> </span>control<span class="w"> </span>&lt;command&gt;<span class="w"> </span>-h<span class="sb">`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>detailed<span class="w"> </span>usage.<span class="w"> </span>...
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Various<span class="w"> </span>control<span class="w"> </span>related<span class="w"> </span>sub-commands
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>options:
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">            </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>Commands:
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="w">  </span>list_controller_types<span class="w">         </span>Output<span class="w"> </span>the<span class="w"> </span>available<span class="w"> </span>controller<span class="w"> </span>types<span class="w"> </span>and<span class="w"> </span>their<span class="w"> </span>base<span class="w"> </span>classes
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="w">  </span>list_controllers<span class="w">              </span>Output<span class="w"> </span>the<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>loaded<span class="w"> </span>controllers,<span class="w"> </span>their<span class="w"> </span><span class="nb">type</span><span class="w"> </span>and<span class="w"> </span>status
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="w">  </span>list_hardware_components<span class="w">      </span>Output<span class="w"> </span>the<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>available<span class="w"> </span>hardware<span class="w"> </span>components
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="w">  </span>list_hardware_interfaces<span class="w">      </span>Output<span class="w"> </span>the<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>available<span class="w"> </span><span class="nb">command</span><span class="w"> </span>and<span class="w"> </span>state<span class="w"> </span>interfaces
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="w">  </span>load_controller<span class="w">               </span>Load<span class="w"> </span>a<span class="w"> </span>controller<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>controller<span class="w"> </span>manager
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="w">  </span>reload_controller_libraries<span class="w">   </span>Reload<span class="w"> </span>controller<span class="w"> </span>libraries
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a><span class="w">  </span>set_controller_state<span class="w">          </span>Adjust<span class="w"> </span>the<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>controller
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a><span class="w">  </span>set_hardware_component_state<span class="w">  </span>Adjust<span class="w"> </span>the<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>hardware<span class="w"> </span>component
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a><span class="w">  </span>switch_controllers<span class="w">            </span>Switch<span class="w"> </span>controllers<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>controller<span class="w"> </span>manager
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a><span class="w">  </span>unload_controller<span class="w">             </span>Unload<span class="w"> </span>a<span class="w"> </span>controller<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>controller<span class="w"> </span>manager
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a><span class="w">  </span>view_controller_chains<span class="w">        </span>Generates<span class="w"> </span>a<span class="w"> </span>diagram<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>loaded<span class="w"> </span>chained<span class="w"> </span>controllers<span class="w"> </span>into<span class="w"> </span>/tmp/controller_diagram.gv.pdf
+<a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>
+<a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a><span class="w">  </span>Call<span class="w"> </span><span class="sb">`</span>ros2<span class="w"> </span>control<span class="w"> </span>&lt;command&gt;<span class="w"> </span>-h<span class="sb">`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>detailed<span class="w"> </span>usage.
+</code></pre></div>
+<p><img alt="image-20260104092544939" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104092544939.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>info<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-ros2-controllers
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Package:<span class="w"> </span>ros-humble-ros2-controllers
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Version:<span class="w"> </span><span class="m">2</span>.50.2-1jammy.20251119.011129
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>Priority:<span class="w"> </span>optional
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>Section:<span class="w"> </span>misc
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>Maintainer:<span class="w"> </span>Bence<span class="w"> </span>Magyar<span class="w"> </span>&lt;bence.magyar.robotics@gmail.com&gt;
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>Installed-Size:<span class="w"> </span><span class="m">44</span>.0<span class="w"> </span>kB
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>Depends:<span class="w"> </span>ros-humble-ackermann-steering-controller,<span class="w"> </span>ros-humble-admittance-controller,<span class="w"> </span>ros-humble-bicycle-steering-controller,<span class="w"> </span>ros-humble-diff-drive-controller,<span class="w"> </span>ros-humble-effort-controllers,<span class="w"> </span>ros-humble-force-torque-sensor-broadcaster,<span class="w"> </span>ros-humble-forward-command-controller,<span class="w"> </span>ros-humble-gpio-controllers,<span class="w"> </span>ros-humble-gripper-controllers,<span class="w"> </span>ros-humble-imu-sensor-broadcaster,<span class="w"> </span>ros-humble-joint-state-broadcaster,<span class="w"> </span>ros-humble-joint-trajectory-controller,<span class="w"> </span>ros-humble-mecanum-drive-controller,<span class="w"> </span>ros-humble-pid-controller,<span class="w"> </span>ros-humble-pose-broadcaster,<span class="w"> </span>ros-humble-position-controllers,<span class="w"> </span>ros-humble-range-sensor-broadcaster,<span class="w"> </span>ros-humble-steering-controllers-library,<span class="w"> </span>ros-humble-tricycle-controller,<span class="w"> </span>ros-humble-tricycle-steering-controller,<span class="w"> </span>ros-humble-velocity-controllers,<span class="w"> </span>ros-humble-ros-workspace
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>Homepage:<span class="w"> </span>https://control.ros.org
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>Download-Size:<span class="w"> </span><span class="m">7</span>,444<span class="w"> </span>B
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>APT-Sources:<span class="w"> </span>https://mirrors.ustc.edu.cn/ros2/ubuntu<span class="w"> </span>jammy/main<span class="w"> </span>amd64<span class="w"> </span>Packages
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>Description:<span class="w"> </span>Metapackage<span class="w"> </span><span class="k">for</span><span class="w"> </span>ros2_controllers<span class="w"> </span>related<span class="w"> </span>packages
+</code></pre></div>
+<h3 id="gazeboros2_control">使用Gazebo接入ros2_control</h3>
+<p>使用Gazebo接入ros2_control,其实就是让Gazebo按照ros2_control指定的接口提供数据。在ROS2中利用相应的Gazebo插件，可以方便地实现Gazebo和ros2_control的对接。</p>
+<p>gazebo_ros2 control对硬件资源的描述使用的也是XML格式，所以我们可以将配置写到URDF中</p>
+<p><code>src/fishbot_description/urdf/fishbot/fishbot.ros2_control.xacro</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">&quot;http://www.ros.org/wiki/xacro&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;fishbot_ros2_control&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="nt">&lt;ros2_control</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FishBotGazeboSystem&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;system&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">      </span><span class="nt">&lt;hardware&gt;</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">        </span><span class="nt">&lt;plugin&gt;</span>gazebo_ros2_control/GazeboSystem<span class="nt">&lt;/plugin&gt;</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">      </span><span class="nt">&lt;/hardware&gt;</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">      </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;left_wheel_joint&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">        </span><span class="nt">&lt;command_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;velocity&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min&quot;</span><span class="nt">&gt;</span>-1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="w">        </span><span class="nt">&lt;/command_interface&gt;</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="w">        </span><span class="nt">&lt;command_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;effort&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min&quot;</span><span class="nt">&gt;</span>-0.1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max&quot;</span><span class="nt">&gt;</span>0.1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">        </span><span class="nt">&lt;/command_interface&gt;</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="w">        </span><span class="nt">&lt;state_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;position&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="w">        </span><span class="nt">&lt;state_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;velocity&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="w">        </span><span class="nt">&lt;state_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;effort&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a><span class="w">      </span><span class="nt">&lt;/joint&gt;</span>
+<a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a><span class="w">      </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;right_wheel_joint&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a><span class="w">        </span><span class="nt">&lt;command_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;velocity&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min&quot;</span><span class="nt">&gt;</span>-1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-24" name="__codelineno-29-24" href="#__codelineno-29-24"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-25" name="__codelineno-29-25" href="#__codelineno-29-25"></a><span class="w">        </span><span class="nt">&lt;/command_interface&gt;</span>
+<a id="__codelineno-29-26" name="__codelineno-29-26" href="#__codelineno-29-26"></a><span class="w">        </span><span class="nt">&lt;command_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;effort&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-27" name="__codelineno-29-27" href="#__codelineno-29-27"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;min&quot;</span><span class="nt">&gt;</span>-0.1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-28" name="__codelineno-29-28" href="#__codelineno-29-28"></a><span class="w">          </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;max&quot;</span><span class="nt">&gt;</span>0.1<span class="nt">&lt;/param&gt;</span>
+<a id="__codelineno-29-29" name="__codelineno-29-29" href="#__codelineno-29-29"></a><span class="w">        </span><span class="nt">&lt;/command_interface&gt;</span>
+<a id="__codelineno-29-30" name="__codelineno-29-30" href="#__codelineno-29-30"></a><span class="w">        </span><span class="nt">&lt;state_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;position&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-29-31" name="__codelineno-29-31" href="#__codelineno-29-31"></a><span class="w">        </span><span class="nt">&lt;state_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;velocity&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-29-32" name="__codelineno-29-32" href="#__codelineno-29-32"></a><span class="w">        </span><span class="nt">&lt;state_interface</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;effort&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-29-33" name="__codelineno-29-33" href="#__codelineno-29-33"></a><span class="w">      </span><span class="nt">&lt;/joint&gt;</span>
+<a id="__codelineno-29-34" name="__codelineno-29-34" href="#__codelineno-29-34"></a><span class="w">    </span><span class="nt">&lt;/ros2_control&gt;</span>
+<a id="__codelineno-29-35" name="__codelineno-29-35" href="#__codelineno-29-35"></a><span class="w">    </span><span class="nt">&lt;gazebo&gt;</span>
+<a id="__codelineno-29-36" name="__codelineno-29-36" href="#__codelineno-29-36"></a><span class="w">      </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libgazebo_ros2_control.so&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gazebo_ros2_control&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-29-37" name="__codelineno-29-37" href="#__codelineno-29-37"></a><span class="w">        </span><span class="nt">&lt;parameters&gt;</span>$(find<span class="w"> </span>fishbot_description)/config/fishbot_ros2_controller.yaml<span class="nt">&lt;/parameters&gt;</span>
+<a id="__codelineno-29-38" name="__codelineno-29-38" href="#__codelineno-29-38"></a><span class="w">      </span><span class="nt">&lt;/plugin&gt;</span>
+<a id="__codelineno-29-39" name="__codelineno-29-39" href="#__codelineno-29-39"></a><span class="w">    </span><span class="nt">&lt;/gazebo&gt;</span>
+<a id="__codelineno-29-40" name="__codelineno-29-40" href="#__codelineno-29-40"></a><span class="w">  </span><span class="nt">&lt;/xacro:macro&gt;</span>
+<a id="__codelineno-29-41" name="__codelineno-29-41" href="#__codelineno-29-41"></a><span class="nt">&lt;/robot&gt;</span>
+</code></pre></div>
+<p><img alt="image-20260104095159997" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104095159997.png" /></p>
+<p><code>src/fishbot_description/config/fishbot_ros2_controller.yaml</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nt">controller_manager</span><span class="p">:</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">        </span><span class="nt">update_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"> </span><span class="c1"># Hz</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">        </span><span class="nt">use_sim_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p><img alt="image-20260104095507764" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104095507764.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">&lt;xacro:include</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;$(find fishbot_description)/urdf/fishbot/fishbot.ros2_control.xacro&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nt">&lt;xacro:fishbot_ros2_control</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>fishbot_description<span class="w"> </span>gazebo_sim.launch.py
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>...
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="o">[</span>spawn_entity.py-4<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.598520434<span class="o">]</span><span class="w"> </span><span class="o">[</span>spawn_entity<span class="o">]</span>:<span class="w"> </span>Spawn<span class="w"> </span>status:<span class="w"> </span>SpawnEntity:<span class="w"> </span>Successfully<span class="w"> </span>spawned<span class="w"> </span>entity<span class="w"> </span><span class="o">[</span>fishbot<span class="o">]</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.636191659<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Loading<span class="w"> </span>gazebo_ros2_control<span class="w"> </span>plugin
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.645759801<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Starting<span class="w"> </span>gazebo_ros2_control<span class="w"> </span>plugin<span class="w"> </span><span class="k">in</span><span class="w"> </span>namespace:<span class="w"> </span>/
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.645895811<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Starting<span class="w"> </span>gazebo_ros2_control<span class="w"> </span>plugin<span class="w"> </span><span class="k">in</span><span class="w"> </span>ros<span class="w"> </span><span class="m">2</span><span class="w"> </span>node:<span class="w"> </span>gazebo_ros2_control
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.652960179<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span>service!!<span class="w"> </span>robot_state_publisher
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.655537466<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Received<span class="w"> </span>urdf<span class="w"> </span>from<span class="w"> </span>param<span class="w"> </span>server,<span class="w"> </span>parsing...
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.655623588<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Loading<span class="w"> </span>parameter<span class="w"> </span>files<span class="w"> </span>/home/yzh/ros2-learning/chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/config/fishbot_ros2_controller.yaml
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.668912580<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Loading<span class="w"> </span>joint:<span class="w"> </span>left_wheel_joint
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.669005225<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">   </span>State:
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.669023561<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>position
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.669036100<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>velocity
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.669046113<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>effort
+<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.669055858<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">   </span>Command:
+<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.670930967<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>velocity
+<a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671239410<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>effort
+<a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671270663<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Loading<span class="w"> </span>joint:<span class="w"> </span>right_wheel_joint
+<a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671281143<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">   </span>State:
+<a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671288104<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>position
+<a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671295661<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>velocity
+<a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671302264<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>effort
+<a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671311969<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">   </span>Command:
+<a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671328694<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>velocity
+<a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671424183<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">        </span>effort
+<a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671493749<span class="o">]</span><span class="w"> </span><span class="o">[</span>resource_manager<span class="o">]</span>:<span class="w"> </span>Initialize<span class="w"> </span>hardware<span class="w"> </span><span class="s1">&#39;FishBotGazeboSystem&#39;</span><span class="w"> </span>
+<a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671649446<span class="o">]</span><span class="w"> </span><span class="o">[</span>resource_manager<span class="o">]</span>:<span class="w"> </span>Successful<span class="w"> </span>initialization<span class="w"> </span>of<span class="w"> </span>hardware<span class="w"> </span><span class="s1">&#39;FishBotGazeboSystem&#39;</span>
+<a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671774547<span class="o">]</span><span class="w"> </span><span class="o">[</span>resource_manager<span class="o">]</span>:<span class="w"> </span><span class="s1">&#39;configure&#39;</span><span class="w"> </span>hardware<span class="w"> </span><span class="s1">&#39;FishBotGazeboSystem&#39;</span><span class="w"> </span>
+<a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671783258<span class="o">]</span><span class="w"> </span><span class="o">[</span>resource_manager<span class="o">]</span>:<span class="w"> </span>Successful<span class="w"> </span><span class="s1">&#39;configure&#39;</span><span class="w"> </span>of<span class="w"> </span>hardware<span class="w"> </span><span class="s1">&#39;FishBotGazeboSystem&#39;</span>
+<a id="__codelineno-32-30" name="__codelineno-32-30" href="#__codelineno-32-30"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671788647<span class="o">]</span><span class="w"> </span><span class="o">[</span>resource_manager<span class="o">]</span>:<span class="w"> </span><span class="s1">&#39;activate&#39;</span><span class="w"> </span>hardware<span class="w"> </span><span class="s1">&#39;FishBotGazeboSystem&#39;</span><span class="w"> </span>
+<a id="__codelineno-32-31" name="__codelineno-32-31" href="#__codelineno-32-31"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671793609<span class="o">]</span><span class="w"> </span><span class="o">[</span>resource_manager<span class="o">]</span>:<span class="w"> </span>Successful<span class="w"> </span><span class="s1">&#39;activate&#39;</span><span class="w"> </span>of<span class="w"> </span>hardware<span class="w"> </span><span class="s1">&#39;FishBotGazeboSystem&#39;</span>
+<a id="__codelineno-32-32" name="__codelineno-32-32" href="#__codelineno-32-32"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.671907643<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Loading<span class="w"> </span>controller_manager
+<a id="__codelineno-32-33" name="__codelineno-32-33" href="#__codelineno-32-33"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>WARN<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.697458838<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w">  </span>Desired<span class="w"> </span>controller<span class="w"> </span>update<span class="w"> </span>period<span class="w"> </span><span class="o">(</span><span class="m">0</span>.01<span class="w"> </span>s<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>slower<span class="w"> </span>than<span class="w"> </span>the<span class="w"> </span>gazebo<span class="w"> </span>simulation<span class="w"> </span>period<span class="w"> </span><span class="o">(</span><span class="m">0</span>.001<span class="w"> </span>s<span class="o">)</span>.
+<a id="__codelineno-32-34" name="__codelineno-32-34" href="#__codelineno-32-34"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767491842</span>.697943621<span class="o">]</span><span class="w"> </span><span class="o">[</span>gazebo_ros2_control<span class="o">]</span>:<span class="w"> </span>Loaded<span class="w"> </span>gazebo_ros2_control.
+</code></pre></div>
+<p><img alt="image-20260104095836537" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104095836537.png" /></p>
+<p>此时如果通过命令行查询节点，可以看到/controller_manager节点已经启动了</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>service<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>/controller_manager
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>/controller_manager/configure_controller
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>/controller_manager/describe_parameters
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>/controller_manager/get_parameter_types
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>/controller_manager/get_parameters
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>/controller_manager/list_controller_types
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>/controller_manager/list_controllers
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>/controller_manager/list_hardware_components
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>/controller_manager/list_hardware_interfaces
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>/controller_manager/list_parameters
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>/controller_manager/load_controller
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>/controller_manager/reload_controller_libraries
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>/controller_manager/set_hardware_component_state
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>/controller_manager/set_parameters
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>/controller_manager/set_parameters_atomically
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>/controller_manager/switch_controller
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>/controller_manager/unload_controller
+</code></pre></div>
+<p>使用命令可以查看所有有效的硬件接口</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>list_hardware_interfaces<span class="w"> </span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">command</span><span class="w"> </span>interfaces
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">        </span>left_wheel_joint/effort<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">        </span>left_wheel_joint/velocity<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">        </span>right_wheel_joint/effort<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">        </span>right_wheel_joint/velocity<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>state<span class="w"> </span>interfaces
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="w">        </span>left_wheel_joint/effort
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="w">        </span>left_wheel_joint/position
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="w">        </span>left_wheel_joint/velocity
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="w">        </span>right_wheel_joint/effort
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="w">        </span>right_wheel_joint/position
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="w">        </span>right_wheel_joint/velocity
+</code></pre></div>
+<p><img alt="image-20260104100034780" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104100034780.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>list_hardware_components<span class="w"> </span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Hardware<span class="w"> </span>Component<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">        </span>name:<span class="w"> </span>FishBotGazeboSystem
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">        </span>type:<span class="w"> </span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">        </span>plugin<span class="w"> </span>name:<span class="w"> </span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">        </span>state:<span class="w"> </span><span class="nv">id</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">label</span><span class="o">=</span>active
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">        </span><span class="nb">command</span><span class="w"> </span>interfaces
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">                </span>left_wheel_joint/velocity<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">                </span>left_wheel_joint/effort<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">                </span>right_wheel_joint/velocity<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">                </span>right_wheel_joint/effort<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+</code></pre></div>
+<p>可以看出这里检测到了编号为1的组件，一共有4个用于控制的命令接口。</p>
+<h3 id="_8">使用关节状态发布控制器</h3>
+<p><img alt="image-20260104102657722" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104102657722.png" /></p>
+<p><img alt="image-20260104102718242" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104102718242.png" /></p>
+<p>在<code>src/fishbot_description/config/fishbot_ros2_controller.yaml</code>中添加</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nt">controller_manager</span><span class="p">:</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">        </span><span class="nt">update_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"> </span><span class="c1"># Hz</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">        </span><span class="nt">use_sim_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">        </span><span class="nt">fishbot_joint_state_broadcaster</span><span class="p">:</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">joint_state_broadcaster/JointStateBroadcaster</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="w">            </span><span class="nt">use_sim_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p><code>joint_state_broadcaster/JointStateBroadcaster</code>控制器可以在启动仿真后，运行<code>ros2 control list_controller_types</code>查看</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>list_controller_types
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>controller_manager/test_controller<span class="w">                                     </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>controller_manager/test_controller_failed_activate<span class="w">                     </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>controller_manager/test_controller_failed_init<span class="w">                         </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>controller_manager/test_controller_with_interfaces<span class="w">                     </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>diff_drive_controller/DiffDriveController<span class="w">                              </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>effort_controllers/GripperActionController<span class="w">                             </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>effort_controllers/JointGroupEffortController<span class="w">                          </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster<span class="w">           </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>forward_command_controller/ForwardCommandController<span class="w">                    </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>forward_command_controller/MultiInterfaceForwardCommandController<span class="w">      </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>gpio_controllers/GpioCommandController<span class="w">                                 </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>imu_sensor_broadcaster/IMUSensorBroadcaster<span class="w">                            </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>joint_state_broadcaster/JointStateBroadcaster<span class="w">                          </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a>joint_trajectory_controller/JointTrajectoryController<span class="w">                  </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>pose_broadcaster/PoseBroadcaster<span class="w">                                       </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>position_controllers/GripperActionController<span class="w">                           </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a>position_controllers/JointGroupPositionController<span class="w">                      </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a>range_sensor_broadcaster/RangeSensorBroadcaster<span class="w">                        </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a>tricycle_controller/TricycleController<span class="w">                                 </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a>velocity_controllers/JointGroupVelocityController<span class="w">                      </span>controller_interface::ControllerInterface
+<a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a>ackermann_steering_controller/AckermannSteeringController<span class="w">              </span>controller_interface::ChainableControllerInterface
+<a id="__codelineno-37-23" name="__codelineno-37-23" href="#__codelineno-37-23"></a>admittance_controller/AdmittanceController<span class="w">                             </span>controller_interface::ChainableControllerInterface
+<a id="__codelineno-37-24" name="__codelineno-37-24" href="#__codelineno-37-24"></a>bicycle_steering_controller/BicycleSteeringController<span class="w">                  </span>controller_interface::ChainableControllerInterface
+<a id="__codelineno-37-25" name="__codelineno-37-25" href="#__codelineno-37-25"></a>controller_manager/test_chainable_controller<span class="w">                           </span>controller_interface::ChainableControllerInterface
+<a id="__codelineno-37-26" name="__codelineno-37-26" href="#__codelineno-37-26"></a>mecanum_drive_controller/MecanumDriveController<span class="w">                        </span>controller_interface::ChainableControllerInterface
+<a id="__codelineno-37-27" name="__codelineno-37-27" href="#__codelineno-37-27"></a>pid_controller/PidController<span class="w">                                           </span>controller_interface::ChainableControllerInterface
+<a id="__codelineno-37-28" name="__codelineno-37-28" href="#__codelineno-37-28"></a>tricycle_steering_controller/TricycleSteeringController<span class="w">                </span>controller_interface::ChainableControllerInterface
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>load_controller<span class="w"> </span>fishbot_joint_state_broadcaster<span class="w"> </span>--set-state<span class="w"> </span>active<span class="w"> </span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Successfully<span class="w"> </span>loaded<span class="w"> </span>controller<span class="w"> </span>fishbot_joint_state_broadcaster<span class="w"> </span>into<span class="w"> </span>state<span class="w"> </span>active
+</code></pre></div>
+<p>在仿真日志看到输出</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767494155</span>.332337424<span class="o">]</span><span class="w"> </span><span class="o">[</span>controller_manager<span class="o">]</span>:<span class="w"> </span>Loading<span class="w"> </span>controller<span class="w"> </span><span class="s1">&#39;fishbot_joint_state_broadcaster&#39;</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767494155</span>.361949310<span class="o">]</span><span class="w"> </span><span class="o">[</span>controller_manager<span class="o">]</span>:<span class="w"> </span>Configuring<span class="w"> </span>controller<span class="w"> </span><span class="s1">&#39;fishbot_joint_state_broadcaster&#39;</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="o">[</span>gzserver-1<span class="o">]</span><span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1767494155</span>.362568936<span class="o">]</span><span class="w"> </span><span class="o">[</span>fishbot_joint_state_broadcaster<span class="o">]</span>:<span class="w"> </span><span class="s1">&#39;joints&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;interfaces&#39;</span><span class="w"> </span>parameter<span class="w"> </span>is<span class="w"> </span>empty.<span class="w"> </span>All<span class="w"> </span>available<span class="w"> </span>state<span class="w"> </span>interfaces<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>published
+</code></pre></div>
+<p><img alt="image-20260104103630743" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104103630743.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/joint_states<span class="w"> </span>--once
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>header:
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">  </span>stamp:
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span>sec:<span class="w"> </span><span class="m">316</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">    </span>nanosec:<span class="w"> </span><span class="m">966000000</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">  </span>frame_id:<span class="w"> </span>base_link
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>name:
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>-<span class="w"> </span>left_wheel_joint
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>-<span class="w"> </span>right_wheel_joint
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>position:
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>-<span class="w"> </span>-1.845536293387795e-05
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a>-<span class="w"> </span>-1.9632000939573402e-05
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>velocity:
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>-<span class="w"> </span>-0.00016297125503332574
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a>-<span class="w"> </span><span class="m">4</span>.782303338905497e-06
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a>effort:
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a>-<span class="w"> </span><span class="m">0</span>.0
+<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a>-<span class="w"> </span><span class="m">0</span>.0
+</code></pre></div>
+<p><img alt="image-20260104104715738" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104104715738.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>list_controllers
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>fishbot_joint_state_broadcaster<span class="w"> </span>joint_state_broadcaster/JointStateBroadcaster<span class="w">  </span>active
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>set_controller_state<span class="w"> </span>fishbot_joint_state_broadcaster<span class="w"> </span>inactive<span class="w"> </span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>Successfully<span class="w"> </span>deactivated<span class="w"> </span>fishbot_joint_state_broadcaster
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>unload_controller<span class="w"> </span>fishbot_joint_state_broadcaster
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>Successfully<span class="w"> </span>unloaded<span class="w"> </span>controller<span class="w"> </span>fishbot_joint_state_broadcaster
+</code></pre></div>
+<p>ros2_control动态地加载和卸载控制器的机制，使得控制器的切换非常灵活，让我们可以切换不同的控制器，以适应不同的场景和需求。</p>
+<h3 id="_9">使用力控制器控制轮子</h3>
+<p>在机器人中要实现更加柔顺地控制，力控是比较常见的一种策略。ros2_control就提供了这一控制器，类型为effort_controllers/JointGroupEffortController</p>
+<p><code>src/fishbot_description/config/fishbot_ros2_controller.yaml</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nt">controller_manager</span><span class="p">:</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">        </span><span class="nt">update_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"> </span><span class="c1"># Hz</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">        </span><span class="nt">use_sim_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="w">        </span><span class="nt">fishbot_joint_state_broadcaster</span><span class="p">:</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">joint_state_broadcaster/JointStateBroadcaster</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="w">            </span><span class="nt">use_sim_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="w">        </span><span class="nt">fishbot_effort_controller</span><span class="p">:</span>
+<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">effort_controllers/JointGroupEffortController</span>
+<a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a>
+<a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a><span class="nt">fishbot_effort_controller</span><span class="p">:</span>
+<a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a><span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a><span class="w">        </span><span class="nt">joints</span><span class="p">:</span>
+<a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">left_wheel_joint</span>
+<a id="__codelineno-42-17" name="__codelineno-42-17" href="#__codelineno-42-17"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right_wheel_joint</span>
+<a id="__codelineno-42-18" name="__codelineno-42-18" href="#__codelineno-42-18"></a><span class="w">        </span><span class="nt">command_interfaces</span><span class="p">:</span>
+<a id="__codelineno-42-19" name="__codelineno-42-19" href="#__codelineno-42-19"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">effort</span>
+<a id="__codelineno-42-20" name="__codelineno-42-20" href="#__codelineno-42-20"></a><span class="w">        </span><span class="nt">state_interfaces</span><span class="p">:</span>
+<a id="__codelineno-42-21" name="__codelineno-42-21" href="#__codelineno-42-21"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">position</span>
+<a id="__codelineno-42-22" name="__codelineno-42-22" href="#__codelineno-42-22"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">velocity</span>
+<a id="__codelineno-42-23" name="__codelineno-42-23" href="#__codelineno-42-23"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">effort</span>
+</code></pre></div>
+<p><img alt="image-20260104142111761" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104142111761.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">launch</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclareLaunchArgument</span><span class="p">,</span> <span class="n">IncludeLaunchDescription</span><span class="p">,</span> <span class="n">ExecuteProcess</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchConfiguration</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ament_index_python.packages</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Command</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch.launch_description_sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonLaunchDescriptionSource</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>    <span class="o">...</span>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>    <span class="n">load_fishbot_effort_controller</span> <span class="o">=</span> <span class="n">launch</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ExecuteProcess</span><span class="p">(</span>
+<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a>        <span class="n">cmd</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ros2&#39;</span><span class="p">,</span> <span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;load_controller&#39;</span><span class="p">,</span> <span class="s1">&#39;--set-state&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span>
+<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a>             <span class="s1">&#39;fishbot_effort_controller&#39;</span><span class="p">],</span>
+<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a>        <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span>
+<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a>    <span class="p">)</span>
+<a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a>
+<a id="__codelineno-43-20" name="__codelineno-43-20" href="#__codelineno-43-20"></a>    <span class="c1"># 返回launch描述</span>
+<a id="__codelineno-43-21" name="__codelineno-43-21" href="#__codelineno-43-21"></a>    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+<a id="__codelineno-43-22" name="__codelineno-43-22" href="#__codelineno-43-22"></a>        <span class="o">...</span>
+<a id="__codelineno-43-23" name="__codelineno-43-23" href="#__codelineno-43-23"></a>        <span class="c1"># 事件动作，当加载机器人 joint_state_controller 后执行</span>
+<a id="__codelineno-43-24" name="__codelineno-43-24" href="#__codelineno-43-24"></a>        <span class="n">launch</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">RegisterEventHandler</span><span class="p">(</span>
+<a id="__codelineno-43-25" name="__codelineno-43-25" href="#__codelineno-43-25"></a>            <span class="n">event_handler</span><span class="o">=</span><span class="n">launch</span><span class="o">.</span><span class="n">event_handlers</span><span class="o">.</span><span class="n">OnProcessExit</span><span class="p">(</span>
+<a id="__codelineno-43-26" name="__codelineno-43-26" href="#__codelineno-43-26"></a>                <span class="n">target_action</span><span class="o">=</span><span class="n">load_joint_state_controller</span><span class="p">,</span>
+<a id="__codelineno-43-27" name="__codelineno-43-27" href="#__codelineno-43-27"></a>                <span class="n">on_exit</span><span class="o">=</span><span class="p">[</span><span class="n">load_fishbot_effort_controller</span><span class="p">],</span>
+<a id="__codelineno-43-28" name="__codelineno-43-28" href="#__codelineno-43-28"></a>            <span class="p">)</span>
+<a id="__codelineno-43-29" name="__codelineno-43-29" href="#__codelineno-43-29"></a>        <span class="p">),</span>
+<a id="__codelineno-43-30" name="__codelineno-43-30" href="#__codelineno-43-30"></a>    <span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w"> </span>-v<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>fishbot_effort_controller
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w"> </span>*<span class="w"> </span>/fishbot_effort_controller/transition_event<span class="w"> </span><span class="o">[</span>lifecycle_msgs/msg/TransitionEvent<span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>publisher
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w"> </span>*<span class="w"> </span>/fishbot_effort_controller/commands<span class="w"> </span><span class="o">[</span>std_msgs/msg/Float64MultiArray<span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>subscriber
+</code></pre></div>
+<p>可以看到，这里多出了两个话题，其中/fishbot_effort_controller/commands就是用于发布控制命令的话题。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/fishbot_effort_controller/commands<span class="w"> </span>std_msgs/msg/Float64MultiArray<span class="w">  </span><span class="s2">&quot;{data: [0.001,0.001]}&quot;</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>publisher:<span class="w"> </span>beginning<span class="w"> </span>loop
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>publishing<span class="w"> </span><span class="c1">#1: std_msgs.msg.Float64MultiArray(layout=std_msgs.msg.MultiArrayLayout(dim=[], data_offset=0), data=[0.001, 0.001])</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>publishing<span class="w"> </span><span class="c1">#2: std_msgs.msg.Float64MultiArray(layout=std_msgs.msg.MultiArrayLayout(dim=[], data_offset=0), data=[0.001, 0.001])</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>...
+</code></pre></div>
+<p>观察Gazebo中的机器人，可以发现机器人已经动起来了，而且动得非常平稳</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>control<span class="w"> </span>list_hardware_interfaces
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="nb">command</span><span class="w"> </span>interfaces
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">        </span>left_wheel_joint/effort<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>claimed<span class="o">]</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">        </span>left_wheel_joint/velocity<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">        </span>right_wheel_joint/effort<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>claimed<span class="o">]</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">        </span>right_wheel_joint/velocity<span class="w"> </span><span class="o">[</span>available<span class="o">]</span><span class="w"> </span><span class="o">[</span>unclaimed<span class="o">]</span>
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>state<span class="w"> </span>interfaces
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="w">        </span>left_wheel_joint/effort
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="w">        </span>left_wheel_joint/position
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="w">        </span>left_wheel_joint/velocity
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a><span class="w">        </span>right_wheel_joint/effort
+<a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="w">        </span>right_wheel_joint/position
+<a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a><span class="w">        </span>right_wheel_joint/velocity
+</code></pre></div>
+<p>可以看到力相关的接口已经被占用了。</p>
+<h3 id="_10">使用两轮差速控制器控制机器人</h3>
+<p>状态发布控制器和力控制器只是对状态接口的简单调用，本节我们来学习如何使用两轮差速控制器，这个控制器相对而言要复杂很多，该控制器不仅仅是单纯的数据转发，还涉及运动学计算，从而得到里程计信息和两个轮子的目标速度。</p>
+<p><code>src/fishbot_description/config/fishbot_ros2_controller.yaml</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nt">controller_manager</span><span class="p">:</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fishbot_diff_drive_controller</span><span class="p p-Indicator">:</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diff_drive_controller/DiffDriveController</span>
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="nn">...</span>
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="nt">fishbot_diff_drive_controller</span><span class="p">:</span>
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">    </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="w">        </span><span class="nt">left_wheel_names</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;left_wheel_joint&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w">        </span><span class="nt">right_wheel_names</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;right_wheel_joint&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a>
+<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="w">        </span><span class="nt">wheel_separation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span>
+<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">        </span><span class="c1">#wheels_per_side: 1  # actually 2, but both are controlled by 1 signal</span>
+<a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a><span class="w">        </span><span class="nt">wheel_radius</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.032</span>
+<a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a>
+<a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a><span class="w">        </span><span class="nt">wheel_separation_multiplier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="w">        </span><span class="nt">left_wheel_radius_multiplier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="w">        </span><span class="nt">right_wheel_radius_multiplier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a>
+<a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a><span class="w">        </span><span class="nt">publish_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50.0</span>
+<a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="w">        </span><span class="nt">odom_frame_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odom</span>
+<a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="w">        </span><span class="nt">base_frame_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base_footprint</span>
+<a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="w">        </span><span class="nt">pose_covariance_diagonal</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">0.001</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.001</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.01</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="w">        </span><span class="nt">twist_covariance_diagonal</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">0.001</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.01</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a>
+<a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a><span class="w">        </span><span class="nt">open_loop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a><span class="w">        </span><span class="nt">enable_odom_tf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-47-29" name="__codelineno-47-29" href="#__codelineno-47-29"></a>
+<a id="__codelineno-47-30" name="__codelineno-47-30" href="#__codelineno-47-30"></a><span class="w">        </span><span class="nt">cmd_vel_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<a id="__codelineno-47-31" name="__codelineno-47-31" href="#__codelineno-47-31"></a><span class="w">        </span><span class="c1">#publish_limited_velocity: true</span>
+<a id="__codelineno-47-32" name="__codelineno-47-32" href="#__codelineno-47-32"></a><span class="w">        </span><span class="nt">use_stamped_vel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-47-33" name="__codelineno-47-33" href="#__codelineno-47-33"></a><span class="w">        </span><span class="c1">#velocity_rolling_window_size: 10</span>
+</code></pre></div>
+<p><img alt="image-20260104150638043" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104150638043.png" /></p>
+<p><img alt="image-20260104150717933" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104150717933.png" /></p>
+<p>配置完成后，修改gazebo_sim.launch.py,添加加载fishbot_diff_drive_controller控制器的动作，接着注册启动事件，在激活力控制器之后激活该控制器。但最好是将激活力控制器的动作注释掉，因为同时保留一个控制接口即可，防止控制冲突。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w"> </span>-v<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>fishbot_diff
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w"> </span>*<span class="w"> </span>/fishbot_diff_drive_controller/odom<span class="w"> </span><span class="o">[</span>nav_msgs/msg/Odometry<span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>publisher
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w"> </span>*<span class="w"> </span>/fishbot_diff_drive_controller/transition_event<span class="w"> </span><span class="o">[</span>lifecycle_msgs/msg/TransitionEvent<span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>publisher
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w"> </span>*<span class="w"> </span>/fishbot_diff_drive_controller/cmd_vel_unstamped<span class="w"> </span><span class="o">[</span>geometry_msgs/msg/Twist<span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>subscriber
+</code></pre></div>
+<p><img alt="image-20260104151124124" src="%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.assets/image-20260104151124124.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nt">&lt;gazebo&gt;</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libgazebo_ros2_control.so&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gazebo_ros2_control&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="nt">&lt;parameters&gt;</span>$(find<span class="w"> </span>fishbot_description)/config/fishbot_ros2_controller.yaml<span class="nt">&lt;/parameters&gt;</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">    </span><span class="nt">&lt;ros&gt;</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="w">      </span><span class="nt">&lt;remapping&gt;</span>/fishbot_diff_drive_controller/odom:=/odom<span class="nt">&lt;/remapping&gt;</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="w">      </span><span class="nt">&lt;remapping&gt;</span>/fishbot_diff_drive_controller/cmd_vel_unstamped:=/cmd_vel<span class="nt">&lt;/remapping&gt;</span>
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="w">    </span><span class="nt">&lt;/ros&gt;</span>
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="w">  </span><span class="nt">&lt;/plugin&gt;</span>
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a><span class="nt">&lt;/gazebo&gt;</span>
+</code></pre></div>
 
 
 
