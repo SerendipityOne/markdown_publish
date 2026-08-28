@@ -1,0 +1,1664 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="余智杭">
+      
+      
+      
+        <link rel="prev" href="TurtleBot3%20Jazzy%20SLAM%E5%AF%BC%E8%88%AA%E5%A4%8D%E7%8E%B0.html">
+      
+      
+        <link rel="next" href="linorobot2.html">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.0">
+    
+    
+      
+        <title>LeRobot SO-101机械臂 - Serendipity_Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lerobot-so-101" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="Serendipity_Docs" class="md-header__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Serendipity_Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LeRobot SO-101机械臂
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SerendipityOne/markdown_publish" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Serendipity_Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Serendipity_Docs" class="md-nav__button md-logo" aria-label="Serendipity_Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Serendipity_Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SerendipityOne/markdown_publish" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Serendipity_Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          GitHub项目复刻
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GitHub项目复刻
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MuJoCo%20%2B%20LeRobot%20%E4%BB%BF%E7%9C%9F%E8%AE%AD%E7%BB%83.html" class="md-nav__link">
+        MuJoCo + LeRobot 仿真训练
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TurtleBot3%20Jazzy%20SLAM%E5%AF%BC%E8%88%AA%E5%A4%8D%E7%8E%B0.html" class="md-nav__link">
+        TurtleBot3 Jazzy：SLAM 与自主导航复现路线
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="lerobot%E6%9C%BA%E6%A2%B0%E8%87%82.html" class="md-nav__link md-nav__link--active">
+        LeRobot SO-101机械臂
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linorobot2.html" class="md-nav__link">
+        Linorobot2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%9F%BA%E4%BA%8EURDF%E5%A4%8D%E5%88%BBBurger%E4%BB%BF%E7%9C%9F%E3%80%81SLAM%E4%B8%8ENav2.html" class="md-nav__link">
+        基于 URDF 复刻 Burger 仿真、SLAM 与 Nav2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Linux基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E5%9F%BA%E7%A1%80/1.%E5%85%A5%E9%97%A8%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+        1.入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E5%9F%BA%E7%A1%80/2.%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        2.文本操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          OI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          OI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OI/%E6%B4%9B%E8%B0%B7%E5%88%B7%E9%A2%98.html" class="md-nav__link">
+        洛谷刷题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OI/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        常见的算法模板以及数学公式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          具身智能入门学习路线
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          具身智能入门学习路线
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/1.%E5%85%B7%E8%BA%AB%E7%BB%BC%E8%BF%B0.html" class="md-nav__link">
+        1.具身综述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html" class="md-nav__link">
+        具身智能入门学习路线
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          嵌入式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          嵌入式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          Jetson nano使用D435i
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Jetson nano使用D435i
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/Jetson%20nano%E4%BD%BF%E7%94%A8D435i/%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        nano使用D435i教程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          PID学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          PID学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/PID%E5%AD%A6%E4%B9%A0/PID%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html" class="md-nav__link">
+        江科大PID入门教程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/PID%E5%AD%A6%E4%B9%A0/%E5%8F%8C%E7%8E%AFPID.html" class="md-nav__link">
+        双环PID
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+          ROS2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          ROS2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1" id="__nav_6_3_1_label" tabindex="0">
+          ROS2机器人开发：从入门到实践
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ROS2机器人开发：从入门到实践
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC1%E7%AB%A0%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        《ROS2机器人开发：从入门到实践》学习笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC2%E7%AB%A0%20ROS2%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E2%80%94%E4%BB%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E5%BC%80%E5%A7%8B.html" class="md-nav__link">
+        ROS2基础入门—从第一个节点开始
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC3%E7%AB%A0%20%E8%AE%A2%E9%98%85%E5%92%8C%E5%8F%91%E5%B8%83--%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1%E6%8E%A2%E7%B4%A2.html" class="md-nav__link">
+        第3章 订阅和发布--话题通信探索
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC4%E7%AB%A0%20%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%8F%82%E6%95%B0.html" class="md-nav__link">
+        服务和参数----深入ROS2通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC5%E7%AB%A0%20ROS2%E5%B8%B8%E7%94%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.html" class="md-nav__link">
+        ROS2常用开发工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC6%E7%AB%A0%20%E5%BB%BA%E6%A8%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F--%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA.html" class="md-nav__link">
+        建模与仿真--创建自己的机器人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS2/ROS2%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/%E7%AC%AC7%E7%AB%A0%20%E8%87%AA%E4%B8%BB%E5%AF%BC%E8%88%AA--%E8%AE%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%87%AA%E5%B7%B1%E5%8A%A8%E8%B5%B7%E6%9D%A5.html" class="md-nav__link">
+        第7章 自主导航--让机器人自己动起来
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+          ROS小车
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          ROS小车
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/ROS%E5%B0%8F%E8%BD%A6/D435i.html" class="md-nav__link">
+        nano使用D435i教程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+          四轴无人机
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          四轴无人机
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9B%9B%E8%BD%B4%E6%97%A0%E4%BA%BA%E6%9C%BA/%E4%B8%BB%E6%8E%A7%E7%A8%8B%E5%BA%8F.html" class="md-nav__link">
+        主控程序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%9B%9B%E8%BD%B4%E6%97%A0%E4%BA%BA%E6%9C%BA/%E9%81%A5%E6%8E%A7%E7%A8%8B%E5%BA%8F.html" class="md-nav__link">
+        遥控程序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+          平衡车
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          平衡车
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B9%B3%E8%A1%A1%E8%BD%A6/%E5%B9%B3%E8%A1%A1%E8%BD%A6.html" class="md-nav__link">
+        平衡车
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9D%A2%E8%AF%95/1-202-2%E9%9D%A2%E8%AF%95%E5%9C%A3%E7%BB%8F.html" class="md-nav__link">
+        自我介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9D%A2%E8%AF%95/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD.html" class="md-nav__link">
+        VLA算法岗
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9D%A2%E8%AF%95/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%AC%E5%8F%B8.html" class="md-nav__link">
+        机器人公司
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="lerobot-so-101">LeRobot SO-101机械臂</h1>
+<p>LeRobot 代码：https://github.com/huggingface/lerobot</p>
+<p>官方文档地址：https://huggingface.co/docs/lerobot/installation</p>
+<h1 id="_1"><strong>全套流程</strong></h1>
+<h2 id="1">1.安装环境</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span>lerobot<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>lerobot
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>conda<span class="w"> </span>install<span class="w"> </span>evdev<span class="w"> </span>ffmpeg<span class="w"> </span>-c<span class="w"> </span>conda-forge
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[training,dataset_viz,pusht,diffusion]&quot;</span>
+</code></pre></div>
+<p>说明：
+training 用来训练，dataset_viz 用来看数据，pusht 用来无实物跑仿真环境，diffusion 用来看 Diffusion Policy。先别装 all，太大，问题也多。</p>
+<h2 id="2">2.验证安装</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import lerobot; print(lerobot.__file__)&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>lerobot-info<span class="w"> </span>--help
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>lerobot-train<span class="w"> </span>--help
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>lerobot-eval<span class="w"> </span>--help
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>lerobot-dataset-viz<span class="w"> </span>--help
+</code></pre></div>
+<p>如果 CLI 能显示 help，说明入口装好了。</p>
+<h2 id="3">3.无实物跑通最小全流程</h2>
+<p>目标不是训练出好模型，而是先跑通完整链路：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>公开数据集 -&gt; 训练 ACT 10 步 -&gt; 保存 checkpoint -&gt; 加载 checkpoint 评估
+</code></pre></div>
+<h3 id="31">3.1 进入项目和环境</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>lerobot
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>~/github_project/lerobot
+</code></pre></div>
+<p>如果宿主机显卡驱动不想改，先全部使用 CPU：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>所有训练和评估命令都加：--policy.device=cpu
+</code></pre></div>
+<h3 id="32">3.2 检查公开数据集</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;PY&#39;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s">from lerobot.datasets.lerobot_dataset import LeRobotDataset</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">ds = LeRobotDataset(&quot;lerobot/pusht&quot;)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s">print(&quot;frames:&quot;, len(ds))</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s">print(&quot;episodes:&quot;, ds.num_episodes)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s">print(&quot;features:&quot;)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s">for k, v in ds.features.items():</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="s">    print(&quot; &quot;, k, v)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="s">sample = ds[0]</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="s">print(&quot;\none sample:&quot;)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s">for k, v in sample.items():</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="s">    print(&quot; &quot;, k, type(v), getattr(v, &quot;shape&quot;, None))</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="s">PY</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>frames:<span class="w"> </span><span class="m">25650</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>episodes:<span class="w"> </span><span class="m">206</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>features:
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>observation.image<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;video&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">96</span>,<span class="w"> </span><span class="m">96</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;height&#39;</span>,<span class="w"> </span><span class="s1">&#39;width&#39;</span>,<span class="w"> </span><span class="s1">&#39;channel&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="s1">&#39;video_info&#39;</span>:<span class="w"> </span><span class="o">{</span><span class="s1">&#39;video.fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0,<span class="w"> </span><span class="s1">&#39;video.codec&#39;</span>:<span class="w"> </span><span class="s1">&#39;av1&#39;</span>,<span class="w"> </span><span class="s1">&#39;video.pix_fmt&#39;</span>:<span class="w"> </span><span class="s1">&#39;yuv420p&#39;</span>,<span class="w"> </span><span class="s1">&#39;video.is_depth_map&#39;</span>:<span class="w"> </span>False,<span class="w"> </span><span class="s1">&#39;has_audio&#39;</span>:<span class="w"> </span>False<span class="o">}}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>observation.state<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;float32&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">2</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span><span class="o">{</span><span class="s1">&#39;motors&#39;</span>:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;motor_0&#39;</span>,<span class="w"> </span><span class="s1">&#39;motor_1&#39;</span><span class="o">]}</span>,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span>action<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;float32&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">2</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span><span class="o">{</span><span class="s1">&#39;motors&#39;</span>:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;motor_0&#39;</span>,<span class="w"> </span><span class="s1">&#39;motor_1&#39;</span><span class="o">]}</span>,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span>episode_index<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;int64&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span>frame_index<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;int64&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span>timestamp<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;float32&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span>next.reward<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;float32&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span>next.done<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;bool&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span>next.success<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;bool&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span>index<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;int64&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span>task_index<span class="w"> </span><span class="o">{</span><span class="s1">&#39;dtype&#39;</span>:<span class="w"> </span><span class="s1">&#39;int64&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;names&#39;</span>:<span class="w"> </span>None,<span class="w"> </span><span class="s1">&#39;fps&#39;</span>:<span class="w"> </span><span class="m">10</span>.0<span class="o">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>one<span class="w"> </span>sample:
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">  </span>observation.image<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([</span><span class="m">3</span>,<span class="w"> </span><span class="m">96</span>,<span class="w"> </span><span class="m">96</span><span class="o">])</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">  </span>observation.state<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([</span><span class="m">2</span><span class="o">])</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span>action<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([</span><span class="m">2</span><span class="o">])</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">  </span>episode_index<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">  </span>frame_index<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">  </span>timestamp<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">  </span>next.reward<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">  </span>next.done<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">  </span>next.success<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">  </span>index<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">  </span>task_index<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;torch.Tensor&#39;</span>&gt;<span class="w"> </span>torch.Size<span class="o">([])</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">  </span>task<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;str&#39;</span>&gt;<span class="w"> </span>None
+</code></pre></div>
+<p>这份输出说明 <code>lerobot/pusht</code> 数据集已经可以正常读取。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>frames: 25650
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>episodes: 206
+</code></pre></div>
+<p>含义：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>frames    总帧数，也就是所有轨迹加起来的时间步数量
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>episodes  示教轨迹数量，可以理解为 206 次完整任务尝试
+</code></pre></div>
+<p>训练最核心的是三个字段：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>observation.image   图像输入，模型看到的画面
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>observation.state   状态输入，当前环境/控制点状态
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>action              示教动作，也就是模型要学习预测的答案
+</code></pre></div>
+<p><code>features</code> 里的 shape 是数据集声明的原始格式：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>observation.image: (96, 96, 3)  # height, width, channel
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>observation.state: (2,)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>action: (2,)
+</code></pre></div>
+<p><code>one sample</code> 里打印的是 PyTorch 实际取出的一帧：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>observation.image: torch.Size([3, 96, 96])
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>observation.state: torch.Size([2])
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>action: torch.Size([2])
+</code></pre></div>
+<p>图像 shape 从 <code>(96, 96, 3)</code> 变成 <code>[3, 96, 96]</code> 是正常的。很多 PyTorch 模型使用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>channel, height, width
+</code></pre></div>
+<p>而不是图片文件常见的：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>height, width, channel
+</code></pre></div>
+<p><code>observation.state</code> 和 <code>action</code> 都是二维，说明这个任务的控制量很小，可以先理解为平面上的两个控制方向。它不是 SO-101 机械臂的 6 个关节数据。</p>
+<p>这些字段是辅助信息：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>episode_index  第几条轨迹
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>frame_index    当前轨迹里的第几帧
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>timestamp      时间戳
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>index          全数据集里的全局索引
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>task_index     任务编号
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>task           任务文本
+</code></pre></div>
+<p>这些字段先跳过：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>next.reward
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>next.done
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>next.success
+</code></pre></div>
+<p>它们更偏仿真/强化学习评估，用来描述下一步奖励、是否结束、是否成功。模仿学习入门阶段先只看：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>observation -&gt; action
+</code></pre></div>
+<p>训练目标可以先理解成：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>policy(observation.image, observation.state) = action
+</code></pre></div>
+<h3 id="33">3.3 数据集输出含义</h3>
+<p><code>lerobot/pusht</code> 是一个推块任务数据集。常见输出：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>frames: 25650
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>episodes: 206
+</code></pre></div>
+<p>含义：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>frames    总帧数
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>episodes  示教轨迹数量
+</code></pre></div>
+<p>核心字段：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>observation.image  RGB 图像，通常是 torch.Size([3, 96, 96])
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>observation.state  当前状态，通常是二维状态
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>action             下一步动作，通常是二维控制量
+</code></pre></div>
+<p>辅助字段：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>episode_index  第几条轨迹
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>frame_index    当前轨迹里的第几帧
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>timestamp      时间戳
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>next.reward    下一步奖励
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>next.done      是否结束
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>next.success   是否成功
+</code></pre></div>
+<p>先跳过 <code>next.*</code> 字段，模仿学习入门阶段只盯住：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>observation -&gt; action
+</code></pre></div>
+<h3 id="34">3.4 跑一个极小训练</h3>
+<p>CPU 训练 10 步：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>lerobot-train<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span>--policy.type<span class="o">=</span>act<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span>lerobot/pusht<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span>--output_dir<span class="o">=</span>outputs/train/act_pusht_debug<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span>--job_name<span class="o">=</span>act_pusht_debug<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span>--policy.device<span class="o">=</span>cpu<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">  </span>--policy.push_to_hub<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">  </span>--wandb.enable<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">  </span>--steps<span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">  </span>--batch_size<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">  </span>--num_workers<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">  </span>--log_freq<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">  </span>--save_freq<span class="o">=</span><span class="m">10</span>
+</code></pre></div>
+<p>如果太慢，先压到 2 步：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>lerobot-train<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span>--policy.type<span class="o">=</span>act<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span>lerobot/pusht<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span>--output_dir<span class="o">=</span>outputs/train/act_pusht_debug<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">  </span>--job_name<span class="o">=</span>act_pusht_debug<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">  </span>--policy.device<span class="o">=</span>cpu<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">  </span>--wandb.enable<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span>--steps<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">  </span>--batch_size<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">  </span>--num_workers<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">  </span>--log_freq<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">  </span>--save_freq<span class="o">=</span><span class="m">2</span>
+</code></pre></div>
+<p>这一步重点观察：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>loss 是否打印
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>outputs/train/act_pusht_debug 是否生成 checkpoint
+</code></pre></div>
+<h3 id="35">3.5 查看训练产物</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>find<span class="w"> </span>outputs/train/act_pusht_debug<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-80
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>find<span class="w"> </span>outputs/train/act_pusht_debug<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+</code></pre></div>
+<p>训练产物里通常包含：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>模型权重
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>模型配置
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>processor 配置
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>checkpoint 目录
+</code></pre></div>
+<h3 id="36-checkpoint">3.6 加载 checkpoint 做评估</h3>
+<p>先尝试：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>lerobot-eval<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span>--policy.path<span class="o">=</span>outputs/train/act_pusht_debug/checkpoints/last/pretrained_model<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span>--env.type<span class="o">=</span>pusht<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span>--policy.device<span class="o">=</span>cpu<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">  </span>--eval.n_episodes<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">  </span>--eval.batch_size<span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p>如果路径不存在，先查实际 checkpoint 目录：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>find<span class="w"> </span>outputs/train/act_pusht_debug<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+</code></pre></div>
+<p>把包含模型文件的目录传给：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>--policy.path=...
+</code></pre></div>
+<h3 id="37">3.7 本地数据缓存位置</h3>
+<p><code>lerobot/pusht</code> 会缓存到 Hugging Face cache。当前机器上查到的位置：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>~/.cache/huggingface/lerobot/hub/datasets--lerobot--pusht
+</code></pre></div>
+<p>绝对路径：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>/home/yzh/.cache/huggingface/lerobot/hub/datasets--lerobot--pusht
+</code></pre></div>
+<p>查看文件：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>ls<span class="w"> </span>-lah<span class="w"> </span>~/.cache/huggingface/lerobot/hub/datasets--lerobot--pusht
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>find<span class="w"> </span>~/.cache/huggingface/lerobot/hub/datasets--lerobot--pusht<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">3</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-80
+</code></pre></div>
+<h3 id="38">3.8 跑通后的理解闭环</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>LeRobotDataset(&quot;lerobot/pusht&quot;)
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>  ↓
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>DataLoader 取 batch
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>  ↓
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>ACTPolicy.forward(batch)
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>  ↓
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>计算 loss
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>  ↓
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>optimizer 更新参数
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>  ↓
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>保存 checkpoint
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>  ↓
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>lerobot-eval 加载 checkpoint
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>  ↓
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>policy.select_action(obs)
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>  ↓
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>仿真环境执行 action
+</code></pre></div>
+<p>入门阶段先跳过：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Diffusion
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>真实机械臂
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>长时间训练
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>多 GPU / FSDP
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>wandb
+</code></pre></div>
+<h2 id="4autodl">4.AutoDL 算力服务器训练</h2>
+<p>本节基于这个 AutoDL 镜像：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>NVIDIA/cuda-samples/CUDA13.0-Torch2.7.0-Python3.11
+</code></pre></div>
+<p>注意关键点：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>镜像自带 Python 3.11
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>当前 LeRobot 0.5.2 要求 Python &gt;= 3.12
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>所以不能直接用镜像 base 环境，需要新建 python=3.12 的 conda 环境
+</code></pre></div>
+<p>AutoDL 上训练的目的：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>用 GPU 把 steps 拉高，训练出能看出效果的 ACT PushT 模型
+</code></pre></div>
+<h3 id="41-autodl">4.1 进入 AutoDL 后先做基础检查</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>nvidia-smi
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>python<span class="w"> </span>--version
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>python<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;PY&#39;</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="s">import torch</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="s">print(&quot;torch:&quot;, torch.__version__)</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="s">print(&quot;cuda:&quot;, torch.cuda.is_available())</span>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="s">if torch.cuda.is_available():</span>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="s">    print(&quot;gpu:&quot;, torch.cuda.get_device_name(0))</span>
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="s">PY</span>
+</code></pre></div>
+<p>这里看到 Python 3.11 是正常的。后面脚本会创建 <code>python=3.12</code> 环境。</p>
+<h3 id="42">4.2 一键安装和训练脚本</h3>
+<p>在 AutoDL 终端中新建脚本：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>nano<span class="w"> </span>autodl_lerobot_pusht.sh
+</code></pre></div>
+<p>粘贴下面内容：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="ch">#!/usr/bin/env bash</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">set</span><span class="w"> </span>-e
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="nv">PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PROJECT_DIR</span><span class="k">:-</span><span class="p">/root/github_project/lerobot</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="nv">CONDA_ENV</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CONDA_ENV</span><span class="k">:-</span><span class="nv">lerobot</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PYTHON_VERSION</span><span class="k">:-</span><span class="nv">3</span><span class="p">.12</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="nv">STEPS</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">STEPS</span><span class="k">:-</span><span class="nv">100000</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="nv">BATCH_SIZE</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BATCH_SIZE</span><span class="k">:-</span><span class="nv">8</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="nv">SAVE_FREQ</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SAVE_FREQ</span><span class="k">:-</span><span class="nv">10000</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="nv">LOG_FREQ</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOG_FREQ</span><span class="k">:-</span><span class="nv">100</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="nv">OUTPUT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OUTPUT_DIR</span><span class="k">:-</span><span class="nv">outputs</span><span class="p">/train/act_pusht_100k</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="nv">JOB_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">JOB_NAME</span><span class="k">:-</span><span class="nv">act_pusht_100k</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>
+<a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 当前镜像基础信息&quot;</span>
+<a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a>nvidia-smi<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a>python<span class="w"> </span>--version<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a>
+<a id="__codelineno-41-18" name="__codelineno-41-18" href="#__codelineno-41-18"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 检查 conda&quot;</span>
+<a id="__codelineno-41-19" name="__codelineno-41-19" href="#__codelineno-41-19"></a><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>conda<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-41-20" name="__codelineno-41-20" href="#__codelineno-41-20"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;没有找到 conda。这个流程需要 AutoDL 镜像内置 conda。&quot;</span>
+<a id="__codelineno-41-21" name="__codelineno-41-21" href="#__codelineno-41-21"></a><span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-41-22" name="__codelineno-41-22" href="#__codelineno-41-22"></a><span class="k">fi</span>
+<a id="__codelineno-41-23" name="__codelineno-41-23" href="#__codelineno-41-23"></a>
+<a id="__codelineno-41-24" name="__codelineno-41-24" href="#__codelineno-41-24"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 安装系统依赖&quot;</span>
+<a id="__codelineno-41-25" name="__codelineno-41-25" href="#__codelineno-41-25"></a>apt-get<span class="w"> </span>update
+<a id="__codelineno-41-26" name="__codelineno-41-26" href="#__codelineno-41-26"></a>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>git-lfs<span class="w"> </span>ffmpeg<span class="w"> </span>libgl1<span class="w"> </span>libglib2.0-0
+<a id="__codelineno-41-27" name="__codelineno-41-27" href="#__codelineno-41-27"></a>git<span class="w"> </span>lfs<span class="w"> </span>install
+<a id="__codelineno-41-28" name="__codelineno-41-28" href="#__codelineno-41-28"></a>
+<a id="__codelineno-41-29" name="__codelineno-41-29" href="#__codelineno-41-29"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 获取 LeRobot 项目&quot;</span>
+<a id="__codelineno-41-30" name="__codelineno-41-30" href="#__codelineno-41-30"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROJECT_DIR</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-31" name="__codelineno-41-31" href="#__codelineno-41-31"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROJECT_DIR</span><span class="s2">/.git&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-41-32" name="__codelineno-41-32" href="#__codelineno-41-32"></a><span class="w">  </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/huggingface/lerobot.git<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROJECT_DIR</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-33" name="__codelineno-41-33" href="#__codelineno-41-33"></a><span class="k">fi</span>
+<a id="__codelineno-41-34" name="__codelineno-41-34" href="#__codelineno-41-34"></a>
+<a id="__codelineno-41-35" name="__codelineno-41-35" href="#__codelineno-41-35"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROJECT_DIR</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-36" name="__codelineno-41-36" href="#__codelineno-41-36"></a>
+<a id="__codelineno-41-37" name="__codelineno-41-37" href="#__codelineno-41-37"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 创建/激活 Python 3.12 conda 环境&quot;</span>
+<a id="__codelineno-41-38" name="__codelineno-41-38" href="#__codelineno-41-38"></a><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span><span class="s2">/etc/profile.d/conda.sh&quot;</span>
+<a id="__codelineno-41-39" name="__codelineno-41-39" href="#__codelineno-41-39"></a><span class="k">if</span><span class="w"> </span>!<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-qx<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CONDA_ENV</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-41-40" name="__codelineno-41-40" href="#__codelineno-41-40"></a><span class="w">  </span>conda<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CONDA_ENV</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;python=</span><span class="nv">$PYTHON_VERSION</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-41" name="__codelineno-41-41" href="#__codelineno-41-41"></a><span class="k">fi</span>
+<a id="__codelineno-41-42" name="__codelineno-41-42" href="#__codelineno-41-42"></a>conda<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CONDA_ENV</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-43" name="__codelineno-41-43" href="#__codelineno-41-43"></a>
+<a id="__codelineno-41-44" name="__codelineno-41-44" href="#__codelineno-41-44"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 当前训练环境&quot;</span>
+<a id="__codelineno-41-45" name="__codelineno-41-45" href="#__codelineno-41-45"></a>which<span class="w"> </span>python
+<a id="__codelineno-41-46" name="__codelineno-41-46" href="#__codelineno-41-46"></a>python<span class="w"> </span>--version
+<a id="__codelineno-41-47" name="__codelineno-41-47" href="#__codelineno-41-47"></a>
+<a id="__codelineno-41-48" name="__codelineno-41-48" href="#__codelineno-41-48"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 升级 pip 基础工具&quot;</span>
+<a id="__codelineno-41-49" name="__codelineno-41-49" href="#__codelineno-41-49"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+<a id="__codelineno-41-50" name="__codelineno-41-50" href="#__codelineno-41-50"></a>
+<a id="__codelineno-41-51" name="__codelineno-41-51" href="#__codelineno-41-51"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 安装 LeRobot 训练和 PushT 依赖&quot;</span>
+<a id="__codelineno-41-52" name="__codelineno-41-52" href="#__codelineno-41-52"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[training,pusht]&quot;</span>
+<a id="__codelineno-41-53" name="__codelineno-41-53" href="#__codelineno-41-53"></a>
+<a id="__codelineno-41-54" name="__codelineno-41-54" href="#__codelineno-41-54"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 检查 PyTorch 和 CUDA&quot;</span>
+<a id="__codelineno-41-55" name="__codelineno-41-55" href="#__codelineno-41-55"></a>python<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;PY&#39;</span>
+<a id="__codelineno-41-56" name="__codelineno-41-56" href="#__codelineno-41-56"></a><span class="s">import torch</span>
+<a id="__codelineno-41-57" name="__codelineno-41-57" href="#__codelineno-41-57"></a><span class="s">print(&quot;torch:&quot;, torch.__version__)</span>
+<a id="__codelineno-41-58" name="__codelineno-41-58" href="#__codelineno-41-58"></a><span class="s">print(&quot;torch cuda version:&quot;, torch.version.cuda)</span>
+<a id="__codelineno-41-59" name="__codelineno-41-59" href="#__codelineno-41-59"></a><span class="s">print(&quot;cuda available:&quot;, torch.cuda.is_available())</span>
+<a id="__codelineno-41-60" name="__codelineno-41-60" href="#__codelineno-41-60"></a><span class="s">if torch.cuda.is_available():</span>
+<a id="__codelineno-41-61" name="__codelineno-41-61" href="#__codelineno-41-61"></a><span class="s">    print(&quot;gpu:&quot;, torch.cuda.get_device_name(0))</span>
+<a id="__codelineno-41-62" name="__codelineno-41-62" href="#__codelineno-41-62"></a><span class="s">else:</span>
+<a id="__codelineno-41-63" name="__codelineno-41-63" href="#__codelineno-41-63"></a><span class="s">    raise SystemExit(&quot;CUDA 不可用：通常是新 conda 环境里的 torch 没装到 CUDA 版本，或镜像/驱动不匹配&quot;)</span>
+<a id="__codelineno-41-64" name="__codelineno-41-64" href="#__codelineno-41-64"></a><span class="s">PY</span>
+<a id="__codelineno-41-65" name="__codelineno-41-65" href="#__codelineno-41-65"></a>
+<a id="__codelineno-41-66" name="__codelineno-41-66" href="#__codelineno-41-66"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 检查 LeRobot CLI&quot;</span>
+<a id="__codelineno-41-67" name="__codelineno-41-67" href="#__codelineno-41-67"></a>lerobot-info<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-40
+<a id="__codelineno-41-68" name="__codelineno-41-68" href="#__codelineno-41-68"></a>
+<a id="__codelineno-41-69" name="__codelineno-41-69" href="#__codelineno-41-69"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 开始训练&quot;</span>
+<a id="__codelineno-41-70" name="__codelineno-41-70" href="#__codelineno-41-70"></a>lerobot-train<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-71" name="__codelineno-41-71" href="#__codelineno-41-71"></a><span class="w">  </span>--policy.type<span class="o">=</span>act<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-72" name="__codelineno-41-72" href="#__codelineno-41-72"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span>lerobot/pusht<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-73" name="__codelineno-41-73" href="#__codelineno-41-73"></a><span class="w">  </span>--output_dir<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$OUTPUT_DIR</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-74" name="__codelineno-41-74" href="#__codelineno-41-74"></a><span class="w">  </span>--job_name<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$JOB_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-75" name="__codelineno-41-75" href="#__codelineno-41-75"></a><span class="w">  </span>--policy.device<span class="o">=</span>cuda<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-76" name="__codelineno-41-76" href="#__codelineno-41-76"></a><span class="w">  </span>--policy.push_to_hub<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-77" name="__codelineno-41-77" href="#__codelineno-41-77"></a><span class="w">  </span>--wandb.enable<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-78" name="__codelineno-41-78" href="#__codelineno-41-78"></a><span class="w">  </span>--steps<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$STEPS</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-79" name="__codelineno-41-79" href="#__codelineno-41-79"></a><span class="w">  </span>--batch_size<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$BATCH_SIZE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-80" name="__codelineno-41-80" href="#__codelineno-41-80"></a><span class="w">  </span>--num_workers<span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-81" name="__codelineno-41-81" href="#__codelineno-41-81"></a><span class="w">  </span>--log_freq<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$LOG_FREQ</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-82" name="__codelineno-41-82" href="#__codelineno-41-82"></a><span class="w">  </span>--save_freq<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SAVE_FREQ</span><span class="s2">&quot;</span>
+<a id="__codelineno-41-83" name="__codelineno-41-83" href="#__codelineno-41-83"></a>
+<a id="__codelineno-41-84" name="__codelineno-41-84" href="#__codelineno-41-84"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 训练完成，开始评估&quot;</span>
+<a id="__codelineno-41-85" name="__codelineno-41-85" href="#__codelineno-41-85"></a>lerobot-eval<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-86" name="__codelineno-41-86" href="#__codelineno-41-86"></a><span class="w">  </span>--policy.path<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$OUTPUT_DIR</span><span class="s2">/checkpoints/last/pretrained_model&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-87" name="__codelineno-41-87" href="#__codelineno-41-87"></a><span class="w">  </span>--env.type<span class="o">=</span>pusht<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-88" name="__codelineno-41-88" href="#__codelineno-41-88"></a><span class="w">  </span>--policy.device<span class="o">=</span>cuda<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-89" name="__codelineno-41-89" href="#__codelineno-41-89"></a><span class="w">  </span>--eval.n_episodes<span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-41-90" name="__codelineno-41-90" href="#__codelineno-41-90"></a><span class="w">  </span>--eval.batch_size<span class="o">=</span><span class="m">10</span>
+<a id="__codelineno-41-91" name="__codelineno-41-91" href="#__codelineno-41-91"></a>
+<a id="__codelineno-41-92" name="__codelineno-41-92" href="#__codelineno-41-92"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; 完成&quot;</span>
+<a id="__codelineno-41-93" name="__codelineno-41-93" href="#__codelineno-41-93"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;模型目录: </span><span class="nv">$PROJECT_DIR</span><span class="s2">/</span><span class="nv">$OUTPUT_DIR</span><span class="s2">/checkpoints/last/pretrained_model&quot;</span>
+<a id="__codelineno-41-94" name="__codelineno-41-94" href="#__codelineno-41-94"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;评估输出: </span><span class="nv">$PROJECT_DIR</span><span class="s2">/outputs/eval&quot;</span>
+</code></pre></div>
+<p>执行：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>autodl_lerobot_pusht.sh
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>./autodl_lerobot_pusht.sh
+</code></pre></div>
+<h3 id="43-cuda">4.3 如果新环境里 CUDA 不可用</h3>
+<p>如果脚本报：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>cuda available: False
+</code></pre></div>
+<p>先进入环境：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span><span class="s2">/etc/profile.d/conda.sh&quot;</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>lerobot
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="nb">cd</span><span class="w"> </span>/root/github_project/lerobot
+</code></pre></div>
+<p>重新安装 CUDA 版 PyTorch。这个镜像名是 CUDA13.0，但 PyTorch wheel 通常按 <code>cu128</code>、<code>cu130</code> 这类标签发布。优先试：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu130
+</code></pre></div>
+<p>如果 <code>cu130</code> 找不到包，再试：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu128
+</code></pre></div>
+<p>验证：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>python<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;PY&#39;</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="s">import torch</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="s">print(torch.__version__)</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="s">print(torch.version.cuda)</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="s">print(torch.cuda.is_available())</span>
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="s">if torch.cuda.is_available():</span>
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="s">    print(torch.cuda.get_device_name(0))</span>
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="s">PY</span>
+</code></pre></div>
+<p>验证通过后重新运行：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>./autodl_lerobot_pusht.sh
+</code></pre></div>
+<h3 id="44">4.4 先跑一个小版本确认环境</h3>
+<p>第一次不要直接跑 100000 step，先跑 1000 step 验证安装、下载数据集、训练、评估全流程：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nv">STEPS</span><span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="nv">BATCH_SIZE</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="nv">SAVE_FREQ</span><span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="nv">OUTPUT_DIR</span><span class="o">=</span>outputs/train/act_pusht_1k<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="nv">JOB_NAME</span><span class="o">=</span>act_pusht_1k<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>./autodl_lerobot_pusht.sh
+</code></pre></div>
+<p>确认没问题后再正式跑：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nv">STEPS</span><span class="o">=</span><span class="m">100000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="nv">BATCH_SIZE</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="nv">SAVE_FREQ</span><span class="o">=</span><span class="m">10000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="nv">OUTPUT_DIR</span><span class="o">=</span>outputs/train/act_pusht_100k<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="nv">JOB_NAME</span><span class="o">=</span>act_pusht_100k<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>./autodl_lerobot_pusht.sh
+</code></pre></div>
+<h3 id="45-hugging-face">4.5 如果 Hugging Face 下载慢</h3>
+<p>AutoDL 国内网络访问 Hugging Face 可能不稳定。可以先设置镜像：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_ENDPOINT</span><span class="o">=</span>https://hf-mirror.com
+</code></pre></div>
+<p>然后再执行脚本：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>./autodl_lerobot_pusht.sh
+</code></pre></div>
+<p>如果想长期生效：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export HF_ENDPOINT=https://hf-mirror.com&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<h3 id="46">4.6 断点继续训练</h3>
+<p>如果训练中断，先找最新 checkpoint：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">cd</span><span class="w"> </span>/root/github_project/lerobot
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>ls<span class="w"> </span>-lah<span class="w"> </span>outputs/train/act_pusht_100k/checkpoints
+</code></pre></div>
+<p>查看当前版本是否支持 resume：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>lerobot-train<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>resume
+</code></pre></div>
+<p>如果支持，使用类似命令：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>lerobot-train<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="w">  </span>--config_path<span class="o">=</span>outputs/train/act_pusht_100k/checkpoints/last/pretrained_model/train_config.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">  </span>--resume<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<p>如果不支持，就从已有 checkpoint 做评估，或者重新跑一个更长的训练。</p>
+<h3 id="47">4.7 训练完成后重点看什么</h3>
+<p>评估输出里先看这几个字段：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>pc_success       成功率，越高越好
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>avg_sum_reward   单局累计奖励，越高越好
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>video_paths      评估视频路径，最直观
+</code></pre></div>
+<p>视频通常在：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>outputs/eval/日期/时间_pusht_act/videos/pusht_0/
+</code></pre></div>
+<p>查看：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>find<span class="w"> </span>outputs/eval<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.mp4&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</code></pre></div>
+<h3 id="48">4.8 把训练结果下载回本地</h3>
+<p>最应该下载的是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>outputs/train/act_pusht_100k/checkpoints/last/pretrained_model
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>outputs/eval
+</code></pre></div>
+<p>在 AutoDL 上先打包：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="nb">cd</span><span class="w"> </span>/root/github_project/lerobot
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>act_pusht_100k_result.tar.gz<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="w">  </span>outputs/train/act_pusht_100k/checkpoints/last/pretrained_model<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="w">  </span>outputs/eval
+</code></pre></div>
+<p>然后用 AutoDL 网页文件管理器下载：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>act_pusht_100k_result.tar.gz
+</code></pre></div>
+<h3 id="49">4.9 推荐训练参数</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>学习闭环: steps=1000, batch_size=8
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>看初步效果: steps=10000, batch_size=8
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>认真训练: steps=100000, batch_size=8
+</code></pre></div>
+<p>先不要调复杂参数。当前阶段只观察：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>steps 增加后，loss 是否下降
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>评估视频是否越来越像正确推 T
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>pc_success 是否从 0 开始上涨
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ce72ebac.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
